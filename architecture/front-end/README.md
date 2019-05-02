@@ -8,6 +8,16 @@ Geographic features will often be interactive (highlight, tooltips) and linked t
 
 In addition to this display and content filtering architecture, Views will snap to a defined extent, zoom level and layer configuration, and will likely load content in the Info tab providing context to the View.
 
+**Functionality**
+
+Pan
+
+Zoom
+
+Hover on markers
+
+Click on markers
+
 **Data Sources**
 
 All data sources will be linked to, perhaps accessed via a small info icon present in the footer or header.
