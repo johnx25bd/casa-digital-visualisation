@@ -74,9 +74,13 @@ For this iteration we will decide on a few example content types to visualize in
 
 These will map 1:1 with observations visualized on the map. Aggregated content (like a scatter plot) would be visualized in a card.
 
+One idea: observations might be points along a path that a particular object took across the Earth's surface (see [Clipper visualization](https://robisoniv.github.io/clipper/public/index.html)). In this case, scrolling down the time-ordered content panes might update the position of the marker to represent where it was at the moment that event occurred.
+
 **Sorting**
 
 The order of these observation content panes will convey much of the meaning. Offering users the option to sort in different ways could provide additional insight, though may not be feasible this iteration of the architecture. This may not be interactive  in this version of the app.
+
+Sorting by any dimension included in the data is possible. We suspect sorting by timestamp, or ascending / descending by some quantitative dimension, or alphabetically, will be most common.
 
 **Filtering**
 
