@@ -1,0 +1,66 @@
+#main-container {
+  margin-top: 56px;
+  height: 100%;
+  background-color: green;
+}
+
+#main-map {
+  height: 900px;
+  /* width: 900px; */
+  position: fixed;
+}
+
+#map-nav {
+  margin-bottom: 15px;
+  background-color:
+}
+
+#info-body {
+  /* background-color: yellow; */
+  margin-top: 25px;
+}
+
+#map-nav {
+  background-color: lightgreen;
+}
+
+#card-body {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.card-block {
+  height: 450px;
+  background-color: lightgrey;
+  margin-bottom: 15px;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+/* svg {
+   background: lightblue;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+} */
+
+/* from https://bost.ocks.org/mike/leaflet/ */
+
+
+svg {
+  position: relative;
+}
+
+path {
+  fill: #000;
+  fill-opacity: .2;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+path:hover {
+  fill: brown;
+  fill-opacity: .7;
+}

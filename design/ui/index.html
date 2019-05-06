@@ -1,0 +1,126 @@
+<!-- Template from https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--  -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Leaflet style sheet and JS library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+
+
+   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+   <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+  <title>Hello, world!</title>
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0" _lpchecked="1">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <div id='main-container' class="container-fluid">
+    <!-- Content here -->
+
+    <div class='row justify-content-end'>
+      <div id='main-map' class='col-12'></div>
+      <!-- <svg id="world"></svg> -->
+
+
+      <div id="info-body" class="col-lg-3">
+        <div id="map-nav">
+          <div class="row">
+            <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary-outline active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                < </label> <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Global
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> National
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Local
+              </label>
+              <label class="btn btn-secondary-outline">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> >
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="card-body" class="row">
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+          <div class="col-12 card-block">
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <!-- Custom scripts -->
+  <script src="./scripts/load-leaflet.js"></script>
+
+
+</body>
+
+</html>
