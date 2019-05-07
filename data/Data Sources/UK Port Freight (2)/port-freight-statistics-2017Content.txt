@@ -1,0 +1,24 @@
+############################################### Main folder: port-freight-statistics-2017 ###############################################
+Source: https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures
+
+The folder "port-freight-statistics-2017" contains the following data:
+
+('port0101.ods: ', ['All UK major and minor port freight traffic, by port and year (direction filter) from 1965'])
+('port0102.ods: ', ['All UK major and minor port freight traffic, international and domestic by direction: from 1965 1,2 '])
+('port0103.ods: ', ['All UK major and minor unitised port freight traffic, by cargo type and year from 19701'])
+('port0104.ods: ', ['All UK major and minor ports unitised main freight traffic1, by route and year, from 19702'])
+('port0201.ods: ', ['UK major port freight traffic, cargo types by year (direction filter) from 2000'])
+('port0202.ods: ', ['UK major port unitised freight traffic cargo types by year (filter by direction, international or domestic, tonnage, units or loaded units), from 2000'])
+('port0203.ods: ', ['UK major port unitised freight traffic by port and cargo type (direction filter)'])
+('port0204.ods: ', ['UK major port traffic by route and cargo type (filter by direction and year)'])
+('port0205.ods: ', ['UK major port freight traffic by top routes and year (filter by cargo type and direction)'])
+('port0206.ods: ', ['UK major port freight, top 30 routes by cargo type and year (with sort by year)'])
+('port0301.ods: ', ['UK major port freight traffic, by port and year (filter by direction and cargo type), from 2000'])
+('port0302.ods: ', ['UK major port freight traffic, by port and route (filter by direction, cargo type and year)'])
+('port0303.ods: ', ['UK major port freight traffic by top 30 UK ports for each cargo type (year filter)'])
+port0304.ods: This file appears to be different from the usual format - have a look at it for investigation (maps: Incoming/Outgoing amounts)
+('port0400.ods: ', ['Individual major ports traffic, by cargo type and international or domestic'])
+('port0499.ods: ', [None])
+port0601.ods: This file appears to be different from the usual format - have a look at it for investigation (Ships arrivals by type and deadweight - historical data)
+('port0602.ods: ', ['UK ports, ship arrivals : 1994-2017'])
+port0603.ods: This file appears to be different from the usual format - have a look at it for investigation (Sum of deadweight of ships arriving by type - historical data)

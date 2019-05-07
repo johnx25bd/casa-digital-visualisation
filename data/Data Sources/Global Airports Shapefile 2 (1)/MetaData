@@ -1,0 +1,84 @@
+Date: 2014-10-14
+This is the metadata file that explains the attributes for the wld_trs_airports_wfp layer: Airports: Airfields: Airstrips: UNHAS Hubs: UNHAS airfields: Helipads...
+Any attributes which are blank or '0' had no data entered at the time of realease.
+Please contribute by giving your inputs at omep.gis@wfp.org or connect on http://geonode.wfp.org/
+
+
+Category: Transportation
+Shape: Point
+
+Schema and Attribute Details:
+
+wld_trs_airports_wfp
+---------------------
+
+	objectid integer NOT NULL: ArcGIS ID
+	nameshort character varying(100): Airport name (short)
+	namelong character varying(150): Airport name (with suffix: airport, airfield, airbase, airstrip)
+	namealt character varying(100): Alternate name
+	city character varying(100): Main city of the airport (Example: Roma for Fiumicino Airport)
+	icao character varying(5): ICAO code
+	iata character varying(5): IATA code
+	apttype character varying(25): Airport Type
+			Unknown
+			Airport
+			Airfield
+			Airstrip
+			Helipad
+	aptclass character varying(25): Airport Class
+			Unknown
+			International
+			Domestic
+	authority character varying(25): Airport Authority
+			Unknown
+			Civil
+			Military
+			Civil/Military
+			Private
+	status character varying(25): Airport status
+			Unknown
+			Open
+			Closed
+			Planned
+			Restricted
+	dmg character varying(25): Is the Airport damaged?
+			Unknown
+			Yes
+			No
+	rwpaved character varying(25): Is the main runway paved?
+			Unknown
+			Yes
+			No
+	rwlengthm integer: Main runway length (in meters)
+	rwlengthf integer: Main runway length (in feet)
+	elevm integer: Elevation (in meters)
+	elevf integer: Elevation (in feet)
+	humuse character varying(25): Used by WFP for humaniatarian assistance
+			Unknown
+			Hub
+			Connection
+			Helipad
+			Planned
+			Upon request
+			Closed
+			Stand by Capacity Hub
+			No
+	humoperatedby character varying(25): Airport used for humanitarian flights operated by... UNHAS, ASF... List of names separated by "," or "-"
+	locprecision character varying(25): Precision of the location
+			Accurate => GPS coordinates, digitized from an high resolution satellite imagery or a detailled map (accuracy at the street level)
+			Approximate => Precision which is not below the city/town level. It often corresponds to a point equivalent at the point of the city/town/village
+			Bad => Feature with a very low precision. A feature exists in 1 area (province, region...) but we don't know where exactly, the reference (settlement) is impossible to find and the point is put randomly
+			Unknown => No information regarding the precision
+	latitude numeric(8,5): Latitude of the point (Calculated automatically from the geometry)
+	longitude numeric(8,5): Longitude of the point (Calculated automatically from the geometry)
+	iso3 character varying(5): ISO3 code of the country where the feature is located. This field is calculated automatically at the database level with the bnd_adm0_a_ungiwg_2012 layer
+	iso3_op character varying(25): List of ISO3 code (separated with a character '-' or ','). Use to quickly filter the data for the features of interest for 1 operation. 1 feature could be located in 1 country but be an asset for the operation of another country (for example an office delocalized for security reason in the neighbor country or a warehouse used for storage for several countries). Exceptionnally, it happens that the code do not refer to an iso3 code of a country but to the name of an operation (Ebola, Haiyan...)
+	country character varying(50): Name of the country where the feature is located. This field is calculated automatically at the database level with the bnd_adm0_a_ungiwg_2012 layer
+	lastcheckdate timestamp without time zone: Date of the last check of all (or a part) of the attributes. The date has to be specified manually during the edits
+	remarks character varying(1000): Notes/Description/Remarks - The user is free to enter any information that is necessary but cannot be stored in the others fields
+	url_lca character varying(254): Reference to the LCA page of the feature
+	source character varying(254): Source of the information. It could be the source of the geometry or the source of the main attributes. Several sources can be accepted for the same feature(list of names)
+	createdate timestamp without time zone: Date when the feature has been created. Calculated automatically at the database level while saving (commit) the edits.
+	updatedate timestamp without time zone: Date of the last update. Calculated automatically at the database level while saving (commit) the edits. Different of the lastcheckdate because the user can forget to specify the date manually or because sometimes we can do a quick edit (for example change the status or correct misspelling) without checking all attributes.
+	geonameid integer: geonameid of the closest village/town from the geonames database
+	shape geometry: Geometry
