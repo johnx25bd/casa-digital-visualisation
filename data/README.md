@@ -9,3 +9,11 @@ For our code templates to successfully visualize a diversity of spatial, numeric
 ### CSV
 
 Most non-spatial data will come in a table,
+
+
+
+## Status Update - 7 May 2019
+
+Top down - global > national > local perspectives.
+
+Base visualization on Comtrade API
