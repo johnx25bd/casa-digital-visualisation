@@ -15,23 +15,22 @@ var dims = {
   w: window.innerWidth
 }
 
-var transform = d3.geoTransform({
-    point: projectPoint
-  }),
 
-  path = d3.geoPath().projection(transform);
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA';
+var map = new mapboxgl.Map({
+  container: 'main-map', // container id
+  style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+  center: [-74.50, 40], // starting position [lng, lat]
+  zoom: 9 // starting zoom
+});
 
-// what about projection?
+// var map = new mapboxgl.Map({
+//   container: "main-map",
+//   center: [37.8, -96.9],
+//   zoom: 2
+// });
 
-
-
-// https://bost.ocks.org/mike/leaflet/
-
-var map = new L.Map("main-map", {
-    center: [37.8, -96.9],
-    zoom: 2
-  })
-  .addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
+// .addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
 
 
 // Load and organize all data
@@ -78,121 +77,7 @@ Promise.all(dataPromises)
       };
     }
 
-    console.log("Data successfully loaded with Promise.all()!")
 
-    loadPolygons(loadedData['countries'].data, 'countries');
-
-    loadPolygons(loadedData['us-states'].data, 'us-states');
-
-
-    loadAirports(loadedData['airports'].data);
-
-
-
-  }).catch(function (e) {
+  }).catch(function(e) {
     console.log(e);
   });
-
-var svg = d3.select(map.getPanes().overlayPane).append("svg"),
-  g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
-
-
-
-// Use Leaflet to implement a D3 geometric transformation.
-function projectPoint(x, y) {
-  var point = map.latLngToLayerPoint(new L.LatLng(y, x));
-  this.stream.point(point.x, point.y);
-}
-
-function loadPolygons(collection, layer) {
-  var geodata;
-  if (collection.type == "FeatureCollection") {
-    geodata = collection.features;
-  } else if (collection.type == "GeometryCollection") {
-    geodata = collection.geometries;
-  }
-
-
-  console.log(collection);
-  var feature = g.append('g')
-    .classed(layer + '-g', true)
-  .selectAll("path")
-    .data(geodata)
-    .enter().append("path");
-
-  map.on("moveend", reset);
-  // from https://github.com/Leaflet/Leaflet/pull/3278
-  reset();
-
-  // Reposition the SVG to cover the features.
-  function reset() {
-    var bounds = path.bounds(collection),
-      topLeft = bounds[0],
-      bottomRight = bounds[1];
-
-    console.log(topLeft, bottomRight);
-
-    // svg.attr("width", bottomRight[0] - topLeft[0])
-    //   .attr("height", bottomRight[1] - topLeft[1])
-    //   .style("left", topLeft[0] + "px")
-    //   .style("top", topLeft[1] + "px");
-
-    svg.attr("width", dims.w)
-      .attr("height", dims.h )
-     .style("left", topLeft[0] + "px")
-     .style("top", topLeft[1] + "px");
-
-    g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-
-    feature.attr("d", path);
-  }
-}
-
-function loadAirports (points) {
-
-  var airports = g.append('g')
-      .classed('airports-g', true)
-    .selectAll('circle')
-      .data(points)
-      .enter().append('circle');
-
-  airports
-    .attr("cx", function(d) {
-      return map.latLngToLayerPoint([d.lat, d.lon]).x;
-    })
-    .attr("cy", function(d) {
-      return map.latLngToLayerPoint([d.lat, d.lon]).y;
-    })
-    .attr("r","5px")
-    .style("fill","red");
-
-
-    // from https://github.com/Leaflet/Leaflet/pull/3278
-    reset();
-
-    map.on("moveend", reset);
-    // Reposition the SVG to cover the features.
-    function reset() {
-      var bounds = path.bounds(loadedData['us-states'].data),
-        topLeft = bounds[0],
-        bottomRight = bounds[1];
-
-      console.log('xxx, ', bounds, topLeft, bottomRight);
-
-      svg.attr("width", dims.w)
-        .attr("height", dims.h)
-       .style("left", topLeft[0] + "px")
-       .style("top", topLeft[1] + "px");
-
-      g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-
-      airports
-      .attr("cx", function(d) {
-        return map.latLngToLayerPoint([d.lat, d.lon]).x;
-      })
-      .attr("cy", function(d) {
-        return map.latLngToLayerPoint([d.lat, d.lon]).y;
-      });
-    }
-}
