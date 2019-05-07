@@ -80,11 +80,13 @@ Promise.all(dataPromises)
 
     console.log("Data successfully loaded with Promise.all()!")
 
+    loadPolygons(loadedData['countries'].data, 'countries');
+
     loadPolygons(loadedData['us-states'].data, 'us-states');
+
 
     loadAirports(loadedData['airports'].data);
 
-    loadPolygons(loadedData['countries'].data, 'countries')
 
 
   }).catch(function (e) {
@@ -137,7 +139,7 @@ function loadPolygons(collection, layer) {
     //   .style("top", topLeft[1] + "px");
 
     svg.attr("width", dims.w)
-      .attr("height", dims.h)
+      .attr("height", dims.h )
      .style("left", topLeft[0] + "px")
      .style("top", topLeft[1] + "px");
 
