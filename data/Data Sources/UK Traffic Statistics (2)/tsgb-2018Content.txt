@@ -1,0 +1,240 @@
+############################################### Main folder: tsgb-2018 ###############################################
+Source: https://www.gov.uk/government/statistics/transport-statistics-great-britain-2018
+
+The folder "Aviation" contains the following data:
+
+('avi0101.ods: ', ['Air traffic, United Kingdom airports1, 2: 1950 to 2017'])
+avi0102.ods: This file appears to be different from the usual format - have a look at it for investigation
+avi0103.ods: This file appears to be different from the usual format - have a look at it for investigation
+('avi0105.ods: ', ['International passenger movements at UK airports by country of embarkation or landing1: 2007 to 2017'])
+('avi0106.ods: ', ['Type of passenger at selected UK airports1: 2007 to 2017'])
+('avi0107.ods: ', ['Mode of transport to selected UK airports1, 2: 2007 to 2017'])
+('avi0108.ods: ', ['Purpose of travel at selected UK airports1: 2007 to 2017'])
+('avi0201.ods: ', ['Main outputs for UK registered airlines by type of service1, 2007 to 2017'])
+('avi0203.ods: ', ['Worldwide employment by UK registered airlines: 2007 to 2017'])
+('avi0301.ods: ', ['Activity at major airports1 , worldwide: 2017'])
+('avi0302.ods: ', ['Passenger traffic on major airlines, worldwide: 2017'])
+avi0401.ods: This file appears to be different from the usual format - have a look at it for investigation
+('avi0402.ods: ', ['Aircraft proximity (AIRPROX), number of incidents, United Kingdom airspace: 2007 to 2017'])
+
+The folder "Energy and environment" contains the following data:
+
+('env0101.ods: ', ['Petroleum consumption by transport mode and fuel type: United Kingdom from 20001 '])
+('env0102.ods: ', ['Energy consumption by transport mode and source of energy: United Kingdom, 2000 to 20171,2'])
+('env0103.ods: ', ['Average new car fuel consumption, Great Britain: 1997 to 20171,2'])
+('env0104.ods: ', ['Average heavy goods vehicle fuel consumption, Great Britain: 2003 to 20161,2,3,4'])
+('env0201.ods: ', ['Greenhouse gas emissions by transport mode, United Kingdom: 2003 to 20161'])
+('env0202.ods: ', ['Carbon dioxide emissions by transport mode, United Kingdom: 2003 to 20161'])
+('env0301.ods: ', ['Air pollutant emissions by transport mode: United Kingdom, from 20001'])
+('env0302.ods: ', ['Emissions for road vehicles (per vehicle kilometre) in urban conditions: Great Britain1'])
+('env0303.ods: ', ['Aircraft noise: population affected by noise around airports: 2000 to 2017'])
+('env0501.ods: ', ['Volume of fuels by fuel type: United Kingdom'])
+('env0502.ods: ', ['Volume of biofuels by country of source feedstock: 2016 to 2017'])
+
+The folder "Freight" contains the following data:
+
+('rai0401.ods: ', ['National Railways freight moved by commodity: annual from 1999/00'])
+('rai0402.ods: ', ['National Railways freight lifted by commodity: annual from 1999/00'])
+('rai0403.ods: ', ['National Railways freight'])
+('rfs0101.ods: ', ['Goods moved1, goods lifted2 and vehicle kilometres: annual 1990 - 2017 and quarterly 2004 - 2017'])
+('rfs0103.ods: ', ['Average length of haul1 by commodity2: annual 2004 - 2017'])
+rfs0104.ods: This file appears to be different from the usual format - have a look at it for investigation
+rfs0105.ods: This file appears to be different from the usual format - have a look at it for investigation
+rfs0106.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rfs0107.ods: ', ['Goods lifted1 and goods moved2 by commodity3 and mode of working4: 2017'])
+('rfs0108.ods: ', ['Average length of haul1 by type and weight2 of vehicle: annual 1990 - 2017 and quarterly 2004 - 2017'])
+rfs0109.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rfs0114.ods: ', ['Goods lifted1 and goods moved2 by mode of working3: annual 1990 - 2017 and quarterly 2004 - 2017'])
+('rfs0130.ods: ', ['Summary of domestic and international road freight activity by UK-registered HGVs: annual and quarterly 2004 - 2017'])
+('rfs0202.ods: ', ['International road haulage by UK-registered vehicles: goods lifted by country of unloading, 2000-2017'])
+('rfs0203.ods: ', ['International road haulage by UK-registered vehicles: goods lifted by country of loading, 2000-2017'])
+rfs0204.ods: This file appears to be different from the usual format - have a look at it for investigation
+rfs0205.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rfs0206.ods: ', ['Exports: Goods lifted1 by commodity2: annual 2004 - 2017 and commodity2 category: annual 2004 - 2017'])
+('rfs0207.ods: ', ['Exports: Goods moved1 by commodity2: annual 2004 - 2017 and commodity2 category: annual 2004 - 2017'])
+('rfs0208.ods: ', ['Goods lifted from the UK by foreign-registered HGVs, by vehicle registration country: 2002 - 2016'])
+('rfs0209.ods: ', ['Goods lifted to the UK by foreign-registered HGVs, by vehicle registration country: 2002 - 2016'])
+('rfs0210.ods: ', ['Goods moved from the UK by foreign-registered HGVs, by vehicle registration country: 2002 - 2016'])
+('rfs0211.ods: ', ['Goods moved to the UK by foreign-registered HGVs, by vehicle registration country: 2002 - 2016'])
+('rfs0212.ods: ', ['Cabotage1 within the UK by country of registration of vehicle: 2004 - 20162'])
+('tsgb0401.ods: ', ['Freight'])
+('tsgb0402.ods: ', ['Domestic freight moved, by commodity: 2017'])
+('tsgb0403.ods: ', ['Domestic freight transport by mode: 2008 to 2017'])
+
+The folder "Maritime" contains the following data:
+
+('TSGB0501 (port0102).ods: ', ['All UK major and minor port freight traffic, international and domestic by direction: from 2007'])
+('TSGB0502 (port0201).ods: ', ['UK major port freight traffic, cargo types by year: from 2007'])
+('TSGB0503 (port0101).ods: ', ['All UK major and minor port freight traffic, by port and year: from 2007'])
+('TSGB0504 (port0103).ods: ', ['All UK major and minor unitised port freight traffic, by cargo type and year: from 20072'])
+('TSGB0505 (port0202).ods: ', ['UK major port unitised freight traffic cargo types, by year: from 2017'])
+('TSGB0506 (port0301).ods: ', ['Accompanied passenger vehicles, by UK port: from 2007'])
+TSGB0507 (port0205).ods: This file appears to be different from the usual format - have a look at it for investigation
+('TSGB0508 (port0701).ods: ', ['Waterborne transport within the United Kingdom: goods lifted and goods moved by traffic type from 2007'])
+('TSGB0510 (port0704).ods: ', ['Major inland waterway routes, goods lifted2, 1994 - 2017'])
+('TSGB0511 (spas0103).ods: ', ['UK international short sea passenger movements, by overseas country: from 2007'])
+TSGB0512 (spas0101).ods: This file appears to be different from the usual format - have a look at it for investigation
+('TSGB0513 (fle0301).ods: ', ['United Kingdom and Crown Dependency registered trading vessels of 500 gross tons and over:'])
+('TSGB0514 (fle0304).ods: ', ['United Kingdom and Crown Dependency registered trading vessels of 500 gross tons and over, by type: from 20071'])
+('TSGB0515 (fle0204).ods: ', ['United Kingdom owned trading vessels of 500 gross tons and over by type : from 20071'])
+TSGB0516.ods: This file appears to be different from the usual format - have a look at it for investigation
+TSGB0517.ods: This file appears to be different from the usual format - have a look at it for investigation
+TSGB0518b.ods: This file appears to be different from the usual format - have a look at it for investigation
+TSGB0518c.ods: This file appears to be different from the usual format - have a look at it for investigation
+TSGB0519 (SFR0101).ods: This file appears to be different from the usual format - have a look at it for investigation
+
+The folder "Modal" contains the following data:
+
+('nts0303.ods: ', ['Select table from dropdown list (or scroll down to view static tables):'])
+nts0409.ods: This file appears to be different from the usual format - have a look at it for investigation
+nts0410.ods: This file appears to be different from the usual format - have a look at it for investigation
+('tsgb0101.ods: ', ['Passenger transport: by mode, annual from 1952'])
+('tsgb0102.ods: ', ['Passenger journeys on public transport vehicles: annual from 1950'])
+('tsgb0106.ods: ', ['People entering central London during the morning peak:1 2002 to 2016'])
+('tsgb0107.ods: ', ['Passenger casualty rates by mode: 2008 to 20171'])
+('tsgb0108.ods: ', ['Usual method of travel to work by region of residence, Great Britain: October to December 2017'])
+('tsgb0109.ods: ', ['Usual method of travel to work by region of workplace: Great Britain, October to December 2017'])
+('tsgb0110.ods: ', ['Time taken to travel to work by region of workplace, Great Britain: October to December 2017'])
+('tsgb0111.ods: ', ['Average time taken to travel to work by region of workplace and usual method of travel, Great Britain: October to December 2017'])
+('tsgb0112.ods: ', ['How workers usually travel to work by car by region of workplace, Great Britain: October to December 2017'])
+('tsgb0113.ods: ', ['Overseas travel: visits to and from the United Kingdom by mode: 2007 to 2017'])
+('tsgb0114.ods: ', ['Overseas travel: visits to and from the United Kingdom by purpose and area, all modes: 2007 to 2017'])
+('tsgb0115.ods: ', ['Overseas travel: visits and spending by mode, area and purpose of visit: 2017'])
+('tsgb0116.ods: ', ['All in employment by transport related occupation1 and industry2, Great Britain: April to June 2018'])
+
+The folder "Public transport" contains the following data:
+
+('bus0103.ods: ', ['Passenger journeys on local bus services by metropolitan area status and country: Great Britain, annual from 1970'])
+bus0203.ods: This file appears to be different from the usual format - have a look at it for investigation
+bus0205.ods: This file appears to be different from the usual format - have a look at it for investigation
+bus0405.ods: This file appears to be different from the usual format - have a look at it for investigation
+bus0501.ods: This file appears to be different from the usual format - have a look at it for investigation
+bus0502.ods: This file appears to be different from the usual format - have a look at it for investigation
+('bus0601.ods: ', ['Public service vehicle3 stock4 by type of vehicle2, local bus operators only1: Great Britain, annual from 2004/05'])
+('bus0821.ods: ', ['Number of older/disabled concessionary travel passes1 and bus concessionary journeys2 per pass by metropolitan area status: England, annual from 2010/11'])
+('lrt0101.ods: ', ['Passenger journeys on light rail and trams by system1: England - annual from 1983/84 '])
+('lrt0104.ods: ', ['Passenger miles on light rail and trams by system1: England - annual from 1983/84'])
+('lrt0106.ods: ', ['Vehicle miles on light rail and trams by system1: England - annual from 1983/84'])
+('lrt0201.ods: ', ['Number of stations or stops on light rail and trams by system1: England - annual from 1995/96 '])
+('lrt0202.ods: ', ['Passenger carriages or tram cars on light rail and trams by system1: England annual from 1983/84'])
+('lrt0204.ods: ', ['Route miles open for passenger traffic on light rail and trams by system1: England - annual from 1995/96 '])
+lrt0301.ods: This file appears to be different from the usual format - have a look at it for investigation
+lrt9901.ods: This file appears to be different from the usual format - have a look at it for investigation
+lrt9902.ods: This file appears to be different from the usual format - have a look at it for investigation
+lrt9903.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rai0101.ods: ', ['Length of national railway route at year end, and passenger travel by national railway and London'])
+('rai0103.ods: ', ['Passenger kilometres and passenger train kilometres on national railways, annual from 2000/01'])
+('rai0104.ods: ', ['National railways: route1 and stations open for traffic at end of year, annual from 2000/01'])
+('rai0105.ods: ', ['National railways: Public Performance Measure, annual from 1997/98'])
+('rai0106.ods: ', ['Average age of national rail rolling stock, annual from 2000/01'])
+('rai0108.ods: ', ['Channel Tunnel: traffic to and from Europe, annual from 1994'])
+('rai0109.ods: ', ['Passenger satisfaction in the National Rail Passenger'])
+rai0201.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rai0209.ods: ', ['Passengers in excess of capacity (PiXC)1,2 on a typical autumn weekday by city: annual from 2011'])
+('rai0210.ods: ', ['Passengers in excess of capacity (PiXC)1,2,3,4 on a typical autumn weekday on'])
+('rai0301.ods: ', ['National railways: passenger revenue1, annual from 2000/01'])
+('rai0302.ods: ', ['Government support to the rail industry, annual from 1985/86'])
+('rai0303.ods: ', ['Private investment in the rail industry1 annual from 2006/07'])
+('taxi0102.ods: ', ['Taxis, Private Hire Vehicles (PHVs) and their drivers by type of vehicle and licence: England and Wales, from 2005'])
+
+The folder "Roads and traffic" contains the following data:
+
+('cgn0402.ods: ', ['Average delay on the Strategic Road Network in England: monthly and year ending from April 2015'])
+cgn0502.ods: This file appears to be different from the usual format - have a look at it for investigation
+rde0101.ods: This file appears to be different from the usual format - have a look at it for investigation
+rde0102.ods: This file appears to be different from the usual format - have a look at it for investigation
+rde0104.ods: This file appears to be different from the usual format - have a look at it for investigation
+rdl0101.ods: This file appears to be different from the usual format - have a look at it for investigation
+rdl0102.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rdl0103.ods: ', ['Road lengths (miles) by road type in Great Britain, 1914 - 2017'])
+rdl0201.ods: This file appears to be different from the usual format - have a look at it for investigation
+rdl0202.ods: This file appears to be different from the usual format - have a look at it for investigation
+('rdl0203.ods: ', ['Road lengths (kilometres) by road type in Great Britain, 1914 - 2017'])
+spe0111.ods: This file appears to be different from the usual format - have a look at it for investigation
+('spe0112.ods: ', ['Speed compliance statistics, Great Britain, 2011 to 2017'])
+('tra0101.ods: ', ['Road traffic (vehicle miles) by vehicle type in Great Britain, annual from 1949'])
+('tra0102.ods: ', ['Motor vehicle traffic (vehicle miles) by road class in Great Britain, annual from 1993'])
+tra0104.ods: This file appears to be different from the usual format - have a look at it for investigation
+('tra0201.ods: ', ['Road traffic (vehicle kilometres) by vehicle type in Great Britain, annual from 1949'])
+tra0202.ods: This file appears to be different from the usual format - have a look at it for investigation
+tra0204.ods: This file appears to be different from the usual format - have a look at it for investigation
+tra9905.ods: This file appears to be different from the usual format - have a look at it for investigation
+
+The folder "Transport accidents" contains the following data:
+
+('rai0501.ods: ', ['Railway1 accidents: casualties by type of accident: GB annual from 2001/02'])
+('rai0502.ods: ', [None])
+('rai0503.ods: ', ['Railway1 accidents: train accidents: GB annual from 2001/02'])
+('rai0504.ods: ', ['Signals passed at danger (SPADs)1 on Network Rail controlled infrastructure: GB annual from 2001/02'])
+ras10002.ods: This file appears to be different from the usual format - have a look at it for investigation
+('ras30069.ods: ', ['Reported casualties by road user type and severity, Great Britain, 2007 - 2017'])
+ras40001.ods: This file appears to be different from the usual format - have a look at it for investigation
+('ras51014.ods: ', ['Motor vehicle drivers and riders involved in personal injury road accidents: breath tests and failures'])
+('ras51016.ods: ', ['Telephone: 020 7944 6595'])
+ras52002.ods: This file appears to be different from the usual format - have a look at it for investigation
+ras61001.ods: This file appears to be different from the usual format - have a look at it for investigation
+
+The folder "Transport and disability" contains the following data:
+
+('bus0603.ods: ', [None])
+('bus0820.ods: ', ['Older and disabled concessionary travel passes1,2 by metropolitan area status and type of pass: England, annual from 2010/11'])
+('dis0101.ods: ', ['Valid Blue Badges held by disabled people by category in England, annual1 from 1997'])
+('dis0102.ods: ', ['Valid Blue Badges held and population measures: England, annual from 19971'])
+dis0108.ods: This file appears to be different from the usual format - have a look at it for investigation
+nts0622.ods: This file appears to be different from the usual format - have a look at it for investigation
+nts0709.ods: This file appears to be different from the usual format - have a look at it for investigation
+nts0710.ods: This file appears to be different from the usual format - have a look at it for investigation
+('taxi0102.ods: ', ['Taxis, Private Hire Vehicles (PHVs) and their drivers by type of vehicle and licence: England and Wales, from 2005'])
+
+The folder "Transport expenditure" contains the following data:
+
+tsgb1301.ods: This file appears to be different from the usual format - have a look at it for investigation
+('tsgb1302.ods: ', ['UK Public Expenditure on Transport by Country and Spending Authority: from 2005/061'])
+('tsgb1303.ods: ', ['UK Public Expenditure on Transport by function: from 2005/061'])
+('tsgb1304.ods: ', ['Total UK Public Corporation Capital Expenditure on Transport: from 2005/061'])
+('tsgb1305.ods: ', ['Public expenditure on specific transport areas: Great Britain1'])
+('tsgb1306.ods: ', ['Transport Expenditure'])
+('tsgb1307.ods: ', ['Transport Expenditure'])
+('tsgb1308.ods: ', ['Transport Expenditure'])
+tsgb1309.ods: This file appears to be different from the usual format - have a look at it for investigation
+('tsgb1310.ods: ', ['Transport Expenditure'])
+('tsgb1311.ods: ', ['Road taxation revenue in the United Kingdom: 2017/18'])
+
+The folder "Vehicles" contains the following data:
+
+tsgb0901.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0902.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0903.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0904.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0905.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0906.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0907.ods: This file appears to be different from the usual format - have a look at it for investigation
+('tsgb0908.ods: ', ['Road vehicle testing scheme (MOT) test results: 2000/01 to 2017/18'])
+('tsgb0909.ods: ', ['Road vehicle testing scheme (MOT): percentage of tests with one or more Fail or PRS1 type RfRs2 in defect group: 2007/08 to 2017/18'])
+('tsgb0910.ods: ', ['Road passenger service vehicle testing scheme (PSV tests1), Great Britain: 1999/00 to 2017/18'])
+('tsgb0911.ods: ', ['Goods vehicles over 3.5 tonnes testing scheme (HGV Motor vehicles and Trailers1), Great Britain: 1999/00 to 2017/18'])
+('tsgb0912.ods: ', ['Trailer tests by axle type: 1999/00 to 2017/18'])
+tsgb0913.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0914.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0915.ods: This file appears to be different from the usual format - have a look at it for investigation
+tsgb0916.ods: This file appears to be different from the usual format - have a look at it for investigation
+('tsgb0917.ods: ', ['Car driving tests, Great Britain: 1999/00 to 2017/18'])
+tsgb0918.ods: This file appears to be different from the usual format - have a look at it for investigation
+
+The folder "Walking and cycling" contains the following data:
+
+('att0313.ods: ', ['"It is too dangerous for me to cycle on the roads" - Proportions agreeing and disagreeing: (GB)'])
+('cw0301.ods: ', ['Proportion of adults who do any walking1 or cycling2, for any purpose, by frequency and local authority, England, 2016-20173'])
+('cw0302.ods: ', ['Proportion of adults that cycle1, by frequency, purpose and local authority, England, 2016-20172'])
+('cw0303.ods: ', ['Proportion of adults that walk1, by frequency, purpose and local authority, England, 2016-20172'])
+('cw0305.ods: ', ['Proportion of adults that walk1 or cycle2, by frequency, purpose and demographic, England, 2016-20173'])
+('jts0101.ods: ', ['Average minimum travel time to reach the nearest key services by mode of travel, England, 2016'])
+('nts0303.ods: ', ['Select table from dropdown list (or scroll down to view static tables):'])
+nts0601.ods: This file appears to be different from the usual format - have a look at it for investigation
+nts0605.ods: This file appears to be different from the usual format - have a look at it for investigation
+('nts0608.ods: ', ['Bicycle ownership by age: England, 2015/171'])
+('nts0613.ods: ', ['Trips to and from school1 per child per year by main mode: England, 1995/97 to 2017'])
+ras20001.ods: This file appears to be different from the usual format - have a look at it for investigation
+('ras30061.ods: ', ['Reported killed or seriously injured casualties by road user type, Great Britain 1979 - 2017'])
+('ras52001.ods: ', ['International comparisons of road deaths1: number and rates for different road users: '])
+

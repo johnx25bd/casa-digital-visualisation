@@ -1,0 +1,13 @@
+Classification,Year,Period,Period Desc.,Aggregate Level,Is Leaf Code,Trade Flow Code,Trade Flow,Reporter Code,Reporter,Reporter ISO,Partner Code,Partner,Partner ISO,2nd Partner Code,2nd Partner,2nd Partner ISO,Customs Proc. Code,Customs,Mode of Transport Code,Mode of Transport,Commodity Code,Commodity,Qty Unit Code,Qty Unit,Qty,Alt Qty Unit Code,Alt Qty Unit,Alt Qty,Netweight (kg),Gross weight (kg),Trade Value (US$),CIF Trade Value (US$),FOB Trade Value (US$),Flag
+HS,2014,201401,January 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,67091494,,,0
+HS,2014,201402,February 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,57492667,,,0
+HS,2014,201403,March 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,59684962,,,0
+HS,2014,201404,April 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,68436599,,,0
+HS,2014,201405,May 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,65617792,,,0
+HS,2014,201406,June 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,63410634,,,0
+HS,2014,201407,July 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,57973502,,,0
+HS,2014,201408,August 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,52641233,,,0
+HS,2014,201409,September 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,48413051,,,0
+HS,2014,201410,October 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,44175459,,,0
+HS,2014,201411,November 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,40337097,,,0
+HS,2014,201412,December 2014,2,0,2,Exports,208,Denmark,,276,Germany,,,,,,,,,01,Animals; live,,,,,,,,,42765239,,,0
