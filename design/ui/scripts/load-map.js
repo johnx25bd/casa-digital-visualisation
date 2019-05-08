@@ -20,8 +20,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jM
 var map = new mapboxgl.Map({
   container: 'main-map', // container id
   style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-  center: [-74.50, 40], // starting position [lng, lat]
-  zoom: 9 // starting zoom
+  center: [50, 10], // starting position [lng, lat]
+  zoom: 2 // starting zoom
 });
 
 // var map = new mapboxgl.Map({
@@ -33,8 +33,10 @@ var map = new mapboxgl.Map({
 // .addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
 
 
+// LOAD LAYERS
+
 // Load and organize all data
-var dataFiles = ["./data/us-states.json", "./data/airports.csv", "./data/countries.json"],
+var dataFiles = ["./data/us-states.json", "./data/airports.json", "./data/countries.json", "./data/cards.json"],
   dataPromises = [],
   loadedData = {};
 
@@ -77,7 +79,141 @@ Promise.all(dataPromises)
       };
     }
 
+    // Once all data is loaded, add to map
+    map.on('load', function() {
+
+      map.addSource("us-states", {
+        "type": "geojson",
+        "data": loadedData['us-states'].data
+      });
+
+      map.addSource("airports", {
+        "type": "geojson",
+        "data": loadedData['airports'].data
+      });
+
+      map.addSource("countries", {
+        "type": "geojson",
+        "data": loadedData['countries'].data
+      });
+
+
+      map.addLayer({
+        "id": "us-states-polys",
+        "type": "fill",
+        "source": "us-states",
+        'layout': {},
+        'paint': {
+          'fill-color': '#088',
+          'fill-opacity': 0.8
+        }
+      });
+
+      // map.addLayer({
+      //   "id": "countries-polys",
+      //   "type": "fill",
+      //   "source": "countries",
+      //   'layout': {},
+      //   'paint': {
+      //     'fill-color': '#088',
+      //     'fill-opacity': 0.8
+      //   }
+      // });
+
+      map.addLayer({
+        "id": "points",
+        "type": "circle",
+        "source": "airports",
+        "paint": {
+          "circle-radius": [
+            'match',
+            ['get', 'type'],
+            'small', 3,
+            'mid', 5,
+            'major', 9,
+            // 'Hispanic', '#e55e5e',
+            // 'Asian', '#3bb2d0',
+            /* other */ 2
+            ],
+          "circle-color": [
+            'match',
+            ['get', 'type'],
+            'small', '#fbb03b',
+            'mid', '#223b53',
+            'major', 'yellow',
+            // 'Hispanic', '#e55e5e',
+            // 'Asian', '#3bb2d0',
+            /* other */ '#ccc'
+            ]
+
+        },
+      });
+
+      // LOAD CARDS
+      loadCards(loadedData["cards"].data);
+      //
+
+    });
+
 
   }).catch(function(e) {
     console.log(e);
   });
+
+
+
+  // Cards:
+  /*
+  Cards will have a number of attributes and methods, which
+  will be read when the updateCard() function is called.
+
+  content: "<h1></h1>" // html string, or object / array of html elements.
+                          // ^^ easier but less flexible
+                          // this would include d3 graphics ?
+  layers: [... layer names, i.e. file names], // layers to load
+  flyTo: {
+      bearing: 0,
+      center: [-0.15591514, 51.51830379],
+      zoom: 15.5,
+      pitch: 20 // for 3d effect
+    },
+
+
+
+  */
+
+
+  function updateCard(card) {
+    //
+
+    // update card div content, or scroll to card.
+
+    // map.flyTo(_card.flyTo)
+
+    // updateLegend(_card.layers)
+
+  }
+
+  function updateLegend(layers) {
+    // iterate through array of layers
+    // Add each layer's legend to .legend div
+  }
+
+
+  function loadCards(cards) {
+    // iterate through and load cards into .cards div
+
+    cards.forEach(function (cardData) {
+
+
+      console.log(cardData)
+    });
+
+    var cardsEls = d3.select('#cards').selectAll('.card')
+      .data(cards).enter().append('p');
+
+    cardsEls.text(function (d) {
+        return d.title;
+      })
+
+  }

@@ -1,0 +1,32 @@
+[{
+  "title": "Card 1: Air transport",
+  "content": "<h1></h1>",
+  "layers": ["airports", "countries"],
+  "flyTo": {
+    "bearing": 0,
+    "center": [-0.15591514, 51.51830379],
+    "zoom": 15.5,
+    "pitch": 20
+  }
+},{
+  "title": "Card 2: Sea transport",
+  "content": "<h1></h1>",
+  "layers": ["airports", "countries"],
+  "flyTo": {
+    "bearing": 0,
+    "center": [40.15591514, 51.51830379],
+    "zoom": 15.5,
+    "pitch": 20
+  }
+},{
+  "title": "Card 3: Ground transport",
+  "content": "<h1></h1>",
+  "layers": ["airports", "countries"],
+  "flyTo": {
+    "bearing": 0,
+    "center": [-40.15591514, 51.51830379],
+    "zoom": 15.5,
+    "pitch": 20
+  }
+}
+]

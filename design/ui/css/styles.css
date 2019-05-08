@@ -24,15 +24,17 @@
   background-color: lightgreen;
 }
 
-#card-body {
-  background-color: white;
-  border: 1px solid black;
+#cards {
+  /* background-color: white; */
 }
 
-.card-block {
+.card {
+
   height: 450px;
   background-color: lightgrey;
   margin-bottom: 15px;
+  border: 1px solid black;
+
 }
 
 body {
