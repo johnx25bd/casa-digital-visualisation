@@ -1,0 +1,57 @@
+[{
+  "name": "cards",
+  "path": "./data/cards.json"
+},
+  {
+    "name": "airports",
+    "path": "./data/airports.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "type": "circle",
+      "paint": {
+        "circle-radius": [
+          "match",
+          ["get", "type"],
+          "small", 3,
+          "mid", 5,
+          "major", 9,
+          2
+        ],
+        "circle-color": [
+          "match",
+          ["get", "type"],
+          "small", "#fbb03b",
+          "mid", "#223b53",
+          "major", "yellow",
+          "#ccc"
+        ]
+      }
+    }
+  },
+  {
+    "name": "ports",
+    "path": "./data/ports.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "type": "circle",
+      "paint": {
+        "circle-radius": 3,
+        "circle-color": "green"
+      }
+    }
+  },
+  {
+    "name": "us-states",
+    "path": "./data/us-states.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "type": "fill",
+      "layout": {},
+      "paint": {
+        "fill-color": "#088",
+        "fill-opacity": 0.8
+      }
+    }
+  }
+
+]

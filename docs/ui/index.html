@@ -11,21 +11,17 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Leaflet style sheet and JS library -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
 
- <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-   crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 
 
-   <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-unminified.js" charset="utf-utf-8"></script>
+  <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-unminified.js" charset="utf-utf-8"></script>
 
 
-   <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="./css/styles.css" />
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
 
   <title>Hello, world!</title>
   <style>
@@ -53,10 +49,37 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0" _lpchecked="1">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <!-- <div id="mode-buttons" class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Explore
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Story
+          </label>
+        </div> -->
+        <div id="map-nav">
+          <div class="row">
+            <input id="previous-card"  class="btn btn-primary" type="button" value="< Previous">
+
+            <input id="next-card"  class="btn btn-primary" type="button" value="Next >">
+            <!-- <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary-outline active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                < </label> <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Global
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> National
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Local
+              </label>
+              <label id="next-card" class="btn btn-secondary-outline">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> >
+              </label>
+            </div> -->
+          </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -69,26 +92,7 @@
 
 
       <div id="info-body" class="col-lg-3">
-        <div id="map-nav">
-          <div class="row">
-            <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary-outline active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked>
-                < </label> <label class="btn btn-secondary active">
-                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Global
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> National
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Local
-              </label>
-              <label class="btn btn-secondary-outline">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> >
-              </label>
-            </div>
-          </div>
-        </div>
+
         <div id="app-cards" class="row">
         </div>
       </div>
@@ -100,11 +104,11 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   <!-- Custom scripts -->
+  <script src="./scripts/functions.js"></script>
   <script src="./scripts/load-map.js"></script>
 
 
