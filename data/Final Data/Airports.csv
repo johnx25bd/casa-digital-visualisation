@@ -1,0 +1,892 @@
+,scalerank_left,type,name,abbrev,location,gps_code,iata_code,wikipedia,wdid_score,ne_id,NAME,ISO3
+0,9,small,Sahnewal,LUH,terminal,VILD,LUH,http://en.wikipedia.org/wiki/Sahnewal_Airport,4,1159113785,India,IND
+1,9,mid,Solapur,SSE,terminal,VASL,SSE,http://en.wikipedia.org/wiki/Solapur_Airport,4,1159113803,India,IND
+2,9,mid,Birsa Munda,IXR,terminal,VERC,IXR,http://en.wikipedia.org/wiki/Birsa_Munda_Airport,4,1159113831,India,IND
+3,9,mid,Ahwaz,AWZ,terminal,OIAW,AWZ,http://en.wikipedia.org/wiki/Ahwaz_Airport,4,1159113845,Iran,IRN
+4,9,mid and military,Gwalior,GWL,terminal,VIGR,GWL,http://en.wikipedia.org/wiki/Gwalior_Airport,4,1159113863,India,IND
+5,9,mid,Hodeidah Int'l,HOD,terminal,OYHD,HOD,http://en.wikipedia.org/wiki/Hodeida_International_Airport,4,1159113883,Yemen,YEM
+6,9,mid,Devi Ahilyabai Holkar Int'l,IDR,terminal,VAID,IDR,http://en.wikipedia.org/wiki/Devi_Ahilyabai_Holkar_International_Airport,4,1159113903,India,IND
+7,9,mid,Gandhinagar,ISK,ramp,VANR,ISK,http://en.wikipedia.org/wiki/Gandhinagar_Airport,4,1159113917,India,IND
+8,9,major and military,Chandigarh Int'l,IXC,terminal,VICG,IXC,http://en.wikipedia.org/wiki/Chandigarh_Airport,4,1159113937,India,IND
+9,9,mid,Aurangabad,IXU,terminal,VAAU,IXU,http://en.wikipedia.org/wiki/Aurangabad_Airport,4,1159113953,India,IND
+10,9,mid and military,Faisalabad Int'l,LYP,terminal,OPFA,LYP,http://en.wikipedia.org/wiki/Faisalabad_International_Airport,4,1159113971,Pakistan,PAK
+11,9,mid,Omsk Tsentralny,OMS,terminal,UNOO,OMS,http://en.wikipedia.org/wiki/Omsk_Tsentralny_Airport,4,1159113991,Russia,RUS
+12,9,mid,Novosibirsk Tolmachev,OVB,terminal,UNNT,OVB,http://en.wikipedia.org/wiki/Tolmachevo_Airport,4,1159114013,Russia,RUS
+13,9,mid and military,Zaporozhye Int'l,OZH,runway,UKDE,OZH,http://en.wikipedia.org/wiki/Zaporizhia_International_Airport,4,1159114037,Ukraine,UKR
+14,9,mid,Simpang Tiga,PKU,terminal,WIBB,PKU,http://en.wikipedia.org/wiki/Sultan_Syarif_Qasim_II_International_Airport,4,1159114047,Indonesia,IDN
+15,9,mid,Rota Int'l,ROP,terminal,PGRO,ROP,http://en.wikipedia.org/wiki/Rota_International_Airport,4,1159114063,N. Mariana Is.,MNP
+16,9,mid,Surgut,SGC,terminal,USRR,SGC,http://en.wikipedia.org/wiki/Surgut_Airport,4,1159114081,Russia,RUS
+17,9,mid,Tiruchirappalli,TRZ,terminal,VOTR,TRZ,http://en.wikipedia.org/wiki/Tiruchirappalli_Airport,4,1159114099,India,IND
+18,9,mid,Turbat Int'l,TUK,terminal,OPTU,TUK,http://en.wikipedia.org/wiki/Turbat_International_Airport,4,1159114117,Pakistan,PAK
+19,9,mid,Quetta Int'l,UET,terminal,OPQT,UET,http://en.wikipedia.org/wiki/Quetta_International_Airport,4,1159114135,Pakistan,PAK
+20,9,mid,Zahedan Int'l,ZAH,terminal,OIZH,ZAH,http://en.wikipedia.org/wiki/Zahedan_International_Airport,4,1159114153,Iran,IRN
+21,9,mid and military,Abdul Rachman Saleh,MLG,ramp,WARA,MLG,http://en.wikipedia.org/wiki/Abdul_Rachman_Saleh_Airport,4,1159114171,Indonesia,IDN
+22,9,mid,Barnaul,BAX,ramp,UNBB,BAX,http://en.wikipedia.org/wiki/Barnaul_Airport,4,1159114187,Russia,RUS
+23,9,military mid,Adampur,VIAX,runway,VIAX,,,5,1159114195,India,IND
+24,9,military,Bareilly,VIBY,runway,VIBY,,http://en.wikipedia.org/wiki/Bareilly_Airport,4,1159114211,India,IND
+25,9,small,Dhamial,OPQS,runway,OPQS,,http://en.wikipedia.org/wiki/Dhamial_Army_Airbase,4,1159114231,Pakistan,PAK
+26,9,major,Cheongju Int'l,CJJ,terminal,RKTU,CJJ,http://en.wikipedia.org/wiki/Cheongju_International_Airport,4,1159114253,South Korea,KOR
+27,9,mid and military,Gwangju,KWJ,terminal,RKJJ,KWJ,http://en.wikipedia.org/wiki/Gwangju_Airport,4,1159114271,South Korea,KOR
+28,9,mid,Daegu Int'l,TAE,terminal,RKTN,TAE,http://en.wikipedia.org/wiki/Daegu_Airport,4,1159114289,South Korea,KOR
+29,9,mid,Ulsan,USN,terminal,RKPU,USN,http://en.wikipedia.org/wiki/Ulsan_Airport,4,1159114319,South Korea,KOR
+30,9,mid,Radin Inten II,WIIT,terminal,WIAT,TKG,http://en.wikipedia.org/wiki/Radin_Inten_II_Airport,4,1159114325,Indonesia,IDN
+31,9,military,Allahabad,IXD,ramp,VIAL,IXD,http://en.wikipedia.org/wiki/Allahabad_Airport,4,1159114341,India,IND
+32,9,mid,Chelyabinsk,CEK,terminal,USCC,CEK,http://en.wikipedia.org/wiki/Chelyabinsk_Airport,4,1159114359,Russia,RUS
+33,8,military mid,Tainan,TNN,ramp,RCNN,TNN,http://en.wikipedia.org/wiki/Tainan_Airport,4,1159114373,Taiwan,TWN
+34,8,military mid,Taichung,RMQ,ramp,RCMQ,RMQ,http://en.wikipedia.org/wiki/Taichung_Airport,4,1159114393,Taiwan,TWN
+35,8,mid,Rotterdam The Hague,RTM,terminal,EHRD,RTM,http://en.wikipedia.org/wiki/Rotterdam_The_Hague_Airport,4,1159114411,Netherlands,NLD
+36,8,mid,Voronezh-Chertovitskoye,VOZ,terminal,UUOO,VOZ,http://en.wikipedia.org/wiki/Voronezh_International_Airport,4,1159114431,Russia,RUS
+37,8,major,Liverpool John Lennon,LPL,ramp,EGGP,LPL,http://en.wikipedia.org/wiki/Liverpool_John_Lennon_Airport,4,1159114447,United Kingdom,GBR
+38,8,mid,Vishakapatnam,VTZ,terminal,VEVZ,VTZ,http://en.wikipedia.org/wiki/Visakhapatnam_Airport,4,1159114465,India,IND
+39,8,major,Sultan Hasanuddin Int'l,UPG,terminal,WAAA,UPG,http://en.wikipedia.org/wiki/Sultan_Hasanuddin_International_Airport,4,1159114481,Indonesia,IDN
+40,8,mid,Vava'u Int'l,VAV,terminal,NFTV,VAV,http://en.wikipedia.org/wiki/Vava'u_International_Airport,4,1159114497,Tonga,TON
+41,8,major,Newcastle Int'l,NCL,terminal,EGNT,NCL,http://en.wikipedia.org/wiki/Newcastle_Airport,4,1159114519,United Kingdom,GBR
+42,8,mid,Goloson Int'l,LCE,terminal,MHLC,LCE,http://en.wikipedia.org/wiki/Golos%C3%B3n_International_Airport,4,1159114531,Honduras,HND
+43,8,major,Madinah Int'l,MED,terminal,OEMA,MED,http://en.wikipedia.org/wiki/Prince_Mohammad_Bin_Abdulaziz_Airport,4,1159114549,Saudi Arabia,SAU
+44,8,mid,Mirabel Int'l,YMX,terminal,CYMX,YMX,http://en.wikipedia.org/wiki/Montr%C3%A9al-Mirabel_International_Airport,4,1159114567,Canada,CAN
+45,8,mid,Palanga Int'l,PLQ,terminal,EYPA,PLQ,http://en.wikipedia.org/wiki/Palanga_International_Airport,4,1159114587,Lithuania,LTU
+46,8,mid,Jaipur Int'l,JAI,terminal,VIJP,JAI,http://en.wikipedia.org/wiki/Jaipur_International_Airport,4,1159114607,India,IND
+47,8,mid,Sonari,IXW,terminal,VEJS,IXW,http://en.wikipedia.org/wiki/Sonari_Airport,4,1159114623,India,IND
+48,8,mid,Yenisehir,YEI,ramp,LTBR,YEI,http://en.wikipedia.org/wiki/Yeni%C5%9Fehir_Airport,4,1159114643,Turkey,TUR
+49,8,major,Şakirpaşa,ADA,terminal,LTAF,ADA,http://en.wikipedia.org/wiki/Adana_%C5%9Eakirpa%C5%9Fa_Airport,4,1159114663,Turkey,TUR
+50,8,mid,Kodiak,ADQ,ramp,PADQ,ADQ,http://en.wikipedia.org/wiki/Kodiak_Airport,4,1159114685,United States of America,USA
+51,8,major,Amarillo Int'l,AMA,terminal,KAMA,AMA,http://en.wikipedia.org/wiki/Rick_Husband_Amarillo_International_Airport,4,1159114695,United States of America,USA
+52,8,mid,Alice Springs,ASP,terminal,YBAS,ASP,http://en.wikipedia.org/wiki/Alice_Springs_Airport,4,1159114713,Australia,AUS
+53,8,mid and military,Raja Sansi Int'l,ATQ,terminal,VIAR,ATQ,http://en.wikipedia.org/wiki/Raja_Sansi_International_Airport,4,1159114737,India,IND
+54,8,mid,Biju Patnaik,BBI,terminal,VEBS,BBI,http://en.wikipedia.org/wiki/Biju_Patnaik_Airport,4,1159114753,India,IND
+55,8,mid,Bethel,BET,runway,PABE,BET,http://en.wikipedia.org/wiki/Bethel_Airport,4,1159114773,United States of America,USA
+56,8,mid,Palonegro,BGA,terminal,SKBG,BGA,http://en.wikipedia.org/wiki/Palonegro_International_Airport,4,1159114791,Colombia,COL
+57,8,major,Birmingham Int'l,BHM,terminal,KBHM,BHM,http://en.wikipedia.org/wiki/Birmingham_International_Airport_(US),4,1159114807,United States of America,USA
+58,8,mid,Broken Hill,BHQ,terminal,YBHI,BHQ,http://en.wikipedia.org/wiki/Broken_Hill_Airport,4,1159114825,Australia,AUS
+59,8,major,Logan Int'l,BIL,terminal,KBIL,BIL,http://en.wikipedia.org/wiki/Billings_Logan_International_Airport,4,1159114843,United States of America,USA
+60,8,mid,Bismarck Muni.,BIS,terminal,KBIS,BIS,http://en.wikipedia.org/wiki/Bismarck_Municipal_Airport,4,1159114861,United States of America,USA
+61,8,mid,Del Bajio Int'l,BJX,terminal,MMLO,BJX,http://en.wikipedia.org/wiki/Del_Baj%C3%ADo_International_Airport,4,1159114875,Mexico,MEX
+62,8,mid,Benin,BNI,terminal,DNBE,BNI,http://en.wikipedia.org/wiki/Benin_Airport,4,1159114893,Nigeria,NGA
+63,8,major,Bourgas,BOJ,ramp,LBBG,BOJ,http://en.wikipedia.org/wiki/Burgas_Airport,4,1159114899,Bulgaria,BGR
+64,8,major,Bremen,BRE,terminal,EDDW,BRE,http://en.wikipedia.org/wiki/Bremen_Airport,4,1159114933,Germany,DEU
+65,8,mid,Jacinto Lara Int'l,BRM,terminal,SVBM,BRM,http://en.wikipedia.org/wiki/Jacinto_Lara_International_Airport,4,1159114957,Venezuela,VEN
+66,8,mid,Brownsville-South Padre Island Int'l,BRO,terminal,KBRO,BRO,http://en.wikipedia.org/wiki/Brownsville/South_Padre_Island_International_Airport,4,1159114971,United States of America,USA
+67,8,major,Bristol Int'l,BRS,terminal,EGGD,BRS,http://en.wikipedia.org/wiki/Bristol_International_Airport,4,1159114989,United Kingdom,GBR
+68,8,major,Baton Rouge Metro,BTR,terminal,KBTR,BTR,http://en.wikipedia.org/wiki/Baton_Rouge_Metropolitan_Airport,4,1159115003,United States of America,USA
+69,8,major,Bratislava-M.R. Štefánik,BTS,terminal,LZIB,BTS,http://en.wikipedia.org/wiki/M._R._%C5%A0tef%C3%A1nik_Airport,4,1159115025,Slovakia,SVK
+70,8,mid,Burlington Int'l,BTV,terminal,KBTV,BTV,http://en.wikipedia.org/wiki/Burlington_International_Airport,4,1159115045,United States of America,USA
+71,8,major,Columbia Metro,CAE,terminal,KCAE,CAE,http://en.wikipedia.org/wiki/Columbia_Metropolitan_Airport,4,1159115063,United States of America,USA
+72,8,major,Calicut Int'l,CCJ,terminal,VOCL,CCJ,http://en.wikipedia.org/wiki/Calicut_International_Airport,4,1159115083,India,IND
+73,8,mid,Cocos (Keeling) Islands,CCK,terminal,YPCC,CCK,http://en.wikipedia.org/wiki/Cocos_(Keeling)_Islands_Airport,4,1159115105,None,None
+74,8,mid,Corfu Int'l (Ioannis Kapodistrias),CFU,terminal,LGKR,CFU,http://en.wikipedia.org/wiki/Corfu_International_Airport,4,1159115125,None,None
+75,8,major,Changchun Longjia Int'l,CGQ,terminal,ZYCC,CGQ,http://en.wikipedia.org/wiki/Changchun_Longjia_International_Airport,4,1159115151,China,CHN
+76,8,major and military,Charleston Int'l,CHS,terminal,KCHS,CHS,http://en.wikipedia.org/wiki/Charleston_International_Airport,2,1159115179,United States of America,USA
+77,8,mid,Coimbatore,CJB,terminal,VOCB,CJB,http://en.wikipedia.org/wiki/Coimbatore_Airport,4,1159115195,India,IND
+78,8,mid,Someseni,CLJ,ramp,LRCL,CLJ,http://en.wikipedia.org/wiki/Cluj-Napoca_International_Airport,4,1159115215,Romania,ROU
+79,8,mid,Ignacio Agramonte,CMW,terminal,MUCM,CMW,http://en.wikipedia.org/wiki/Ignacio_Agramonte_International_Airport,4,1159115239,Cuba,CUB
+80,8,major,Casper/Natrona County Int'l,CPR,terminal,KCPR,CPR,http://en.wikipedia.org/wiki/Casper/Natrona_County_International_Airport,4,1159115255,United States of America,USA
+81,8,major,Clark Int'l,CRK,ramp,RPLC,CRK,http://en.wikipedia.org/wiki/Clark_International_Airport,2,1159115281,Philippines,PHL
+82,8,major and military,Yeager,CRW,terminal,KCRW,CRW,http://en.wikipedia.org/wiki/Yeager_Airport,4,1159115293,United States of America,USA
+83,8,major,Catania Fontanarossa,CTA,terminal,LICC,CTA,http://en.wikipedia.org/wiki/Catania-Fontanarossa_Airport,4,1159115313,Italy,ITA
+84,8,mid,Chetumal Int'l,CTM,terminal,MMCM,CTM,http://en.wikipedia.org/wiki/Chetumal_International_Airport,4,1159115333,Mexico,MEX
+85,8,major,Cardiff,CWL,terminal,EGFF,CWL,http://en.wikipedia.org/wiki/Cardiff_Airport,4,1159115353,United Kingdom,GBR
+86,8,mid,Gerrard Smith,CYB,terminal,MWCB,CYB,http://en.wikipedia.org/wiki/Gerrard_Smith_International_Airport,4,1159115383,None,None
+87,8,mid,Cozumel Int'l,CZM,terminal,MMCZ,CZM,http://en.wikipedia.org/wiki/Cozumel_International_Airport,4,1159115401,Mexico,MEX
+88,8,major,James M. Cox Dayton Int'l,DAY,terminal,KDAY,DAY,http://en.wikipedia.org/wiki/Dayton_International_Airport,4,1159115417,United States of America,USA
+89,8,mid,Dubbo,DBO,approximate,YSDU,DBO,http://en.wikipedia.org/wiki/Dubbo_Airport,4,1159115439,Australia,AUS
+90,8,major,Washington Nat'l,DCA,terminal,KDCA,DCA,http://en.wikipedia.org/wiki/Ronald_Reagan_Washington_National_Airport,4,1159115459,United States of America,USA
+91,8,mid,Durango Int'l,DGO,terminal,MMDO,DGO,http://en.wikipedia.org/wiki/General_Guadalupe_Victoria_International_Airport,4,1159115479,Mexico,MEX
+92,8,mid,Voloskoye,DNK,terminal,UKDD,DNK,http://en.wikipedia.org/wiki/Dnipropetrovsk_International_Airport,4,1159115501,Ukraine,UKR
+93,8,major,Donetsk,DOK,terminal,UKCC,DOK,http://en.wikipedia.org/wiki/Donetsk_International_Airport,4,1159115513,Ukraine,UKR
+94,8,mid,Santa Bernardina Int'l,DZO,runway,SUDU,DZO,http://en.wikipedia.org/wiki/Santa_Bernardina_International_Airport,4,1159115539,Uruguay,URY
+95,8,major,Edinburgh Int'l,EDI,terminal,EGPH,EDI,http://en.wikipedia.org/wiki/Edinburgh_Airport,4,1159115559,United Kingdom,GBR
+96,8,mid,Terrance B. Lettsome Int'l,EIS,terminal,TUPJ,EIS,http://en.wikipedia.org/wiki/Terrance_B._Lettsome_International_Airport,4,1159115573,None,None
+97,8,mid,Elko Reg.,EKO,terminal,KEKO,EKO,http://en.wikipedia.org/wiki/Elko_Regional_Airport,4,1159115593,United States of America,USA
+98,8,mid,Ensenada,ESE,ramp,MMES,ESE,http://en.wikipedia.org/wiki/Ensenada_Airport,4,1159115613,Mexico,MEX
+99,8,mid,Vágar,FAE,approximate,EKVG,FAE,http://en.wikipedia.org/wiki/V%C3%A1gar_Airport,4,1159115633,Faeroe Is.,FRO
+100,8,mid and military,Hector Int'l,FAR,terminal,KFAR,FAR,http://en.wikipedia.org/wiki/Hector_International_Airport,4,1159115653,United States of America,USA
+101,8,mid,Fresno Yosemite Int'l,FAT,terminal,KFAT,FAT,http://en.wikipedia.org/wiki/Fresno_Yosemite_International_Airport,4,1159115671,United States of America,USA
+102,8,mid,Flagstaff Pulliam,FLG,terminal,KFLG,FLG,http://en.wikipedia.org/wiki/Flagstaff_Pulliam_Airport,4,1159115693,United States of America,USA
+103,8,mid,Mundo Maya Int'l,FRS,terminal,MGTK,FRS,http://en.wikipedia.org/wiki/Mundo_Maya_International_Airport,5,1159115711,Guatemala,GTM
+104,8,mid,Sioux Falls Reg.,FSD,terminal,KFSD,FSD,http://en.wikipedia.org/wiki/Sioux_Falls_Regional_Airport,4,1159115731,United States of America,USA
+105,8,major,Spokane Int'l,GEG,terminal,KGEG,GEG,http://en.wikipedia.org/wiki/Spokane_International_Airport,4,1159115761,United States of America,USA
+106,8,mid,Exuma Int'l,GGT,terminal,MYEF,GGT,http://en.wikipedia.org/wiki/Exuma_International_Airport,4,1159115775,Bahamas,BHS
+107,8,mid,Gibraltar,GIB,runway,LXGB,GIB,http://en.wikipedia.org/wiki/Gibraltar_Airport,4,1159115799,None,None
+108,8,mid,Gerald R. Ford Int'l,GRR,terminal,KGRR,GRR,http://en.wikipedia.org/wiki/Gerald_R._Ford_International_Airport,4,1159115827,United States of America,USA
+109,8,major,Triad Int'l,GSO,terminal,KGSO,GSO,http://en.wikipedia.org/wiki/Piedmont_Triad_International_Airport,4,1159115847,United States of America,USA
+110,8,mid,Great Falls Int'l,GTF,terminal,KGTF,GTF,http://en.wikipedia.org/wiki/Great_Falls_International_Airport,4,1159115875,United States of America,USA
+111,8,major,Gaziantep Oğuzeli Int'l,GZT,terminal,LTAJ,GZT,http://en.wikipedia.org/wiki/O%C4%9Fuzeli_Airport,4,1159115899,Turkey,TUR
+112,8,mid,Hubli,HBX,terminal,VAHB,HBX,http://en.wikipedia.org/wiki/Hubli_Airport,5,1159115911,India,IND
+113,8,mid,Hat Yai Int'l,HDY,terminal,VTSS,HDY,http://en.wikipedia.org/wiki/Hat_Yai_International_Airport,4,1159115937,Thailand,THA
+114,8,mid,Hefei-Luogang,HFE,ramp,ZSOF,HFE,http://en.wikipedia.org/wiki/Hefei_Luogang_International_Airport,4,1159115965,China,CHN
+115,8,major,Hurghada Int'l,HRG,terminal,HEGN,HRG,http://en.wikipedia.org/wiki/Hurghada_International_Airport,4,1159115975,Egypt,EGY
+116,8,major,Kharkov Int'l,HRK,ramp,UKHH,HRK,http://en.wikipedia.org/wiki/Kharkiv_International_Airport,4,1159115997,Ukraine,UKR
+117,8,major,Huntsville Int'l,HSV,terminal,KHSV,HSV,http://en.wikipedia.org/wiki/Huntsville_International_Airport,4,1159116015,United States of America,USA
+118,8,mid,Ibadan,IBA,ramp,DNIB,IBA,http://en.wikipedia.org/wiki/Ibadan_Airport,4,1159116035,Nigeria,NGA
+119,8,major,Kansas City Int'l,ICT,terminal,KICT,ICT,http://en.wikipedia.org/wiki/Kansas_City_International_Airport,4,1159116067,United States of America,USA
+120,8,mid,Wilmington Int'l,ILM,terminal,KILM,ILM,http://en.wikipedia.org/wiki/Wilmington_International_Airport,4,1159116087,United States of America,USA
+121,8,mid,Ilorin Int'l,ILR,terminal,DNIL,ILR,http://en.wikipedia.org/wiki/Ilorin_International_Airport,4,1159116105,Nigeria,NGA
+122,8,mid,Falls Int'l,INL,terminal,KINL,INL,http://en.wikipedia.org/wiki/Falls_International_Airport,4,1159116121,United States of America,USA
+123,8,mid,Inverness,INV,terminal,EGPE,INV,http://en.wikipedia.org/wiki/Inverness_Airport,4,1159116141,United Kingdom,GBR
+124,8,mid,Imperial Cty.,IPL,terminal,KIPL,IPL,http://en.wikipedia.org/wiki/Imperial_County_Airport,4,1159116157,United States of America,USA
+125,8,mid,Jammu,IXJ,terminal,VIJU,IXJ,http://en.wikipedia.org/wiki/Jammu_Airport,4,1159116179,India,IND
+126,8,mid,Madurai,IXM,terminal,VOMD,IXM,http://en.wikipedia.org/wiki/Madurai_Airport,4,1159116199,India,IND
+127,8,major and military,Jodhpur,JDH,terminal,VIJO,JDH,http://en.wikipedia.org/wiki/Jodhpur_Airport,4,1159116221,India,IND
+128,8,mid,Jabalpur,JLR,terminal,VAJB,JLR,http://en.wikipedia.org/wiki/Jabalpur_Airport,4,1159116243,India,IND
+129,8,mid,Kilimanjaro Int'l,JRO,terminal,HTKJ,JRO,http://en.wikipedia.org/wiki/Kilimanjaro_International_Airport,4,1159116261,Tanzania,TZA
+130,8,mid,Kaduna,KAD,terminal,DNKA,KAD,http://en.wikipedia.org/wiki/Kaduna_Airport,4,1159116287,Nigeria,NGA
+131,8,mid,Kananga,KGA,terminal,FZUA,KGA,http://en.wikipedia.org/wiki/Kananga_Airport,4,1159116305,Dem. Rep. Congo,COD
+132,8,mid,Kumasi,KMS,terminal,DGSI,KMS,http://en.wikipedia.org/wiki/Kumasi_Airport,4,1159116323,Ghana,GHA
+133,8,mid,Viña del Mar,KNA,ramp,SCVM,KNA,http://en.wikipedia.org/wiki/Vi%C3%B1a_del_Mar_Airport,4,1159116349,Chile,CHL
+134,8,mid,Kanpur,KNU,terminal,VIKA,KNU,http://en.wikipedia.org/wiki/Kanpur_Airport,4,1159116365,India,IND
+135,8,mid,Kona Int'l at Keahole,KOA,terminal,PHKO,KOA,http://en.wikipedia.org/wiki/Kona_International_Airport,4,1159116385,United States of America,USA
+136,8,mid,Kirkwall,KOI,ramp,EGPA,KOI,http://en.wikipedia.org/wiki/Kirkwall_Airport,4,1159116405,United Kingdom,GBR
+137,8,mid,Kota,KTU,terminal,VIKO,KTU,http://en.wikipedia.org/wiki/Kota_Airport,4,1159116425,India,IND
+138,8,major and military,Konya,KYA,terminal,LTAN,KYA,http://en.wikipedia.org/wiki/Konya_Airport,4,1159116445,Turkey,TUR
+139,8,major,Blue Grass,LEX,terminal,KLEX,LEX,http://en.wikipedia.org/wiki/Blue_Grass_Airport,4,1159116465,United States of America,USA
+140,8,mid,Lihue,LIH,terminal,PHLI,LIH,http://en.wikipedia.org/wiki/Lihu'e_Airport,4,1159116477,United States of America,USA
+141,8,major,Clinton National,LIT,terminal,KLIT,LIT,http://en.wikipedia.org/wiki/Little_Rock_National_Airport,5,1159116503,United States of America,USA
+142,8,mid,Los Mochis,LMM,ramp,MMLM,LMM,http://en.wikipedia.org/wiki/Federal_del_Valle_del_Fuerte_International_Airport,4,1159116513,Mexico,MEX
+143,8,mid,Venustiano Carranza Int'l,LOV,runway,MMMV,LOV,http://en.wikipedia.org/wiki/Venustiano_Carranza_International_Airport,4,1159116531,Mexico,MEX
+144,8,mid,Laredo Int'l,LRD,terminal,KLRD,LRD,http://en.wikipedia.org/wiki/Laredo_International_Airport,4,1159116549,United States of America,USA
+145,8,mid,Sumburgh,LSI,runway,EGPB,LSI,http://en.wikipedia.org/wiki/Sumburgh_Airport,2,1159116567,None,None
+146,8,major,Bassel Al-Assad Int'l,LTK,terminal,OSLK,LTK,http://en.wikipedia.org/wiki/Bassel_Al-Assad_International_Airport,4,1159116587,Syria,SYR
+147,8,major,London Luton,LTN,terminal,EGGW,LTN,http://en.wikipedia.org/wiki/London_Luton_Airport,4,1159116605,United Kingdom,GBR
+148,8,mid,Svalbard Longyear,LYR,terminal,ENSB,LYR,http://en.wikipedia.org/wiki/Svalbard_Airport%2C_Longyear,4,1159116623,None,None
+149,8,mid,Sangster Int'l,MBJ,runway,MKJS,MBJ,http://en.wikipedia.org/wiki/Sangster_International_Airport,4,1159116641,Jamaica,JAM
+150,8,mid,Mandalay Int'l,MDL,terminal,VYMD,MDL,http://en.wikipedia.org/wiki/Mandalay_International_Airport,4,1159116657,Myanmar,MMR
+151,8,major,Chicago Midway Int'l,MDW,terminal,KMDW,MDW,http://en.wikipedia.org/wiki/Chicago_Midway_International_Airport,4,1159116663,United States of America,USA
+152,8,mid and military,Eloy Alfaro Int'l,MEC,runway,SEMT,MEC,http://en.wikipedia.org/wiki/Manta_Air_Base,4,1159116681,Ecuador,ECU
+153,8,major,Montgomery Reg.,MGM,terminal,KMGM,MGM,http://en.wikipedia.org/wiki/Montgomery_Regional_Airport,4,1159116701,United States of America,USA
+154,8,major,Manchester-Boston Reg.,MHT,terminal,KMHT,MHT,http://en.wikipedia.org/wiki/Manchester-Boston_Regional_Airport,4,1159116733,United States of America,USA
+155,8,mid,Maiduguri Int'l,DNMA,terminal,DNMA,MIU,http://en.wikipedia.org/wiki/Maiduguri_International_Airport,4,1159116745,Nigeria,NGA
+156,8,mid,Mbuji Mayi,MJM,terminal,FZWA,MJM,http://en.wikipedia.org/wiki/Mbuji_Mayi_Airport,4,1159116757,Dem. Rep. Congo,COD
+157,8,mid,Minot Int'l,MOT,terminal,KMOT,MOT,http://en.wikipedia.org/wiki/Minot_International_Airport,4,1159116781,United States of America,USA
+158,8,mid,Missoula Int'l,MSO,terminal,KMSO,MSO,http://en.wikipedia.org/wiki/Missoula_International_Airport,4,1159116793,United States of America,USA
+159,8,mid,Gen R.S. Taboada Int'l,MXL,terminal,MMML,MXL,http://en.wikipedia.org/wiki/General_Rodolfo_S%C3%A1nchez_Taboada_International_Airport,4,1159116811,Mexico,MEX
+160,8,major,Malpensa,MXP,terminal,LIMC,MXP,http://en.wikipedia.org/wiki/Malpensa_Airport,4,1159116827,Italy,ITA
+161,8,mid,Norfolk Island,NLK,terminal,YSNF,NLK,http://en.wikipedia.org/wiki/Norfolk_Island_Airport,4,1159116847,Norfolk Island,NFK
+162,8,major,Nurnberg,NUE,terminal,EDDN,NUE,http://en.wikipedia.org/wiki/Nuremberg_Airport,4,1159116865,Germany,DEU
+163,8,major,Odessa Int'l,ODS,terminal,UKOO,ODS,http://en.wikipedia.org/wiki/Odessa_International_Airport,4,1159116875,Ukraine,UKR
+164,8,mid,Gold Coast,OOL,terminal,YBCG,OOL,http://en.wikipedia.org/wiki/Gold_Coast_Airport,4,1159116895,Australia,AUS
+165,8,mid,Oran Es Senia,ORN,terminal,DAOO,ORN,http://en.wikipedia.org/wiki/Oran_Es_S%C3%A9nia_Airport,4,1159116913,Algeria,DZA
+166,8,mid,Lok Nayak Jaiprakash,PAT,terminal,VEPT,PAT,http://en.wikipedia.org/wiki/Lok_Nayak_Jayaprakash_Airport,4,1159116937,India,IND
+167,8,mid,Paysandu,PDU,terminal,SUPU,PDU,http://en.wikipedia.org/wiki/Paysand%C3%BA_Airport,4,1159116951,Uruguay,URY
+168,8,major,Paphos Int'l,PFO,ramp,LCPH,PFO,http://en.wikipedia.org/wiki/Paphos_International_Airport,4,1159116971,None,None
+169,8,mid,Sultan Mahmud Badaruddin II,PLM,terminal,WIPP,PLM,http://en.wikipedia.org/wiki/Sultan_Mahmud_Badaruddin_II_Airport,4,1159116979,Indonesia,IDN
+170,8,mid,Polokwane Int'l,PTG,terminal,FAPP,PTG,http://en.wikipedia.org/wiki/Polokwane_International_Airport,4,1159117007,South Africa,ZAF
+171,8,mid,Punta Cana,PUJ,terminal,MDPC,PUJ,http://en.wikipedia.org/wiki/Punta_Cana_International_Airport,4,1159117025,Dominican Rep.,DOM
+172,8,mid,Queretaro Int'l,QRO,terminal,MMQT,QRO,http://en.wikipedia.org/wiki/Quer%C3%A9taro_International_Airport,4,1159117049,Mexico,MEX
+173,8,mid,Rajkot,RAJ,runway,VARK,RAJ,http://en.wikipedia.org/wiki/Rajkot_Airport,4,1159117053,India,IND
+174,8,major,Richmond Int'l,RIC,terminal,KRIC,RIC,http://en.wikipedia.org/wiki/Richmond_International_Airport,4,1159117071,United States of America,USA
+175,8,mid,Shah Makhdum,RJH,terminal,VGRJ,RJH,http://en.wikipedia.org/wiki/Shah_Makhdum_Airport,4,1159117089,Bangladesh,BGD
+176,8,major,Greater Rochester Int'l,ROC,terminal,KROC,ROC,http://en.wikipedia.org/wiki/Greater_Rochester_International_Airport,4,1159117107,United States of America,USA
+177,8,mid,Rockhampton,ROK,terminal,YBRK,ROK,http://en.wikipedia.org/wiki/Rockhampton_Airport,4,1159117127,Australia,AUS
+178,8,mid,Rostov-on-Don,ROV,terminal,URRR,ROV,http://en.wikipedia.org/wiki/Rostov-on-Don_Airport,4,1159117147,Russia,RUS
+179,8,mid,Saratov,RTW,ramp,UWSS,RTW,http://en.wikipedia.org/wiki/Saratov_Tsentralny_Airport,4,1159117175,Russia,RUS
+180,8,mid,Ramón Villeda Morales Int'l,SAP,terminal,MHLM,SAP,http://en.wikipedia.org/wiki/Ram%C3%B3n_Villeda_Morales_International_Airport,4,1159117187,Honduras,HND
+181,8,mid,Santa Barbara Muni.,SBA,terminal,KSBA,SBA,http://en.wikipedia.org/wiki/Santa_Barbara_Airport,4,1159117215,United States of America,USA
+182,8,mid,Deadhorse,SCC,ramp,PASC,SCC,http://en.wikipedia.org/wiki/Deadhorse_Airport,4,1159117221,United States of America,USA
+183,8,mid,Kangerlussuaq,SFJ,ramp,BGSF,SFJ,http://en.wikipedia.org/wiki/Kangerlussuaq_Airport,4,1159117249,Greenland,GRL
+184,8,major,Springfield Reg.,SGF,terminal,KSGF,SGF,http://en.wikipedia.org/wiki/Springfield/Branson_National_Airport,4,1159117257,United States of America,USA
+185,8,major,Shreveport Reg.,SHV,terminal,KSHV,SHV,http://en.wikipedia.org/wiki/Shreveport_Regional_Airport,4,1159117279,United States of America,USA
+186,8,major,Simferopol Int'l,SIP,ramp,UKFF,SIP,http://en.wikipedia.org/wiki/Simferopol_International_Airport,4,1159117305,Russia,RUS
+187,8,mid,Sitka Rocky Gutierrez,SIT,terminal,PASI,SIT,http://en.wikipedia.org/wiki/Sitka_Rocky_Gutierrez_Airport,4,1159117325,None,None
+188,8,major,Los Cabos Int'l,SJD,terminal,MMSD,SJD,http://en.wikipedia.org/wiki/Los_Cabos_International_Airport,4,1159117339,Mexico,MEX
+189,8,major,McNary Field,SLE,terminal,KSLE,SLE,http://en.wikipedia.org/wiki/McNary_Field,4,1159117357,United States of America,USA
+190,8,mid,Plan de Guadalupe,SLW,ramp,MMIO,SLW,http://en.wikipedia.org/wiki/Plan_de_Guadalupe_International_Airport,4,1159117385,Mexico,MEX
+191,8,major,Shannon,SNN,terminal,EINN,SNN,http://en.wikipedia.org/wiki/Shannon_Airport,4,1159117403,None,None
+192,8,mid,Santo Pekoa Int'l,SON,runway,NVSS,SON,http://en.wikipedia.org/wiki/Santo-Pekoa_International_Airport,4,1159117423,None,None
+193,8,mid,Achmad Yani,SRG,terminal,WARS,SRG,http://en.wikipedia.org/wiki/Achmad_Yani_Airport,4,1159117439,Indonesia,IDN
+194,8,military mid,Srinagar,SXR,ramp,VISR,SXR,http://en.wikipedia.org/wiki/Srinagar_Airport,4,1159117453,India,IND
+195,8,mid,Tapachula Int'l,TAP,ramp,MMTP,TAP,http://en.wikipedia.org/wiki/Tapachula_International_Airport,4,1159117469,Mexico,MEX
+196,8,major,Podgorica,TGD,terminal,LYPG,TGD,http://en.wikipedia.org/wiki/Podgorica_Airport,4,1159117487,Montenegro,MNE
+197,8,major,Tallahassee Reg.,TLH,terminal,KTLH,TLH,http://en.wikipedia.org/wiki/Tallahassee_Regional_Airport,4,1159117513,United States of America,USA
+198,8,major,Turin Int'l,TRN,terminal,LIMF,TRN,http://en.wikipedia.org/wiki/Turin_International_Airport,4,1159117525,Italy,ITA
+199,8,major,Taiyuan Wusu Int'l,TYN,terminal,ZBYN,TYN,http://en.wikipedia.org/wiki/Taiyuan_Wusu_International_Airport,4,1159117549,China,CHN
+200,8,mid,Narsarsuaq,UAK,ramp,BGBW,UAK,http://en.wikipedia.org/wiki/Narsarsuaq_Airport,4,1159117575,Greenland,GRL
+201,8,military mid,U-Tapao,UTP,ramp,VTBU,UTP,http://en.wikipedia.org/wiki/U-Tapao_International_Airport,5,1159117593,Thailand,THA
+202,8,mid,Victoria Falls,VFA,runway,FVFA,VFA,http://en.wikipedia.org/wiki/Victoria_Falls_Airport,4,1159117607,Zimbabwe,ZWE
+203,8,mid,Vijaywada,VGA,ramp,VOBZ,VGA,http://en.wikipedia.org/wiki/Vijayawada_Airport,4,1159117621,India,IND
+204,8,mid,Varanasi,VNS,terminal,VIBN,VNS,http://en.wikipedia.org/wiki/Varanasi_Airport,4,1159117647,India,IND
+205,8,major,Juan Gualberto Gomez,VRA,terminal,MUVR,VRA,http://en.wikipedia.org/wiki/Juan_Gualberto_G%C3%B3mez_Airport,4,1159117667,Cuba,CUB
+206,8,mid,Villahermosa,VSA,terminal,MMVA,VSA,http://en.wikipedia.org/wiki/Carlos_Rovirosa_P%C3%A9rez_International_Airport,4,1159117675,Mexico,MEX
+207,8,mid,Brandon,YBR,terminal,CYBR,YBR,http://en.wikipedia.org/wiki/Brandon_Airport,4,1159117705,Canada,CAN
+208,8,military major,CFB Edmonton,YED,ramp,CYED,YED,http://en.wikipedia.org/wiki/CFB_Edmonton,4,1159117725,Canada,CAN
+209,8,mid,Iqaluit,YFB,terminal,CYFB,YFB,http://en.wikipedia.org/wiki/Iqaluit_Airport,4,1159117737,Canada,CAN
+210,8,mid,John C. Munro Hamilton Int'l,YHM,terminal,CYHM,YHM,http://en.wikipedia.org/wiki/John_C._Munro_Hamilton_International_Airport,4,1159117751,Canada,CAN
+211,8,mid,Fort McMurray,YMM,terminal,CYMM,YMM,http://en.wikipedia.org/wiki/Fort_McMurray_Airport,4,1159117769,Canada,CAN
+212,8,major and military,Yantai,YNT,terminal,ZSYT,YNT,http://en.wikipedia.org/wiki/Yantai_Laishan_International_Airport,4,1159117787,China,CHN
+213,8,mid,Peace River,YPE,terminal,CYPE,YPE,http://en.wikipedia.org/wiki/Peace_River_Airport,4,1159117801,Canada,CAN
+214,8,mid,Greater Moncton Int'l,YQM,terminal,CYQM,YQM,http://en.wikipedia.org/wiki/Greater_Moncton_International_Airport,4,1159117815,Canada,CAN
+215,8,mid,Sydney/J.A. Douglas McCurdy,YQY,terminal,CYQY,YQY,http://en.wikipedia.org/wiki/Sydney_Airport_(Nova_Scotia),4,1159117831,Canada,CAN
+216,8,mid,Resolute Bay,YRB,runway,CYRB,YRB,http://en.wikipedia.org/wiki/Resolute_Bay_Airport,4,1159117851,Canada,CAN
+217,8,mid,Fort Smith,YSM,runway,CYSM,YSM,http://en.wikipedia.org/wiki/Fort_Smith_Airport,4,1159117869,Canada,CAN
+218,8,mid,Thompson,YTH,ramp,CYTH,YTH,http://en.wikipedia.org/wiki/Thompson_Airport,4,1159117885,Canada,CAN
+219,8,mid,Timmins,YTS,ramp,CYTS,YTS,http://en.wikipedia.org/wiki/Timmins_Airport,4,1159117903,Canada,CAN
+220,8,mid,Repulse Bay,YUT,approximate,CYUT,YUT,http://en.wikipedia.org/wiki/Repulse_Bay_Airport,4,1159117931,Canada,CAN
+221,8,mid,Kuujjuaq,YVP,approximate,CYVP,YVP,http://en.wikipedia.org/wiki/Kuujjuaq_Airport,4,1159117945,None,None
+222,8,mid,Wabush,YWK,ramp,CYWK,YWK,http://en.wikipedia.org/wiki/Wabush_Airport,4,1159117971,Canada,CAN
+223,8,mid,Edmonton City Centre,YXD,terminal,CYXD,YXD,http://en.wikipedia.org/wiki/Edmonton_City_Centre_(Blatchford_Field)_Airport,4,1159117985,Canada,CAN
+224,8,mid,Fort St. John (N. Peace),YXJ,approximate,CYXJ,YXJ,http://en.wikipedia.org/wiki/Fort_St._John_Airport,4,1159118009,Canada,CAN
+225,8,mid,North Bay/Jack Garland,YYB,approximate,CYYB,YYB,http://en.wikipedia.org/wiki/North_Bay/Jack_Garland_Airport,4,1159118021,Canada,CAN
+226,8,mid,Zaria,ZAR,ramp,DNZA,ZAR,http://en.wikipedia.org/wiki/Zaria_Airport,4,1159118043,Nigeria,NGA
+227,8,mid,Skopje,SKP,terminal,LWSK,SKP,http://en.wikipedia.org/wiki/Skopje_Airport,4,1159118053,Macedonia,MKD
+228,8,mid,Burnpur,VE23,runway,VE23,,http://en.wikipedia.org/wiki/Burnpur_Airport,4,1159118067,India,IND
+229,8,mid,Hindon Air Force Station,VIDX,runway,VIDX,,http://en.wikipedia.org/wiki/Hindon_Air_Force_Station,4,1159118081,India,IND
+230,8,major,Sunchon,,runway,,,http://en.wikipedia.org/wiki/Sunchon_Airport,4,1159118101,North Korea,PRK
+231,8,mid,Łódź Władysław Reymont,EPLL,terminal,EPLL,LCJ,http://en.wikipedia.org/wiki/%C5%81%C3%B3d%C5%BA_W%C5%82adys%C5%82aw_Reymont_Airport,4,1159118117,Poland,POL
+232,8,mid and military,Alma Ata N.W.,BXJ,ramp,UAAR,BXJ,,2,1159118141,Kazakhstan,KAZ
+233,8,mid,Jiamusi Dongjiao,JMU,ramp,ZYJM,JMU,http://en.wikipedia.org/wiki/Jiamusi_Dongjiao_Airport,4,1159118157,China,CHN
+234,8,major,Mudanjiang Hailang,MDG,ramp,ZYMD,MDG,http://en.wikipedia.org/wiki/Mudanjiang_Hailang_Airport,4,1159118173,China,CHN
+235,8,military major,Severomorsk-3 (Murmansk N.E.),ULMM,runway,ULMM,,http://en.wikipedia.org/wiki/Severomorsk-3,5,1159118187,Russia,RUS
+236,8,mid,Mosul Int'l,OSB,runway,ORBM,OSB,http://en.wikipedia.org/wiki/Mosul_International_Airport,4,1159118205,Iraq,IRQ
+237,8,military mid,Rostov N.,,runway,,,,2,1159118221,Russia,RUS
+238,8,mid,Rostov S.W.,,runway,,,,2,1159118241,Russia,RUS
+239,8,mid,Oulu,OUL,terminal,EFOU,OUL,http://en.wikipedia.org/wiki/Oulu_Airport,4,1159118267,Finland,FIN
+240,8,major,Bordeaux,BOD,terminal,LFBD,BOD,http://en.wikipedia.org/wiki/Bordeaux_-_M%C3%A9rignac_Airport,2,1159118275,France,FRA
+241,8,mid,Mandelieu,CEQ,terminal,LFMD,CEQ,http://en.wikipedia.org/wiki/Cannes_%E2%80%93_Mandelieu_Airport,4,1159118293,France,FRA
+242,8,mid,St Gatien,DOL,ramp,LFRG,DOL,http://en.wikipedia.org/wiki/Deauville_-_Saint-Gatien_Airport,4,1159118319,France,FRA
+243,8,mid,Lille-Lesquin,LIL,terminal,LFQQ,LIL,http://en.wikipedia.org/wiki/Lille_Airport,4,1159118335,France,FRA
+244,8,major,Toulouse-Blagnac,TLS,terminal,LFBO,TLS,http://en.wikipedia.org/wiki/Toulouse-Blagnac_Airport,4,1159118353,France,FRA
+245,8,major,Fukuoka,FUK,terminal,RJFF,FUK,http://en.wikipedia.org/wiki/Fukuoka_Airport,4,1159118371,Japan,JPN
+246,8,mid,Hiroshima-Nishi,HIW,terminal,RJBH,HIW,http://en.wikipedia.org/wiki/Hiroshima-Nishi_Airport,4,1159118391,Japan,JPN
+247,8,mid,Nagoya,NKM,terminal,RJNA,NKM,http://en.wikipedia.org/wiki/Nagoya_Airfield,2,1159118405,Japan,JPN
+248,8,mid,Sendai,SDJ,terminal,RJSS,SDJ,http://en.wikipedia.org/wiki/Sendai_Airport,4,1159118419,Japan,JPN
+249,8,mid,Kirkenes Hoybuktmoen,KKN,terminal,ENKR,KKN,http://en.wikipedia.org/wiki/Kirkenes_Airport%2C_H%C3%B8ybuktmoen,4,1159118437,Norway,NOR
+250,8,mid,Marechal Rondon Int'l,CGB,terminal,SBCY,CGB,http://en.wikipedia.org/wiki/Marechal_Rondon_International_Airport,4,1159118463,Brazil,BRA
+251,8,major,Hercilio Luz Int'l,FLN,terminal,SBFL,FLN,http://en.wikipedia.org/wiki/Herc%C3%ADlio_Luz_International_Airport,4,1159118479,Brazil,BRA
+252,8,mid,Joinville-Lauro C. de Loyola,JOI,terminal,SBJV,JOI,http://en.wikipedia.org/wiki/Joinville-Lauro_Carneiro_de_Loyola_Airport,4,1159118499,Brazil,BRA
+253,8,mid,Presidente Castro Pinto Int'l,JPA,terminal,SBJP,JPA,http://en.wikipedia.org/wiki/Presidente_Castro_Pinto_International_Airport,4,1159118513,Brazil,BRA
+254,8,major,Augusto Severo Int'l,NAT,terminal,SJJQ,NAT,http://en.wikipedia.org/wiki/Augusto_Severo_International_Airport,4,1159118529,Brazil,BRA
+255,8,major,Francisco Sa Carneiro,OPO,terminal,LPPR,OPO,http://en.wikipedia.org/wiki/Francisco_S%C3%A1_Carneiro_Airport,4,1159118545,Portugal,PRT
+256,8,mid,Marechal Cunha Machado Int'l,SLZ,terminal,SBSL,SLZ,http://en.wikipedia.org/wiki/Marechal_Cunha_Machado_International_Airport,4,1159118563,Brazil,BRA
+257,8,military mid,Santos Air Force Base,SSZ,ramp,SBST,SSZ,http://en.wikipedia.org/wiki/Santos_Air_Force_Base,4,1159118581,Brazil,BRA
+258,8,mid,Teresina-Senador Petronio Portella,THE,terminal,SBTE,THE,http://en.wikipedia.org/wiki/Teresina_Airport,4,1159118599,Brazil,BRA
+259,8,mid,Viracopos-Campinas Int'l,VCP,terminal,SBKP,VCP,http://en.wikipedia.org/wiki/Viracopos-Campinas_International_Airport,4,1159118605,Brazil,BRA
+260,8,mid,Eurico de Aguiar Salles,VIX,ramp,SBVT,VIX,http://en.wikipedia.org/wiki/Eurico_de_Aguiar_Salles_Airport,4,1159118619,Brazil,BRA
+261,8,major,Alicante,ALC,terminal,LEAL,ALC,http://en.wikipedia.org/wiki/Alicante_Airport,4,1159118637,Spain,ESP
+262,8,mid,Almeria,LEI,terminal,LEAM,LEI,http://en.wikipedia.org/wiki/Almer%C3%ADa_Airport,4,1159118657,Spain,ESP
+263,8,mid,Valencia,VLC,terminal,LEVC,VLC,http://en.wikipedia.org/wiki/Valencia_Airport,4,1159118675,Spain,ESP
+264,8,mid,Kiruna_Airport,KRN,terminal,ESNQ,KRN,http://en.wikipedia.org/wiki/Kiruna_Airport,4,1159118693,Sweden,SWE
+265,8,major,Norrköping Airport,NRK,terminal,ESSP,NRK,http://en.wikipedia.org/wiki/Norrk%C3%B6ping_Airport,5,1159118709,Sweden,SWE
+266,8,mid,Husein Sastranegara Int'l,BDO,runway,WICC,BDO,http://en.wikipedia.org/wiki/Husein_Sastranegara_International_Airport,4,1159118727,Indonesia,IDN
+267,8,mid,Rosario – Islas Malvinas Int'l,ROS,terminal,SAAR,ROS,http://en.wikipedia.org/wiki/Rosario_%E2%80%93_Islas_Malvinas_International_Airport,4,1159118745,Argentina,ARG
+268,8,mid,Maceio/Zumbi dos Palmares Int'l,MCZ,terminal,SBMO,MCZ,http://en.wikipedia.org/wiki/Zumbi_dos_Palmares_International_Airport,4,1159118763,Brazil,BRA
+269,8,mid,Sharm el-Sheikh Int'l,SSH,ramp,HESH,SSH,http://en.wikipedia.org/wiki/Sharm_el-Sheikh_International_Airport,4,1159118779,None,None
+270,8,mid,Taba Int'l,TCP,terminal,HETB,TCP,http://en.wikipedia.org/wiki/Taba_International_Airport,4,1159118797,Egypt,EGY
+271,8,major and military,Agra,AGR,runway,VIAG,AGR,http://en.wikipedia.org/wiki/Agra_Airport,4,1159118821,India,IND
+272,8,mid,Vadodara,BDQ,runway,VABO,BDQ,http://en.wikipedia.org/wiki/Vadodara_Airport,4,1159118843,India,IND
+273,8,mid,Shahid Ashrafi Esfahani,KSH,runway,OICC,KSH,http://en.wikipedia.org/wiki/Shahid_Ashrafi_Esfahani_Airport,4,1159118869,Iran,IRN
+274,8,mid,Benina Int'l,BEN,ramp,HLLB,BEN,http://en.wikipedia.org/wiki/Benina_International_Airport,4,1159118875,Libya,LBY
+275,8,military major,King Abdulaziz AB,DHA,ramp,OEDR,DHA,http://en.wikipedia.org/wiki/Dhahran_International_Airport,5,1159118895,Saudi Arabia,SAU
+276,8,mid,Nueva Hespérides Int'l,STY,runway,SUSO,STY,http://en.wikipedia.org/wiki/Nueva_Hesperides_International_Airport,4,1159118917,Uruguay,URY
+277,8,spaceport,Baikonur Cosmodrome,BAIK,approximate,,,http://en.wikipedia.org/wiki/Baikonur_Cosmodrome,4,1159118931,Kazakhstan,KAZ
+278,8,spaceport,Kennedy Space Center,KSC,approximate,,,http://en.wikipedia.org/wiki/John_F._Kennedy_Space_Center,4,1159118961,United States of America,USA
+279,8,spaceport,Centre Spatial Guyanais,CSG,terminal,,,http://en.wikipedia.org/wiki/Guiana_Space_Centre,4,1159118977,France,FRA
+280,7,mid,Queen Beatrix Int'l,AUA,terminal,TNCA,AUA,http://en.wikipedia.org/wiki/Queen_Beatrix_International_Airport,4,1159118987,Aruba,ABW
+281,7,mid,Djibouti-Ambouli Int'l,JIB,terminal,HDAM,JIB,http://en.wikipedia.org/wiki/Djibouti-Ambouli_International_Airport,4,1159119005,Djibouti,DJI
+282,7,mid and military,Diego Aracena Int'l,IQQ,terminal,SCDA,IQQ,http://en.wikipedia.org/wiki/Diego_Aracena_International_Airport,4,1159119023,Chile,CHL
+283,7,major,Sabiha Gökçen Havaalani,SAW,terminal,LTFJ,SAW,http://en.wikipedia.org/wiki/Sabiha_G%C3%B6k%C3%A7en_International_Airport,4,1159119041,Turkey,TUR
+284,7,mid,Kosrae Island,KSA,ramp,PTSA,KSA,http://en.wikipedia.org/wiki/Kosrae_International_Airport,4,1159119061,None,None
+285,7,mid,Funafuti Int'l,FUN,ramp,NGFU,FUN,http://en.wikipedia.org/wiki/Funafuti_International_Airport,4,1159119077,None,None
+286,7,mid,Dr. Babasaheb Ambedkar Int'l,NAG,terminal,VANP,NAG,http://en.wikipedia.org/wiki/Dr._Babasaheb_Ambedkar_International_Airport,4,1159119091,India,IND
+287,7,mid,Phuket Int'l,HKT,terminal,VTSP,HKT,http://en.wikipedia.org/wiki/Phuket_International_Airport,4,1159119115,Thailand,THA
+288,7,mid,Nadi Int'l,NAN,terminal,NFFN,NAN,http://en.wikipedia.org/wiki/Nadi_International_Airport,4,1159119125,Fiji,FJI
+289,7,mid,Lic. Jesús Terán Peredo Int'l,AGU,terminal,MMAS,AGU,http://en.wikipedia.org/wiki/Lic._Jes%C3%BAs_Ter%C3%A1n_Peredo_International_Airport,4,1159119145,Mexico,MEX
+290,7,mid,Albenga,ALL,ramp,LIMG,ALL,http://en.wikipedia.org/wiki/Villanova_d'Albenga_International_Airport,4,1159119157,Italy,ITA
+291,7,major,Queen Alia Int'l,AMM,terminal,OJAI,AMM,http://en.wikipedia.org/wiki/Queen_Alia_International_Airport,4,1159119169,Jordan,JOR
+292,7,mid,Chacalluta Int'l,ARI,terminal,SCAR,ARI,http://en.wikipedia.org/wiki/Chacalluta_Airport,4,1159119187,Chile,CHL
+293,7,mid,Atar Int'l,ATR,terminal,GQPA,ATR,http://en.wikipedia.org/wiki/Atar_International_Airport,4,1159119205,Mauritania,MRT
+294,7,mid,Ernesto Cortissoz Int'l,BAQ,terminal,SKBQ,BAQ,http://en.wikipedia.org/wiki/Ernesto_Cortissoz_International_Airport,4,1159119223,Colombia,COL
+295,7,mid,Teniente Luis Candelaria Int'l,BRC,terminal,SAZS,BRC,http://en.wikipedia.org/wiki/San_Carlos_de_Bariloche_Airport,4,1159119237,Argentina,ARG
+296,7,mid,Bouaké,BYK,terminal,DIBK,BYK,http://en.wikipedia.org/wiki/Bouak%C3%A9_Airport,4,1159119257,Côte d'Ivoire,CIV
+297,7,major,Philip S. W. Goldson Int'l,BZE,terminal,MZBZ,BZE,http://en.wikipedia.org/wiki/Philip_S._W._Goldson_International_Airport,4,1159119267,Belize,BLZ
+298,7,major,Corpus Christi Int'l,CRP,terminal,KCRP,CRP,http://en.wikipedia.org/wiki/Corpus_Christi_International_Airport,4,1159119285,United States of America,USA
+299,7,mid,Hato Int'l,CUR,terminal,TNCC,CUR,http://en.wikipedia.org/wiki/Hato_International_Airport,4,1159119303,Curaçao,CUW
+300,7,major,Velazco Astete Int'l,CUZ,terminal,SPZO,CUZ,http://en.wikipedia.org/wiki/Alejandro_Velasco_Astete_International_Airport,4,1159119321,Peru,PER
+301,7,mid,Julius Nyerere Int'l,DAR,terminal,HTDA,DAR,http://en.wikipedia.org/wiki/Julius_Nyerere_International_Airport,4,1159119341,Tanzania,TZA
+302,7,mid,Detroit City,DET,terminal,KDET,DET,http://en.wikipedia.org/wiki/Coleman_A._Young_International_Airport,4,1159119359,United States of America,USA
+303,7,mid,Presidente Nicolau Lobato Int'l,DIL,terminal,WPDL,DIL,http://en.wikipedia.org/wiki/Presidente_Nicolau_Lobato_International_Airport,4,1159119377,Timor-Leste,TLS
+304,7,major,Moscow Domodedovo Int'l,DME,terminal,UUDD,DME,http://en.wikipedia.org/wiki/Domodedovo_International_Airport,4,1159119395,Russia,RUS
+305,7,mid,Dunedin Int'l,DUD,terminal,NZDN,DUD,http://en.wikipedia.org/wiki/Dunedin_International_Airport,4,1159119413,New Zealand,NZL
+306,7,mid,Dzaoudzi Pamanzi Int'l,DZA,terminal,FMCZ,DZA,http://en.wikipedia.org/wiki/Dzaoudzi_Pamandzi_International_Airport,4,1159119431,None,None
+307,7,mid,El Paso Int'l,ELP,terminal,KELP,ELP,http://en.wikipedia.org/wiki/El_Paso_International_Airport,4,1159119449,United States of America,USA
+308,7,major,Zvartnots Int'l,EVN,terminal,UDYZ,EVN,http://en.wikipedia.org/wiki/Zvartnots_International_Airport,4,1159119467,Armenia,ARM
+309,7,major,Fort Worth Meacham Field,FTW,terminal,KFTW,FTW,http://en.wikipedia.org/wiki/Fort_Worth_Meacham_International_Airport,4,1159119485,United States of America,USA
+310,7,mid,JAGS McCartney Int'l,GDT,terminal,MBGT,GDT,http://en.wikipedia.org/wiki/JAGS_McCartney_International_Airport,4,1159119503,None,None
+311,7,mid,Scholes Int'l,GLS,terminal,KGLS,GLS,http://en.wikipedia.org/wiki/Scholes_International_Airport_at_Galveston,4,1159119521,United States of America,USA
+312,7,mid,Goma Int'l,GOM,terminal,FZNA,GOM,http://en.wikipedia.org/wiki/Goma_International_Airport,4,1159119539,Dem. Rep. Congo,COD
+313,7,mid,Garoua Int'l,GOU,terminal,FKKR,GOU,http://en.wikipedia.org/wiki/Garoua_International_Airport,4,1159119557,Cameroon,CMR
+314,7,major,Antonio B. Won Pat Int'l,GUM,terminal,PGUM,GUM,http://en.wikipedia.org/wiki/Antonio_B._Won_Pat_International_Airport,4,1159119575,Guam,GUM
+315,7,mid,Gary/Chicago Int'l,GYY,terminal,KGYY,GYY,http://en.wikipedia.org/wiki/Gary/Chicago_International_Airport,4,1159119593,United States of America,USA
+316,7,mid,Prince Said Ibrahim Int'l,HAH,terminal,FMCH,HAH,http://en.wikipedia.org/wiki/Prince_Said_Ibrahim_International_Airport,4,1159119611,Comoros,COM
+317,7,mid,Hobart Int'l,HBA,terminal,YMHB,HBA,http://en.wikipedia.org/wiki/Hobart_International_Airport,4,1159119629,Australia,AUS
+318,7,mid,Honiara Int'l,HIR,terminal,AGGH,HIR,http://en.wikipedia.org/wiki/Honiara_International_Airport,4,1159119647,Solomon Is.,SLB
+319,7,mid,Kiev Zhuliany Int'l,IEV,terminal,UKKK,IEV,http://en.wikipedia.org/wiki/Kiev_International_Airport,4,1159119661,Ukraine,UKR
+320,7,mid and military,Irkutsk S.E.,IKT,terminal,UIII,IKT,http://en.wikipedia.org/wiki/Irkutsk_Airport,4,1159119677,Russia,RUS
+321,7,major,Indianapolis Int'l,IND,terminal,KIND,IND,http://en.wikipedia.org/wiki/Indianapolis_International_Airport,4,1159119691,United States of America,USA
+322,7,mid,Nauru Int'l,INU,runway,ANYN,INU,http://en.wikipedia.org/wiki/Nauru_International_Airport,4,1159119715,Nauru,NRU
+323,7,mid,Mataveri Int'l,IPC,terminal,SCIP,IPC,http://en.wikipedia.org/wiki/Mataveri_International_Airport,4,1159119731,Chile,CHL
+324,7,mid,Gob. Horacio Guzman Int'l,JUJ,terminal,SASJ,JUJ,http://en.wikipedia.org/wiki/Gobernador_Horacio_Guzm%C3%A1n_International_Airport,4,1159119751,Argentina,ARG
+325,7,mid,Nanchang Changbei Int'l,KHN,terminal,ZSCN,KHN,http://en.wikipedia.org/wiki/Nanchang_Changbei_International_Airport,4,1159119767,China,CHN
+326,7,major,Kunming Wujiaba Int'l,KMG,terminal,ZPPP,KMG,http://en.wikipedia.org/wiki/Kunming_Wujiaba_International_Airport,4,1159119791,China,CHN
+327,7,major,Leeds Bradford,LBA,terminal,EGNM,LBA,http://en.wikipedia.org/wiki/Leeds_Bradford_International_Airport,4,1159119807,United Kingdom,GBR
+328,7,mid,Libreville Leon M'ba Int'l,LBV,terminal,FOOL,LBV,http://en.wikipedia.org/wiki/Libreville_International_Airport,4,1159119827,None,None
+329,7,mid,Lomé Tokoin,LFW,terminal,DXXX,LFW,http://en.wikipedia.org/wiki/Lom%C3%A9-Tokoin_Airport,4,1159119841,Togo,TGO
+330,7,mid and military,Lviv Danylo Halytskyi Int'l,LWO,runway,UKLL,LWO,http://en.wikipedia.org/wiki/Lviv_International_Airport,4,1159119861,Ukraine,UKR
+331,7,mid,Marshall Islands Int'l,MAJ,terminal,PKMJ,MAJ,http://en.wikipedia.org/wiki/Marshall_Islands_International_Airport,4,1159119881,None,None
+332,7,major,Macau Int'l,MFM,terminal,VMMC,MFM,http://en.wikipedia.org/wiki/Macau_International_Airport,4,1159119897,None,None
+333,7,mid,Aden Adde Int'l,MGQ,runway,HCMM,MGQ,http://en.wikipedia.org/wiki/Aden_Adde_International_Airport,4,1159119917,None,None
+334,7,mid,Maputo Int'l,MPM,terminal,FQMA,MPM,http://en.wikipedia.org/wiki/Maputo_International_Airport,4,1159119939,Mozambique,MOZ
+335,7,mid,Sir Seewoosagur Ramgoolam Int'l,MRU,terminal,FIMP,MRU,http://en.wikipedia.org/wiki/Sir_Seewoosagur_Ramgoolam_International_Airport,4,1159119951,Mauritius,MUS
+336,7,major,Naples Int'l,NAP,terminal,LIRN,NAP,http://en.wikipedia.org/wiki/Naples_International_Airport,4,1159119971,Italy,ITA
+337,7,mid,Nouadhibou Int'l,NDB,ramp,GQPP,NDB,http://en.wikipedia.org/wiki/Nouadhibou_International_Airport,4,1159119989,Mauritania,MRT
+338,7,major,Ningbo Lishe Int'l,NGB,terminal,ZSNB,NGB,http://en.wikipedia.org/wiki/Ningbo_Lishe_International_Airport,4,1159120005,China,CHN
+339,7,mid,Nouakchott Int'l,NKC,terminal,GQNN,NKC,http://en.wikipedia.org/wiki/Nouakchott_International_Airport,5,1159120023,Mauritania,MRT
+340,7,mid,La Tontouta Int'l,NOU,terminal,NWWW,NOU,http://en.wikipedia.org/wiki/La_Tontouta_International_Airport,4,1159120041,New Caledonia,NCL
+341,7,major,Oakland Int'l,OAK,terminal,KOAK,OAK,http://en.wikipedia.org/wiki/Oakland_International_Airport,4,1159120059,None,None
+342,7,major,Ontario Int'l,ONT,parking,KONT,ONT,http://en.wikipedia.org/wiki/LA/Ontario_International_Airport,4,1159120085,United States of America,USA
+343,7,major,Cork,ORK,terminal,EICK,ORK,http://en.wikipedia.org/wiki/Cork_Airport,4,1159120103,Ireland,IRL
+344,7,mid,Minangkabau Int'l,PDG,terminal,WIMG,PDG,http://en.wikipedia.org/wiki/Minangkabau_International_Airport,5,1159120113,Indonesia,IDN
+345,7,mid,João Paulo II,PDL,ramp,LPPD,PDL,http://en.wikipedia.org/wiki/Jo%C3%A3o_Paulo_II_Airport,4,1159120131,None,None
+346,7,mid,Bacha Khan Int'l,PEW,ramp,OPPS,PEW,http://en.wikipedia.org/wiki/Peshawar_International_Airport,4,1159120157,Pakistan,PAK
+347,7,mid,Glasgow Prestwick,PIK,terminal,EGPK,PIK,http://en.wikipedia.org/wiki/Glasgow_Prestwick_International_Airport,4,1159120173,United Kingdom,GBR
+348,7,mid,Ponta Porã Int'l,PMG,terminal,SBPP,PMG,http://en.wikipedia.org/wiki/Ponta_Por%C3%A3_International_Airport,4,1159120193,Brazil,BRA
+349,7,mid,Palmerston N. Int'l,PMR,terminal,NZPM,PMR,http://en.wikipedia.org/wiki/Palmerston_North_International_Airport,4,1159120211,New Zealand,NZL
+350,7,mid,Pohnpei Int'l,PNI,terminal,PTPN,PNI,http://en.wikipedia.org/wiki/Pohnpei_International_Airport,4,1159120225,None,None
+351,7,mid,Tahiti Faa'a Int'l,PPT,terminal,NTAA,PPT,http://en.wikipedia.org/wiki/Faa'a_International_Airport,2,1159120243,Fr. Polynesia,PYF
+352,7,major and military,Pisa Galileo Galilei Int'l,PSA,terminal,LIRP,PSA,http://en.wikipedia.org/wiki/Galileo_Galilei_International_Airport,4,1159120263,Italy,ITA
+353,7,mid and military,Port Sudan,PZU,runway,HSSP,PZU,,4,1159120283,Sudan,SDN
+354,7,mid,Praia Int'l,RAI,terminal,GVNP,RAI,http://en.wikipedia.org/wiki/Praia_International_Airport,4,1159120301,Cabo Verde,CPV
+355,7,mid,Marrakech-Menara,RAK,terminal,GMMX,RAK,http://en.wikipedia.org/wiki/Menara_International_Airport,4,1159120327,Morocco,MAR
+356,7,mid,Rarotonga Int'l,RAR,ramp,NCRG,RAR,http://en.wikipedia.org/wiki/Rarotonga_International_Airport,4,1159120337,Cook Is.,COK
+357,7,major,Siem Reap Int'l,REP,terminal,VDSR,REP,http://en.wikipedia.org/wiki/Angkor_International_Airport,4,1159120355,Cambodia,KHM
+358,7,mid,Hermes Quijada Int'l,RGA,terminal,SAWE,RGA,http://en.wikipedia.org/wiki/Hermes_Quijada_Airport,4,1159120379,Argentina,ARG
+359,7,mid,Piloto Civil Norberto Fernandez Int'l,RGL,terminal,SAWG,RGL,http://en.wikipedia.org/wiki/Piloto_Civil_Norberto_Fern%C3%A1ndez_International_Airport,4,1159120391,Argentina,ARG
+360,7,major,Reno-Tahoe Int'l,RNO,terminal,KRNO,RNO,http://en.wikipedia.org/wiki/Reno-Tahoe_International_Airport,4,1159120419,United States of America,USA
+361,7,mid,Roman Tmetuchl Int'l,ROR,terminal,PTRO,ROR,http://en.wikipedia.org/wiki/Palau_International_Airport,4,1159120439,None,None
+362,7,mid,Amilcar Cabral Int'l,SID,terminal,GVAC,SID,http://en.wikipedia.org/wiki/Am%C3%ADlcar_Cabral_International_Airport,4,1159120457,Cabo Verde,CPV
+363,7,major,Sarajevo,SJJ,terminal,LQSA,SJJ,http://en.wikipedia.org/wiki/Sarajevo_International_Airport,4,1159120469,Bosnia and Herz.,BIH
+364,7,mid,Robert L. Bradshaw Int'l,SKB,terminal,TKPK,SKB,http://en.wikipedia.org/wiki/Robert_L._Bradshaw_International_Airport,4,1159120495,St. Kitts and Nevis,KNA
+365,7,mid,Martín Miguel de Güemes Int,SLA,terminal,SASA,SLA,http://en.wikipedia.org/wiki/Mart%C3%ADn_Miguel_de_G%C3%BCemes_Airport,4,1159120509,Argentina,ARG
+366,7,mid,Saipan Int'l,SPN,terminal,PGSN,SPN,http://en.wikipedia.org/wiki/Saipan_International_Airport,4,1159120529,N. Mariana Is.,MNP
+367,7,mid,Juana Azurduy de Padilla Int'l,SRE,terminal,SLSU,SRE,http://en.wikipedia.org/wiki/Juana_Azurduy_de_Padilla_International_Airport,4,1159120549,Bolivia,BOL
+368,7,major,Princess Juliana Int'l,SXM,terminal,TNCM,SXM,http://en.wikipedia.org/wiki/Princess_Juliana_International_Airport,4,1159120567,None,None
+369,7,mid,Ta'izz Int'l,TAI,terminal,OYTZ,TAI,http://en.wikipedia.org/wiki/Ta'izz_International_Airport,4,1159120583,Yemen,YEM
+370,7,mid,Qingdao Liuting Int'l,TAO,terminal,ZSQD,TAO,http://en.wikipedia.org/wiki/Qingdao_Liuting_International_Airport,4,1159120599,China,CHN
+371,7,mid,Chuuk Int'l,TKK,terminal,PTKK,TKK,http://en.wikipedia.org/wiki/Chuuk_International_Airport,4,1159120619,None,None
+372,7,mid,Tangier Ibn Battouta,TNG,terminal,GMTT,TNG,http://en.wikipedia.org/wiki/Tangier_Ibn_Battouta_Airport,4,1159120637,Morocco,MAR
+373,7,mid,Bonriki Int'l,TRW,ramp,NGTA,TRW,http://en.wikipedia.org/wiki/Bonriki_International_Airport,4,1159120657,Kiribati,KIR
+374,7,major,Astana Int'l,TSE,terminal,UACC,TSE,http://en.wikipedia.org/wiki/Astana_International_Airport,4,1159120673,Kazakhstan,KAZ
+375,7,major,Tianjin Binhai Int'l,TSN,terminal,ZBTJ,TSN,http://en.wikipedia.org/wiki/Tianjin_Binhai_International_Airport,4,1159120679,China,CHN
+376,7,major and military,Townsville,TSV,terminal,YBTL,TSV,http://en.wikipedia.org/wiki/Townsville_Airport,4,1159120709,Australia,AUS
+377,7,mid,Teniente Gen. Benjamin Matienzo Int'l,TUC,terminal,SANT,TUC,http://en.wikipedia.org/wiki/Benjam%C3%ADn_Matienzo_International_Airport,4,1159120721,Argentina,ARG
+378,7,major,Aeroport Tunis,TUN,terminal,DTTA,TUN,http://en.wikipedia.org/wiki/Tunis-Carthage_International_Airport,4,1159120741,Tunisia,TUN
+379,7,major,Tucson Int'l,TUS,terminal,KTUS,TUS,http://en.wikipedia.org/wiki/Tucson_International_Airport,4,1159120761,United States of America,USA
+380,7,mid,Chinggis Khaan Int'l,ULN,terminal,ZMUB,ULN,http://en.wikipedia.org/wiki/Chinggis_Khaan_International_Airport,4,1159120783,Mongolia,MNG
+381,7,major,Ürümqi Diwopu Int'l,URC,terminal,ZWWW,URC,http://en.wikipedia.org/wiki/%C3%9Cr%C3%BCmqi_Diwopu_International_Airport,4,1159120799,China,CHN
+382,7,mid,Bauerfield Int'l,VLI,terminal,NVVV,VLI,http://en.wikipedia.org/wiki/Bauerfield_International_Airport,4,1159120811,Vanuatu,VUT
+383,7,mid,Wewak Int'l,WWK,terminal,AYWK,WWK,http://en.wikipedia.org/wiki/Wewak_International_Airport,4,1159120821,Papua New Guinea,PNG
+384,7,military mid,Châlons Vatry,XCR,terminal,LFOK,XCR,http://en.wikipedia.org/wiki/Ch%C3%A2lons_Vatry_Airport,4,1159120839,France,FRA
+385,7,major,Xiamen Gaoqi Int'l,XMN,terminal,ZSAM,XMN,http://en.wikipedia.org/wiki/Xiamen_Gaoqi_International_Airport,4,1159120855,China,CHN
+386,7,mid,Yap Int'l,YAP,terminal,PTYA,YAP,http://en.wikipedia.org/wiki/Yap_International_Airport,4,1159120871,None,None
+387,7,mid,Playa de Oro Int'l,ZLO,terminal,MMZO,ZLO,http://en.wikipedia.org/wiki/Playa_de_Oro_International_Airport,4,1159120891,Mexico,MEX
+388,7,mid,Cayenne – Rochambeau,CAY,terminal,SOCA,CAY,http://en.wikipedia.org/wiki/Cayenne-Rochambeau_Airport,2,1159120909,France,FRA
+389,7,mid,Irkutsk N.W.,UIII,ramp,UIIR,UIIR,http://en.wikipedia.org/wiki/Irkutsk_Northwest_Airport,4,1159120927,Russia,RUS
+390,7,major,Shijiazhuang Zhengding Int'l,SJW,terminal,ZBSJ,SJW,http://en.wikipedia.org/wiki/Shijiazhuang_Zhengding_International_Airport,4,1159120939,China,CHN
+391,7,major,Heydar Aliyev Int'l,GYD,terminal,UBBB,GYD,http://en.wikipedia.org/wiki/Heydar_Aliyev_International_Airport,4,1159120951,Azerbaijan,AZE
+392,7,military mid,Lakatamia Airbase,LAK,ramp,LCRO,LAK,http://en.wikipedia.org/wiki/List_of_airports_in_Cyprus,0,1159120967,Cyprus,CYP
+393,7,mid,Cabo Frio Int'l,CFB,terminal,SBCB,CFB,http://en.wikipedia.org/wiki/Cabo_Frio_International_Airport,4,1159120985,Brazil,BRA
+394,7,mid,Helsinki-Malmi,HEM,terminal,EFHF,HEM,http://en.wikipedia.org/wiki/Helsinki-Malmi_Airport,4,1159120997,Finland,FIN
+395,7,major,Luxembourg-Findel,LUX,terminal,ELLX,LUX,http://en.wikipedia.org/wiki/Luxembourg-Findel_International_Airport,4,1159121013,Luxembourg,LUX
+396,7,major,Venice Marco Polo,VCE,terminal,LIPZ,VCE,http://en.wikipedia.org/wiki/Marco_Polo_International_Airport,4,1159121029,Italy,ITA
+397,7,mid,Yangyang Int'l,YNY,terminal,RKNY,YNY,http://en.wikipedia.org/wiki/Yangyang_International_Airport,4,1159121051,South Korea,KOR
+398,7,mid,Tabatinga Int'l,TBT,terminal,SBTT,TBT,http://en.wikipedia.org/wiki/Tabatinga_International_Airport,4,1159121067,Brazil,BRA
+399,7,mid,Boa Vista Int'l,BVB,terminal,SBBV,BVB,http://en.wikipedia.org/wiki/Boa_Vista_International_Airport,4,1159121075,Brazil,BRA
+400,7,major,Gran Canaria,LPA,terminal,GCLP,LPA,http://en.wikipedia.org/wiki/Gran_Canaria_Airport,4,1159121091,Spain,ESP
+401,7,mid,Com. Armando Tola Int'l,ING,terminal,SAWA,ING,http://en.wikipedia.org/wiki/Comandante_Armando_Tola_International_Airport,5,1159121107,Argentina,ARG
+402,7,mid,Stockholm-Skavsta,NYO,terminal,ESKN,NYO,http://en.wikipedia.org/wiki/Stockholm-Skavsta_Airport,4,1159121125,Sweden,SWE
+403,7,mid,Polonia Int'l,MES,terminal,WIMM,MES,http://en.wikipedia.org/wiki/Polonia_International_Airport,4,1159121143,Indonesia,IDN
+404,7,mid,Bangui M'Poko Int'l,BGF,terminal,FEFF,BGF,http://en.wikipedia.org/wiki/Bangui_M'Poko_International_Airport,4,1159121159,Central African Rep.,CAF
+405,7,major,Hangzhou Xiaoshan Int'l,HGH,terminal,ZSHC,HGH,http://en.wikipedia.org/wiki/Hangzhou_Xiaoshan_International_Airport,5,1159121183,China,CHN
+406,7,mid,Cassidy Int'l,CXI,runway,PLCH,CXI,http://en.wikipedia.org/wiki/Cassidy_International_Airport,4,1159121195,None,None
+407,7,mid,Šiauliai Int'l,SQQ,runway,EYSA,SQQ,http://en.wikipedia.org/wiki/%C5%A0iauliai_International_Airport,4,1159121207,Lithuania,LTU
+408,7,mid,Niue Int'l,IUE,terminal,NIUE,IUE,http://en.wikipedia.org/wiki/Niue_International_Airport,4,1159121227,Niue,NIU
+409,7,mid,Guaraní Int'l,AGT,terminal,SGES,AGT,http://en.wikipedia.org/wiki/Guarani_International_Airport,4,1159121237,Paraguay,PRY
+410,7,mid,Rodríguez Ballón Int'l,AQP,terminal,SPQU,AQP,http://en.wikipedia.org/wiki/Rodriguez_Ballon_International_Airport,4,1159121253,Peru,PER
+411,7,mid and military,Vladivostok Int'l,VVO,terminal,UHWW,VVO,http://en.wikipedia.org/wiki/Vladivostok_International_Airport,4,1159121269,Russia,RUS
+412,7,major,Pristina,PRN,ramp,BKPR,PRN,http://en.wikipedia.org/wiki/Pristina_International_Airport_Adem_Jashari,4,1159121283,Kosovo,KOS
+413,6,mid,Deurne,ANR,terminal,EBAW,ANR,http://en.wikipedia.org/wiki/Antwerp_International_Airport,4,1159121297,Belgium,BEL
+414,6,mid,Gen. Márquez de León Int'l,LAP,terminal,MMLP,LAP,http://en.wikipedia.org/wiki/Manuel_M%C3%A1rquez_de_Le%C3%B3n_International_Airport,4,1159121317,Mexico,MEX
+415,6,major,Harbin Taiping,HRB,terminal,ZYHB,HRB,http://en.wikipedia.org/wiki/Harbin_Taiping_International_Airport,4,1159121329,China,CHN
+416,6,mid,Trivandrum Int'l,TRV,terminal,VOTV,TRV,http://en.wikipedia.org/wiki/Trivandrum_International_Airport,4,1159121343,India,IND
+417,6,major,Adnan Menderes,ADB,terminal,LTBJ,ADB,http://en.wikipedia.org/wiki/Adnan_Menderes_Airport,4,1159121355,Turkey,TUR
+418,6,major,Nanjing Lukou Int'l,NKG,terminal,ZSNJ,NKG,http://en.wikipedia.org/wiki/Nanjing_Lukou_International_Airport,4,1159121375,China,CHN
+419,6,mid,Freeport Int'l,FPO,terminal,MYGF,FPO,http://en.wikipedia.org/wiki/Grand_Bahama_International_Airport,4,1159121395,Bahamas,BHS
+420,6,major,Tripoli Int'l,TIP,terminal,HLLT,TIP,http://en.wikipedia.org/wiki/Tripoli_International_Airport,4,1159121401,Libya,LBY
+421,6,mid,Gander Int'l,YQX,terminal,CYQX,YQX,http://en.wikipedia.org/wiki/Gander_International_Airport,4,1159121427,Canada,CAN
+422,6,major and military,Doha Int'l,DOH,terminal,OTBD,DOH,http://en.wikipedia.org/wiki/Doha_International_Airport,4,1159121441,Qatar,QAT
+423,6,major,Albuquerque Int'l,ABQ,terminal,KABQ,ABQ,http://en.wikipedia.org/wiki/Albuquerque_International_Sunport,4,1159121449,United States of America,USA
+424,6,mid,V.C. Bird Int'l,ANU,terminal,TAPA,ANU,http://en.wikipedia.org/wiki/VC_Bird_International_Airport,4,1159121465,Antigua and Barb.,ATG
+425,6,mid,Faleolo,APW,terminal,NSFA,APW,http://en.wikipedia.org/wiki/Faleolo_International_Airport,4,1159121481,Samoa,WSM
+426,6,mid,Asyut,ATZ,terminal,HEAT,ATZ,http://en.wikipedia.org/wiki/Assiut_Airport,4,1159121497,Egypt,EGY
+427,6,major,Bahrain Int'l,BAH,terminal,OBBI,BAH,http://en.wikipedia.org/wiki/Bahrain_International_Airport,4,1159121515,None,None
+428,6,major,Bradley Int'l,BDL,terminal,KBDL,BDL,http://en.wikipedia.org/wiki/Bradley_International_Airport,4,1159121531,United States of America,USA
+429,6,mid,Grantley Adams Int'l,BGI,terminal,TBPB,BGI,http://en.wikipedia.org/wiki/Grantley_Adams_International_Airport,4,1159121545,None,None
+430,6,mid,Yundum Int'l,BJL,terminal,GBYD,BJL,http://en.wikipedia.org/wiki/Banjul_International_Airport,4,1159121561,Gambia,GMB
+431,6,mid,Bujumbura Int'l,BJM,terminal,HBBA,BJM,http://en.wikipedia.org/wiki/Bujumbura_International_Airport,4,1159121577,Burundi,BDI
+432,6,mid,Chileka Int'l,BLZ,terminal,FWCL,BLZ,http://en.wikipedia.org/wiki/Chileka_International_Airport,4,1159121581,Malawi,MWI
+433,6,mid,Broome Int'l,BME,terminal,YBRM,BME,http://en.wikipedia.org/wiki/Broome_International_Airport,4,1159121597,None,None
+434,6,mid,Bandar Abbass Int'l,BND,terminal,OIKB,BND,http://en.wikipedia.org/wiki/Bandar_Abbas_International_Airport,4,1159121625,Iran,IRN
+435,6,major,Basrah Int'l,BSR,terminal,ORMM,BSR,http://en.wikipedia.org/wiki/Basra_International_Airport,4,1159121643,Iraq,IRQ
+436,6,mid,Ciudad Juarez Int'l,CJS,terminal,MMCS,CJS,http://en.wikipedia.org/wiki/Abraham_Gonz%C3%A1lez_International_Airport,4,1159121657,Mexico,MEX
+437,6,major,Katunayake Int'l,CMB,terminal,VCBI,CMB,http://en.wikipedia.org/wiki/Bandaranaike_International_Airport,4,1159121665,Sri Lanka,LKA
+438,6,mid,Cairns Int'l,CNS,terminal,YBCS,CNS,http://en.wikipedia.org/wiki/Cairns_International_Airport,4,1159121685,None,None
+439,6,major,Chiang Mai Int'l,CNX,terminal,VTCC,CNX,http://en.wikipedia.org/wiki/Chiang_Mai_International_Airport,4,1159121695,Thailand,THA
+440,6,major,City of Colorado Springs,COS,terminal,KCOS,COS,http://en.wikipedia.org/wiki/Colorado_Springs_Airport,4,1159121711,United States of America,USA
+441,6,mid,Ign. Alberto Ongay Int'l,CPE,terminal,MMCP,CPE,http://en.wikipedia.org/wiki/Ing._Alberto_Acu%C3%B1a_Ongay_International_Airport,4,1159121725,Mexico,MEX
+442,6,major,Changsha Huanghua Int'l,CSX,terminal,ZGHA,CSX,http://en.wikipedia.org/wiki/Changsha_airport,4,1159121747,China,CHN
+443,6,major,Greater Cincinnati Int'l,CVG,terminal,KCVG,CVG,http://en.wikipedia.org/wiki/Cincinnati/Northern_Kentucky_International_Airport,4,1159121765,United States of America,USA
+444,6,major,Da Nang,DAD,terminal,VVDN,DAD,http://en.wikipedia.org/wiki/Da_Nang_International_Airport,4,1159121783,Vietnam,VNM
+445,6,major,Dallas Love Field,DAL,terminal,KDAL,DAL,http://en.wikipedia.org/wiki/Dallas_Love_Field,4,1159121793,United States of America,USA
+446,6,major,Damascus Int'l,DAM,terminal,OSDI,DAM,http://en.wikipedia.org/wiki/Damascus_International_Airport,4,1159121825,Syria,SYR
+447,6,mid,Enrique Malek Int'l,DAV,terminal,MPDA,DAV,http://en.wikipedia.org/wiki/Enrique_Malek_International_Airport,4,1159121841,Panama,PAN
+448,6,mid,Aba Tenna D. Yilma Int'l,DIR,terminal,HADR,DIR,http://en.wikipedia.org/wiki/Aba_Tenna_Dejazmach_Yilma_International_Airport,4,1159121857,Ethiopia,ETH
+449,6,major,Bali Int'l,DPS,terminal,WADD,DPS,http://en.wikipedia.org/wiki/Ngurah_Rai_Airport,4,1159121877,Indonesia,IDN
+450,6,major,Des Moines Int'l,DSM,terminal,KDSM,DSM,http://en.wikipedia.org/wiki/Des_Moines_International_Airport,2,1159121895,United States of America,USA
+451,6,mid,Entebbe Int'l,EBB,terminal,HUEN,EBB,http://en.wikipedia.org/wiki/Entebbe_International_Airport,4,1159121903,Uganda,UGA
+452,6,mid,Kisangani Bangoka Int'l,FKI,terminal,FZIC,FKI,http://en.wikipedia.org/wiki/Bangoka_International_Airport,4,1159121921,Dem. Rep. Congo,COD
+453,6,mid,Fuzhou Changle Int'l,FOC,terminal,ZSFZ,FOC,http://en.wikipedia.org/wiki/Fuzhou_Changle_International_Airport,4,1159121937,None,None
+454,6,mid,Lokpriya G. Bordoloi Int'l,GAU,terminal,VEGT,GAU,http://en.wikipedia.org/wiki/Lokpriya_Gopinath_Bordoloi_International_Airport,4,1159121953,India,IND
+455,6,major,Gdansk Lech Walesa,GDN,terminal,EPGD,GDN,http://en.wikipedia.org/wiki/Gda%C5%84sk_Lech_Wa%C5%82%C4%99sa_Airport,4,1159121969,Poland,POL
+456,6,mid,Point Salines Int'l,GND,terminal,TGPY,GND,http://en.wikipedia.org/wiki/Point_Salines_International_Airport,4,1159121987,None,None
+457,6,mid,Nizhny Novgorod Int'l,GOJ,terminal,UWGG,GOJ,http://en.wikipedia.org/wiki/Nizhny_Novgorod_International_Airport,4,1159122005,Russia,RUS
+458,6,mid,Gen. José M. Yáñez Int'l,GYM,terminal,MMGM,GYM,http://en.wikipedia.org/wiki/General_Jos%C3%A9_Mar%C3%ADa_Y%C3%A1%C3%B1ez_International_Airport,4,1159122023,Mexico,MEX
+459,6,mid,Hohhot Baita Int'l,HET,terminal,ZBHH,HET,http://en.wikipedia.org/wiki/Hohhot_Baita_International_Airport,4,1159122037,China,CHN
+460,6,mid,Helena Reg.,HLN,terminal,KHLN,HLN,http://en.wikipedia.org/wiki/Helena_Regional_Airport,4,1159122049,United States of America,USA
+461,6,mid,Gen. Ignacio P. Garcia Int'l,HMO,terminal,MMHO,HMO,http://en.wikipedia.org/wiki/General_Ignacio_Pesqueira_Garcia_International_Airport,4,1159122065,Mexico,MEX
+462,6,major,Dulles Int'l,IAD,terminal,KIAD,IAD,http://en.wikipedia.org/wiki/Washington_Dulles_International_Airport,4,1159122081,United States of America,USA
+463,6,mid,Hilo Int'l,ITO,terminal,PHTO,ITO,http://en.wikipedia.org/wiki/Hilo_International_Airport,4,1159122097,United States of America,USA
+464,6,major,Jackson Int'l,JAN,terminal,KJAN,JAN,http://en.wikipedia.org/wiki/Jackson-Evers_International_Airport,4,1159122113,United States of America,USA
+465,6,major,Jacksonville Int'l,JAX,terminal,KJAX,JAX,http://en.wikipedia.org/wiki/Jacksonville_International_Airport,4,1159122129,United States of America,USA
+466,6,mid,Kuching Int'l,KCH,terminal,WBGG,KCH,http://en.wikipedia.org/wiki/Kuching_International_Airport,4,1159122145,Malaysia,MYS
+467,6,mid,Kigali Int'l,KGL,terminal,HRYR,KGL,http://en.wikipedia.org/wiki/Kigali_International_Airport,4,1159122161,Rwanda,RWA
+468,6,major,Kraków-Balice,KRK,terminal,EPKK,KRK,http://en.wikipedia.org/wiki/John_Paul_II_International_Airport_Krak%C3%B3w-Balice,5,1159122175,Poland,POL
+469,6,major,Kurumoch,KUF,terminal,UWWW,KUF,http://en.wikipedia.org/wiki/Kurumoch_International_Airport,4,1159122191,Russia,RUS
+470,6,major,Guilin Liangjiang Int'l,KWL,terminal,ZGKL,KWL,http://en.wikipedia.org/wiki/Guilin_Liangjiang_International_Airport,4,1159122207,China,CHN
+471,6,mid,Laoag Int'l,LAO,terminal,RPLI,LAO,http://en.wikipedia.org/wiki/Laoag_International_Airport,4,1159122223,Philippines,PHL
+472,6,major,LaGuardia,LGA,terminal,KLGA,LGA,http://en.wikipedia.org/wiki/LaGuardia_Airport,4,1159122233,United States of America,USA
+473,6,major,London Gatwick,LGW,terminal,EGKK,LGW,http://en.wikipedia.org/wiki/London_Gatwick_Airport,4,1159122245,United Kingdom,GBR
+474,6,major,Ljubljana,LJU,terminal,LJLJ,LJU,http://en.wikipedia.org/wiki/Ljubljana_Jo%C5%BEe_Pu%C4%8Dnik_Airport,4,1159122261,Slovenia,SVN
+475,6,mid,Amausi Int'l,LKO,terminal,VILK,LKO,http://en.wikipedia.org/wiki/Amausi_Airport,4,1159122291,India,IND
+476,6,mid,La Plata,LPG,terminal,SADL,LPG,http://en.wikipedia.org/wiki/La_Plata_Airport,4,1159122295,Argentina,ARG
+477,6,mid,Gen. Sevando Canales,MAM,terminal,MMMA,MAM,http://en.wikipedia.org/wiki/General_Servando_Canales_International_Airport,4,1159122307,Mexico,MEX
+478,6,major,Manchester Int'l,MAN,terminal,EGCC,MAN,http://en.wikipedia.org/wiki/Manchester_Airport,4,1159122331,United Kingdom,GBR
+479,6,major,Kansas City Int'l,MCI,terminal,KMCI,MCI,http://en.wikipedia.org/wiki/Kansas_City_International_Airport,4,1159122347,United States of America,USA
+480,6,major,Seeb Int'l,MCT,terminal,OOMS,MCT,http://en.wikipedia.org/wiki/Seeb_International_Airport,4,1159122367,Oman,OMN
+481,6,mid,Habib Bourguiba Int'l,MIR,terminal,DTMB,MIR,http://en.wikipedia.org/wiki/Habib_Bourguiba_International_Airport,4,1159122379,Tunisia,TUN
+482,6,major,Marseille Provence Airport,MRS,terminal,LFML,MRS,http://en.wikipedia.org/wiki/Marseille_Provence_Airport,4,1159122391,France,FRA
+483,6,mid,Quetzalcoatl Int'l,NLD,terminal,MMNL,NLD,http://en.wikipedia.org/wiki/Quetzalc%C3%B3atl_International_Airport,4,1159122413,Mexico,MEX
+484,6,major,Nanning Wuwu Int'l,NNG,terminal,ZGNN,NNG,http://en.wikipedia.org/wiki/Nanning_Wuxu_International_Airport,4,1159122427,China,CHN
+485,6,mid,Xoxocotlán Int'l,OAX,terminal,MMOX,OAX,http://en.wikipedia.org/wiki/Xoxocotl%C3%A1n_International_Airport,4,1159122443,Mexico,MEX
+486,6,mid,Kahului,OGG,terminal,PHOG,OGG,http://en.wikipedia.org/wiki/Kahului_Airport,4,1159122457,United States of America,USA
+487,6,major,Will Rogers,OKC,terminal,KOKC,OKC,http://en.wikipedia.org/wiki/Will_Rogers_World_Airport,4,1159122523,United States of America,USA
+488,6,major,Norfolk Int'l,ORF,terminal,KORF,ORF,http://en.wikipedia.org/wiki/Norfolk_International_Airport,4,1159122535,United States of America,USA
+489,6,major,Palm Beach Int'l,PBI,terminal,KPBI,PBI,http://en.wikipedia.org/wiki/Palm_Beach_International_Airport,4,1159122547,United States of America,USA
+490,6,mid,Pengel Int'l,PBM,terminal,SMJP,PBM,http://en.wikipedia.org/wiki/Johan_Adolf_Pengel_International_Airport,4,1159122565,Suriname,SUR
+491,6,mid,Bolshesavino,PEE,terminal,USPP,PEE,http://en.wikipedia.org/wiki/Bolshoye_Savino_Airport,4,1159122579,Russia,RUS
+492,6,mid,Penang Int'l,PEN,terminal,WMKP,PEN,http://en.wikipedia.org/wiki/Penang_International_Airport,4,1159122593,Malaysia,MYS
+493,6,mid,Port Harcourt Int'l,PHC,terminal,DNPO,PHC,http://en.wikipedia.org/wiki/Port_Harcourt_International_Airport,4,1159122607,Nigeria,NGA
+494,6,mid,Port Hedland Int'l,PHE,terminal,YPPD,PHE,http://en.wikipedia.org/wiki/Port_Hedland_International_Airport,4,1159122623,Australia,AUS
+495,6,mid,Pierre Regional,PIR,terminal,KPIR,PIR,http://en.wikipedia.org/wiki/Pierre_Regional_Airport,4,1159122639,United States of America,USA
+496,6,major,Greater Pittsburgh Int'l,PIT,terminal,KPIT,PIT,http://en.wikipedia.org/wiki/Pittsburgh_International_Airport,4,1159122655,United States of America,USA
+497,6,mid,Pago Pago Int'l,PPG,terminal,NSTU,PPG,http://en.wikipedia.org/wiki/Pago_Pago_International_Airport,4,1159122671,American Samoa,ASM
+498,6,major,Birmingham Int'l,BHX,terminal,EGBB,BHX,http://en.wikipedia.org/wiki/Birmingham_International_Airport_(United_Kingdom),4,1159122687,United Kingdom,GBR
+499,6,mid,Roberts Int'l,ROB,terminal,GLRB,ROB,http://en.wikipedia.org/wiki/Roberts_International_Airport,4,1159122703,Liberia,LBR
+500,6,mid,Raipur,RPR,terminal,VARP,RPR,http://en.wikipedia.org/wiki/Raipur_Airport,4,1159122719,India,IND
+501,6,mid,El Salvador Int'l,SAL,terminal,MSLP,SAL,http://en.wikipedia.org/wiki/Cuscatlan_International_Airport,2,1159122733,El Salvador,SLV
+502,6,major,San Diego Int'l,SAN,terminal,KSAN,SAN,http://en.wikipedia.org/wiki/San_Diego_International_Airport,4,1159122749,United States of America,USA
+503,6,major,San Antonio Int'l,SAT,terminal,KSAT,SAT,http://en.wikipedia.org/wiki/San_Antonio_International_Airport,4,1159122765,United States of America,USA
+504,6,major,Savannah Int'l,SAV,terminal,KSAV,SAV,http://en.wikipedia.org/wiki/Savannah/Hilton_Head_International_Airport,2,1159122799,United States of America,USA
+505,6,mid,Antonio Maceo,SCU,terminal,MUCU,SCU,http://en.wikipedia.org/wiki/Antonio_Maceo_Airport,4,1159122811,Cuba,CUB
+506,6,mid,Ponciano Arriaga Int'l,SLP,terminal,MMSP,SLP,http://en.wikipedia.org/wiki/Ponciano_Arriaga_International_Airport,4,1159122827,Mexico,MEX
+507,6,major,Sacramento Int'l,SMF,terminal,KSMF,SMF,http://en.wikipedia.org/wiki/Sacramento_International_Airport,4,1159122841,United States of America,USA
+508,6,mid,Cibao Int'l,STI,terminal,MDST,STI,http://en.wikipedia.org/wiki/Cibao_International_Airport,2,1159122849,Dominican Rep.,DOM
+509,6,major,Koltsovo,SVX,terminal,USSS,SVX,http://en.wikipedia.org/wiki/Koltsovo_Airport,4,1159122855,Russia,RUS
+510,6,major,Syracuse Hancock Int'l,SYR,terminal,KSYR,SYR,http://en.wikipedia.org/wiki/Syracuse_Hancock_International_Airport,4,1159122871,United States of America,USA
+511,6,mid,Tabriz,TBZ,terminal,OITT,TBZ,http://en.wikipedia.org/wiki/Tabriz_International_Airport,4,1159122885,Iran,IRN
+512,6,mid,Torreon Int'l,TRC,terminal,MMTC,TRC,http://en.wikipedia.org/wiki/Francisco_Sarabia_International_Airport,4,1159122893,Mexico,MEX
+513,6,major,Tulsa Int'l,TUL,terminal,KTUL,TUL,http://en.wikipedia.org/wiki/Tulsa_International_Airport,4,1159122919,United States of America,USA
+514,6,major,Mcghee Tyson,TYS,terminal,KTYS,TYS,http://en.wikipedia.org/wiki/McGhee_Tyson_Airport,4,1159122935,United States of America,USA
+515,6,major,Ufa Int'l,UFA,terminal,UWUU,UFA,http://en.wikipedia.org/wiki/Ufa_International_Airport,4,1159122947,Russia,RUS
+516,6,mid,Hewanorra Int'l,UVF,terminal,TLPL,UVF,http://en.wikipedia.org/wiki/Hewanorra_International_Airport,4,1159122963,Saint Lucia,LCA
+517,6,mid,Windhoek Hosea Kutako Int'l,WDH,terminal,FYWH,WDH,http://en.wikipedia.org/wiki/Windhoek_Hosea_Kutako_International_Airport,4,1159122979,Namibia,NAM
+518,6,mid,Sault Ste Marie,YAM,terminal,CYAM,YAM,http://en.wikipedia.org/wiki/Sault_Ste._Marie_Airport,4,1159122997,Canada,CAN
+519,6,mid,Dawson Cr.,YDQ,terminal,CYDQ,YDQ,http://en.wikipedia.org/wiki/Dawson_Creek_Airport,4,1159123009,Canada,CAN
+520,6,major,Edmonton Int'l,YEG,terminal,CYEG,YEG,http://en.wikipedia.org/wiki/Edmonton_International_Airport,4,1159123027,Canada,CAN
+521,6,major,Halifax Int'l,YHZ,terminal,CYHZ,YHZ,http://en.wikipedia.org/wiki/Halifax_International_Airport,4,1159123039,Canada,CAN
+522,6,mid,Kamloops,YKA,terminal,CYKA,YKA,http://en.wikipedia.org/wiki/Kamloops_Airport,4,1159123055,Canada,CAN
+523,6,mid,Sudbury,YSB,terminal,CYSB,YSB,http://en.wikipedia.org/wiki/Sudbury_Airport,4,1159123071,Canada,CAN
+524,6,mid,Saint John,YSJ,terminal,CYSJ,YSJ,http://en.wikipedia.org/wiki/Saint_John_Airport,4,1159123087,Canada,CAN
+525,6,mid,Prince George,YXS,terminal,CYXS,YXS,http://en.wikipedia.org/wiki/Prince_George_Airport,4,1159123103,Canada,CAN
+526,6,major,Victoria Int'l,YYJ,terminal,CYYJ,YYJ,http://en.wikipedia.org/wiki/Victoria_International_Airport,4,1159123119,Canada,CAN
+527,6,mid,Zamboanga Int'l,ZAM,terminal,RPMZ,ZAM,http://en.wikipedia.org/wiki/Zamboanga_International_Airport,4,1159123129,None,None
+528,6,mid,Lanzhou Zhongchuan,ZGC,terminal,ZLLL,ZGC,http://en.wikipedia.org/wiki/Lanzhou_Zhongchuan_Airport,4,1159123147,China,CHN
+529,6,mid,Albany Int'l,ALB,terminal,KALB,ALB,http://en.wikipedia.org/wiki/Albany_International_Airport,4,1159123169,United States of America,USA
+530,6,major,General Mitchell Int'l,MKE,terminal,KMKE,MKE,http://en.wikipedia.org/wiki/General_Mitchell_International_Airport,4,1159123177,United States of America,USA
+531,6,military mid,Wang-Chia Tun Airbase,ZHHH,runway,,,,5,1159123197,China,CHN
+532,6,major,Sanya Phoenix Int'l,SYX,terminal,ZJSY,SYX,http://en.wikipedia.org/wiki/Sanya_Phoenix_International_Airport,4,1159123211,China,CHN
+533,6,mid,Lhasa Gonggar,LXA,terminal,ZULS,LXA,http://en.wikipedia.org/wiki/Lhasa_Gonggar_Airport,4,1159123223,China,CHN
+534,6,mid,Hotan,HTN,terminal,ZWTN,HTN,http://en.wikipedia.org/wiki/Hotan_Airport,4,1159123235,China,CHN
+535,6,major,Dresden,DRS,terminal,EDDC,DRS,http://en.wikipedia.org/wiki/Dresden_Airport,4,1159123251,Germany,DEU
+536,6,military major,Kenitra Air Base,NNA,terminal,GMMY,NNA,http://en.wikipedia.org/wiki/Kenitra_Air_Base,4,1159123267,Morocco,MAR
+537,6,mid,Annemasse,QNJ,ramp,LFLI,QNJ,http://en.wikipedia.org/wiki/Annemasse_Aerodrome,4,1159123277,France,FRA
+538,6,mid,Nogales Int'l,NOG,terminal,MMNG,NOG,http://en.wikipedia.org/wiki/Nogales_International_Airport_(Mexico),4,1159123287,Mexico,MEX
+539,6,mid,Strasbourg,SXB,terminal,LFST,SXB,http://en.wikipedia.org/wiki/Strasbourg_Airport,4,1159123303,France,FRA
+540,6,major,Cologne/Bonn,CGN,terminal,EDDK,CGN,http://en.wikipedia.org/wiki/Cologne_Bonn_Airport,4,1159123317,Germany,DEU
+541,6,major,Kimhae Int'l,PUS,terminal,RKPK,PUS,http://en.wikipedia.org/wiki/Gimhae_International_Airport,2,1159123337,South Korea,KOR
+542,6,major,Jeju Int'l,CJU,terminal,RKPC,CJU,http://en.wikipedia.org/wiki/Jeju_International_Airport,4,1159123353,None,None
+543,6,major,Stavanger Sola,SVG,terminal,ENZV,SVG,"http://en.wikipedia.org/wiki/Stavanger_Airport,_Sola",4,1159123367,Norway,NOR
+544,6,major,Trondheim Vaernes,TRD,terminal,ENVA,TRD,http://en.wikipedia.org/wiki/Trondheim_Airport%2C_V%C3%A6rnes,4,1159123387,Norway,NOR
+545,6,mid,Corumbá Int'l,CMG,terminal,SBCR,CMG,http://en.wikipedia.org/wiki/Corumba_International_Airport,4,1159123405,Brazil,BRA
+546,6,mid,Madeira,FNC,terminal,LPMA,FNC,http://en.wikipedia.org/wiki/Madeira_Airport,4,1159123417,None,None
+547,6,mid,Foz do Iguaçu Int'l,IGU,terminal,SBFI,IGU,http://en.wikipedia.org/wiki/Foz_do_Igua%C3%A7u_International_Airport,4,1159123433,Brazil,BRA
+548,6,mid,Gov. Jorge Teixeira de Oliveira Int'l,PVH,terminal,SBPV,PVH,http://en.wikipedia.org/wiki/Governador_Jorge_Teixeira_de_Oliveira_International_Airport,4,1159123449,Brazil,BRA
+549,6,mid,Bilbao,BIO,terminal,LEBB,BIO,http://en.wikipedia.org/wiki/Bilbao_Airport,4,1159123469,Spain,ESP
+550,6,major,Palma de Mallorca,PMI,terminal,LEPA,PMI,http://en.wikipedia.org/wiki/Palma_de_Mallorca_Airport,4,1159123487,Spain,ESP
+551,6,major,Tenerife N.,TFN,terminal,GCXO,TFN,http://en.wikipedia.org/wiki/Los_Rodeos_Airport,4,1159123501,Spain,ESP
+552,6,major,Gothenburg,GOT,terminal,ESGG,GOT,http://en.wikipedia.org/wiki/Gothenburg-Landvetter_Airport,4,1159123513,Sweden,SWE
+553,6,major,Lulea,LLA,terminal,ESPA,LLA,http://en.wikipedia.org/wiki/Lule%C3%A5_Airport,4,1159123529,Sweden,SWE
+554,6,major,Abu Dhabi Int'l,AUH,terminal,OMAA,AUH,http://en.wikipedia.org/wiki/Abu_Dhabi_International_Airport,4,1159123541,United Arab Emirates,ARE
+555,6,mid,Mohamed Boudiaf Int'l,CZL,terminal,DABC,CZL,http://en.wikipedia.org/wiki/Mohamed_Boudiaf_International_Airport,4,1159123557,Algeria,DZA
+556,6,mid,Aswan Int'l,ASW,terminal,HESN,ASW,http://en.wikipedia.org/wiki/Aswan_International_Airport,4,1159123573,Egypt,EGY
+557,6,mid,Rovaniemi,RVN,terminal,EFRO,RVN,http://en.wikipedia.org/wiki/Rovaniemi_Airport,4,1159123589,Finland,FIN
+558,6,mid,Cheddi Jagan Int'l,GEO,terminal,SYCJ,GEO,http://en.wikipedia.org/wiki/Cheddi_Jagan_International_Airport,4,1159123603,Guyana,GUY
+559,6,major,Cochin Int'l,COK,terminal,VOCI,COK,http://en.wikipedia.org/wiki/Cochin_International_Airport,4,1159123615,India,IND
+560,6,mid,Eldoret Int'l,EDL,terminal,HKEL,EDL,http://en.wikipedia.org/wiki/Eldoret_International_Airport,4,1159123629,Kenya,KEN
+561,6,major,Incheon Int'l,ICN,terminal,RKSI,ICN,http://en.wikipedia.org/wiki/Incheon_International_Airport,4,1159123643,None,None
+562,6,mid,Federal de Bachigualato Int'l,CUL,terminal,MMCL,CUL,http://en.wikipedia.org/wiki/Federal_de_Bachigualato_International_Airport,4,1159123657,Mexico,MEX
+563,6,major and military,Benazir Bhutto Int'l,ISB,terminal,OPRN,ISB,http://en.wikipedia.org/wiki/Islamabad_International_Airport,4,1159123669,Pakistan,PAK
+564,5,major,Brussels,BRU,terminal,EBBR,BRU,http://en.wikipedia.org/wiki/Brussels_Airport,4,1159123683,Belgium,BEL
+565,5,major,Abuja Int'l,ABV,terminal,DNAA,ABV,http://en.wikipedia.org/wiki/Nnamdi_Azikiwe_International_Airport,4,1159123699,Nigeria,NGA
+566,5,mid,Arcata-Eureka,ACV,terminal,KACV,ACV,http://en.wikipedia.org/wiki/Arcata-Eureka_Airport,4,1159123711,United States of America,USA
+567,5,major,Austin-Bergstrom Int'l,AUS,terminal,KAUS,AUS,http://en.wikipedia.org/wiki/Austin-Bergstrom_International_Airport,4,1159123731,United States of America,USA
+568,5,major,Antalya,AYT,terminal,LTAI,AYT,http://en.wikipedia.org/wiki/Antalya_Airport,4,1159123747,Turkey,TUR
+569,5,major,Belfast Int'l,BFS,terminal,EGAA,BFS,http://en.wikipedia.org/wiki/Belfast_International_Airport,4,1159123759,United Kingdom,GBR
+570,5,major,Orio Al Serio,BGY,terminal,LIME,BGY,http://en.wikipedia.org/wiki/Orio_al_Serio_Airport,4,1159123777,Italy,ITA
+571,5,mid,Kota Kinabalu Int'l,BKI,terminal,WBKK,BKI,http://en.wikipedia.org/wiki/Kota_Kinabalu_International_Airport,4,1159123793,None,None
+572,5,major,Bengaluru Int'l,BLR,terminal,VOBL,BLR,http://en.wikipedia.org/wiki/Bengaluru_International_Airport,4,1159123807,India,IND
+573,5,major,Canberra Int'l,CBR,terminal,YSCB,CBR,http://en.wikipedia.org/wiki/Canberra_International_Airport,4,1159123827,Australia,AUS
+574,5,major,Port Columbus Int'l,CMH,terminal,KCMH,CMH,http://en.wikipedia.org/wiki/Port_Columbus_International_Airport,4,1159123845,United States of America,USA
+575,5,major,Mohamed V Int'l,CMN,terminal,GMMN,CMN,http://en.wikipedia.org/wiki/Mohammed_V_International_Airport,4,1159123861,Morocco,MAR
+576,5,major,Düsseldorf Int'l,DUS,terminal,EDDL,DUS,http://en.wikipedia.org/wiki/D%C3%BCsseldorf_International_Airport,4,1159123877,Germany,DEU
+577,5,major,Esenboğa Int'l,ESB,terminal,LTAC,ESB,http://en.wikipedia.org/wiki/Esenbo%C4%9Fa_International_Airport,4,1159123885,Turkey,TUR
+578,5,mid,Hamilton Int'l,HLZ,terminal,NZHN,HLZ,http://en.wikipedia.org/wiki/Hamilton_International_Airport,4,1159123897,New Zealand,NZL
+579,5,major,Rajiv Gandhi Int'l,HYD,terminal,VOHS,HYD,http://en.wikipedia.org/wiki/Rajiv_Gandhi_International_Airport,4,1159123911,India,IND
+580,5,major,John F Kennedy Int'l,JFK,parking,KJFK,JFK,http://en.wikipedia.org/wiki/John_F._Kennedy_International_Airport,4,1159123927,United States of America,USA
+581,5,major,Boryspil Int'l,KBP,terminal,UKBB,KBP,http://en.wikipedia.org/wiki/Boryspil_International_Airport,4,1159123937,Ukraine,UKR
+582,5,major,Khartoum,KRT,terminal,HSSS,KRT,http://en.wikipedia.org/wiki/Khartoum_International_Airport,4,1159123949,Sudan,SDN
+583,5,major,Dane Cty. Reg. (Truax Field),MSN,terminal,KMSN,MSN,http://en.wikipedia.org/wiki/Dane_County_Regional_Airport,4,1159123961,United States of America,USA
+584,5,major,Minsk Int'l,MSQ,terminal,UMMS,MSQ,http://en.wikipedia.org/wiki/Minsk_International_Airport,4,1159123971,Belarus,BLR
+585,5,major,Palermo,PMO,terminal,LICJ,PMO,http://en.wikipedia.org/wiki/Palermo_International_Airport,4,1159123985,None,None
+586,5,mid,T.F. Green,PVD,terminal,KPVD,PVD,http://en.wikipedia.org/wiki/T._F._Green_Airport,4,1159123997,United States of America,USA
+587,5,major,Southwest Florida Int'l,RSW,terminal,KRSW,RSW,http://en.wikipedia.org/wiki/Southwest_Florida_International_Airport,4,1159124011,United States of America,USA
+588,5,major,Shenyang Taoxian Int'l,SHE,terminal,ZYTX,SHE,http://en.wikipedia.org/wiki/Shenyang_Taoxian_International_Airport,4,1159124023,China,CHN
+589,5,major,Sharjah Int'l,SHJ,terminal,OMSJ,SHJ,http://en.wikipedia.org/wiki/Sharjah_International_Airport,4,1159124037,United Arab Emirates,ARE
+590,5,major,San Jose Int'l,SJC,terminal,KSJC,SJC,http://en.wikipedia.org/wiki/San_Jose_International_Airport,4,1159124047,United States of America,USA
+591,5,major,John Wayne,SNA,terminal,KSNA,SNA,http://en.wikipedia.org/wiki/John_Wayne_Airport,4,1159124063,United States of America,USA
+592,5,major,Stuttgart,STR,terminal,EDDS,STR,http://en.wikipedia.org/wiki/Stuttgart_Airport,4,1159124071,Germany,DEU
+593,5,mid,Nacional Tobías Bolaños,SYQ,terminal,MRPV,SYQ,http://en.wikipedia.org/wiki/Tob%C3%ADas_Bola%C3%B1os_International_Airport,2,1159124093,Costa Rica,CRI
+594,5,major,Shenzhen Bao'an Int'l,SZX,terminal,ZGSZ,SZX,http://en.wikipedia.org/wiki/Shenzhen_airport,4,1159124107,China,CHN
+595,5,major,Louisville Int'l,SDF,terminal,KSDF,SDF,http://en.wikipedia.org/wiki/Louisville_International_Airport,4,1159124125,United States of America,USA
+596,5,major,Geneva,GVA,terminal,LSGG,GVA,http://en.wikipedia.org/wiki/Geneva_Cointrin_International_Airport,4,1159124135,Switzerland,CHE
+597,5,mid,Lyon-Saint Exupery,LYS,terminal,LFLL,LYS,http://en.wikipedia.org/wiki/Lyon-Saint_Exup%C3%A9ry_Airport,4,1159124145,France,FRA
+598,5,major,Kansai Int'l,KIX,terminal,RJBB,KIX,http://en.wikipedia.org/wiki/Kansai_International_Airport,4,1159124163,None,None
+599,5,major,Lisbon Portela,LIS,terminal,LPPT,LIS,http://en.wikipedia.org/wiki/Lisbon_Portela_Airport,4,1159124181,Portugal,PRT
+600,5,major,Tancredo Neves Int'l,CNF,terminal,SBCF,CNF,http://en.wikipedia.org/wiki/Tancredo_Neves_International_Airport,4,1159124197,Brazil,BRA
+601,5,mid,Bromma,BMA,terminal,ESSB,BMA,http://en.wikipedia.org/wiki/Stockholm-Bromma_Airport,4,1159124213,Sweden,SWE
+602,5,major,Juanda Int'l,SUB,terminal,WARR,SUB,http://en.wikipedia.org/wiki/Juanda_International_Airport,4,1159124227,Indonesia,IDN
+603,5,mid,Astor Piazzolla Int'l,MDQ,terminal,SAZM,MDQ,http://en.wikipedia.org/wiki/%C3%81stor_Piazzola_International_Airport,4,1159124243,Argentina,ARG
+604,5,major,Owen Roberts Int'l,GCM,terminal,MWCR,GCM,http://en.wikipedia.org/wiki/Owen_Roberts_International_Airport,4,1159124261,Cayman Is.,CYM
+605,5,major,Zhengzhou Xinzheng Int'l,CGO,terminal,ZHCC,CGO,http://en.wikipedia.org/wiki/Zhengzhou_Xinzheng_International_Airport,4,1159124277,China,CHN
+606,5,major,Dalian Zhoushuizi Int'l,DLC,terminal,ZYTL,DLC,http://en.wikipedia.org/wiki/Dalian_Zhoushuizi_International_Airport,4,1159124289,China,CHN
+607,5,major,Heraklion Int'l,HER,terminal,LGIR,HER,http://en.wikipedia.org/wiki/Heraklion_International_Airport%2C_%22Nikos_Kazantzakis%22,4,1159124303,Greece,GRC
+608,5,major,Tbilisi Int'l,TBS,terminal,UGTB,TBS,http://en.wikipedia.org/wiki/Tbilisi_International_Airport,4,1159124315,Georgia,GEO
+609,5,mid,Cascais,XXC,runway,LPCS,XXC,http://en.wikipedia.org/wiki/Cascais_Aerodrome,4,1159124329,Portugal,PRT
+610,4,major,Kaohsiung Int'l,KHH,terminal,RCKH,KHH,http://en.wikipedia.org/wiki/Kaohsiung_International_Airport,4,1159124343,Taiwan,TWN
+611,4,mid,Sadiq Abubakar III,SKO,terminal,DNSO,SKO,http://en.wikipedia.org/wiki/Sadiq_Abubakar_III_International_Airport,4,1159124357,Nigeria,NGA
+612,4,mid,Mariscal Sucre Int'l,UIO,terminal,SEQU,UIO,http://en.wikipedia.org/wiki/Mariscal_Sucre_International_Airport,2,1159124369,Ecuador,ECU
+613,4,mid,Karachi Civil,KHI,terminal,OPKC,KHI,http://en.wikipedia.org/wiki/Jinnah_International_Airport,2,1159124383,Pakistan,PAK
+614,4,mid,Kishinev S.E.,KIV,terminal,LUKK,KIV,http://en.wikipedia.org/wiki/Chi%C5%9Fin%C4%83u_International_Airport,2,1159124397,Moldova,MDA
+615,4,major,Jorge Chávez,LIM,terminal,SPIM,LIM,http://en.wikipedia.org/wiki/Jorge_Ch%C3%A1vez_International_Airport,5,1159124405,Peru,PER
+616,4,mid,Thunder Bay Int'l,YQT,terminal,CYQT,YQT,http://en.wikipedia.org/wiki/Thunder_Bay_International_Airport,4,1159124423,Canada,CAN
+617,4,major,Vilnius,VNO,terminal,EYVI,VNO,http://en.wikipedia.org/wiki/Vilnius_International_Airport,4,1159124435,Lithuania,LTU
+618,4,major,Hsien Yang,XIY,terminal,ZLXY,XIY,http://en.wikipedia.org/wiki/Xi'an_Xianyang_International_Airport,2,1159124447,China,CHN
+619,4,mid,Del Norte Int'l,NTR,terminal,MMAN,NTR,http://en.wikipedia.org/wiki/Del_Norte_International_Airport,4,1159124461,Mexico,MEX
+620,4,mid,Fua'amotu Int'l,TBU,terminal,NFTF,TBU,http://en.wikipedia.org/wiki/Fua'amotu_International_Airport,4,1159124471,None,None
+621,4,mid,Esfahan Int'l,IFN,terminal,OIFM,IFN,http://en.wikipedia.org/wiki/Isfahan_International_Airport,4,1159124485,Iran,IRN
+622,4,mid,Harare Int'l,HRE,terminal,FVHA,HRE,http://en.wikipedia.org/wiki/Harare_International_Airport,4,1159124495,Zimbabwe,ZWE
+623,4,major,Kuwait Int'l,KWI,terminal,OKBK,KWI,http://en.wikipedia.org/wiki/Kuwait_International_Airport,4,1159124511,Kuwait,KWT
+624,4,major,Macdonald-Cartier Int'l,YOW,terminal,CYOW,YOW,http://en.wikipedia.org/wiki/Ottawa_Macdonald-Cartier_International_Airport,4,1159124527,Canada,CAN
+625,4,mid,Kabul Int'l,KBL,terminal,OAKB,KBL,http://en.wikipedia.org/wiki/Kabul_International_Airport,4,1159124533,Afghanistan,AFG
+626,4,mid,Abidjan Port Bouet,ABJ,terminal,DIAP,ABJ,http://en.wikipedia.org/wiki/Port_Bouet_Airport,4,1159124545,None,None
+627,4,major,General Juan N Alvarez Int'l,ACA,terminal,MMAA,ACA,http://en.wikipedia.org/wiki/General_Juan_N._%C3%81lvarez_International_Airport,4,1159124559,Mexico,MEX
+628,4,major,Kotoka Int'l,ACC,terminal,DGAA,ACC,http://en.wikipedia.org/wiki/Kotoka_International_Airport,4,1159124577,Ghana,GHA
+629,4,mid,Bole Int'l,ADD,terminal,HAAB,ADD,http://en.wikipedia.org/wiki/Bole_International_Airport,4,1159124593,Ethiopia,ETH
+630,4,mid,Aden Int'l,ADE,terminal,OYAA,ADE,http://en.wikipedia.org/wiki/Aden_International_Airport,4,1159124609,Yemen,YEM
+631,4,mid,Adelaide Int'l,ADL,terminal,YPAD,ADL,http://en.wikipedia.org/wiki/Adelaide_International_Airport,4,1159124621,Australia,AUS
+632,4,major,Almaty Int'l,ALA,terminal,UAAA,ALA,http://en.wikipedia.org/wiki/Almaty_International_Airport,4,1159124639,Kazakhstan,KAZ
+633,4,major,Houari Boumediene,ALG,terminal,DAAG,ALG,http://en.wikipedia.org/wiki/Houari_Boumedienne_Airport,4,1159124651,Algeria,DZA
+634,4,major,Aleppo Int'l,ALP,terminal,OSAP,ALP,http://en.wikipedia.org/wiki/Aleppo_International_Airport,4,1159124663,Syria,SYR
+635,4,mid,Sardar Vallabhbhai Patel Int'l,AMD,terminal,VAAH,AMD,http://en.wikipedia.org/wiki/Sardar_Vallabhbhai_Patel_International_Airport,4,1159124675,India,IND
+636,4,mid,Cerro Moreno Int'l,ANF,terminal,SCFA,ANF,http://en.wikipedia.org/wiki/Cerro_Moreno_International_Airport,2,1159124691,Chile,CHL
+637,4,mid,Ashkhabad Northwest,ASB,terminal,UTAA,ASB,http://en.wikipedia.org/wiki/Ashgabat_Airport,4,1159124703,Turkmenistan,TKM
+638,4,mid,Yohannes Iv Int'l,ASM,terminal,HHAS,ASM,http://en.wikipedia.org/wiki/Asmara_International_Airport,4,1159124717,Eritrea,ERI
+639,4,mid,Silvio Pettirossi Int'l,ASU,terminal,SGAS,ASU,http://en.wikipedia.org/wiki/Silvio_Pettirossi_International_Airport,4,1159124737,Paraguay,PRY
+640,4,mid,Bermuda Int'l,BDA,terminal,TXKF,BDA,http://en.wikipedia.org/wiki/Bermuda_International_Airport,4,1159124747,Bermuda,BMU
+641,4,major,Surcin,BEG,terminal,LYBE,BEG,http://en.wikipedia.org/wiki/Belgrade_Nikola_Tesla_Airport,4,1159124759,Serbia,SRB
+642,4,major,Beirut Int'l,BEY,terminal,OLBA,BEY,http://en.wikipedia.org/wiki/Beirut_Rafic_Hariri_International_Airport,4,1159124775,Lebanon,LBN
+643,4,mid,Bairagarh,BHO,terminal,VABP,BHO,http://en.wikipedia.org/wiki/Bhopal_Airport,4,1159124789,India,IND
+644,4,mid,Bamako Sénou,BKO,terminal,GABS,BKO,http://en.wikipedia.org/wiki/Senou_International_Airport,4,1159124801,Mali,MLI
+645,4,major,Nashville Int'l,BNA,terminal,KBNA,BNA,http://en.wikipedia.org/wiki/Nashville_International_Airport,4,1159124815,United States of America,USA
+646,4,major,Brisbane Int'l,BNE,terminal,YBBN,BNE,http://en.wikipedia.org/wiki/Brisbane_Airport,4,1159124827,Australia,AUS
+647,4,major,Boise Air Terminal,BOI,terminal,KBOI,BOI,http://en.wikipedia.org/wiki/Boise_Airport,4,1159124845,United States of America,USA
+648,4,mid,Wiley Post Will Rogers Mem.,BRW,terminal,PABR,BRW,http://en.wikipedia.org/wiki/Wiley_Post-Will_Rogers_Memorial_Airport,4,1159124857,United States of America,USA
+649,4,major,Greater Buffalo Int'l,BUF,terminal,KBUF,BUF,http://en.wikipedia.org/wiki/Buffalo_Niagara_International_Airport,4,1159124867,United States of America,USA
+650,4,mid,Bulawayo,BUQ,terminal,FVBU,BUQ,http://en.wikipedia.org/wiki/Joshua_Mqabuko_Nkomo_International_Airport,4,1159124879,Zimbabwe,ZWE
+651,4,major,Brunei Int'l,BWN,terminal,WBSB,BWN,http://en.wikipedia.org/wiki/Brunei_International_Airport,4,1159124891,Brunei,BRN
+652,4,major,Guangzhou Baiyun Int'l,CAN,terminal,ZGGG,CAN,http://en.wikipedia.org/wiki/Guangzhou_Baiyun_International_Airport,4,1159124905,China,CHN
+653,4,mid,Carriel Sur Int'l,CCP,terminal,SCIE,CCP,http://en.wikipedia.org/wiki/Carriel_Sur_International_Airport,4,1159124919,Chile,CHL
+654,4,major,Netaji Subhash Chandra Bose Int'l,CCU,terminal,VECC,CCU,http://en.wikipedia.org/wiki/Netaji_Subhash_Chandra_Bose_International_Airport,4,1159124929,India,IND
+655,4,mid,Chittagong,CGP,terminal,VGEG,CGP,http://en.wikipedia.org/wiki/Shah_Amanat_International_Airport,4,1159124941,None,None
+656,4,major,Christchurch Int'l,CHC,terminal,NZCH,CHC,http://en.wikipedia.org/wiki/Christchurch_International_Airport,4,1159124957,New Zealand,NZL
+657,4,mid,Conakry,CKY,terminal,GUCY,CKY,http://en.wikipedia.org/wiki/Conakry_International_Airport,4,1159124971,Guinea,GIN
+658,4,major,Hopkins Int'l,CLE,terminal,KCLE,CLE,http://en.wikipedia.org/wiki/Cleveland_Hopkins_International_Airport,4,1159124983,United States of America,USA
+659,4,mid,Alfonso Bonilla Aragón Int'l,CLO,terminal,SKCL,CLO,http://en.wikipedia.org/wiki/Alfonso_Bonilla_Arag%C3%B3n_International_Airport,4,1159124999,Colombia,COL
+660,4,mid,Cotonou Cadjehon,COO,terminal,DBBB,COO,http://en.wikipedia.org/wiki/Cadjehoun_Airport,4,1159125011,Benin,BEN
+661,4,mid,Ingeniero Ambrosio L.V. Taravella Int'l,COR,terminal,SACO,COR,http://en.wikipedia.org/wiki/Ingeniero_Ambrosio_L.V._Taravella_International_Airport,4,1159125023,Argentina,ARG
+662,4,mid,Rafael Nunez,CTG,terminal,SKCG,CTG,http://en.wikipedia.org/wiki/Rafael_N%C3%BA%C3%B1ez_International_Airport,4,1159125033,Colombia,COL
+663,4,major,Cancún,CUN,terminal,MMUN,CUN,http://en.wikipedia.org/wiki/Canc%C3%BAn_International_Airport,4,1159125049,Mexico,MEX
+664,4,mid,General R F Villalobos Int'l,CUU,terminal,MMCU,CUU,http://en.wikipedia.org/wiki/General_Roberto_Fierro_Villalobos_International_Airport,4,1159125065,Mexico,MEX
+665,4,mid,Zia Int'l Dhaka,DAC,terminal,VGHS,DAC,http://en.wikipedia.org/wiki/Zia_International_Airport,4,1159125077,Bangladesh,BGD
+666,4,major and military,Darwin Int'l,DRW,terminal,YPDN,DRW,http://en.wikipedia.org/wiki/Darwin_International_Airport,4,1159125091,None,None
+667,4,mid,Louis Botha,DUR,terminal,FADN,DUR,http://en.wikipedia.org/wiki/Durban_International_Airport,4,1159125101,South Africa,ZAF
+668,4,mid,Lubumbashi Luano Int'l,FBM,terminal,FZQA,FBM,http://en.wikipedia.org/wiki/Lubumbashi_International_Airport,4,1159125113,Dem. Rep. Congo,COD
+669,4,mid,Saiss,FEZ,terminal,GMFF,FEZ,http://en.wikipedia.org/wiki/Sa%C3%AFss_Airport,4,1159125125,Morocco,MAR
+670,4,mid,Kinshasa N Djili Int'l,FIH,terminal,FZAA,FIH,http://en.wikipedia.org/wiki/Kinshasa_International_Airport,4,1159125139,Dem. Rep. Congo,COD
+671,4,mid,Freetown Lungi,FNA,terminal,GFLL,FNA,http://en.wikipedia.org/wiki/Lungi_International_Airport,4,1159125153,None,None
+672,4,mid,Sunan,FNJ,terminal,ZKPY,FNJ,http://en.wikipedia.org/wiki/Sunan_International_Airport,4,1159125167,North Korea,PRK
+673,4,major,Vasilyevka,FRU,terminal,UAFM,FRU,http://en.wikipedia.org/wiki/Manas_International_Airport,5,1159125179,Kyrgyzstan,KGZ
+674,4,mid,Sir Seretse Khama Int'l,GBE,terminal,FBSK,GBE,http://en.wikipedia.org/wiki/Sir_Seretse_Khama_International_Airport,4,1159125191,Botswana,BWA
+675,4,major,Don Miguel Hidalgo Int'l,GDL,terminal,MMGL,GDL,http://en.wikipedia.org/wiki/Don_Miguel_Hidalgo_y_Costilla_International_Airport,4,1159125205,Mexico,MEX
+676,4,major,Glasgow Int'l,GLA,terminal,EGPF,GLA,http://en.wikipedia.org/wiki/Glasgow_International_Airport,4,1159125213,United Kingdom,GBR
+677,4,mid,La Aurora,GUA,terminal,MGGT,GUA,http://en.wikipedia.org/wiki/La_Aurora_International_Airport,4,1159125223,Guatemala,GTM
+678,4,mid,Simon Bolivar Int'l,GYE,terminal,SEGU,GYE,http://en.wikipedia.org/wiki/Jos%C3%A9_Joaqu%C3%ADn_de_Olmedo_International_Airport,4,1159125231,None,None
+679,4,major,Noi Bai,HAN,terminal,VVNB,HAN,http://en.wikipedia.org/wiki/Noi_Bai_International_Airport,4,1159125235,Vietnam,VNM
+680,4,major,José Martí Int'l,HAV,terminal,MUHA,HAV,http://en.wikipedia.org/wiki/Jos%C3%A9_Mart%C3%AD_International_Airport,4,1159125245,Cuba,CUB
+681,4,mid,Borg El Arab Int'l,HBE,terminal,HEBA,HBE,http://en.wikipedia.org/wiki/Borg_El_Arab_Airport,4,1159125249,Egypt,EGY
+682,4,major,King Abdul Aziz Int'l,JED,terminal,OEJN,JED,http://en.wikipedia.org/wiki/King_Abdulaziz_International_Airport,4,1159125253,Saudi Arabia,SAU
+683,4,mid,Kano Mallam Aminu Int'l,KAN,terminal,DNKN,KAN,http://en.wikipedia.org/wiki/Mallam_Aminu_Kano_International_Airport,4,1159125263,Nigeria,NGA
+684,4,mid,Kashi,KHG,terminal,ZWSH,KHG,http://en.wikipedia.org/wiki/Kashgar_Airport,4,1159125271,China,CHN
+685,4,major,Norman Manley Int'l,KIN,terminal,MKJP,KIN,http://en.wikipedia.org/wiki/Norman_Manley_International_Airport,4,1159125285,None,None
+686,4,mid,Tribhuvan Int'l,KTM,terminal,VNKT,KTM,http://en.wikipedia.org/wiki/Tribhuvan_International_Airport,4,1159125303,Nepal,NPL
+687,4,mid,Luanda 4 de Fevereiro,LAD,terminal,FNLU,LAD,http://en.wikipedia.org/wiki/Quatro_de_Fevereiro_Airport,4,1159125315,Angola,AGO
+688,4,major,Pulkovo 2,LED,terminal,ULLI,LED,http://en.wikipedia.org/wiki/Pulkovo_Airport,4,1159125331,Russia,RUS
+689,4,mid,Allama Iqbal Int'l,LHE,terminal,OPLA,LHE,http://en.wikipedia.org/wiki/Allama_Iqbal_International_Airport,4,1159125343,Pakistan,PAK
+690,4,mid,Kamuzu Int'l,LLW,terminal,FWKI,LLW,http://en.wikipedia.org/wiki/Lilongwe_International_Airport,4,1159125359,Malawi,MWI
+691,4,major,Lagos Murtala Muhammed,LOS,terminal,DNMM,LOS,http://en.wikipedia.org/wiki/Murtala_Mohammed_International_Airport,4,1159125373,Nigeria,NGA
+692,4,mid,El Alto Int'l,LPB,terminal,SLLP,LPB,http://en.wikipedia.org/wiki/El_Alto_International_Airport,4,1159125385,Bolivia,BOL
+693,4,mid,Lusaka Int'l,LUN,terminal,FLLS,LUN,http://en.wikipedia.org/wiki/Lusaka_International_Airport,5,1159125403,Zambia,ZMB
+694,4,mid,Luxor,LXR,terminal,HELX,LXR,http://en.wikipedia.org/wiki/Luxor_International_Airport,4,1159125413,Egypt,EGY
+695,4,major,Chennai Int'l,MAA,terminal,VOMM,MAA,http://en.wikipedia.org/wiki/Chennai_International_Airport,4,1159125429,India,IND
+696,4,mid,La Chinita Int'l,MAR,terminal,SVMC,MAR,http://en.wikipedia.org/wiki/La_Chinita_International_Airport,4,1159125441,Venezuela,VEN
+697,4,mid,José María Córdova,MDE,terminal,SKRG,MDE,http://en.wikipedia.org/wiki/Jos%C3%A9_Mar%C3%ADa_C%C3%B3rdova_International_Airport,4,1159125455,Colombia,COL
+698,4,major,Memphis Int'l,MEM,terminal,KMEM,MEM,http://en.wikipedia.org/wiki/Memphis_International_Airport,4,1159125467,United States of America,USA
+699,4,mid,Augusto Cesar Sandino Int'l,MGA,terminal,MNMG,MGA,http://en.wikipedia.org/wiki/Augusto_C._Sandino_International_Airport,4,1159125481,Nicaragua,NIC
+700,4,major,Mashhad,MHD,terminal,OIMM,MHD,http://en.wikipedia.org/wiki/Mashhad_International_Airport,4,1159125495,Iran,IRN
+701,4,major,Miami Int'l,MIA,terminal,KMIA,MIA,http://en.wikipedia.org/wiki/Miami_International_Airport,4,1159125509,United States of America,USA
+702,4,mid,Lic M Crecencio Rejon Int'l,MID,terminal,MMMD,MID,http://en.wikipedia.org/wiki/Manuel_Crescencio_Rej%C3%B3n_International_Airport,4,1159125521,Mexico,MEX
+703,4,major,Luqa,MLA,terminal,LMML,MLA,http://en.wikipedia.org/wiki/Malta_International_Airport,2,1159125535,Malta,MLT
+704,4,major,Moi Int'l,MBA,terminal,HKMO,MBA,http://en.wikipedia.org/wiki/Moi_International_Airport,4,1159125545,Kenya,KEN
+705,4,mid,Moshoeshoe I Int'l,MSU,terminal,FXMM,MSU,http://en.wikipedia.org/wiki/Moshoeshoe_I_International_Airport,4,1159125565,Lesotho,LSO
+706,4,major,New Orleans Int'l,MSY,terminal,KMSY,MSY,http://en.wikipedia.org/wiki/Louis_Armstrong_New_Orleans_International_Airport,4,1159125575,United States of America,USA
+707,4,major and military,Multan,MUX,runway,OPMT,MUX,http://en.wikipedia.org/wiki/Multan_International_Airport,4,1159125587,Pakistan,PAK
+708,4,major,Carrasco Int'l,MVD,terminal,SUMU,MVD,http://en.wikipedia.org/wiki/Carrasco_International_Airport,4,1159125601,Uruguay,URY
+709,4,mid,General Rafael Buelna Int'l,MZT,terminal,MMMZ,MZT,http://en.wikipedia.org/wiki/General_Rafael_Buelna_International_Airport,4,1159125613,Mexico,MEX
+710,4,major,Nassau Int'l,NAS,terminal,MYNN,NAS,http://en.wikipedia.org/wiki/Lynden_Pindling_International_Airport,4,1159125627,Bahamas,BHS
+711,4,mid,Ndjamena,NDJ,terminal,FTTJ,NDJ,http://en.wikipedia.org/wiki/N'Djamena_International_Airport,4,1159125641,Chad,TCD
+712,4,mid,Niamey,NIM,terminal,DRRN,NIM,http://en.wikipedia.org/wiki/Diori_Hamani_International_Airport,2,1159125655,Niger,NER
+713,4,major,Mactan-Cebu Int'l,CEB,terminal,RPVM,CEB,http://en.wikipedia.org/wiki/Mactan-Cebu_International_Airport,2,1159125667,None,None
+714,4,mid,Nova Lisboa,NOV,terminal,FNHU,NOV,http://en.wikipedia.org/wiki/Nova_Lisboa_Airport,4,1159125681,Angola,AGO
+715,4,mid,Eppley Airfield,OMA,terminal,KOMA,OMA,http://en.wikipedia.org/wiki/Eppley_Airfield,4,1159125695,United States of America,USA
+716,4,mid,Nome,OME,terminal,PAOM,OME,http://en.wikipedia.org/wiki/Nome_Airport,4,1159125707,None,None
+717,4,mid,Ouagadougou,OUA,terminal,DFFD,OUA,http://en.wikipedia.org/wiki/Ouagadougou_Airport,4,1159125715,Burkina Faso,BFA
+718,4,mid,Mais Gate Int'l,PAP,terminal,MTPP,PAP,http://en.wikipedia.org/wiki/Toussaint_Louverture_International_Airport,4,1159125727,Haiti,HTI
+719,4,mid,Puebla,PBC,terminal,MMPB,PBC,http://en.wikipedia.org/wiki/Hermanos_Serd%C3%A1n_International_Airport,4,1159125745,Mexico,MEX
+720,4,major,Portland Int'l,PDX,terminal,KPDX,PDX,http://en.wikipedia.org/wiki/Portland_International_Airport,4,1159125755,United States of America,USA
+721,4,major,Perth Int'l,PER,terminal,YPPH,PER,http://en.wikipedia.org/wiki/Perth_Airport,4,1159125765,Australia,AUS
+722,4,mid,H F Verwoerd,PLZ,terminal,FAPE,PLZ,http://en.wikipedia.org/wiki/Port_Elizabeth_Airport,2,1159125779,South Africa,ZAF
+723,4,mid,El Tepual Int'l,PMC,terminal,SCTE,PMC,http://en.wikipedia.org/wiki/El_Tepual_Airport,4,1159125791,Chile,CHL
+724,4,major,Pochentong,PNH,terminal,VDPP,PNH,http://en.wikipedia.org/wiki/Phnom_Penh_International_Airport,4,1159125805,Cambodia,KHM
+725,4,major and military,Pune,PNQ,terminal,VAPO,PNQ,http://en.wikipedia.org/wiki/Pune_Airport,4,1159125819,India,IND
+726,4,major,Port Moresby Int'l,POM,terminal,AYPY,POM,http://en.wikipedia.org/wiki/Jacksons_International_Airport,4,1159125833,Papua New Guinea,PNG
+727,4,major,Tocumen Int'l,PTY,terminal,MPTO,PTY,http://en.wikipedia.org/wiki/Tocumen_International_Airport,4,1159125843,Panama,PAN
+728,4,mid,Carlos Ibáñez de Campo Int'l,PUQ,terminal,SCCI,PUQ,http://en.wikipedia.org/wiki/Carlos_Ibanez_Del_Campo_International_Airport,4,1159125857,Chile,CHL
+729,4,major,Durham Int'l,RDU,terminal,KRDU,RDU,http://en.wikipedia.org/wiki/Raleigh-Durham_International_Airport,4,1159125871,United States of America,USA
+730,4,major,Mingaladon,RGN,terminal,VYYY,RGN,http://en.wikipedia.org/wiki/Yangon_International_Airport,4,1159125883,Myanmar,MMR
+731,4,major,Riga,RIX,terminal,EVRA,RIX,http://en.wikipedia.org/wiki/Riga_International_Airport,4,1159125897,Latvia,LVA
+732,4,mid,Sanaa Int'l,SAH,terminal,OYSN,SAH,http://en.wikipedia.org/wiki/Sana'a_International_Airport,4,1159125911,Yemen,YEM
+733,4,major,Baghdad Int'l,SDA,terminal,ORBI,SDA,http://en.wikipedia.org/wiki/Baghdad_International_Airport,4,1159125925,Iraq,IRQ
+734,4,major,De Las Américas Int'l,SDQ,terminal,MDSD,SDQ,http://en.wikipedia.org/wiki/Las_Am%C3%A9ricas_International_Airport,4,1159125937,None,None
+735,4,major,Tan Son Nhat,SGN,terminal,VVTS,SGN,http://en.wikipedia.org/wiki/Tan_Son_Nhat_International_Airport,4,1159125951,Vietnam,VNM
+736,4,major,Thessaloniki,SKG,terminal,LGTS,SKG,http://en.wikipedia.org/wiki/Thessaloniki_International_Airport%2C_%22Macedonia%22,4,1159125965,Greece,GRC
+737,4,major,Vrazhdebna,SOF,terminal,LBSF,SOF,http://en.wikipedia.org/wiki/Sofia_Airport,2,1159125981,Bulgaria,BGR
+738,4,major,Surat,STV,terminal,VASU,STV,http://en.wikipedia.org/wiki/Surat_Airport,4,1159125995,None,None
+739,4,mid,Nausori Int'l,SUV,terminal,NFNA,SUV,http://en.wikipedia.org/wiki/Nausori_International_Airport,4,1159126005,Fiji,FJI
+740,4,major,Shiraz Int'l,SYZ,terminal,OISS,SYZ,http://en.wikipedia.org/wiki/Shiraz_International_Airport,4,1159126021,Iran,IRN
+741,4,mid,Gen Francisco J Mina Int'l,TAM,terminal,MMTM,TAM,http://en.wikipedia.org/wiki/General_Francisco_Javier_Mina_International_Airport,4,1159126033,Mexico,MEX
+742,4,mid,Toncontin Int'l,TGU,terminal,MHTG,TGU,http://en.wikipedia.org/wiki/Toncont%C3%ADn_International_Airport,4,1159126049,Honduras,HND
+743,4,major,Mehrabad Int'l,THR,terminal,OIII,THR,http://en.wikipedia.org/wiki/Mehrabad_International_Airport,4,1159126059,Iran,IRN
+744,4,major,Tirane Rinas,TIA,terminal,LATI,TIA,http://en.wikipedia.org/wiki/Tirana_International_Airport_N%C3%ABn%C3%AB_Tereza,4,1159126075,Albania,ALB
+745,4,major,General Abelardo L Rodriguez Int'l,TIJ,terminal,MMTJ,TIJ,http://en.wikipedia.org/wiki/General_Abelardo_L._Rodr%C3%ADguez_International_Airport,2,1159126093,United States of America,USA
+746,4,mid,Jose Maria Morelos Y Pavon,TLC,terminal,MMTO,TLC,http://en.wikipedia.org/wiki/Lic._Adolfo_L%C3%B3pez_Mateos_International_Airport,2,1159126107,Mexico,MEX
+747,4,major,Ulemiste,TLL,terminal,EETN,TLL,http://en.wikipedia.org/wiki/Tallinn_Airport,4,1159126123,Estonia,EST
+748,4,major,Ben Gurion,TLV,terminal,LLBG,TLV,http://en.wikipedia.org/wiki/Ben_Gurion_International_Airport,4,1159126131,Israel,ISR
+749,4,mid,São Tomé Salazar,TMS,terminal,FPST,TMS,http://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_International_Airport,4,1159126141,None,None
+750,4,mid,Antananarivo Ivato,TNR,terminal,FMMI,TNR,http://en.wikipedia.org/wiki/Ivato_Airport,4,1159126153,Madagascar,MDG
+751,4,major,Tampa Int'l,TPA,parking,KTPA,TPA,http://en.wikipedia.org/wiki/Tampa_International_Airport,4,1159126167,United States of America,USA
+752,4,mid,Zim Valencia,VLN,terminal,SVVA,VLN,http://en.wikipedia.org/wiki/Arturo_Michelena_International_Airport,4,1159126181,Venezuela,VEN
+753,4,mid,Gumrak,VOG,terminal,URWW,VOG,http://en.wikipedia.org/wiki/Volgograd_International_Airport,4,1159126195,Russia,RUS
+754,4,mid,Vientiane,VTE,terminal,VLVT,VTE,http://en.wikipedia.org/wiki/Wattay_International_Airport,4,1159126207,Laos,LAO
+755,4,mid,Viru Viru Int'l,VVI,terminal,SLVR,VVI,http://en.wikipedia.org/wiki/Viru_Viru_International_Airport,4,1159126221,Bolivia,BOL
+756,4,major,Wellington Int'l,WLG,terminal,NZWN,WLG,http://en.wikipedia.org/wiki/Wellington_International_Airport,4,1159126235,None,None
+757,4,mid,Prince Rupert,YPR,terminal,CYPR,YPR,http://en.wikipedia.org/wiki/Prince_Rupert_Airport,4,1159126249,None,None
+758,4,mid,Windsor,YQG,terminal,CYQG,YQG,http://en.wikipedia.org/wiki/Windsor_Airport,4,1159126261,Canada,CAN
+759,4,mid,Regina,YQR,terminal,CYQR,YQR,http://en.wikipedia.org/wiki/Regina_International_Airport,4,1159126275,Canada,CAN
+760,4,major,Vancouver Int'l,YVR,terminal,CYVR,YVR,http://en.wikipedia.org/wiki/Vancouver_International_Airport,4,1159126287,Canada,CAN
+761,4,major,Winnipeg Int'l,YWG,terminal,CYWG,YWG,http://en.wikipedia.org/wiki/Winnipeg_James_Armstrong_Richardson_International_Airport,2,1159126307,Canada,CAN
+762,4,mid,John G Diefenbaker Int'l,YXE,terminal,CYXE,YXE,http://en.wikipedia.org/wiki/Saskatoon/John_G._Diefenbaker_International_Airport,4,1159126319,Canada,CAN
+763,4,mid,Whitehorse Int'l,YXY,terminal,CYXY,YXY,http://en.wikipedia.org/wiki/Whitehorse_International_Airport,4,1159126329,Canada,CAN
+764,4,major,Calgary Int'l,YYC,terminal,CYYC,YYC,http://en.wikipedia.org/wiki/Calgary_International_Airport,4,1159126341,Canada,CAN
+765,4,mid,Charlottetown,YYG,terminal,CYYG,YYG,http://en.wikipedia.org/wiki/Charlottetown_Airport,4,1159126361,Canada,CAN
+766,4,mid,Churchill,YYQ,terminal,CYYQ,YYQ,http://en.wikipedia.org/wiki/Churchill_Airport,4,1159126367,Canada,CAN
+767,4,mid,St John's Int'l,YYT,terminal,CYYT,YYT,http://en.wikipedia.org/wiki/St._John's_International_Airport,4,1159126381,Canada,CAN
+768,4,mid,Yellowknife,YZF,terminal,CYZF,YZF,http://en.wikipedia.org/wiki/Yellowknife_Airport,4,1159126395,Canada,CAN
+769,4,major,Zagreb,ZAG,terminal,LDZA,ZAG,http://en.wikipedia.org/wiki/Zagreb_Airport,4,1159126409,Croatia,HRV
+770,4,mid,Zanzibar,ZNZ,terminal,HTZA,ZNZ,http://en.wikipedia.org/wiki/Zanzibar_International_Airport,2,1159126417,Tanzania,TZA
+771,4,mid,Reykjavik Air Terminal,REK,terminal,BIRK,REK,http://en.wikipedia.org/wiki/Reykjav%C3%ADk_Airport,2,1159126431,Iceland,ISL
+772,4,mid,Arkhangelsk-Talagi,ARH,terminal,ULAA,ARH,http://en.wikipedia.org/wiki/Talagi_Airport,4,1159126445,Russia,RUS
+773,4,major,Kazan Int'l,KZN,terminal,UWKD,KZN,http://en.wikipedia.org/wiki/Kazan_International_Airport,4,1159126457,Russia,RUS
+774,4,major,Paris Orly,ORY,parking,LFPO,ORY,http://en.wikipedia.org/wiki/Orly_Airport_(Paris),4,1159126471,France,FRA
+775,4,major,Québec,YQB,terminal,CYQB,YQB,http://en.wikipedia.org/wiki/Qu%C3%A9bec/Jean_Lesage_International_Airport,4,1159126485,Canada,CAN
+776,4,major,Montréal-Trudeau,YUL,terminal,CYUL,YUL,http://en.wikipedia.org/wiki/Montr%C3%A9al-Pierre_Elliott_Trudeau_International_Airport,4,1159126499,None,None
+777,4,major,Narita Int'l,NRT,terminal,RJAA,NRT,http://en.wikipedia.org/wiki/Narita_International_Airport,4,1159126505,Japan,JPN
+778,4,major,Chubu Centrair Int'l,NGO,terminal,RJGG,NGO,http://en.wikipedia.org/wiki/Ch%C5%ABbu_Centrair_International_Airport,4,1159126523,None,None
+779,4,mid,Okadama,OKD,terminal,RJCO,OKD,http://en.wikipedia.org/wiki/Okadama_Airport,4,1159126537,Japan,JPN
+780,4,major,Bergen Flesland,BGO,terminal,ENBR,BGO,http://en.wikipedia.org/wiki/Bergen_Airport%2C_Flesland,4,1159126547,Norway,NOR
+781,4,major,Tromsø Langnes,TOS,terminal,ENTC,TOS,http://en.wikipedia.org/wiki/Troms%C3%B8_Airport,4,1159126559,None,None
+782,4,mid,Val de Caes Int'l,BEL,terminal,SBBE,BEL,http://en.wikipedia.org/wiki/Val_de_C%C3%A3es_International_Airport,4,1159126571,None,None
+783,4,mid,Campo Grande Int'l,CGR,terminal,SBCG,CGR,http://en.wikipedia.org/wiki/Campo_Grande_International_Airport,4,1159126581,Brazil,BRA
+784,4,mid,Afonso Pena Int'l,CWB,terminal,SBCT,CWB,http://en.wikipedia.org/wiki/Afonso_Pena_International_Airport,4,1159126593,Brazil,BRA
+785,4,mid,Pinto Martins Int'l,FOR,terminal,SBFZ,FOR,http://en.wikipedia.org/wiki/Pinto_Martins_International_Airport,4,1159126603,Brazil,BRA
+786,4,major,São Paulo-Guarulhos Int'l,GRU,terminal,SBGR,GRU,http://en.wikipedia.org/wiki/S%C3%A3o_Paulo-Guarulhos_International_Airport,4,1159126615,Brazil,BRA
+787,4,mid,Santa Genoveva,GYN,terminal,SBGO,GYN,http://en.wikipedia.org/wiki/Santa_Genoveva_Airport,4,1159126627,Brazil,BRA
+788,4,mid,Salgado Filho Int'l,POA,terminal,SBPA,POA,http://en.wikipedia.org/wiki/Salgado_Filho_International_Airport,4,1159126637,Brazil,BRA
+789,4,mid,Gilberto Freyre Int'l,REC,terminal,SBRF,REC,http://en.wikipedia.org/wiki/Guararapes_International_Airport,4,1159126651,Brazil,BRA
+790,4,mid,Deputado Luis Eduardo Magalhaes Int'l,SSA,terminal,SBSV,SSA,http://en.wikipedia.org/wiki/Deputado_Lu%C3%ADs_Eduardo_Magalh%C3%A3es_International_Airport,4,1159126665,Brazil,BRA
+791,4,mid,El Plumerillo,MDZ,terminal,SAME,MDZ,http://en.wikipedia.org/wiki/Governor_Francisco_Gabrielli_International_Airport,4,1159126679,Argentina,ARG
+792,4,mid,Eduardo Gomes Int'l,MAO,terminal,SBEG,MAO,http://en.wikipedia.org/wiki/Eduardo_Gomes_International_Airport,4,1159126691,Brazil,BRA
+793,4,mid,Yaoundé Nsimalen Int'l,NSI,terminal,FKYS,NSI,http://en.wikipedia.org/wiki/Yaound%C3%A9_Nsimalen_International_Airport,4,1159126705,Cameroon,CMR
+794,4,major,Shanghai Pudong Int'l,PVG,terminal,ZSPD,PVG,http://en.wikipedia.org/wiki/Shanghai_Pudong_International_Airport,4,1159126719,None,None
+795,4,mid,Marka Int'l,ADJ,terminal,OJAM,ADJ,http://en.wikipedia.org/wiki/Marka_Airport,4,1159126733,Jordan,JOR
+796,4,major,Male Int'l,MLE,terminal,VRMM,MLE,http://en.wikipedia.org/wiki/Mal%C3%A9_International_Airport,4,1159126745,None,None
+797,4,mid,Gen. Heriberto Jara Int'l,VER,terminal,MMVR,VER,http://en.wikipedia.org/wiki/General_Heriberto_Jara_International_Airport,4,1159126759,Mexico,MEX
+798,4,mid,Osvaldo Vieira Int'l,OXB,terminal,GGOV,OXB,http://en.wikipedia.org/wiki/Osvaldo_Vieira_International_Airport,4,1159126773,Guinea-Bissau,GNB
+799,4,major,Francisco Bangoy Int'l,DVO,terminal,RPMD,DVO,http://en.wikipedia.org/wiki/Francisco_Bangoy_International_Airport,4,1159126787,Philippines,PHL
+800,4,mid,Seychelles Int'l,SEZ,terminal,FSIA,SEZ,http://en.wikipedia.org/wiki/Seychelles_International_Airport,4,1159126799,Seychelles,SYC
+801,4,major,Léopold Sedar Senghor Int'l,DKR,terminal,GOOY,DKR,http://en.wikipedia.org/wiki/Dakar-Yoff-L%C3%A9opold_S%C3%A9dar_Senghor_International_Airport,4,1159126813,Senegal,SEN
+802,4,mid,Port Sudan New Int'l,PZU,terminal,HSPN,PZU,http://en.wikipedia.org/wiki/Port_Sudan_New_International_Airport,4,1159126827,Sudan,SDN
+803,4,major,Tashkent Int'l,TAS,terminal,UTTT,TAS,http://en.wikipedia.org/wiki/Tashkent_International_Airport,4,1159126841,Uzbekistan,UZB
+804,3,major,Copenhagen,CPH,terminal,EKCH,CPH,http://en.wikipedia.org/wiki/Copenhagen_Airport,4,1159126853,Denmark,DNK
+805,3,mid,Aeroportul National Bucuresti-Baneasa,BBU,terminal,LRBS,BBU,http://en.wikipedia.org/wiki/Aurel_Vlaicu_International_Airport,4,1159126867,Romania,ROU
+806,3,major,Ferihegy,BUD,terminal,LHBP,BUD,http://en.wikipedia.org/wiki/Budapest_Ferihegy_International_Airport,4,1159126881,Hungary,HUN
+807,3,major,Chongqing Jiangbei Int'l,CKG,terminal,ZUCK,CKG,http://en.wikipedia.org/wiki/Chongqing_Jiangbei_International_Airport,4,1159126895,China,CHN
+808,3,major,Douglas Int'l,CLT,terminal,KCLT,CLT,http://en.wikipedia.org/wiki/Charlotte/Douglas_International_Airport,4,1159126907,United States of America,USA
+809,3,major,Detroit Metro,DTW,terminal,KDTW,DTW,http://en.wikipedia.org/wiki/Detroit_Metropolitan_Wayne_County_Airport,4,1159126921,United States of America,USA
+810,3,major,Dublin,DUB,terminal,EIDW,DUB,http://en.wikipedia.org/wiki/Dublin_Airport,4,1159126945,Ireland,IRL
+811,3,major,Fairbanks Int'l,FAI,terminal,PAFA,FAI,http://en.wikipedia.org/wiki/Fairbanks_International_Airport,4,1159126959,United States of America,USA
+812,3,major,Hamburg,HAM,terminal,EDDH,HAM,http://en.wikipedia.org/wiki/Hamburg_Airport,4,1159126973,Germany,DEU
+813,3,major,Kuala Lumpur Int'l,KUL,terminal,WMKK,KUL,http://en.wikipedia.org/wiki/Kuala_Lumpur_International_Airport,4,1159126985,Malaysia,MYS
+814,3,major,Mccarran Int'l,LAS,terminal,KLAS,LAS,http://en.wikipedia.org/wiki/McCarran_International_Airport,4,1159126995,United States of America,USA
+815,3,major,Orlando Int'l,MCO,terminal,KMCO,MCO,http://en.wikipedia.org/wiki/Orlando_International_Airport,4,1159127009,United States of America,USA
+816,3,major,Minneapolis St. Paul Int'l,MSP,terminal,KMSP,MSP,http://en.wikipedia.org/wiki/Minneapolis-Saint_Paul_International_Airport,4,1159127027,United States of America,USA
+817,3,major,Franz-Josef-Strauss,MUC,terminal,EDDM,MUC,http://en.wikipedia.org/wiki/Munich_International_Airport,4,1159127035,Germany,DEU
+818,3,major,Philadelphia Int'l,PHL,terminal,KPHL,PHL,http://en.wikipedia.org/wiki/Philadelphia_International_Airport,4,1159127049,None,None
+819,3,major,Sky Harbor Int'l,PHX,terminal,KPHX,PHX,http://en.wikipedia.org/wiki/Phoenix_Sky_Harbor_International_Airport,4,1159127063,United States of America,USA
+820,3,major,Salt Lake City Int'l,SLC,terminal,KSLC,SLC,http://en.wikipedia.org/wiki/Salt_Lake_City_International_Airport,4,1159127079,United States of America,USA
+821,3,major,Lambert St Louis Int'l,STL,terminal,KSTL,STL,http://en.wikipedia.org/wiki/Lambert-St._Louis_International_Airport,4,1159127093,United States of America,USA
+822,3,major,Okecie Int'l,WAW,terminal,EPWA,WAW,http://en.wikipedia.org/wiki/Warsaw_Frederic_Chopin_Airport,4,1159127105,Poland,POL
+823,3,major,Zurich Int'l,ZRH,terminal,LSZH,ZRH,http://en.wikipedia.org/wiki/Z%C3%BCrich_Airport,4,1159127117,Switzerland,CHE
+824,3,mid,Gosselies,CRL,terminal,EBCI,CRL,http://en.wikipedia.org/wiki/Brussels_South_Charleroi_Airport,2,1159127129,Belgium,BEL
+825,3,major,Munich Freight Terminal,MUCf,freight,EDDMf,MUCf,http://en.wikipedia.org/wiki/Munich_Airport,4,1159127147,Germany,DEU
+826,3,major,Barcelona,BCN,terminal,LEBL,BCN,http://en.wikipedia.org/wiki/Barcelona_International_Airport,4,1159127159,Spain,ESP
+827,3,major,Ruzyn,PRG,terminal,LKPR,PRG,http://en.wikipedia.org/wiki/Ruzyn%C4%9B_International_Airport,4,1159127171,Czechia,CZE
+828,2,major,Hong Kong Int'l,HKG,terminal,VHHH,HKG,http://en.wikipedia.org/wiki/Hong_Kong_International_Airport,4,1159127187,None,None
+829,2,major,Taoyuan,TPE,terminal,RCTP,TPE,http://en.wikipedia.org/wiki/Taiwan_Taoyuan_International_Airport,4,1159127201,Taiwan,TWN
+830,2,major,Schiphol,AMS,terminal,EHAM,AMS,http://en.wikipedia.org/wiki/Amsterdam_Schiphol_Airport,2,1159127211,Netherlands,NLD
+831,2,major,Singapore Changi,SIN,terminal,WSSS,SIN,http://en.wikipedia.org/wiki/Singapore_Changi_Airport,4,1159127223,Singapore,SGP
+832,2,major,London Heathrow,LHR,parking,EGLL,LHR,http://en.wikipedia.org/wiki/London_Heathrow_Airport,4,1159127237,United Kingdom,GBR
+833,2,major,Auckland Int'l,AKL,terminal,NZAA,AKL,http://en.wikipedia.org/wiki/Auckland_International_Airport,4,1159127251,None,None
+834,2,major,Anchorage Int'l,ANC,terminal,PALH,ANC,http://en.wikipedia.org/wiki/Lake_Hood_Seaplane_Base,5,1159127263,United States of America,USA
+835,2,major,Hartsfield-Jackson Atlanta Int'l,ATL,terminal,KATL,ATL,http://en.wikipedia.org/wiki/Hartsfield-Jackson_Atlanta_International_Airport,4,1159127283,United States of America,USA
+836,2,major,Beijing Capital,PEK,terminal,ZBAA,PEK,http://en.wikipedia.org/wiki/Beijing_Capital_International_Airport,4,1159127293,China,CHN
+837,2,major,Eldorado Int'l,BOG,terminal,SKBO,BOG,http://en.wikipedia.org/wiki/El_Dorado_International_Airport,4,1159127303,Colombia,COL
+838,2,major,Chhatrapati Shivaji Int'l,BOM,terminal,VABB,BOM,http://en.wikipedia.org/wiki/Chhatrapati_Shivaji_International_Airport,4,1159127317,India,IND
+839,2,major,Gen E L Logan Int'l,BOS,terminal,KBOS,BOS,http://en.wikipedia.org/wiki/Logan_International_Airport,4,1159127331,United States of America,USA
+840,2,major,Baltimore-Washington Int'l Thurgood Marshall,BWI,terminal,KBWI,BWI,http://en.wikipedia.org/wiki/Baltimore-Washington_International_Thurgood_Marshall_Airport,4,1159127345,United States of America,USA
+841,2,major,Cairo Int'l,CAI,terminal,HECA,CAI,http://en.wikipedia.org/wiki/Cairo_International_Airport,4,1159127357,Egypt,EGY
+842,2,mid,Casablanca-Anfa,CAS,terminal,GMMC,CAS,http://en.wikipedia.org/wiki/Casablanca-Anfa_Airport,4,1159127367,Morocco,MAR
+843,2,mid,Simón Bolivar Int'l,CCS,terminal,SVMI,CCS,http://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar_International_Airport,4,1159127381,Venezuela,VEN
+844,2,major,Cape Town Int'l,CPT,terminal,FACT,CPT,http://en.wikipedia.org/wiki/Cape_Town_International_Airport,4,1159127391,South Africa,ZAF
+845,2,major,Chengdushuang Liu,CTU,terminal,ZUUU,CTU,http://en.wikipedia.org/wiki/Chengdu_Shuangliu_International_Airport,4,1159127407,China,CHN
+846,2,major,Indira Gandhi Int'l,DEL,terminal,VIDP,DEL,http://en.wikipedia.org/wiki/Indira_Gandhi_International_Airport,4,1159127419,India,IND
+847,2,major,Denver Int'l,DEN,terminal,KDEN,DEN,http://en.wikipedia.org/wiki/Denver_International_Airport,4,1159127425,United States of America,USA
+848,2,major,Dallas-Ft. Worth Int'l,DFW,parking,KDFW,DFW,http://en.wikipedia.org/wiki/Dallas-Fort_Worth_International_Airport,4,1159127437,United States of America,USA
+849,2,major,Don Muang Int'l,DMK,terminal,VTBD,DMK,http://en.wikipedia.org/wiki/Don_Mueang_International_Airport,4,1159127447,Thailand,THA
+850,2,major,Dubai Int'l,DXB,terminal,OMDB,DXB,http://en.wikipedia.org/wiki/Dubai_International_Airport,4,1159127459,United Arab Emirates,ARE
+851,2,major,Newark Int'l,EWR,terminal,KEWR,EWR,http://en.wikipedia.org/wiki/Newark_Liberty_International_Airport,4,1159127471,United States of America,USA
+852,2,major,Ministro Pistarini Int'l,EZE,terminal,SAEZ,EZE,http://en.wikipedia.org/wiki/Ministro_Pistarini_International_Airport,4,1159127481,Argentina,ARG
+853,2,major,Fort Lauderdale Hollywood Int'l,FLL,terminal,KFLL,FLL,http://en.wikipedia.org/wiki/Fort_Lauderdale-Hollywood_International_Airport,4,1159127493,United States of America,USA
+854,2,major,George Bush Intercontinental,IAH,terminal,KIAH,IAH,http://en.wikipedia.org/wiki/George_Bush_Intercontinental_Airport,4,1159127507,United States of America,USA
+855,2,major,Atatürk Hava Limani,IST,terminal,LTBA,IST,http://en.wikipedia.org/wiki/Atat%C3%BCrk_International_Airport,2,1159127517,None,None
+856,2,major,OR Tambo Int'l,JNB,terminal,FAJS,JNB,http://en.wikipedia.org/wiki/OR_Tambo_International_Airport,4,1159127529,South Africa,ZAF
+857,2,mid,Juneau Int'l,JNU,terminal,PAJN,JNU,http://en.wikipedia.org/wiki/Juneau_International_Airport,4,1159127539,None,None
+858,2,major,Los Angeles Int'l,LAX,terminal,KLAX,LAX,http://en.wikipedia.org/wiki/Los_Angeles_International_Airport,4,1159127551,United States of America,USA
+859,2,major,Linate,LIN,terminal,LIML,LIN,http://en.wikipedia.org/wiki/Linate_Airport,4,1159127561,Italy,ITA
+860,2,major,Melbourne Int'l,MEL,terminal,YMML,MEL,http://en.wikipedia.org/wiki/Melbourne_Airport,4,1159127571,Australia,AUS
+861,2,major,Lic Benito Juarez Int'l,MEX,terminal,MMMX,MEX,http://en.wikipedia.org/wiki/Mexico_City_International_Airport,4,1159127585,Mexico,MEX
+862,2,major,Ninoy Aquino Int'l,MNL,terminal,RPLL,MNL,http://en.wikipedia.org/wiki/Ninoy_Aquino_International_Airport,4,1159127591,Philippines,PHL
+863,2,major,Jomo Kenyatta Int'l,NBO,terminal,HKJK,NBO,http://en.wikipedia.org/wiki/Jomo_Kenyatta_International_Airport,4,1159127605,Kenya,KEN
+864,2,major,Honolulu Int'l,HNL,terminal,PHNL,HNL,http://en.wikipedia.org/wiki/Honolulu_International_Airport,4,1159127617,None,None
+865,2,major,Chicago O'Hare Int'l,ORD,terminal,KORD,ORD,http://en.wikipedia.org/wiki/O'Hare_International_Airport,4,1159127621,United States of America,USA
+866,2,major,King Khalid Int'l,RUH,terminal,OERK,RUH,http://en.wikipedia.org/wiki/King_Khalid_International_Airport,4,1159127633,Saudi Arabia,SAU
+867,2,major,Arturo Merino Benitez Int'l,SCL,terminal,SCEL,SCL,http://en.wikipedia.org/wiki/Comodoro_Arturo_Merino_Ben%C3%ADtez_International_Airport,4,1159127643,Chile,CHL
+868,2,major,Tacoma Int'l,SEA,terminal,KSEA,SEA,http://en.wikipedia.org/wiki/Seattle-Tacoma_International_Airport,2,1159127655,United States of America,USA
+869,2,major,San Francisco Int'l,SFO,terminal,KSFO,SFO,http://en.wikipedia.org/wiki/San_Francisco_International_Airport,4,1159127665,United States of America,USA
+870,2,major,Hongqiao,SHA,terminal,ZSSS,SHA,http://en.wikipedia.org/wiki/Shanghai_Hongqiao_International_Airport,4,1159127677,China,CHN
+871,2,major,Sheremtyevo,SVO,terminal,UUEE,SVO,http://en.wikipedia.org/wiki/Sheremetyevo_International_Airport,4,1159127689,Russia,RUS
+872,2,major,Toronto-Pearson Int'l,YYZ,terminal,CYYZ,YYZ,http://en.wikipedia.org/wiki/Toronto_Pearson_International_Airport,4,1159127701,Canada,CAN
+873,2,major,Kingsford Smith,SYD,terminal,YSSY,SYD,http://en.wikipedia.org/wiki/Kingsford_Smith_International_Airport,4,1159127713,Australia,AUS
+874,2,major,Helsinki Vantaa,HEL,terminal,EFHK,HEL,http://en.wikipedia.org/wiki/Helsinki-Vantaa_Airport,4,1159127725,Finland,FIN
+875,2,major,Charles de Gaulle Int'l,CDG,terminal,LFPG,CDG,http://en.wikipedia.org/wiki/Charles_de_Gaulle_International_Airport,4,1159127735,France,FRA
+876,2,major,Berlin-Tegel Int'l,TXL,terminal,EDDT,TXL,http://en.wikipedia.org/wiki/Berlin-Tegel_International_Airport,4,1159127747,Germany,DEU
+877,2,major,Vienna Schwechat Int'l,VIE,terminal,LOWW,VIE,http://en.wikipedia.org/wiki/Vienna_International_Airport,4,1159127759,Austria,AUT
+878,2,major,Frankfurt Int'l,FRA,terminal,EDDF,FRA,http://en.wikipedia.org/wiki/Frankfurt_Airport,2,1159127769,Germany,DEU
+879,2,major,Leonardo da Vinci Int'l,FCO,terminal,LIRF,FCO,http://en.wikipedia.org/wiki/Leonardo_da_Vinci_Airport,4,1159127781,Italy,ITA
+880,2,major,Osaka Int'l,ITM,terminal,RJOO,ITM,http://en.wikipedia.org/wiki/Osaka_International_Airport,4,1159127787,Japan,JPN
+881,2,major,Gimpo Int'l,GMP,terminal,RKSS,GMP,http://en.wikipedia.org/wiki/Gimpo_International_Airport,4,1159127799,South Korea,KOR
+882,2,major,Oslo Gardermoen,OSL,terminal,ENGM,OSL,http://en.wikipedia.org/wiki/Gardermoen_Air_Station,2,1159127809,Norway,NOR
+883,2,major,Juscelino Kubitschek Int'l,BSB,terminal,SBBR,BSB,http://en.wikipedia.org/wiki/Bras%C3%ADlia_International_Airport,2,1159127817,Brazil,BRA
+884,2,major,Congonhas Int'l,CGH,terminal,SBSP,CGH,http://en.wikipedia.org/wiki/Congonhas-S%C3%A3o_Paulo_International_Airport,4,1159127827,Brazil,BRA
+885,2,major,Rio de Janeiro-Antonio Carlos Jobim Int'l,GIG,terminal,SBGL,GIG,http://en.wikipedia.org/wiki/Rio_de_Janeiro-Gale%C3%A3o_International_Airport,2,1159127839,Brazil,BRA
+886,2,major,Madrid Barajas,MAD,terminal,LEMD,MAD,http://en.wikipedia.org/wiki/Madrid_Barajas_International_Airport,4,1159127851,Spain,ESP
+887,2,major,Luis Muñoz Marin,SJU,terminal,TJSJ,SJU,http://en.wikipedia.org/wiki/Luis_Mu%C3%B1oz_Mar%C3%ADn_International_Airport,4,1159127861,Puerto Rico,PRI
+888,2,major,Arlanda,ARN,terminal,ESSA,ARN,http://en.wikipedia.org/wiki/Stockholm-Arlanda_Airport,4,1159127877,Sweden,SWE
+889,2,major,Soekarno-Hatta Int'l,CGK,parking,WIII,CGK,http://en.wikipedia.org/wiki/Soekarno-Hatta_International_Airport,4,1159127891,Indonesia,IDN
+890,2,major,Eleftherios Venizelos Int'l,ATH,terminal,LGAV,ATH,http://en.wikipedia.org/wiki/Athens_International_Airport,2,1159127903,Greece,GRC

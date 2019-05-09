@@ -136,28 +136,32 @@ def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
 # Reporter: Any country
 # Products: 'TOTAL' or a valid HS code
 
-def getData(reporter, period,products ='TOTAL',year='latest', indType='all',freq = 'Y'):
+def getData(reporter, period,partners,products ='TOTAL',year='latest', indType='all',freq = 'Y'):
     ########################################## Getting cleaned data ##########################################
-
+    if reporter.lower() != 'all':
     # Getting top five trading partners
-    topFiveAmount,topFiveShares = getTradingPartners(reporter=reporter,year=year,indicatorType=indType)
+        topFiveAmount,topFiveShares = getTradingPartners(reporter=reporter,year=year,indicatorType=indType)
 
-    # Pulling out the data received
-    amounts = [partner[1] for partner in topFiveAmount]
-    partners = [partner[0] for partner in topFiveAmount]
+        # Pulling out the data received
+        amounts = [partner[1] for partner in topFiveAmount]
+        partners = [partner[0] for partner in topFiveAmount]
 
-    # Extracting data from ComTrade API
-    download_trade_data('tempoaryFile.csv', period=period, frequency=freq.upper(), reporter=reporter,
-                    partner=partners, product=products, tradeflow=indType)
+        # Extracting data from ComTrade API
+        download_trade_data('tempoaryFile.csv', period=period, frequency=freq.upper(), reporter=reporter,
+                        partner=partners, product=products, tradeflow=indType)
+
+    else:
+        download_trade_data('tempoaryFile.csv', period=period, frequency=freq.upper(), reporter=reporter,
+                        partner=partners, product=products, tradeflow=indType)
 
     # Reading in the data, to structure it properly.
     cleanData = pd.read_csv('tempoaryFile.csv',index_col=0,parse_dates=['periodDesc'])
 
     # Keeping only the relevant columns
-    cleanData = cleanData[['TradeValue','cmdCode','cmdDescE','periodDesc','ptTitle','rgDesc','rtTitle']]
+    cleanData = cleanData[['TradeValue','cmdCode','cmdDescE','periodDesc','ptTitle','rgDesc','rtTitle','rt3ISO']]
 
     # Renaming
-    cleanData.columns = ['trade_value','product','product_description','date','partner','indicator_type','reporter']
+    cleanData.columns = ['trade_value','product','product_description','date','partner','indicator_type','reporter','reporter_ISO']
 
     # Convert the unit to 'millions' USD
     cleanData['trade_value'] = cleanData.trade_value/1000000

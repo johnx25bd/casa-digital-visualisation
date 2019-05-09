@@ -1,0 +1,330 @@
+########################################################### Potential attributes (Dimensions) #####################################################################
+________________ Aim: ________________
+This file aims at giving an overview of the difference dimensions, which could be added to the visualisations.
+
+Source files:
+
+Original country shapefile: https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/
+Port shapefile: https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015
+
+Potential attributes:
+
+The potentially interesting attributes are:
+
+ ['SHELTER' 'ENTRY_TIDE' 'ENTRYSWELL' 'ENTRY_ICE' 'ENTRYOTHER' 'OVERHD_LIM'
+ 'CHAN_DEPTH' 'ANCH_DEPTH' 'CARGODEPTH' 'OIL_DEPTH' 'TIDE_RANGE'
+ 'MAX_VESSEL' 'HOLDGROUND' 'TURN_BASIN' 'PORTOFENTR' 'US_REP' 'ETAMESSAGE'
+ 'PILOT_REQD' 'PILOTAVAIL' 'LOC_ASSIST' 'PILOTADVSD' 'TUGSALVAGE'
+ 'TUG_ASSIST' 'PRATIQUE' 'SSCC_CERT' 'QUAR_OTHER' 'COMM_PHONE' 'COMM_FAX'
+ 'COMM_RADIO' 'COMM_VHF' 'COMM_AIR' 'COMM_RAIL' 'CARGOWHARF' 'CARGO_ANCH'
+ 'CARGMDMOOR' 'CARBCHMOOR' 'CARICEMOOR' 'MED_FACIL' 'GARBAGE' 'DEGAUSS'
+ 'DRTYBALLST' 'CRANEFIXED' 'CRANEMOBIL' 'CRANEFLOAT' 'LIFT_100_'
+ 'LIFT50_100' 'LIFT_25_49' 'LIFT_0_24' 'LONGSHORE' 'ELECTRICAL'
+ 'SERV_STEAM' 'NAV_EQUIP' 'ELECREPAIR' 'PROVISIONS' 'WATER' 'FUEL_OIL'
+ 'DIESEL' 'DECKSUPPLY' 'ENG_SUPPLY' 'REPAIRCODE' 'DRYDOCK']
+
+The name of the potential attribute is:  SHELTER
+The unique values are:
+
+ ['G' 'F' 'E' 'P' 'N' 'NaN']
+
+The name of the potential attribute is:  ENTRY_TIDE
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  ENTRYSWELL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  ENTRY_ICE
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  ENTRYOTHER
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  OVERHD_LIM
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CHAN_DEPTH
+The unique values are:
+
+ ['K' 'J' 'M' 'H' 'G' 'F' 'L' 'E' 'N' 'D' 'P' 'O' 'A' 'C' 'NaN' 'Q' 'B']
+
+The name of the potential attribute is:  ANCH_DEPTH
+The unique values are:
+
+ ['G' 'J' 'K' 'L' 'E' 'F' 'H' 'D' 'B' 'A' 'NaN' 'O' 'N' 'C' 'M' 'P' 'Q']
+
+The name of the potential attribute is:  CARGODEPTH
+The unique values are:
+
+ ['O' 'J' 'NaN' 'K' 'G' 'F' 'P' 'H' 'L' 'M' 'D' 'E' 'B' 'N' 'A' 'Q' 'C']
+
+The name of the potential attribute is:  OIL_DEPTH
+The unique values are:
+
+ ['NaN' 'J' 'F' 'G' 'M' 'L' 'N' 'E' 'D' 'K' 'C' 'A' 'H' 'B' 'O' 'P' 'Q']
+
+The name of the potential attribute is:  TIDE_RANGE
+The unique values are:
+
+ [ 3.  2.  1.  4.  0.  9.  5. 12. 13. 14. 16. 38. 90. 20.  6. 19.  8. 10.
+  7. 11. 29. 15. 26. 18. 17. 28.]
+
+The name of the potential attribute is:  MAX_VESSEL
+The unique values are:
+
+ ['NaN' 'M' 'L']
+
+The name of the potential attribute is:  HOLDGROUND
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  TURN_BASIN
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  PORTOFENTR
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  US_REP
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  ETAMESSAGE
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  PILOT_REQD
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  PILOTAVAIL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  LOC_ASSIST
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  PILOTADVSD
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  TUGSALVAGE
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  TUG_ASSIST
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  PRATIQUE
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  SSCC_CERT
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  QUAR_OTHER
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  COMM_PHONE
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  COMM_FAX
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  COMM_RADIO
+The unique values are:
+
+ ['Y' 'NaN' 'N']
+
+The name of the potential attribute is:  COMM_VHF
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  COMM_AIR
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  COMM_RAIL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CARGOWHARF
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CARGO_ANCH
+The unique values are:
+
+ ['Y' 'NaN' 'N']
+
+The name of the potential attribute is:  CARGMDMOOR
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CARBCHMOOR
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CARICEMOOR
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  MED_FACIL
+The unique values are:
+
+ ['Y' 'NaN' 'N']
+
+The name of the potential attribute is:  GARBAGE
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  DEGAUSS
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  DRTYBALLST
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CRANEFIXED
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CRANEMOBIL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  CRANEFLOAT
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  LIFT_100_
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  LIFT50_100
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  LIFT_25_49
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  LIFT_0_24
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  LONGSHORE
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  ELECTRICAL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  SERV_STEAM
+The unique values are:
+
+ ['NaN' 'N' 'Y']
+
+The name of the potential attribute is:  NAV_EQUIP
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  ELECREPAIR
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  PROVISIONS
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  WATER
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  FUEL_OIL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  DIESEL
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  DECKSUPPLY
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  ENG_SUPPLY
+The unique values are:
+
+ ['NaN' 'Y' 'N']
+
+The name of the potential attribute is:  REPAIRCODE
+The unique values are:
+
+ ['NaN' 'C' 'A' 'B' 'D' 'N']
+
+The name of the potential attribute is:  DRYDOCK
+The unique values are:
+
+ ['NaN' 'S' 'M' 'L']
