@@ -52,6 +52,20 @@
         "fill-opacity": 0.8
       }
     }
+  },
+
+  {
+    "name": "china-demo-poly",
+    "path": "./data/china-demo-poly.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "type": "fill",
+      "layout": {},
+      "paint": {
+        "fill-color": "#088",
+        "fill-opacity": 0.8
+      }
+    }
   }
 
 ]
