@@ -1,0 +1,21 @@
+########################################################### Potential attributes (Dimensions) #####################################################################
+________________ Aim: ________________
+This file aims at giving an overview of the difference dimensions, which could be added to the visualisations.
+
+Source files:
+
+Original country shapefile: https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/
+Airport shapefile: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/
+UK Freight data: https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2019-02/ (table 13)
+
+Potential attributes:
+
+The following attributes was removed from the UK Freight data and the airport shapefile, because they at first sight didn't seemed to add anything:
+
+* Reporting_airport_group_name (London Area Airport/Other UK airport etc.)
+* wdid_score (ranging from 2-4)
+* ne_id (10 number code)
+
+However, they can be considered potential attributes.
+
+Following these three, there are two tables (14: "International & Domestic Freight" & 15: "Freight by Aircraft Configuration") which could add attributes. 
