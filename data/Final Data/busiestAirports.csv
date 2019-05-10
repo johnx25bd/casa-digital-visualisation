@@ -1,0 +1,21 @@
+Airport,Rank,City,Country,Loaded/unloaded 2017,Change,scalerank_left,type,name,abbrev,location,gps_code,iata_code,wikipedia,wdid_score,ne_id,NAME,ISO3
+HKG,1,HONG KONG,HK,5 049 898,9.4,2,major,Hong Kong Int'l,HKG,terminal,VHHH,HKG,http://en.wikipedia.org/wiki/Hong_Kong_International_Airport,4,1159127187,Hong Kong,HKG
+MEM,2,MEMPHIS TN,US,4 336 752,0.3,4,major,Memphis Int'l,MEM,terminal,KMEM,MEM,http://en.wikipedia.org/wiki/Memphis_International_Airport,4,1159125467,United States of America,USA
+PVG,3,SHANGHAI,CN,3 824 280,11.2,4,major,Shanghai Pudong Int'l,PVG,terminal,ZSPD,PVG,http://en.wikipedia.org/wiki/Shanghai_Pudong_International_Airport,4,1159126719,China,CHN
+ICN,4,INCHEON,KR,2 921 691,7.6,6,major,Incheon Int'l,ICN,terminal,RKSI,ICN,http://en.wikipedia.org/wiki/Incheon_International_Airport,4,1159123643,South Korea,KOR
+ANC,5,ANCHORAGE AK,US,2 713 230,6.7,2,major,Anchorage Int'l,ANC,terminal,PALH,ANC,http://en.wikipedia.org/wiki/Lake_Hood_Seaplane_Base,5,1159127263,United States of America,USA
+DXB,6,DUBAI,AE,2 654 494,2.4,2,major,Dubai Int'l,DXB,terminal,OMDB,DXB,http://en.wikipedia.org/wiki/Dubai_International_Airport,4,1159127459,United Arab Emirates,ARE
+SDF,7,LOUISVILLE KY,US,2 602 695,6.8,5,major,Louisville Int'l,SDF,terminal,KSDF,SDF,http://en.wikipedia.org/wiki/Louisville_International_Airport,4,1159124125,United States of America,USA
+NRT,8,TOKYO,JP,2 336 427,7.9,4,major,Narita Int'l,NRT,terminal,RJAA,NRT,http://en.wikipedia.org/wiki/Narita_International_Airport,4,1159126505,Japan,JPN
+TPE,9,TAIPEI,TW,2 269 585,8.2,2,major,Taoyuan,TPE,terminal,RCTP,TPE,http://en.wikipedia.org/wiki/Taiwan_Taoyuan_International_Airport,4,1159127201,Taiwan,TWN
+CDG,10,PARIS,FR,2 195 229,2.8,2,major,Charles de Gaulle Int'l,CDG,terminal,LFPG,CDG,http://en.wikipedia.org/wiki/Charles_de_Gaulle_International_Airport,4,1159127735,France,FRA
+FRA,11,FRANKFURT,DE,2 194 056,3.8,2,major,Frankfurt Int'l,FRA,terminal,EDDF,FRA,http://en.wikipedia.org/wiki/Frankfurt_Airport,2,1159127769,Germany,DEU
+SIN,12,SINGAPORE,SG,2 164 700,7.9,2,major,Singapore Changi,SIN,terminal,WSSS,SIN,http://en.wikipedia.org/wiki/Singapore_Changi_Airport,4,1159127223,Singapore,SGP
+LAX,13,LOS ANGELES CA,US,2 158 324,8.1,2,major,Los Angeles Int'l,LAX,terminal,KLAX,LAX,http://en.wikipedia.org/wiki/Los_Angeles_International_Airport,4,1159127551,United States of America,USA
+MIA,14,MIAMI FL,US,2 071 722,2.9,4,major,Miami Int'l,MIA,terminal,KMIA,MIA,http://en.wikipedia.org/wiki/Miami_International_Airport,4,1159125509,United States of America,USA
+PEK,15,BEIJING,CN,2 029 584,4.5,2,major,Beijing Capital,PEK,terminal,ZBAA,PEK,http://en.wikipedia.org/wiki/Beijing_Capital_International_Airport,4,1159127293,China,CHN
+DOH,16,DOHA,QA,2 020 942,15.0,6,major and military,Doha Int'l,DOH,terminal,OTBD,DOH,http://en.wikipedia.org/wiki/Doha_International_Airport,4,1159121441,Qatar,QAT
+LHR,17,LONDON,GB,1 794 276,9.4,2,major,London Heathrow,LHR,parking,EGLL,LHR,http://en.wikipedia.org/wiki/London_Heathrow_Airport,4,1159127237,United Kingdom,GBR
+CAN,18,GUANGZHOU,CN,1 780 423,7.8,4,major,Guangzhou Baiyun Int'l,CAN,terminal,ZGGG,CAN,http://en.wikipedia.org/wiki/Guangzhou_Baiyun_International_Airport,4,1159124905,China,CHN
+AMS,19,AMSTERDAM,NL,1 778 382,4.9,2,major,Schiphol,AMS,terminal,EHAM,AMS,http://en.wikipedia.org/wiki/Amsterdam_Schiphol_Airport,2,1159127211,Netherlands,NLD
+ORD,20,CHICAGO IL,US,1 721 807,12.6,2,major,Chicago O'Hare Int'l,ORD,terminal,KORD,ORD,http://en.wikipedia.org/wiki/O'Hare_International_Airport,4,1159127621,United States of America,USA
