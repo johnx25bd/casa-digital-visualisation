@@ -1,0 +1,36 @@
+This note presents an overview of the files, primarily contained in the folder Data Sources/UK Traffic Statistics, which is relevant for the presentation of rail way, road and waterborne freight.
+Waterborne covers movements on rivers and inlands waterways.
+
+############################################# Drawback #############################################
+
+The drawback of these statistics is that it isn't location specific but general for the entire UK.
+
+############################################# Rail way #############################################
+
+Rai0401.ods presents national railways freight moved by commodity, with historical data going back to 2000.
+"By commodity" means on the following groups: (Coal, Metals, Construction,	Oil and petroleum,	International,	Domestic intermodal,	Other,	Total,	Infrastructure)
+
+"Moved" means that the unit is in tonne-kilometres, i.e. expressed in terms of weight and distance transported, and not in value as the data for ports/airports, used as layers.
+
+Rai0402.ods present national railways freight lifted by commodity, with historical data going back to 2000.
+"By commodity" means on the following groups: (Coal, Other, Total)
+
+"Lifted" means that the unit is in tonne, and therefore expressed the weight transported, and not the value as it was the case with ports/airports, mentioned above.
+
+############################################# Road #############################################
+
+rfs0101.ods present freight moved, lifted and kilometres covered for heavy-goods (HG) vehicles registrered in GB, with historical data going back to 1990.
+rfs0104.ods/rfs0105.ods/rfs0106.ods presents freight moved and lifted by commodity, with the data involving quite an extensive groups of goods. Historical data is available.
+rfs0130.ods present a summary of domestic and international road freight activity, and historical data is available.
+rfs0204.ods/rfs0205.ods/rfs0206.ods/rfs0207.ods presents exports carried by HG vehicles, both by country and commodity.
+
+############################################# Waterborne #############################################
+
+tsgb0508 (port0701).ods present historical data on goods lifted/moved by traffic type with "traffic type" being: Internal, Coastwise, Foreign, One-ports.
+tsgb0510 (port0704).ods present historical data on goods lifted by specific waterways (mainly rivers).
+
+############################################# Conclusion #############################################
+
+All three presents different interesting opportunities. To some extent, I think that the data on freight flows via railways and roads gives the same opportunities, namely to highlight the individual
+networks on the map, and present some statistics on the accompanying cards.
+Differently, I believe that the data on waterborne freight flows allow us to make a layer using the data and part of the OS MasterMap.  
