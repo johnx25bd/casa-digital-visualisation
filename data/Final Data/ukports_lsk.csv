@@ -1,0 +1,39 @@
+﻿,Name,inward_drybulk_domestic,inward_drybulk_International,outward_drybulk_domestic,outward_drybulk_International,inward_liquidbulk_domestic,inward_liquidbulk_International,outward_liquidbulk_domestic,outward_liquidbulk_International,inward_lo_lo_domestic,inward_lo_lo_international,outward_lo_lo_domestic,outward_lo_lo_international,inward_ro_ro_domestic,inward_ro_ro_international,outward_ro_ro_domestic,outward_ro_ro_international,inward_others_domestic,inward_others_international,outward_others_domestic,outward_others_international,Total,port_name,iso3,country_name,latitude,longitude,harborsize,harbortype,railway
+0,Aberdeen,49,121,39,196,949,208,969,5,8,4,63,6,162,16,214,32,368,62,511,76,"4,058",ABERDEEN,GBR,United Kingdom,57.15,-2.083333,M,RB,
+1,Belfast,285,"3,609","2,128",594,"1,809",455,0,0,195,760,160,580,"3,593",0,"3,342",0,117,349,138,110,"18,226",BELFAST,GBR,United Kingdom,54.616667,-5.9,L,RB,S
+2,Boston,0,24,0,101,0,9,0,0,0,0,0,0,0,0,0,0,0,586,0,18,738,BOSTON,GBR,United Kingdom,52.966667,-0.016667,S,RT,S
+3,Bristol,"1,164","2,002",100,870,581,"1,908",0,0,162,431,44,169,0,802,0,349,0,155,0,2,"8,741",BRISTOL,GBR,United Kingdom,51.466667,-2.633333,M,RT,S
+4,Cardiff,220,52,38,27,826,276,0,0,1,10,9,1,0,0,0,0,0,96,8,9,"1,574",CARDIFF,GBR,United Kingdom,51.45,-3.166667,M,CT,S
+5,Dover,0,0,20,2,0,0,0,0,0,2,0,1,0,"15,264",0,"10,667",4,263,0,0,"26,223",DOVER HARBOR,GBR,United Kingdom,51.116667,1.333333,S,CB,M
+6,Dundee,13,301,2,14,4,141,0,0,0,0,0,0,0,0,0,0,1,40,0,51,566,DUNDEE,GBR,United Kingdom,56.466667,-2.95,L,RB,
+7,Felixstowe,0,0,0,0,0,31,0,0,226,"15,378",290,"9,452",0,"2,315",0,"1,329",0,5,0,2,"29,028",FELIXSTOWE,GBR,United Kingdom,51.95,1.316667,V,RN,S
+8,Fishguard,0,0,0,0,11,0,0,0,0,0,0,0,0,211,0,158,0,0,0,0,381,FISHGUARD,GBR,United Kingdom,52.016667,-4.983333,S,CB,S
+9,Fowey,7,0,9,464,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,482,FOWEY HARBOUR,GBR,United Kingdom,50.333333,-4.633333,S,RN,M
+10,Glensanda,0,0,"2,289","3,849",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"6,138",GLENSANDA,GBR,United Kingdom,56.566667,-5.533333,V,RN,
+11,Goole,4,485,0,85,21,26,0,0,0,0,0,0,0,0,0,0,0,768,10,41,"1,440",GOOLE,GBR,United Kingdom,53.7,-0.833333,S,RT,S
+12,Great Yarmouth,13,613,42,76,73,43,111,0,0,0,0,0,0,0,0,0,76,48,80,22,"1,197",GREAT YARMOUTH,GBR,United Kingdom,52.616667,1.733333,S,RN,S
+13,Harwich,0,0,19,51,33,124,63,139,0,0,0,5,0,"2,757",0,"1,399",1,142,1,23,"4,755",HARWICH,GBR,United Kingdom,51.95,1.283333,S,RN,M
+14,Heysham,0,0,0,0,0,0,0,0,0,0,0,0,"1,858",429,"1,890",390,16,0,48,0,"4,630",HEYSHAM,GBR,United Kingdom,54.033333,-2.916667,V,CB,
+15,Holyhead,0,0,0,0,5,11,3,0,0,0,0,0,0,"2,572",0,"2,647",0,0,0,0,"5,237",HOLYHEAD,GBR,United Kingdom,53.316667,-4.633333,S,CB,S
+16,Hull,74,"1,998",13,200,22,858,36,919,0,"1,317",0,456,0,"1,542",0,851,1,"1,301",166,69,"9,824",HULL,GBR,United Kingdom,53.75,-0.283333,M,RT,
+17,Ipswich,425,756,222,453,0,100,0,24,0,0,0,0,0,0,0,0,0,188,0,9,"2,177",IPSWICH,GBR,United Kingdom,52.05,1.166667,S,RT,S
+18,Larne,0,0,4,0,3,0,0,0,0,0,0,0,"1,448",0,"1,398",0,0,11,0,8,"2,872",LARNE,GBR,United Kingdom,54.85,-5.8,S,CN,S
+19,Liverpool,797,"4,662",47,"1,994","1,413","9,129",130,97,219,"3,281",103,"1,820",945,"2,571","1,337","2,899",0,"1,041",5,53,"32,541",LIVERPOOL,GBR,United Kingdom,53.416667,-3,L,RT,L
+20,London,"9,588","4,206",247,"1,578",627,"13,908",30,113,0,"6,850",3,"3,595",0,"5,884",1,"1,928",0,"1,194",0,118,"49,868",LONDON,GBR,United Kingdom,51.5,-0.083333,L,RB,M
+21,Londonderry,180,884,3,71,186,404,0,0,0,0,0,0,0,0,0,0,18,39,14,9,"1,808",LONDONDERRY,GBR,United Kingdom,55,-7.316667,M,RN,
+22,Manchester,100,893,34,224,125,"1,619",535,"3,185",0,0,0,0,0,0,0,0,2,27,0,42,"6,789",MANCHESTER,GBR,United Kingdom,53.483333,-2.266667,L,RT,
+23,Milford Haven,40,44,2,0,436,"19,239","4,293","7,015",0,0,0,0,0,487,0,397,0,0,14,23,"31,990",MILFORD HAVEN,GBR,United Kingdom,51.716667,-5.033333,M,RN,
+24,Newhaven,17,0,13,124,0,0,0,0,0,0,0,0,0,350,0,204,0,0,0,0,707,NEWHAVEN HARBOUR,GBR,United Kingdom,50.783333,0.05,V,RN,
+25,Newport,302,530,0,495,0,0,0,0,0,0,0,0,0,0,0,0,0,"1,180",51,893,"3,450",NEWPORT,GBR,United Kingdom,51.55,-2.983333,M,RT,
+26,Peterhead,1,4,21,6,433,71,55,0,0,0,0,0,0,0,0,0,328,3,361,3,"1,288",PETERHEAD,GBR,United Kingdom,57.5,-1.783333,M,CB,
+27,Plymouth,215,190,125,398,749,650,0,0,0,0,0,0,0,29,0,30,0,0,0,0,"2,384",PLYMOUTH,GBR,United Kingdom,50.366667,-4.15,M,CN,
+28,Poole,120,17,0,127,0,0,0,0,0,0,0,0,0,300,0,139,0,71,39,4,818,POOLE HARBOUR,GBR,United Kingdom,50.683333,-1.95,S,RN,S
+29,Port Talbot,4,"7,340",245,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"7,589",PORT TALBOT,GBR,United Kingdom,51.583333,-3.816667,S,CB,
+30,Portsmouth,427,0,0,0,0,0,0,0,0,230,0,75,105,"1,305",353,852,0,513,0,7,"3,866",PORTSMOUTH HARBOUR,GBR,United Kingdom,50.8,-1.1,M,CT,M
+31,Ramsgate,55,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,59,RAMSGATE,GBR,United Kingdom,51.333333,1.416667,S,CB,S
+32,Shoreham,"1,388",32,61,134,0,68,0,0,0,0,0,0,0,0,0,0,1,380,0,0,"2,063",SHOREHAM HARBOUR,GBR,United Kingdom,50.816667,-0.25,V,LC,M
+33,Southampton,925,376,96,710,"1,171","13,724",456,"6,083",189,"4,562",880,"3,930",0,516,0,796,0,38,0,19,"34,471",SOUTHAMPTON,GBR,United Kingdom,50.9,-1.4,L,RB,M
+34,Sullom Voe,0,0,3,0,0,0,599,"4,577",0,0,0,0,0,0,0,0,0,0,0,0,"5,179",SULLOM VOE,GBR,United Kingdom,60.466667,-1.3,S,CN,
+35,Sunderland,0,196,23,184,0,0,0,0,0,0,0,0,0,0,0,0,0,421,3,9,835,SUNDERLAND,GBR,United Kingdom,54.916667,-1.366667,M,RT,M
+36,Swansea,99,184,17,177,0,0,0,0,0,0,0,0,0,0,0,0,0,59,0,5,542,SWANSEA,GBR,United Kingdom,51.616667,-3.95,S,RT,M
+37,Tyne,399,903,0,443,3,49,12,0,125,48,125,101,0,371,0,577,2,54,3,36,"3,253",TYNEMOUTH,GBR,United Kingdom,55,-1.4,M,RT,S
