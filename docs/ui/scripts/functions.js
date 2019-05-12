@@ -31,7 +31,7 @@ function loadCards(cards) {
   // });
   console.log(cards);
 
-  var cardsHolder = d3.select('#app-cards');
+  var cardsHolder = d3.select('#story-cards');
 
 
   var cardEls = cardsHolder.selectAll('div')

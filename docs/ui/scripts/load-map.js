@@ -20,6 +20,10 @@ var map = new mapboxgl.Map({
   zoom: 2 // starting zoom
 });
 
+map.addControl(new mapboxgl.ScaleControl({maxWidth:100}));
+map.addControl(new mapboxgl.NavigationControl());
+// map.addControl(new mapboxgl.ScaleControl({position: 'bottom-right'}));
+
 var cardData = [],
   loadedData = {};
 
@@ -116,15 +120,6 @@ window.onscroll = function() {
   }
 };
 
-// $('#mode-buttons').on('click', function (e) {
-//   if this.hasClass('active') {
-//     return;
-//   } else {
-//
-//   }
-//   console.log("Button clicked", e);
-//   console.log(this);
-// } )
 
 $('#next-card').on('click', function (e) {
   e.preventDefault();

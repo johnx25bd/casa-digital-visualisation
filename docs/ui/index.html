@@ -59,9 +59,15 @@
         </div> -->
         <div id="map-nav">
           <div class="row">
-            <input id="previous-card"  class="btn btn-primary" type="button" value="< Previous">
+            <div class="btn-group story-nav-btns" role="group" aria-label="Basic example">
 
-            <input id="next-card"  class="btn btn-primary" type="button" value="Next >">
+            <input id="previous-card"  class="btn btn-light" type="button" value="<">
+            <input id="global-view"  class="btn btn-secondary active" type="button" value="Global">
+            <input id="national-view"  class="btn btn-secondary" type="button" value="National">
+            <input id="local-view"  class="btn btn-secondary" type="button" value="Local">
+
+            <input id="next-card"  class="btn btn-light" type="button" value=">">
+          </div>
             <!-- <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-secondary-outline active">
                 <input type="radio" name="options" id="option1" autocomplete="off" checked>
@@ -91,13 +97,15 @@
       <!-- <svg id="world"></svg> -->
 
 
-      <div id="info-body" class="col-lg-3">
+      <div id="info-body" class="col-md-4">
 
-        <div id="app-cards" class="row">
+        <div id="story-cards" class="row">
         </div>
+        <div id="explore-cards invisible" class="row">
+        </div>
+
       </div>
-      <div class="col-1">
-      </div>
+
     </div>
 
   </div>

@@ -19,13 +19,14 @@
 
 #map-nav {
   /* margin-bottom: 15px; */
-  margin-right: 18%;
-  background-color:
+  margin-right: 9%;
+  /* background-color: */
 }
 
 #info-body {
   /* background-color: yellow; */
   margin-top: 25px;
+  margin-right: 2%;
 }
 
 #map-nav {
@@ -34,6 +35,10 @@
 
 #cards {
   /* background-color: white; */
+}
+
+.story-nav-btns {
+
 }
 
 .app-card {
