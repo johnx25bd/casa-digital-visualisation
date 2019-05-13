@@ -39,35 +39,54 @@ d3.json('./data/layers.json')
 
 
     layersData.forEach(function(layerData) {
-      var filename = layerData.path;
-      var filetype = filename.split('.'),
-        filetype = filetype[filetype.length - 1];
-      if (filetype == "csv") {
-        dataPromises.push(d3.csv(filename));
-      } else if (filetype == "json") {
-        dataPromises.push(d3.json(filename));
+      if (layerData.type != "mapbox") {
+        var filename = layerData.path;
+        var filetype = filename.split('.'),
+          filetype = filetype[filetype.length - 1];
+        if (filetype == "csv") {
+          dataPromises.push(d3.csv(filename));
+        } else if (filetype == "json") {
+          dataPromises.push(d3.json(filename));
+        } else {
+          console.log("Error with file", filename,
+            ". Please pass a valid file to load.");
+        }
       } else {
-        console.log("Error with file", filename,
-          ". Please pass a valid file to load.");
+        var mapboxPromise = new Promise(function(resolve, reject) {
+          resolve(layerData);
+        })
+        dataPromises.push(mapboxPromise)
       }
+
     });
 
 
 
     Promise.all(dataPromises)
       .then(function(values) {
+        console.log('-_-------___-----___------__-------------_----')
+        // console.log(layersData)
+        console.log(values)
 
         for (var i = 0; i < values.length; i++) {
-          filename = layersData[i].path;
-
-          if (filename.includes('cards')) {
+          // console.log(i);
+          console.log(values[i]);
+          if (layersData[i].name === 'cards') {
             cardData = values[i];
             console.log("includes cards", values[i]);
-          } else {
-            var filetype = layersData[i].path.split('.'),
-              filekey = filetype[1].split('/');
+          } else if (values[i].type === 'mapbox') {
+            console.log(values[i]);
+            loadedData[values[i].name] = {
+              filetype: "mapbox",
+              data: layersData[i]
+            }
+          } else { // all other types
+            filename = layersData[i].path;
 
-            filekey = filekey[filekey.length - 1]; // should be file name ...
+            var filetype = layersData[i].path.split('.'),
+              filekey = layersData[i].name;
+
+            // filekey = filekey[filekey.length - 1]; // should be file name ...
             filetype = filetype[filetype.length - 1];
 
             loadedData[filekey] = {
@@ -83,14 +102,19 @@ d3.json('./data/layers.json')
 
         // Once all data is loaded, add to map
         map.on('load', function() {
-          layersData.forEach(function (layerData) {
+          layersData.forEach(function(layerData) {
+            console.log(layerData);
             if (layerData.name != "cards") {
               var dataKey = layerData.name;
-              map.addSource(dataKey + '-source', {
-                "type": "geojson",
-                "data": loadedData[dataKey].data
-              });
+              if (layerData.type == "geojson") {
+                map.addSource(dataKey + '-source', {
+                  "type": "geojson",
+                  "data": loadedData[dataKey].data
+                });
+              }
+
               map.addLayer(buildAddLayerParams(layerData));
+
             }
           });
 

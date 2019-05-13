@@ -1,13 +1,20 @@
 
 function buildAddLayerParams(_layerData) {
-  var outputParams = {};
-  outputParams.id = _layerData.name;
-  outputParams.source = _layerData.name + '-source';
-  outputParams = {...outputParams,
-    ... _layerData.addLayerParams.default
+  if (_layerData.type == 'geojson') {
+    var outputParams = {};
+    outputParams.id = _layerData.name;
+    outputParams.source = _layerData.name + '-source';
+    outputParams = {...outputParams,
+      ... _layerData.addLayerParams.default
+        ? _layerData.addLayerParams.default
+        : _layerData.addLayerParams };
+    return outputParams;
+  } else if (_layerData.type == 'mapbox') {
+    return _layerData.addLayerParams.default
       ? _layerData.addLayerParams.default
-      : _layerData.addLayerParams };
-  return outputParams;
+      : _layerData.addLayerParams;
+  }
+
 }
 
 
@@ -26,11 +33,6 @@ function isElementOnScreen(cardNum) {
 function loadCards(cards) {
   // iterate through and load cards into .cards div
 
-  // cards.forEach(function (cardData) {
-  //
-  //
-  //   console.log(cardData)
-  // });
   console.log(cards);
 
   var cardsHolder = d3.select('#story-cards');
@@ -75,6 +77,7 @@ function showCardLayers(cardNum) {
   Object.keys(loadedData).forEach(function(layer) {
 
     if (layers.includes(layer)) {
+      console.log("Setting", layer, 'to visible!')
       map.setLayoutProperty(layer, 'visibility', 'visible');
     } else {
       map.setLayoutProperty(layer, 'visibility', 'none');

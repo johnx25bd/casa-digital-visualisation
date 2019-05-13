@@ -1,9 +1,10 @@
 [{
     "name": "cards",
+    "type": "cards",
     "path": "./data/cards.json"
   },
   {
-    "name": "airports",
+    "name": "airports-json",
     "path": "./data/airports.json",
     "type": "geojson",
     "addLayerParams": {
@@ -26,6 +27,29 @@
             "major", "yellow",
             "#ccc"
           ]
+        }
+      },
+      "dim_a": {}
+    }
+  },
+  {
+    "name": "airports-mapbox-data",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "airports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://robisoniv.cjvm7pzc40sqm2rnujb06lbfs-0bpbk"
+        },
+        "source-layer": "airports",
+
+        "paint": {
+          "circle-color": "#ff69b4",
+          "circle-opacity": 0.8,
+          "circle-radius": 5
         }
       },
       "dim_a": {}
