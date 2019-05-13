@@ -1,4 +1,4 @@
-,scalerank_left,name,abbrev,location,gps_code,iata_code,wikipedia,wdid_score,ne_id,NAME,ISO3,size,usage,top_20_busiest_airports,busiest_airport_ranking,amount_passed_through
+,scalerank_left,airport_name,abbrev,location,gps_code,iata_code,wikipedia,wdid_score,ne_id,name,iso3,size,usage,top_20_busiest_airports,busiest_airport_ranking,amount_passed_through
 0,9,Sahnewal,LUH,terminal,VILD,LUH,http://en.wikipedia.org/wiki/Sahnewal_Airport,4,1159113785,India,IND,small,civilian,0,0,0
 1,9,Solapur,SSE,terminal,VASL,SSE,http://en.wikipedia.org/wiki/Solapur_Airport,4,1159113803,India,IND,mid,civilian,0,0,0
 2,9,Birsa Munda,IXR,terminal,VERC,IXR,http://en.wikipedia.org/wiki/Birsa_Munda_Airport,4,1159113831,India,IND,mid,civilian,0,0,0
