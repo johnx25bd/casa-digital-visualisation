@@ -20,7 +20,9 @@ var map = new mapboxgl.Map({
   zoom: 2 // starting zoom
 });
 
-map.addControl(new mapboxgl.ScaleControl({maxWidth:100}));
+map.addControl(new mapboxgl.ScaleControl({
+  maxWidth: 100
+}));
 map.addControl(new mapboxgl.NavigationControl());
 // map.addControl(new mapboxgl.ScaleControl({position: 'bottom-right'}));
 
@@ -32,23 +34,21 @@ var cardData = [],
 // Load and organize all data
 d3.json('./data/layers.json')
   .then(function(layersData) {
-    console.log(layersData);
 
     var dataPromises = [];
+
 
     layersData.forEach(function(layerData) {
       var filename = layerData.path;
       var filetype = filename.split('.'),
         filetype = filetype[filetype.length - 1];
-
-
-
       if (filetype == "csv") {
         dataPromises.push(d3.csv(filename));
       } else if (filetype == "json") {
         dataPromises.push(d3.json(filename));
       } else {
-        console.log("Error with file", filename, ". Please pass a valid file to load.");
+        console.log("Error with file", filename,
+          ". Please pass a valid file to load.");
       }
     });
 
@@ -59,9 +59,7 @@ d3.json('./data/layers.json')
 
         for (var i = 0; i < values.length; i++) {
           filename = layersData[i].path;
-          // console.log("in promise", filename);
 
-          // console.log('layerdata', layerData);
           if (filename.includes('cards')) {
             cardData = values[i];
             console.log("includes cards", values[i]);
@@ -79,21 +77,21 @@ d3.json('./data/layers.json')
           }
         }
 
-        layersData = layersData.slice(1, layersData.length);
-
+        // layersData = layersData.slice(1, layersData.length);
+        // console.log('slice', layersData.slice(1, layersData.length));
+        // console.log(layersData);
 
         // Once all data is loaded, add to map
         map.on('load', function() {
-
-          console.log('ld', buildAddLayerParams(layersData));
-
           layersData.forEach(function (layerData) {
-            var dataKey = layerData.name;
-            map.addSource(dataKey + '-source', {
-              "type": "geojson",
-              "data": loadedData[dataKey].data
-            });
-            map.addLayer(buildAddLayerParams(layerData));
+            if (layerData.name != "cards") {
+              var dataKey = layerData.name;
+              map.addSource(dataKey + '-source', {
+                "type": "geojson",
+                "data": loadedData[dataKey].data
+              });
+              map.addLayer(buildAddLayerParams(layerData));
+            }
           });
 
           // LOAD CARDS
@@ -121,7 +119,7 @@ window.onscroll = function() {
 };
 
 
-$('#next-card').on('click', function (e) {
+$('#next-card').on('click', function(e) {
   e.preventDefault();
   if (activeCardNum < cardData.length) {
     setActiveCard(activeCardNum + 1);
@@ -129,7 +127,7 @@ $('#next-card').on('click', function (e) {
 
 })
 
-$('#previous-card').on('click', function (e) {
+$('#previous-card').on('click', function(e) {
   e.preventDefault();
   console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {

@@ -1,31 +1,34 @@
 [{
-  "name": "cards",
-  "path": "./data/cards.json"
-},
+    "name": "cards",
+    "path": "./data/cards.json"
+  },
   {
     "name": "airports",
     "path": "./data/airports.json",
     "type": "geojson",
     "addLayerParams": {
-      "type": "circle",
-      "paint": {
-        "circle-radius": [
-          "match",
-          ["get", "type"],
-          "small", 3,
-          "mid", 5,
-          "major", 9,
-          2
-        ],
-        "circle-color": [
-          "match",
-          ["get", "type"],
-          "small", "#fbb03b",
-          "mid", "#223b53",
-          "major", "yellow",
-          "#ccc"
-        ]
-      }
+      "default": {
+        "type": "circle",
+        "paint": {
+          "circle-radius": [
+            "match",
+            ["get", "type"],
+            "small", 3,
+            "mid", 5,
+            "major", 9,
+            2
+          ],
+          "circle-color": [
+            "match",
+            ["get", "type"],
+            "small", "#fbb03b",
+            "mid", "#223b53",
+            "major", "yellow",
+            "#ccc"
+          ]
+        }
+      },
+      "dim_a": {}
     }
   },
   {
@@ -33,10 +36,12 @@
     "path": "./data/ports.json",
     "type": "geojson",
     "addLayerParams": {
-      "type": "circle",
-      "paint": {
-        "circle-radius": 3,
-        "circle-color": "green"
+      "default": {
+        "type": "circle",
+        "paint": {
+          "circle-radius": 3,
+          "circle-color": "green"
+        }
       }
     }
   },
