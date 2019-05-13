@@ -3,8 +3,10 @@ function buildAddLayerParams(_layerData) {
   var outputParams = {};
   outputParams.id = _layerData.name;
   outputParams.source = _layerData.name + '-source';
-  outputParams = {...outputParams, ... _layerData.addLayerParams};
-  console.log('Output Params', outputParams);
+  outputParams = {...outputParams,
+    ... _layerData.addLayerParams.default
+      ? _layerData.addLayerParams.default
+      : _layerData.addLayerParams };
   return outputParams;
 }
 
