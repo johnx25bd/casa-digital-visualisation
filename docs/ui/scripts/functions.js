@@ -18,9 +18,9 @@ function buildAddLayerParams(_layerData) {
 }
 
 
-function isElementOnScreen(cardNum) {
+function isElementOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
-  var element = document.querySelector("div[data-index='" + String(cardNum) + "']")
+  var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
   var bounds = element.getBoundingClientRect();
 
   // !!! This could use some work - improve moment when
@@ -41,8 +41,8 @@ function loadCards(cards) {
   var cardEls = cardsHolder.selectAll('div')
     .data(cards).enter()
     .append('div')
-    .attr('id', function(d) {
-      return d.extent + "-card-" + String(d.cardNum);
+    .attr('id', function(d, i) {
+      return d.extent + "-card-" + String(i);
     })
     .attr('data-index', function(d, i) {
       return i;
@@ -52,9 +52,9 @@ function loadCards(cards) {
     })
     .classed('col-12', true)
     .classed('app-card', true)
-    .on('click', function(d) {
+    .on('click', function(d, i) {
       console.log("CLICK!");
-      setActiveCard(d.cardNum);
+      setActiveCard(i);
     });
 
   cardEls.append('h1')
@@ -95,9 +95,9 @@ function loadCards(cards) {
 
 }
 
-function showCardLayers(cardNum) {
+function showCardLayers(_cardNum) {
 
-  var layers = cardData[cardNum].layers;
+  var layers = cardData[_cardNum].layers;
 
   Object.keys(loadedData).forEach(function(layer) {
 
@@ -109,7 +109,7 @@ function showCardLayers(cardNum) {
     }
   });
 
-  updateLegend(cardNum)
+  updateLegend(_cardNum)
 }
 
 
@@ -120,36 +120,36 @@ function updateLegend(layers) {
 }
 
 
-function setActiveCard(cardNum) {
-  if (cardNum === activeCardNum) {
+function setActiveCard(_cardNum) {
+  if (_cardNum === activeCardNum) {
     return;
   }
   //
 
-  scrollToCard(cardNum);
+  scrollToCard(_cardNum);
   // console.log(cardData[cardNum]);
-  map.flyTo(cardData[cardNum].flyTo);
+  map.flyTo(cardData[_cardNum].flyTo);
 
-  $("div[data-index='" + String(cardNum) + "']")
+  $("div[data-index='" + String(_cardNum) + "']")
     .addClass('active');
   $("div[data-index='" + String(activeCardNum) + "']")
     .removeClass('active');
 
   // consider scroll .cards div to card ...
 
-  showCardLayers(cardNum);
+  showCardLayers(_cardNum);
 
-  activeCardNum = cardNum;
+  activeCardNum = _cardNum;
 // }
 }
 
-function scrollToCard(cardNum) {
+function scrollToCard(_cardNum) {
   // adapted from https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
 
   inAnimation = true;
   // console.log("inAnimation:", inAnimation);
-  var cardTmp = cardData[cardNum];
-  var id = '#'  + cardTmp.extent + '-card-' + String(cardNum);
+  var cardTmp = cardData[_cardNum];
+  var id = '#'  + cardTmp.extent + '-card-' + String(_cardNum);
   // console.log(id);
   // setActiveCard(cardNum);
 
