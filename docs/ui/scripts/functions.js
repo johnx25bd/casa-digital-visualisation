@@ -135,6 +135,11 @@ function setActiveCard(_cardNum) {
   $("div[data-index='" + String(activeCardNum) + "']")
     .removeClass('active');
 
+  $('.jump-to-view.active').removeClass('active');
+
+  $('#' + cardData[_cardNum].extent + '-view')
+    .addClass('active');
+
   // consider scroll .cards div to card ...
 
   showCardLayers(_cardNum);

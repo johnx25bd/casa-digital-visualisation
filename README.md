@@ -4,10 +4,9 @@
 
 Haien Tan, Shuke Lei, Kristian Lunow Nielsen, John IV
 
-
 ## Overview
 
-Exploring the theme of "Invisible Cities", we chose to focus on the people and things the occupy space in our world, and how they got there. Representing the convergence of global supply chains, each product carries an invisible trace through space and time, where each of its constituent parts were sourced, refined, assembled and stored. 
+Exploring the theme of "Invisible Cities", we chose to focus on the people and things the occupy space in our world, and how they got there. Representing the convergence of global supply chains, each product carries an invisible trace through space and time, where each of its constituent parts were sourced, refined, assembled and stored.
 
 We intend to visualize how things move - the transport & logistics network - at the global, national and local scale.
 

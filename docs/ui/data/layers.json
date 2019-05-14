@@ -1,5 +1,4 @@
-[
-  {
+[{
     "name": "airports-json",
     "path": "./data/airports.json",
     "type": "geojson",
@@ -29,6 +28,66 @@
     }
   },
   {
+    "name": "export-countries",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "id": "export-countries",
+      "type": "fill",
+      "source": {
+        "type": "vector",
+        "url": "mapbox://kristianln.cjvl9zsp80snn33po4igmbs80-1uw2l"
+      },
+      "layout": {
+        "visibility": "none"
+      },
+      "source-layer": "Global_data",
+      "paint": {
+        "fill-color": [
+          "interpolate-hcl",
+          ["exponential", 1.1],
+          ["get", "normalised_export_2017"],
+          2.00,
+          ["to-color", "red"],
+          15.00,
+          ["to-color", "green"]
+        ],
+        "fill-opacity": 0.75,
+        "fill-outline-color": "rgb(250, 250, 250)"
+      }
+    }
+  },
+  {
+    "name": "import-countries",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "id": "import-countries",
+      "type": "fill",
+      "source": {
+        "type": "vector",
+        "url": "mapbox://kristianln.cjvl9zsp80snn33po4igmbs80-1uw2l"
+      },
+      "layout": {
+        "visibility": "none"
+      },
+      "source-layer": "Global_data",
+      "paint": {
+        "fill-color": [
+          "interpolate-hcl",
+          ["exponential", 1.1],
+          ["get", "normalised_import_2017"],
+          4.98,
+          ["to-color", "red"],
+          15.00,
+          ["to-color", "green"]
+        ],
+        "fill-opacity": 0.75,
+        "fill-outline-color": "rgb(250, 250, 250)"
+      }
+    }
+  },
+  {
     "name": "airports-mapbox-data",
     "type": "mapbox",
     "path": "none",
@@ -37,8 +96,8 @@
         "id": "airports-mapbox-data",
         "type": "circle",
         "source": {
-            "type": "vector",
-            "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
         },
         "source-layer": "Global_airports",
 

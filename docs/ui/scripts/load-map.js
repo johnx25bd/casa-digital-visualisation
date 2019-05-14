@@ -164,12 +164,18 @@ $('#previous-card').on('click', function(e) {
   console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {
     setActiveCard(activeCardNum - 1);
-    scrollToCard(cardNum);
-
+    scrollToCard(activeCardNum);
   }
-
 })
 
+$('.jump-to-view').on('click', function (e) {
+
+  e.preventDefault();
+  var jumpToExtent = this.id.split('-')[0];
+
+  setActiveCard(cardData.findIndex(function (c) {return c.extent == jumpToExtent}));
+
+})
 
 
 // Cards:
