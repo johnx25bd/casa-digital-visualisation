@@ -48,7 +48,7 @@ function loadCards(cards) {
       return i;
     })
     .attr('class', function(d) {
-      return d.extent;
+      return d.extent + 'card-body';
     })
     .classed('col-12', true)
     .classed('app-card', true)
@@ -63,10 +63,35 @@ function loadCards(cards) {
     });
 
   cardEls.append('div')
-    .classed('card-body', true)
+    // .classed('card-body', true)
     .html(function(d) {
       return d.content;
-    })
+    });
+
+  var featureContent = cardEls.append('div')
+    .classed('card feature', true)
+    .append('div')
+    .classed('card-body', true);
+
+   featureContent.append('h3')
+    .classed('card-title', true)
+    .text('Feature Content');
+
+  featureContent.append('div')
+    .classed('col-12 feature-content', true);
+
+
+  var legendContent = cardEls.append('div')
+    .classed('card legend', true)
+    .append('div')
+    .classed('card-body', true);
+
+  legendContent.append('h3')
+    .classed('card-title', true)
+    .text('Legend');
+
+  legendContent.append('div')
+    .classed('col-12 legend-content', true);
 
 }
 

@@ -13,17 +13,20 @@ var inAnimation = false;
 
 // Instantiate map:
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA';
+
 var map = new mapboxgl.Map({
   container: 'main-map', // container id
   style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
   center: [50, 10], // starting position [lng, lat]
-  zoom: 2 // starting zoom
+  zoom: 1
+  // maxBounds: [[-180,-90], [180,90]]
 });
 
 map.addControl(new mapboxgl.ScaleControl({
   maxWidth: 100
 }));
-map.addControl(new mapboxgl.NavigationControl());
+
+// map.addControl(new mapboxgl.NavigationControl(), 'top-left2D');
 // map.addControl(new mapboxgl.ScaleControl({position: 'bottom-right'}));
 
 var cardData = [],
@@ -120,6 +123,9 @@ d3.json('./data/layers.json')
 
           // LOAD CARDS
           loadCards(cardData);
+          // for (card in cardData) {
+          //   card.loadCard();
+          // }
           setActiveCard(0);
         });
       }).catch(function(e) {

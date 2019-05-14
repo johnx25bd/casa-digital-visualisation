@@ -10,6 +10,9 @@
       "center": [79.2030358539198,26.95589213555391],
       "zoom": 1.5,
       "pitch": 0
+    },
+    function loadCard (_params) {
+      
     }
   },
   {
