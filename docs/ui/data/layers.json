@@ -1,8 +1,4 @@
-[{
-    "name": "cards",
-    "type": "cards",
-    "path": "./data/cards.json"
-  },
+[
   {
     "name": "airports-json",
     "path": "./data/airports.json",
@@ -41,10 +37,10 @@
         "id": "airports-mapbox-data",
         "type": "circle",
         "source": {
-          "type": "vector",
-          "url": "mapbox://robisoniv.cjvm7pzc40sqm2rnujb06lbfs-0bpbk"
+            "type": "vector",
+            "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
         },
-        "source-layer": "airports",
+        "source-layer": "Global_airports",
 
         "paint": {
           "circle-color": "#ff69b4",

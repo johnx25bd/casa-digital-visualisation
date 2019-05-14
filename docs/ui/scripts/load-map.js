@@ -29,14 +29,15 @@ map.addControl(new mapboxgl.ScaleControl({
 // map.addControl(new mapboxgl.NavigationControl(), 'top-left2D');
 // map.addControl(new mapboxgl.ScaleControl({position: 'bottom-right'}));
 
-var cardData = [],
-  loadedData = {};
+
+var loadedData = {};
 
 // LOAD LAYERS
 
 // Load and organize all data
 d3.json('./data/layers.json')
   .then(function(layersData) {
+    console.log(cardData);
 
     var dataPromises = [];
 
@@ -110,6 +111,7 @@ d3.json('./data/layers.json')
             if (layerData.name != "cards") {
               var dataKey = layerData.name;
               if (layerData.type == "geojson") {
+                console.log(dataKey);
                 map.addSource(dataKey + '-source', {
                   "type": "geojson",
                   "data": loadedData[dataKey].data
