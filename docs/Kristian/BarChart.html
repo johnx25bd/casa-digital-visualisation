@@ -41,8 +41,10 @@
 
          g.append("g")
           .attr("transform", "translate(0," + height + ")")
+          //.attr("transform","rotate(0)")
           .call(d3.axisBottom(xScale))
           .append("text")
+          .attr("transform","rotate(0)")
           .attr("y", height - 250)
           .attr("x", width )
           .attr("text-anchor", "end")
@@ -81,7 +83,7 @@
         });
     }
 
-    createBarChart('top_five_airports.csv','1000 tonne','Top Five Airports','amount');
+    createBarChart('top_five_exporters.csv','Billion USD','Top Five Exporters','value');
 
 </script>
 </body>
