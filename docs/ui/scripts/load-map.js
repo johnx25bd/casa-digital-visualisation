@@ -111,7 +111,7 @@ d3.json('./data/layers.json')
             if (layerData.name != "cards") {
               var dataKey = layerData.name;
               if (layerData.type == "geojson") {
-                // console.log(dataKey);
+
                 map.addSource(dataKey + '-source', {
                   "type": "geojson",
                   "data": loadedData[dataKey].data

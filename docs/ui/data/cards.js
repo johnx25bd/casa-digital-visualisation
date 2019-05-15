@@ -45,6 +45,9 @@ var cardData = [
       featureDiv.append('h4')
         .text(_featureMetadata.properties.name)
 
+      featureDiv.append('p')
+        .text('Total Exports: ' + _featureMetadata.properties.all_commodities_export);
+
       var featureContent = featureDiv
         .append('div')
           .classed('col-12', true)
@@ -52,18 +55,18 @@ var cardData = [
           .classed('row', true);
 
       featureContent.append('div')
-        .classed('col-6', true)
-        .append('p')
-        .text('Total Exports: ' + _featureMetadata.properties.all_commodities_export);
+        .classed('col-12 pie-chart-holder', true);
 
-      featureContent.append('div')
-        .classed('col-6 pie-chart', true);
+      var pieData = {data: {'Organic Products':_featureMetadata.properties.organic_products_export,
+                  'Chemicals': _featureMetadata.properties.chemicals_export,
+                  'Materials': _featureMetadata.properties.material_export,
+                  'Clothing': _featureMetadata.properties.clothing_export,
+                  'Metals': _featureMetadata.properties.metals_export,
+                  'Technicals':_featureMetadata.properties.technical_export,
+                  'Transportation':_featureMetadata.properties.transportation_export,
+                  'Miscellaneous goods':_featureMetadata.properties.miscellaneous_goods_export}};
 
-      var pieData = {a: "xxxx"};
-
-      buildPieChart(featureSelector + ' .pie-chart', pieData);
-
-
+      createPieChart(pieData, featureSelector + ' .pie-chart-holder');
 
     }
   },

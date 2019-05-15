@@ -24,18 +24,6 @@ svg {
   fill: darkblue;
 }
 
-path {
-  fill: #000;
-  fill-opacity: .2;
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-path:hover {
-  fill: brown;
-  fill-opacity: .7;
-}
-
 .story-nav-btns {
 
 }
@@ -85,7 +73,6 @@ path:hover {
 }
 
 .feature {
-  height: 100px;
   margin-bottom: 40px;
   background-color: none;
 }
