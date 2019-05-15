@@ -37,7 +37,7 @@ var loadedData = {};
 // Load and organize all data
 d3.json('./data/layers.json')
   .then(function(layersData) {
-    console.log(cardData);
+    // console.log(cardData);
 
     var dataPromises = [];
 
@@ -68,18 +68,18 @@ d3.json('./data/layers.json')
 
     Promise.all(dataPromises)
       .then(function(values) {
-        console.log('-_-------___-----___------__-------------_----')
+        // console.log('-_-------___-----___------__-------------_----')
         // console.log(layersData)
-        console.log(values)
+        // console.log(values)
 
         for (var i = 0; i < values.length; i++) {
           // console.log(i);
-          console.log(values[i]);
+          // console.log(values[i]);
           if (layersData[i].name === 'cards') {
             cardData = values[i];
-            console.log("includes cards", values[i]);
+            // console.log("includes cards", values[i]);
           } else if (values[i].type === 'mapbox') {
-            console.log(values[i]);
+            // console.log(values[i]);
             loadedData[values[i].name] = {
               filetype: "mapbox",
               data: layersData[i]
@@ -111,7 +111,7 @@ d3.json('./data/layers.json')
             if (layerData.name != "cards") {
               var dataKey = layerData.name;
               if (layerData.type == "geojson") {
-                console.log(dataKey);
+                // console.log(dataKey);
                 map.addSource(dataKey + '-source', {
                   "type": "geojson",
                   "data": loadedData[dataKey].data
@@ -119,15 +119,19 @@ d3.json('./data/layers.json')
               }
 
               map.addLayer(buildAddLayerParams(layerData));
+              map.on('click', layerData.name, function (e) {
+                if (cardData[activeCardNum].updateFeature) {
+                  cardData[activeCardNum]
+                    .updateFeature( map.queryRenderedFeatures(e.point)[0] );
+                }
 
+              })
             }
           });
 
           // LOAD CARDS
           loadCards(cardData);
-          // for (card in cardData) {
-          //   card.loadCard();
-          // }
+
           setActiveCard(0);
         });
       }).catch(function(e) {
@@ -161,7 +165,7 @@ $('#next-card').on('click', function(e) {
 
 $('#previous-card').on('click', function(e) {
   e.preventDefault();
-  console.log("Previous", activeCardNum);
+  // console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {
     setActiveCard(activeCardNum - 1);
     scrollToCard(activeCardNum);

@@ -16,6 +16,14 @@ svg {
   position: relative;
 }
 
+#app-cards svg {
+  width: 100%;
+}
+
+.bar {
+  fill: darkblue;
+}
+
 path {
   fill: #000;
   fill-opacity: .2;
