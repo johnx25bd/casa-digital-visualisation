@@ -119,6 +119,16 @@ d3.json('./data/layers.json')
               }
 
               map.addLayer(buildAddLayerParams(layerData));
+              if (layerData.tooltip) {
+                map.on('mouseenter', layerData.name, function (e) {
+                  var tooltipContent = layerData.tooltip(e);
+                  // show tooltipcontent
+                });
+
+                map.on('mouseleave', layerData.name, function (e) {
+                  // remove tooltip.
+                })
+              }
               map.on('click', layerData.name, function (e) {
                 if (cardData[activeCardNum].updateFeature) {
                   cardData[activeCardNum]
