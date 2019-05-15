@@ -1,4 +1,4 @@
-,domestic_traffic_inwards,domestic_traffic_outwards,european_union_traffic_inwards,european_union_traffic_outwards,non-eu_foreign_traffic_inwards,non-eu_foreign_traffic_outwards,Total,port_name,iso3,country_name,latitude,longitude,harborsize,harbortype,railway,top_10_busiest_ports,busiest_ports_ranking,amount_shipped_through,busiest_UKports
+,domestic_traffic_inwards,domestic_traffic_outwards,european_union_traffic_inwards,european_union_traffic_outwards,non-eu_foreign_traffic_inwards,non-eu_foreign_traffic_outwards,Total,port_name,iso3,country_name,latitude,longitude,harborsize,harbortype,railway,top_20_busiest_ports,busiest_ports_ranking,amount_shipped_through,busiest_UKports
 Aberdeen,1536.467,1796.029,238.273,201.741,172.942,112.968,4058.42,ABERDEEN,GBR,United Kingdom,57.15,-2.083333,M,RB,None,0,0,0,0
 Belfast,5998.598,5767.772,2662.6,1109.972,2512.152,174.836,18225.929999999997,BELFAST,GBR,United Kingdom,54.616667,-5.9,L,RB,S,0,0,0,0
 Boston,0.0,0.0,601.379,116.588,18.393,2.052,738.412,BOSTON,GBR,United Kingdom,52.966667,-0.016667,S,RT,S,0,0,0,0
