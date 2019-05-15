@@ -239,16 +239,27 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
             var features = map.queryRenderedFeatures(e.point);
             if (clickedLayer === 'Exports'){
               if (typeof(features[0]) !== 'undefined'){
+                  var data = {'Organic Products':features[0].properties.organic_products_export,
+                              'Chemicals': features[0].properties.chemicals_export,
+                              'Materials': features[0].properties.material_export,
+                              'Clothing': features[0].properties.clothing_export,
+                              'Metals': features[0].properties.metals_export,
+                              'Technicals':features[0].properties.technical_export,
+                              'Transportation':features[0].properties.transportation_export,
+                              'Miscellaneous goods':features[0].properties.miscellaneous_goods_export};
                   document.getElementById('features').innerHTML = JSON.stringify(['Country:',features[0].properties.name,
-                                                                                  'Organic Products:', features[0].properties.organic_products_export,
-                                                                                  'Chemicals:',features[0].properties.chemicals_export,
-                                                                                  'Materials:',features[0].properties.materials_export,
-                                                                                  'Clothing:',features[0].properties.clothing_export,
-                                                                                  'Metals:',features[0].properties.metals_export,
-                                                                                  'Technical:',features[0].properties.technical_export,
-                                                                                  'Transportation:',features[0].properties.transportation_export,
-                                                                                  'Miscellaneous goods:',features[0].properties.miscellaneous_goods_export,
+                                                                                  data,
                                                                                   'Total Export:',features[0].properties.all_commodities_export], null, 2);
+                  // document.getElementById('features').innerHTML = JSON.stringify(['Country:',features[0].properties.name,
+                  //                                                                 'Organic Products:', features[0].properties.organic_products_export,
+                  //                                                                 'Chemicals:',features[0].properties.chemicals_export,
+                  //                                                                 'Materials:',features[0].properties.materials_export,
+                  //                                                                 'Clothing:',features[0].properties.clothing_export,
+                  //                                                                 'Metals:',features[0].properties.metals_export,
+                  //                                                                 'Technical:',features[0].properties.technical_export,
+                  //                                                                 'Transportation:',features[0].properties.transportation_export,
+                  //                                                                 'Miscellaneous goods:',features[0].properties.miscellaneous_goods_export,
+                  //                                                                 'Total Export:',features[0].properties.all_commodities_export], null, 2);
               }
             } else if (clickedLayer === 'Imports') {
 
