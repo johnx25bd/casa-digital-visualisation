@@ -17,6 +17,10 @@ function buildAddLayerParams(_layerData) {
 
 }
 
+function currentCardId() {
+  return '#' + cardData[activeCardNum].extent
+    + '-card-' + activeCardNum;
+}
 
 function isElementOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
@@ -301,23 +305,19 @@ function createPieChart (_params, _parentEl) {
   // Create dummy data
   // var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
   var dataDomain = Object.keys(data);
-  console.log('domain', dataDomain);
 
-  //console.log(dataDomain);
   // set the color scale
   var color = d3.scaleOrdinal()
     // Alternated to allow for dynamically colouring.
     .domain(dataDomain)//.domain(["aa", "bb", "cc", "d", "e", "f", "g", "h"])
     .range(d3.schemeDark2);
 
-  console.log(color(dataDomain[1]));
   // Compute the position of each group on the pie:
   var pie = d3.pie()
     .sort(null) // Do not sort group by size
     .value(function(d) {return d.value; })
 
   var data_ready = pie(d3.entries(data))
-  console.log(data_ready);
   // The arc generator
   var arc = d3.arc()
     .innerRadius(radius * 0.5)         // This is the size of the donut hole
@@ -367,7 +367,7 @@ function createPieChart (_params, _parentEl) {
     .data(data_ready)
     .enter()
     .append('text')
-      .text( function(d) { console.log(d.data.key) ; return d.data.key } )
+      .text( function(d) { return d.data.key } )
       .attr('transform', function(d) {
           var pos = outerArc.centroid(d);
           var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2

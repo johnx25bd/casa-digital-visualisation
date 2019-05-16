@@ -102,7 +102,7 @@ var loadedData = {};
       // Once all data is loaded, add to map
       map.on('load', function() {
         layersData.forEach(function(layerData) {
-          console.log(layerData);
+          // console.log(layerData);
           if (layerData.name != "cards") {
             var dataKey = layerData.name;
             if (layerData.type == "geojson") {
@@ -117,7 +117,7 @@ var loadedData = {};
             if (layerData.tooltip) {
               map.on('mouseenter', layerData.name, function(e) {
                 var tooltipContent = layerData.tooltip(e.features[0]);
-                console.log(tooltipContent);
+                // console.log(tooltipContent);
                 // Change the cursor style as a UI indicator.
                 map.getCanvas().style.cursor = 'pointer';
                 // console.log(e);
@@ -146,6 +146,7 @@ var loadedData = {};
             }
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
+                console.log("RENDERED FEATURE", map.queryRenderedFeatures(e.point)[0])
                 cardData[activeCardNum]
                   .updateFeature(map.queryRenderedFeatures(e.point)[0]);
               }

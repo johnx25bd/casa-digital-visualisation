@@ -1,40 +1,42 @@
 console.log('loading layers data')
 
-var layersData = [{
-    "name": "airports-json",
-    "path": "./data/airports.json",
-    "type": "geojson",
-    "addLayerParams": {
-      "default": {
-        "type": "circle",
-        "paint": {
-          "circle-radius": [
-            "match",
-            ["get", "type"],
-            "small", 3,
-            "mid", 5,
-            "major", 9,
-            2
-          ],
-          "circle-color": [
-            "match",
-            ["get", "type"],
-            "small", "#fbb03b",
-            "mid", "#223b53",
-            "major", "yellow",
-            "#ccc"
-          ]
-        }
-      },
-      "dim_a": {}
-    },
-    tooltip: function(_data) {
-
-      console.log( _data.properties.abbrev);
-      // console.log( _data);
-      // pop tooltip with data.
-    }
-  },
+var layersData = [
+  // // We already have airports loaded, below
+  // {
+  //   "name": "airports-json",
+  //   "path": "./data/airports.json",
+  //   "type": "geojson",
+  //   "addLayerParams": {
+  //     "default": {
+  //       "type": "circle",
+  //       "paint": {
+  //         "circle-radius": [
+  //           "match",
+  //           ["get", "type"],
+  //           "small", 3,
+  //           "mid", 5,
+  //           "major", 9,
+  //           2
+  //         ],
+  //         "circle-color": [
+  //           "match",
+  //           ["get", "type"],
+  //           "small", "#fbb03b",
+  //           "mid", "#223b53",
+  //           "major", "yellow",
+  //           "#ccc"
+  //         ]
+  //       }
+  //     },
+  //     "dim_a": {}
+  //   },
+  //   tooltip: function(_data) {
+  //
+  //     console.log( _data.properties.abbrev);
+  //     // console.log( _data);
+  //     // pop tooltip with data.
+  //   }
+  // },
   {
     "name": "export-countries",
     "type": "mapbox",
@@ -126,7 +128,6 @@ var layersData = [{
       "dim_a": {}
     },
     tooltip: function(_data) {
-      console.log(_data);
       return '<p>' + _data.properties.abbrev + '</p>';
       // pop tooltip with data.
     }
