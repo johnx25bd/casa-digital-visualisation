@@ -234,7 +234,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 
         }
 
-        map.on('mousemove', function (e) {
+        map.on('click', function (e) {
 
             var features = map.queryRenderedFeatures(e.point);
             if (clickedLayer === 'Exports'){
