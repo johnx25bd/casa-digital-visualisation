@@ -5,14 +5,21 @@ from UN_Comtrade import download_trade_data
 from UN_Comtrade import search_product_code, product_codes_with_parent
 from extractTradingPartners import extractTradingPartners
 
-def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
+def getTradingPartners(reporter,year='latest',indicatorType = 'all',basePath=None):
 
     # Loading in the data if necessary
     if 'tradingPartners' not in locals():
         if 'TradingPartners.csv' in os.listdir():
             tradingPartners = pd.read_csv('TradingPartners.csv',index_col = 0)
         else:
-            extractTradingPartners()
+
+            if basePath == None:
+
+                extractTradingPartners()
+
+            else:
+                extractTradingPartners(basePath)
+
             tradingPartners = pd.read_csv('TradingPartners.csv',index_col = 0)
 
     years = [int(column) for column in tradingPartners.columns if column.isnumeric()]
@@ -30,24 +37,25 @@ def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
     # Making sure that the specified reporter and 'indicator type' is in the correct format (Starting with a capital letter, and the rest being
     # lowercase characters).
     # Reporter
-    characters = [i.upper() if j == 0 else i.lower() for j,i in enumerate(reporter)]
-    reporter = ''.join(characters)
+    #characters = [i.upper() if j == 0 else i.lower() for j,i in enumerate(reporter)]
+    #reporter = ''.join(characters)
+    reporter = reporter.lower()
     # Indicator Type
-    characters = [i.upper() if j == 0 else i.lower() for j,i in enumerate(indicatorType)]
-    indicatorType = ''.join(characters)
-
+    #characters = [i.upper() if j == 0 else i.lower() for j,i in enumerate(indicatorType)]
+    #indicatorType = ''.join(characters)
+    indicatorType = indicatorType.lower()
     # Checking that the specified reporter is part of the available reporters.
-    if reporter not in tradingPartners.Reporter.unique():
+    if reporter not in tradingPartners.reporter.unique():
         raise ValueError ('The specified reporter is not in the available set of reporters.')
 
-    countryPartners = tradingPartners[tradingPartners.Reporter==reporter]
+    countryPartners = tradingPartners[tradingPartners.reporter==reporter]
     countryPartners = countryPartners.reset_index(drop=True)
 
     # Creating a subset of interest
     subsettedFrame = pd.concat([countryPartners.iloc[:,0:5],countryPartners[str(year)]],axis=1)
 
     # Useful for later
-    indicators = subsettedFrame.Indicator.unique()
+    indicators = subsettedFrame.indicator.unique()
     whereAreYouAmount = [i for i,element in enumerate(indicators) if 'share' not in element.lower()]
     whereAreYouShare = [i for i,element in enumerate(indicators) if 'share' in element.lower()]
 
@@ -56,12 +64,12 @@ def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
     if (indicatorType =='all') or (indicatorType == 'All'):
 
         # We are only interested in the data with actual amounts of value listed, not share data.
-        subsettedFrameActualAmounts = subsettedFrame[(subsettedFrame.Indicator == indicators[whereAreYouAmount[0]])|\
-                                                     (subsettedFrame.Indicator == indicators[whereAreYouAmount[1]])]
+        subsettedFrameActualAmounts = subsettedFrame[(subsettedFrame.indicator == indicators[whereAreYouAmount[0]])|\
+                                                     (subsettedFrame.indicator == indicators[whereAreYouAmount[1]])]
 
         # Adding imports and exports together
-        aggregatedData = {country:round(sum(subsettedFrameActualAmounts[subsettedFrameActualAmounts.Partner==country]\
-                                            [str(year)]),3) for country in subsettedFrameActualAmounts.Partner.unique()}
+        aggregatedData = {country:round(sum(subsettedFrameActualAmounts[subsettedFrameActualAmounts.partner==country]\
+                                            [str(year)]),3) for country in subsettedFrameActualAmounts.partner.unique()}
 
         # Sorted highest to lowest
         sortedAggregatedData = sorted(aggregatedData.items(), key = lambda kv: kv[1],reverse = True)
@@ -69,30 +77,30 @@ def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
         # Only keeping top five
         sortedDataTopFive = sortedAggregatedData[0:5]
 
-    elif (indicatorType == 'Import') or (indicatorType == 'Export'):
+    elif (indicatorType == 'import') or (indicatorType == 'export'):
         # Subsetting the data
-        subsettedFrameActualAmountsEither = subsettedFrame[((subsettedFrame.Indicator == indicators[whereAreYouAmount[0]])|\
-                                                            (subsettedFrame.Indicator == indicators[whereAreYouAmount[1]])) & \
-                                                            (subsettedFrame['Indicator Type'] == indicatorType)]
+        subsettedFrameActualAmountsEither = subsettedFrame[((subsettedFrame.indicator == indicators[whereAreYouAmount[0]])|\
+                                                            (subsettedFrame.indicator == indicators[whereAreYouAmount[1]])) & \
+                                                            (subsettedFrame['indicator type'] == indicatorType)]
         # Sorting the subsetted data
         sortedData = subsettedFrameActualAmountsEither.sort_values(by=[str(year)],ascending = False).round({str(year):3})
         sortedData = sortedData.reset_index(drop=True)
         # Getting top-five
-        sortedDataTopFive = [(sortedData.loc[obs].Partner,(sortedData[str(year)].loc[obs]/100)) for obs in np.arange(5)]
+        sortedDataTopFive = [(sortedData.loc[obs].partner,(sortedData[str(year)].loc[obs]/100)) for obs in np.arange(5)]
     else:
         raise ValueError ('The indicator type specified is not known.')
 
     # Getting the shares of the trading partners
-    if (indicatorType == 'Import') or (indicatorType == 'Export'):
-        subsettedFrameShares = subsettedFrame[((subsettedFrame.Indicator == indicators[whereAreYouShare[0]])|\
-                                              (subsettedFrame.Indicator == indicators[whereAreYouShare[1]])) & \
-                                             (subsettedFrame[str(year)]) & (subsettedFrame['Indicator Type'] == indicatorType)]
+    if (indicatorType == 'import') or (indicatorType == 'export'):
+        subsettedFrameShares = subsettedFrame[((subsettedFrame.indicator == indicators[whereAreYouShare[0]])|\
+                                              (subsettedFrame.indicator == indicators[whereAreYouShare[1]])) & \
+                                             (subsettedFrame[str(year)]) & (subsettedFrame['indicator type'] == indicatorType)]
         # Sorted in share-frame
         sortedShares = subsettedFrameShares.sort_values(by=[str(year)],ascending = False).round({str(year):3})
         sortedShares = sortedShares.reset_index(drop=True)
 
         # Arranging top five properly
-        sortedSharesTopFive = [(sortedShares.loc[obs].Partner,(sortedShares[str(year)].loc[obs]/100)) for obs in np.arange(5)]
+        sortedSharesTopFive = [(sortedShares.loc[obs].partner,(sortedShares[str(year)].loc[obs]/100)) for obs in np.arange(5)]
     else:
 
         # Export
@@ -101,9 +109,9 @@ def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
         exportShare = [i for i,element in enumerate(indicators) if ('share' in element.lower()) \
                         & ('export' in element.lower())]
 
-        eAmount = np.array([a for a in subsettedFrame[subsettedFrame.Indicator==indicators[exportAmount[0]]][str(year)]\
+        eAmount = np.array([a for a in subsettedFrame[subsettedFrame.indicator==indicators[exportAmount[0]]][str(year)]\
                           if a > 0])
-        eShare = np.array([a for a in subsettedFrame[subsettedFrame.Indicator==indicators[exportShare[0]]][str(year)]\
+        eShare = np.array([a for a in subsettedFrame[subsettedFrame.indicator==indicators[exportShare[0]]][str(year)]\
                           if a > 0])
 
         totalExport = np.mean(eAmount / (eShare / 100))
@@ -115,9 +123,9 @@ def getTradingPartners(reporter,year='latest',indicatorType = 'all'):
         importShare = [i for i,element in enumerate(indicators) if ('share' in element.lower()) \
                         & ('import' in element.lower())]
 
-        iAmount = np.array([a for a in subsettedFrame[subsettedFrame.Indicator==indicators[importAmount[0]]][str(year)]\
+        iAmount = np.array([a for a in subsettedFrame[subsettedFrame.indicator==indicators[importAmount[0]]][str(year)]\
                           if a > 0])
-        iShare = np.array([a for a in subsettedFrame[subsettedFrame.Indicator==indicators[importShare[0]]][str(year)]\
+        iShare = np.array([a for a in subsettedFrame[subsettedFrame.indicator==indicators[importShare[0]]][str(year)]\
                           if a > 0])
 
         totalImport = np.mean(iAmount / (iShare / 100))
