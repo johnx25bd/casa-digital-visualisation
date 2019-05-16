@@ -35,7 +35,7 @@
   //     margin = 40
 
 // Create dummy data
-  var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+  var data = {"all of the things": 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
 
   function createPieChart(_data,_div_width,_div_height,_div_margin,_title,_div_id){
 
@@ -51,7 +51,7 @@
     var radius = Math.min(width, height) / 2 - margin;
 
     // append the svg object to the div called 'my_dataviz'
-    var svg = d3.select('my_dataviz')
+    var svg = d3.select('#my_dataviz')
       .append("svg")
         // Adjust the factor below to allows for more space for the legends
         .attr("width", width*1.3)
