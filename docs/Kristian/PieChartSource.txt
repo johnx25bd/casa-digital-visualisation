@@ -1,1 +1,4 @@
-Source: https://www.d3-graph-gallery.com/graph/donut_label.html
+Source: 
+
+Main code: https://www.d3-graph-gallery.com/graph/donut_label.html
+Legend: https://www.youtube.com/watch?v=L5GXOdt2uOc
