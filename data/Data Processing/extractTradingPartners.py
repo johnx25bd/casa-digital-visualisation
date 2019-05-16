@@ -5,8 +5,15 @@ import os
 import time
 import re
 
-def extractTradingPartners():
-    directory = 'Data Sources/Trading Partners (1)/'
+def extractTradingPartners(basePath):
+    if basePath == None:
+
+        directory = 'Data Sources/Trading Partners (1)/'
+
+    else:
+        #basePath = C:/Users/Krist/University College London/Digital Visualisation/Final Project/'
+        directory = basePath+'Data Sources/Trading Partners (1)/'
+
     files = os.listdir(directory)
 
     for i,file in enumerate(files):
@@ -40,5 +47,64 @@ def extractTradingPartners():
 
                 # Concate the new dataframe with the existing
                 tradingPartners = pd.concat([tradingPartners,temp],axis = 0)
+    # Ensuring everything is lowercased, to ease the extraction later.
+    # Firstly the columns;
+    columns = []
+    for column in tradingPartners.columns:
+        #print(column)
+        try:
+            column = column.lower()
+        except:
+            None
 
+        columns.append(column)
+
+    tradingPartners.columns = columns
+    # Secondly the columns which can be expected to be categorical/strings
+    reporter,partner,products,indicatorType,indicator = [],[],[],[],[]
+
+    for report,part,prod,indiType,indi in zip(tradingPartners['reporter'],tradingPartners['partner'],tradingPartners['product categories'],
+                                            tradingPartners['indicator type'],tradingPartners['indicator']):
+            # Reporter
+        try:
+            report = report.lower()
+        except:
+            None
+
+            # Partner
+        try:
+            part = part.lower()
+        except:
+            None
+
+            # Product categories
+        try:
+            prod = prod.lower()
+        except:
+            None
+
+            # Indicator type
+        try:
+            indiType = indiType.lower()
+        except:
+            None
+
+            # Indicator
+        try:
+            indi = indi.lower()
+        except:
+            None
+
+        reporter.append(report)
+        partner.append(part)
+        products.append(prod)
+        indicatorType.append(indiType)
+        indicator.append(indi)
+
+    tradingPartners['reporter'] = reporter
+    tradingPartners['partner'] = partner
+    tradingPartners['product category'] = products
+    tradingPartners['indicator type'] = indicatorType
+    tradingPartners['indicator'] = indicator
+    # Writing the CSV.
     tradingPartners.to_csv('TradingPartners.csv')

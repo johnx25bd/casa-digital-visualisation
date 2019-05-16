@@ -6,8 +6,6 @@
 <script src="https://d3js.org/d3.v5.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
-
-
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz">
 
@@ -29,11 +27,6 @@
 
 <script>
 
-// set the dimensions and margins of the graph
-  // var width = 450
-  //     height = 450
-  //     margin = 40
-
 // Create dummy data
   var data = {"all of the things": 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
 
@@ -44,14 +37,13 @@
         margin = _div_margin
         id = _div_id
 
-    //console.log(width,height,margin,id);
     var data = _data;
-    console.log(data);
+
     // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
     var radius = Math.min(width, height) / 2 - margin;
 
     // append the svg object to the div called 'my_dataviz'
-    var svg = d3.select('#my_dataviz')
+    var svg = d3.select(id)
       .append("svg")
         // Adjust the factor below to allows for more space for the legends
         .attr("width", width*1.3)
@@ -59,9 +51,8 @@
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");//" + width / 2 + "
 
-
     var dataDomain = Object.keys(data)
-    //console.log(dataDomain);
+
     // set the color scale
     var color = d3.scaleOrdinal()
       // Alternated to allow for dynamically colouring.
@@ -73,7 +64,7 @@
       .sort(null) // Do not sort group by size
       .value(function(d) {return d.value; })
     var data_ready = pie(d3.entries(data))
-    //console.log(data_ready);
+
     // The arc generator
     var arc = d3.arc()
       .innerRadius(radius * 0.5)         // This is the size of the donut hole
@@ -129,5 +120,5 @@
 
   }
 
-  createPieChart(data,450,450,40,'Artificial Data Distribution','my_dataviz');
+  createPieChart(data,450,450,40,'Artificial Data Distribution','#my_dataviz');
 </script>
