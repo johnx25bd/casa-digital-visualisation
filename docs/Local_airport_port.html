@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Display a map</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+       
+    .map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    background-color: #fff;
+    width: 17%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+      }
+      
+
+      .map-overlay p.credit {
+   margin: 5px 0 0 0;
+   padding: 0;
+}
+      .map-overlay h2 {
+    line-height: 24px;
+    display: block;
+    margin: 0 0 10px;
+}
+  </style>
+</head>
+<body>
+
+<div id='map'></div>
+    
+<div class='map-overlay'>
+
+   <h2>The Busiest Airport and Port of the United Kingdom</h2> 
+  
+    <tr><td><p class="cityfly">Zoom To: <a href="#" class="citylink" id="airport">London Heathrow</a> &nbsp;<a href="#" class="citylink" id="port">Port of London</a></p>
+    </td></tr>
+    <p class="credit">London Heathrow Airport is the busiest airport and Port of London is the busiest port of the United Kingdom in 2017</p>
+    
+</div>
+
+    
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidWNmbmxlaSIsImEiOiJjam4zOXU0OXUwY3QwM2tteXc5NjJwZHZ6In0.WQst42t9_ANKPmxRKUou1g';
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/ucfnlei/cjvpkrh4y04ug1cqibiqyg33o',
+  center: [-0.068, 51.462],
+  zoom: 9.5
+});
+
+    
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['heathrow-restaurant','heathrow-hotel','heathrow-station','tilbury-restaurant','tilbury-school','tilbury-station'] 
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.Name + '</h3>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
+    
+    
+var x = document.getElementsByClassName('citylink');
+var i;
+		for (i = 0; i < x.length; i++) {
+			x[i].addEventListener('click', function(e) {
+
+				var lat,long;
+
+				switch(e.target.id) {
+					case "airport": long=-0.459; lat=51.4697; break;
+					case "port": long=0.3441; lat=51.46059; break;
+					
+				}
+
+				map.flyTo({
+					center: [long,lat],
+					zoom: 11.5,
+					speed: 0.3,
+                    pitch: 0
+					});
+			});
+		}
+</script>
+
+</body>
+</html>
