@@ -16,7 +16,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jM
 
 var map = new mapboxgl.Map({
   container: 'main-map', // container id
-  style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+  style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
   center: [50, 10], // starting position [lng, lat]
   zoom: 1
   // maxBounds: [[-180,-90], [180,90]]
@@ -113,7 +113,14 @@ var loadedData = {};
               });
             }
 
+
+
             map.addLayer(buildAddLayerParams(layerData));
+
+
+
+
+
             if (layerData.tooltip) {
               map.on('mouseenter', layerData.name, function(e) {
                 var tooltipContent = layerData.tooltip(e.features[0]);
