@@ -16,6 +16,25 @@ svg {
   position: relative;
 }
 
+h3 span {
+  font-size: 15px;
+  margin-left: 10%;
+}
+
+h3 span.light {
+  color: silver;
+}
+
+.feature-subheader {
+  font-size: 20px;
+  color: silver;
+}
+
+.feature .static-satellite {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #app-cards svg {
   width: 100%;
 }

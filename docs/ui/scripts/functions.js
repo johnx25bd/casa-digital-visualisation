@@ -132,6 +132,13 @@ function updateLegend(layers) {
   // console.log("updateLegend() Called");
 }
 
+function titleCase(_str) {
+  // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
+  // 🙏🙏🙏🙏🙏🙏🙏
+  return _str.toLowerCase().split(' ').map(function(word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
+}
 
 function setActiveCard(_cardNum) {
   if (_cardNum === activeCardNum) {

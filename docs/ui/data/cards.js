@@ -156,20 +156,72 @@ var cardData = [{
         },
         updateFeature: function (_featureMetadata) {
 
-          console.log(_featureMetadata);
+          console.log('METADATA', _featureMetadata);
 
-          // ('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/-89.7833,30.2667,9,0,0/500x250?access_token=pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA')
-          var portScreenShot = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/-89.7833,30.2667,9,0,0/500x250?access_token=pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA";
+          var featureSelector = currentCardId() + ' .feature';
+
+          var featureDiv = d3.select(featureSelector)
+            .select('.card-body').html('');
+
+          // var headerSpan = featureDiv.append('span');
+
+          var portCoords = 'Latitude: ' + String(_featureMetadata.properties.latitude.toFixed(5)) +
+            '&nbsp;&nbsp; Longitude: ' + String(_featureMetadata.properties.longitude.toFixed(5))
+
+          featureDiv.append('h5')
+            .classed('feature-subheader', true)
+            .text('Port');
+
+          var featureHeader = featureDiv.append('h3')
+            .text(titleCase(_featureMetadata.properties.port_name));
+          featureHeader.append('span')
+            .text(_featureMetadata.properties.country_name);
+
+          featureHeader.append('span')
+            .classed('light', true)
+              .html(portCoords);
+
+          var imgSrc = "https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/static/"
+            + _featureMetadata.properties.longitude + ',' + _featureMetadata.properties.latitude +
+            ',11,0,0/1000x250?access_token=' + mapboxgl.accessToken;
 
 
-          // var featureSelector = currentCardId() + ' .feature';
-          //
-          // var featureDiv = d3.select(featureSelector)
-          //   .select('.card-body').html('');
-          //
-          // featureDiv.append('h3')
-          //   .text(_featureMetadata.properties.abbrev);
-          //
+          featureDiv.append('img')
+            .classed('img-fluid', true)
+            .attr('src', imgSrc)
+            .classed('static-satellite', true)
+
+          var luckyUrl = "http://www.google.com/search?q=Port+of+" + _featureMetadata.properties.port_name + "+wikipedia&btnI"
+
+          var extraButtons = featureDiv.append('div')
+            .classed('row', true);
+
+          extraButtons.append('div')
+            .classed('col-6', true)
+            .append('button')
+              .classed('btn-lg btn-outline-primary', true)
+              .text("Fly to port.")
+              .on('click', function (d) {
+
+                map.flyTo({
+                  "bearing": 0,
+                  "center": [_featureMetadata.properties.longitude,
+                    _featureMetadata.properties.latitude],
+                  "zoom": 12.5,
+                  "pitch": 0
+                })
+              });
+
+          extraButtons.append('div')
+          .classed('col-6 text-right', true)
+            .append('a')
+            .attr('href', luckyUrl)
+            .attr('target', '_blank')
+            .append('button')
+            .classed('btn-lg btn-outline-primary', true)
+            .text("More info ...");
+          // fea
+
           // featureDiv.append('p')
           //   .text(_featureMetadata.properties.airport_name);
           //
