@@ -71,13 +71,37 @@
       zoom: 9.5
     });
 
+      
+map.on('load', function(){
+    map.loadImage('./Station.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('heat', image);
+        map.addSource(
+        'heathrow-stations',{
+        type: 'vector',
+        url:"mapbox://ucfnlei.5xepc2ho",
+        });
+        map.addLayer({
+            id: 'heathrow-stations',
+            type:'symbol',
+            'source':'heathrow-stations',
+            'source-layer':"Heathrow_Station-20t8o9",
+           'layout': {
+            'icon-image': 'heat',
+            'icon-size':0.01
+        },
+        });
+}); 
+});
+      
+
 
     map.on('load', function() {
       map.loadImage('./globe.png', function(error, image) {
         if (error) throw error;
-        map.addImage('cat', image);
+        map.addImage('heathrow', image);
         map.addLayer({
-          "id": "points",
+          "id": "point1",
           "type": "symbol",
           "source": {
             "type": "geojson",
@@ -93,8 +117,36 @@
             }
           },
           "layout": {
-            "icon-image": "cat",
-            "icon-size": 0.25
+            "icon-image": "heathrow",
+            "icon-size": 0.02
+          }
+        });
+      });
+    });
+      
+    map.on('load', function() {
+      map.loadImage('./port.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('port', image);
+        map.addLayer({
+          "id": "point2",
+          "type": "symbol",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [0.3477, 51.45686]
+                }
+              }]
+            }
+          },
+          "layout": {
+            "icon-image": "port",
+            "icon-size": 0.02
           }
         });
       });

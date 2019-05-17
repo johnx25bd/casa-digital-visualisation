@@ -120,7 +120,7 @@ var layersData = [
           "source-layer": "Global_airports",
 
           "paint": {
-            "circle-color": "#ff69b4",
+            "circle-color": "green",
             "circle-opacity": 0.8,
             "circle-radius": 5
           }
