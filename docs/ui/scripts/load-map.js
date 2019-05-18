@@ -113,13 +113,7 @@ var loadedData = {};
               });
             }
 
-
-
-            map.addLayer(buildAddLayerParams(layerData));
-
-
-
-
+            map.addLayer(buildAddLayerParams(layerData), "country-label");
 
             if (layerData.tooltip) {
               map.on('mouseenter', layerData.name, function(e) {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <!--comment-->
+
 <head>
   <meta charset='utf-8' />
   <title>Display a map</title>
@@ -71,29 +72,31 @@
       zoom: 9.5
     });
 
-      
-map.on('load', function(){
-    map.loadImage('./Station.png', function(error, image) {
+
+    map.on('load', function() {
+      map.loadImage('./Station.png', function(error, image) {
         if (error) throw error;
+
         map.addImage('heat', image);
+
         map.addSource(
-        'heathrow-stations',{
-        type: 'vector',
-        url:"mapbox://ucfnlei.5xepc2ho",
-        });
+          'heathrow-stations', {
+            type: 'vector',
+            url: "mapbox://ucfnlei.5xepc2ho",
+          });
         map.addLayer({
-            id: 'heathrow-stations',
-            type:'symbol',
-            'source':'heathrow-stations',
-            'source-layer':"Heathrow_Station-20t8o9",
-           'layout': {
+          id: 'heathrow-stations',
+          type: 'symbol',
+          'source': 'heathrow-stations',
+          'source-layer': "Heathrow_Station-20t8o9",
+          'layout': {
             'icon-image': 'heat',
-            'icon-size':0.1
-        },
+            'icon-size': 0.1
+          },
         });
-}); 
-});
-      
+      });
+    });
+
 
 
     map.on('load', function() {
@@ -123,10 +126,11 @@ map.on('load', function(){
         });
       });
     });
-      
+
     map.on('load', function() {
       map.loadImage('./port.png', function(error, image) {
         if (error) throw error;
+        console.log(image, typeof(image))
         map.addImage('port', image);
         map.addLayer({
           "id": "point2",
