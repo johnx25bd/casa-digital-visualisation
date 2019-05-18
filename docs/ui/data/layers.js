@@ -22,11 +22,11 @@ var layersData = [
             ["exponential", 1.1],
             ["get", "normalised_export_2017"],
             2.00,
-            ["to-color", "red"],
+            ["to-color", "#deebf7"],
             15.00,
-            ["to-color", "green"]
+            ["to-color", "#537895"]
           ],
-          "fill-opacity": 0.75,
+          "fill-opacity": 0.8,
           "fill-outline-color": "rgb(250, 250, 250)"
         }
       },
@@ -56,9 +56,9 @@ var layersData = [
             ["exponential", 1.1],
             ["get", "normalised_import_2017"],
             4.98,
-            ["to-color", "red"],
+            ["to-color", "#fff7bc"],
             15.00,
-            ["to-color", "green"]
+            ["to-color", "#d95f0e"]
           ],
           "fill-opacity": 0.75,
           "fill-outline-color": "rgb(250, 250, 250)"
@@ -84,7 +84,7 @@ var layersData = [
           "source-layer": "Global_airports",
 
           "paint": {
-            "circle-color": "yellow",
+            "circle-color": "#6991c7",
             "circle-opacity": 0.8,
             "circle-radius": 5
           }
@@ -205,7 +205,7 @@ var layersData = [
           },
           "source-layer": "Heathrow-7fyjdj",
           "paint": {
-            "fill-color": "#088",
+            "fill-color": "#9795f0",
             "fill-opacity": 0.2
           }
 
@@ -330,7 +330,7 @@ var layersData = [
           },
           "source-layer": "port-a1biar",
           "paint": {
-            "fill-color": "#088",
+            "fill-color": "#a3bded",
             "fill-opacity": 0.2
           }
 
@@ -355,7 +355,7 @@ var layersData = [
         "type": "circle",
         "paint": {
           "circle-radius": 3,
-          "circle-color": "green"
+          "circle-color": "#537895"
         }
       }
     },
