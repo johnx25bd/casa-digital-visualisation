@@ -147,9 +147,9 @@ var loadedData = {};
             }
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
-                console.log("RENDERED FEATURE", map.queryRenderedFeatures(e.point)[0])
+                console.log("RENDERED FEATURE", e)
                 cardData[activeCardNum]
-                  .updateFeature(map.queryRenderedFeatures(e.point)[0]);
+                  .updateFeature(map.queryRenderedFeatures(e.point)[0], e.lngLat);
               }
 
             })

@@ -35,6 +35,10 @@ h3 span.light {
   margin-bottom: 10px;
 }
 
+.airport-code {
+  margin-top: -25px;
+}
+
 #app-cards svg {
   width: 100%;
 }

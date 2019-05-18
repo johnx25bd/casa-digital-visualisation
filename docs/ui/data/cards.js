@@ -32,7 +32,7 @@ var cardData = [{
         // loadFeatureContent(_params.)
 
       },
-      updateFeature: function(_featureMetadata) {
+      updateFeature: function(_featureMetadata, _lngLat) {
         console.log(_featureMetadata);
 
         var featureSelector = currentCardId() + ' .feature';
@@ -102,7 +102,7 @@ var cardData = [{
         // loadFeatureContent(_params.)
 
       },
-      updateFeature: function(_featureMetadata) {
+      updateFeature: function(_featureMetadata, _lngLat) {
 
       }},
       {
@@ -119,20 +119,53 @@ var cardData = [{
         loadCard: function(_params) {
 
         },
-        updateFeature: function(_featureMetadata) {
+        updateFeature: function(_featureMetadata, _lngLat) {
+
 
           var featureSelector = currentCardId() + ' .feature';
 
           var featureDiv = d3.select(featureSelector)
             .select('.card-body').html('');
 
-          featureDiv.append('h3')
+          var airportCoords = 'Latitude: ' + String(_lngLat.lat.toFixed(5)) +
+            '&nbsp;&nbsp; Longitude: ' + String(_lngLat.lng.toFixed(5))
+
+          featureDiv.append('h5')
+            .classed('feature-subheader', true)
+            .text('Airport');
+
+          var featureRow = featureDiv.append('div')
+            .classed('row', true);
+
+          var featureAirportCode = featureRow.append('div')
+            .classed('col-6', true);
+
+          featureAirportCode.append('h1')
+            .classed('airport-code', true)
             .text(_featureMetadata.properties.abbrev);
 
-          featureDiv.append('p')
-            .text(_featureMetadata.properties.airport_name);
+          featureAirportCode.append('h3')
+            .style('margin-top', '-20px')
+            .append('span')
+              .style('color', 'silver')
+              .style('margin-left', '0px')
+              .html(airportCoords);
 
-          featureDiv.append('a')
+          $('.airport-code').fitText(0.3);
+
+          var featureInfo = featureRow.append('div')
+            .classed('col-6', true);
+
+          featureInfo.append('p')
+            .html("<strong>Name:</strong> " + _featureMetadata.properties.airport_name);
+
+          featureInfo.append('p')
+            .html("<strong>Size:</strong> " + _featureMetadata.properties.size)
+
+          featureInfo.append('p')
+            .html("<strong>Usage:</strong> " + _featureMetadata.properties.usage)
+
+          featureInfo.append('a')
             .attr('href', _featureMetadata.properties.wikipedia)
             .attr('target', '_blank')
           .append('p')
@@ -154,7 +187,7 @@ var cardData = [{
         loadCard: function(_params) {
 
         },
-        updateFeature: function (_featureMetadata) {
+        updateFeature: function (_featureMetadata, _lngLat) {
 
           console.log('METADATA', _featureMetadata);
 
