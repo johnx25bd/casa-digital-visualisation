@@ -44,7 +44,7 @@ var cardData = [{
           .text(_featureMetadata.properties.name)
 
         featureDiv.append('p')
-          .text('Total Exports: ' + _featureMetadata.properties.all_commodities_export);
+          .text('Total Exports (million USD): ' + _featureMetadata.properties.all_commodities_export);
 
         var featureContent = featureDiv
           .append('div')
@@ -283,7 +283,7 @@ var cardData = [{
         // "cardNum": 3,
         "title": "The UK in the World",
         "content": "<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>",
-        "layers": ["china-demo-poly"],
+        "layers": ["airports-mapbox-data", 'ports'],
         "flyTo": {
           "bearing": 0,
           "center": [8.43025502683804, 53.19428441594809],
@@ -358,7 +358,7 @@ var cardData = [{
             },
             "Runways": {
               "bearing": 0,
-              "center": {"lng":-0.4401840484013064,"lat":51.46855340051587},
+              "center": {"lng":-0.44210786010671654,"lat":51.456970583583995},
               "zoom": 13.9,
               "pitch": 0
             }
@@ -371,6 +371,7 @@ var cardData = [{
               .classed('col-12', true);
 
           featureContent.append('h1')
+            .classed('display-1', true)
               .text('A tour of Heathrow');
 
           featureContent.selectAll('button')

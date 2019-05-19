@@ -30,14 +30,23 @@
 // Create dummy data
   var data = {"all of the things": 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
 
-  function createPieChart(_data,_div_width,_div_height,_div_margin,_title,_div_id){
+  var exampleParams = {
+    data: data,
+    width: 450,
+    height: 450,
+    margin: 40,
+    title: 'Artificial Data Distribution',
+    id: '#my_dataviz'
+  }
+  function createPieChart(_params){
 
-    var width = _div_width
-        height = _div_height
-        margin = _div_margin
-        id = _div_id
+    var width = _params.width,
+        height = _params.height,
+        margin = _params.margin,
+        id = _params.id,
+        _title = _params.title;
 
-    var data = _data;
+    var data = _params.data;
 
     // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
     var radius = Math.min(width, height) / 2 - margin;
@@ -120,5 +129,5 @@
 
   }
 
-  createPieChart(data,450,450,40,'Artificial Data Distribution','#my_dataviz');
+  createPieChart(exampleParams);
 </script>

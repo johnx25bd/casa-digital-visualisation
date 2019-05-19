@@ -35,6 +35,14 @@ h3 span.light {
   margin-bottom: 10px;
 }
 
+.pie-chart-holder path {
+  fill-opacity: 0.7;
+}
+
+.pie-chart-holder path:hover {
+  fill-opacity: 1;
+}
+
 .airport-code {
   margin-top: -25px;
 }
@@ -117,7 +125,7 @@ h3 span.light {
 }
 
 #main-map {
-  height: 1400px;
+  height: calc(100% - 55px);
   /* width: 900px; */
   position: fixed;
   padding-right: 0px;
