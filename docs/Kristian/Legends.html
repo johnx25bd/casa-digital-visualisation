@@ -58,7 +58,7 @@
         // Adjust the factor below to allows for more space for the legends
         .attr("width", width*1.3)
         .attr("height", height)
-        .attr('style', 'background-color: grey;')
+        .attr('style', 'background-color: #EEECED;')
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");//" + width / 2 + "
 
@@ -101,7 +101,7 @@
     legend
       .append('text')
       .text(function(d,i){ return d.value;})
-      .attr('fill',function(d){return color(d.id);})
+      //.attr('fill',function(d){return color(d.id);})
       .attr('x',25)
       .attr('y',15)
 
