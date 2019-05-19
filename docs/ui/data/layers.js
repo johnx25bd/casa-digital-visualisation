@@ -120,10 +120,41 @@ var layersData = [
           "source-layer": "Global_airports",
 
           "paint": {
-            "circle-color": "#6991c7",
-            "circle-opacity": 0.8,
-            "circle-radius": 5
-          }
+        // make circles larger as the user zooms from z12 to z22
+        'circle-radius': [
+            'match',
+            ['get', 'size'],
+            'small', 3,
+            'mid', 5,
+            'major', 7,
+            /* other */ 5
+        ],
+        //                 {
+        //     'base': 1.75,
+        //     'stops': [[2, 2], [12, 180]]
+        // },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+        'circle-color': [
+            'match',
+            ['get', 'usage'],
+            'civilian', '#a18cd1',
+            'military/civilian', '#a6c0fe',
+            'military', '#6f86d6',
+            'spaceport', '#48c6ef',
+            /* other */ '#ccc'
+        ],
+        'circle-stroke-color': [
+            'match',
+            ['get', 'usage'],
+            'civilian', '#ccc',
+            'military/civilian', '#ccc',
+            'military', '#ccc',
+            'spaceport', '#ccc',
+            /* other */ '#ccc'
+        ],
+        'circle-stroke-width': 2
+        }
         },
         "dim_a": {}
       },
@@ -389,10 +420,56 @@ var layersData = [
     "addLayerParams": {
       "default": {
         "type": "circle",
-        "paint": {
-          "circle-radius": 3,
-          "circle-color": "#537895"
+        "paint":{
+        // make circles larger as the user zooms from z12 to z22
+        'circle-radius': [
+            'match',
+            ['get', 'harborsize'],
+            'V', 2,
+            'S', 4,
+            'M', 6,
+            'L', 8,
+            /* other */ 5
+        ],
+        //                 {
+        //     'base': 1.75,
+        //     'stops': [[2, 2], [12, 180]]
+        // },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+        'circle-color':
+         [
+             'match',
+            ['get', 'harbortype'],
+             'CB', '#1F2E75',
+             'CN', '#1F2E75',
+             'CT', '#1F2E75',
+             'LC', '#00AEDA',
+             'RB', '#5769D3',
+             'RN', '#5769D3',
+             'RT', '#5769D3',
+             
+             /* other */ '#cfd9df'
+         ]
+        ,
+        'circle-stroke-color':
+            [
+            'match',
+            ['get', 'harbortype'],
+             'CB', '#ccc',
+             'CN', '#ccc',
+             'CT', '#ccc',
+             'LC', '#ccc',
+             'RB', '#ccc',
+             'RN', '#ccc',
+             'RT', '#ccc',
+            
+            /* other */ '#ccc'
+        ]
+        ,
+        'circle-stroke-width': 0.5
         }
+
       }
     },
     tooltip: function(_data) {
