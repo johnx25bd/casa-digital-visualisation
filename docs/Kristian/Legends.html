@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+
+<!-- Load d3.js & color scale -->
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz">
+
+  <style>
+    .legends
+    {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .title
+    {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  </style>
+
+
+</div>
+
+<script>
+
+// Create dummy data
+  // var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+
+  function createLegends(_div_width,_div_height,_title,_div_id, _step,_min,_max,_color1,_color2){
+
+    var width = _div_width
+        height = _div_height
+        //margin = _div_margin
+        id = _div_id
+
+    // var data = _data;
+
+    var generateRange = d3.scaleLinear()
+      .domain([0,_step])
+      .range([_min,_max])
+
+    // Create data to use:
+
+    var data = [];
+
+    for (var ele = 0; ele < _step; ele++){
+      data.push({'id':ele, 'value':generateRange(ele)});
+    }
+    //console.log(data);
+
+    // append the svg object to the div called 'my_dataviz'
+    var svg = d3.select(id)
+      .append("svg")
+        // Adjust the factor below to allows for more space for the legends
+        .attr("width", width*1.3)
+        .attr("height", height)
+        .attr('style', 'background-color: grey;')
+      .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");//" + width / 2 + "
+
+
+    var color = d3.scaleLinear()
+        .domain([_min, _max])
+        .range([_color1, _color2])
+        .interpolate(d3.interpolateHcl); //interpolateHsl interpolateHcl interpolateRgb
+    //console.log(color(data));
+
+    //Adding a title
+    svg
+      .append('text')
+      .attr('x',0)//
+      .attr('y',-100)
+      .attr('text-anchor','middle')
+      .classed('title',true)
+      .text(_title);
+
+    var legends = svg
+          .append('g')
+          .attr('transform','translate(0,-100)')
+          .selectAll('.legends')
+          .data(data);
+
+    var legend = legends
+          .enter()
+          .append('g')
+          .classed('legends',true)
+          //.attr('fill','grey')
+          .attr('transform',function(d,i) {return "translate(-50," + (i+1)*30 + ")";});
+
+    legend
+      .append('rect')
+      // Adjust these for the size of the colored boxes.
+      .attr('width',15)
+      .attr('height',15)
+      .attr('fill',function(d){return color(d.id);});
+
+    legend
+      .append('text')
+      .text(function(d,i){ return d.value;})
+      .attr('fill',function(d){return color(d.id);})
+      .attr('x',25)
+      .attr('y',15)
+
+  }
+
+  createLegends(200,300,'testLegends','#my_dataviz',5,2,15,"#fff7bc","#d95f0e");
+</script>
