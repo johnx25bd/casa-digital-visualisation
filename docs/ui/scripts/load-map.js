@@ -22,9 +22,14 @@ var map = new mapboxgl.Map({
   // maxBounds: [[-180,-90], [180,90]]
 });
 
-map.addControl(new mapboxgl.ScaleControl({
-  maxWidth: 100
-}));
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+// map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
+var scale = new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+});
+map.addControl(scale, 'bottom-left');
+
 
 var popup = new mapboxgl.Popup({
   closeButton: false,
@@ -147,9 +152,17 @@ var loadedData = {};
             }
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
-                console.log("RENDERED FEATURE", e)
+
+                var targetLayers = cardData[activeCardNum].layers;
+
+                var renderedFeatures = map.queryRenderedFeatures(e.point);
+
+                var featureOfInterest = renderedFeatures.find(function (feature) {
+                  return targetLayers.includes(feature.layer.id );
+                })
+
                 cardData[activeCardNum]
-                  .updateFeature(map.queryRenderedFeatures(e.point)[0], e.lngLat);
+                  .updateFeature(featureOfInterest, e.lngLat);
               }
 
             })

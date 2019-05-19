@@ -1,6 +1,7 @@
 console.log('loading layers data')
 
-var layersData = [{
+var layersData = [
+  {
     "name": "export-countries",
     "type": "mapbox",
     "path": "none",
@@ -109,7 +110,7 @@ var layersData = [{
         },
         "source-layer": "Heathrow-3p4trr",
         "paint": {
-          "circle-radius": 4,
+          "circle-radius": 10,
           "circle-color": "blue"
         }
       }
