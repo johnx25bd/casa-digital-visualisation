@@ -19,13 +19,13 @@ KRISTIAN
 
 JOHN
 
-[] Flip Heathrow background to satellite-streets
+[-] Flip Heathrow background to satellite-streets
 
-[] Flip port background to satellite-streets
+[-] Flip port background to satellite-streets
 
-[] Figure out map scale bar
+[x] Figure out map scale bar
 
-[] Figure out map control
+[x] Figure out map control
 
 [] Build port flythrough tour
 

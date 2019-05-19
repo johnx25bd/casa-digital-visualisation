@@ -330,6 +330,8 @@ var cardData = [{
         loadCard: function (_i, _params) {
           console.log("HEATHROW LOAD CARD", _i, _params);
 
+          // map.setStyle(mapboxSatellite);
+
           var heathrowTourParams = {
             "Terminal 2": {
               "bearing": 200,

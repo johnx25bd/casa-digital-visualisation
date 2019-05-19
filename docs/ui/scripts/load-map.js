@@ -12,6 +12,8 @@ var activeCardNum = null;
 var inAnimation = false;
 
 // Instantiate map:
+var mapboxSatellite = '';
+  // mapboxLight =
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA';
 
 var map = new mapboxgl.Map({

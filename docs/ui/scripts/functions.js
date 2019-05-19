@@ -144,7 +144,8 @@ function setActiveCard(_cardNum) {
   if (_cardNum === activeCardNum) {
     return;
   }
-  //
+
+  // map.setStyle(baseStyle);
 
   scrollToCard(_cardNum);
   // console.log(cardData[cardNum]);
