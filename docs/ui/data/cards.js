@@ -306,7 +306,6 @@ var cardData = [{
       },
       {
         "extent": "national",
-        // "cardNum": 3,
         "title": "British Maritime Transport",
         "content": "<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>",
         "layers": ["ports"],
@@ -321,12 +320,71 @@ var cardData = [{
         "extent": "local",
         "title": "Heathrow: A critical airport",
         "content": "<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>",
-        "layers": ["heathrow-point", "heathrow-stations", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer"],
+        "layers": ["heathrow-point", "heathrow-stations", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],
         "flyTo": {
           "bearing": 0,
           "center": [-0.4172184, 51.457262],
           "zoom": 12.9,
           "pitch": 0
+        },
+        loadCard: function (_i, _params) {
+          console.log("HEATHROW LOAD CARD", _i, _params);
+
+          var heathrowTourParams = {
+            "Terminal 2": {
+              "bearing": 200,
+              "center": [-0.450183, 51.472609],
+              "zoom": 16.5,
+              "pitch": 70
+            },
+            "Terminal 3": {
+              "bearing": 130,
+              "center": [-0.459359, 51.471165],
+              "zoom": 16,
+              "pitch": 70
+            },
+            "Terminal 4": {
+              "bearing": 330,
+              "center": [ -0.447560, 51.459755],
+              "zoom": 16.7,
+              "pitch": 70
+            }
+            ,
+            "Terminal 5": {
+              "bearing": 90,
+              "center": [-0.488354, 51.471785],
+              "zoom": 16.9,
+              "pitch": 70
+            },
+            "Runways": {
+              "bearing": 0,
+              "center": [ -0.464285, 51.471648],
+              "zoom": 13.9,
+              "pitch": 0
+            }
+          }
+
+          var featureSelector = "#" + _params.extent + '-card-' + i + ' .feature .card-body';
+
+          var featureContent = d3.select(featureSelector)
+            .append('div')
+              .classed('col-12', true);
+
+          featureContent.append('h1')
+              .text('A tour of Heathrow');
+
+          featureContent.selectAll('button')
+            .data(Object.keys(heathrowTourParams)).enter()
+            .append('button')
+              .attr('type', 'button')
+              .classed('btn btn-lg btn-block btn-outline-primary', true)
+              .text(function (d) { return d; })
+              .on('click', function (d) {
+                map.flyTo(heathrowTourParams[d]);
+              });
+
+          // set up Feature Content with tour ...
+
         }
       },
       {
