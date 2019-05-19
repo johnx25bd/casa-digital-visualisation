@@ -333,32 +333,32 @@ var cardData = [{
           var heathrowTourParams = {
             "Terminal 2": {
               "bearing": 200,
-              "center": [-0.450183, 51.472609],
+              "center": {"lng":-0.45183706289185466,"lat":51.475127930801506},
               "zoom": 16.5,
               "pitch": 70
             },
             "Terminal 3": {
               "bearing": 130,
-              "center": [-0.459359, 51.471165],
+              "center": {lng: -0.4623692398431558, lat: 51.469771694617265},
               "zoom": 16,
               "pitch": 70
             },
             "Terminal 4": {
               "bearing": 330,
-              "center": [ -0.447560, 51.459755],
+              "center": {"lng":-0.4437268331968198,"lat":51.45981682919407},
               "zoom": 16.7,
               "pitch": 70
             }
             ,
             "Terminal 5": {
               "bearing": 90,
-              "center": [-0.488354, 51.471785],
+              "center": {"lng":-0.48849590095176154,"lat":51.47020173214935},
               "zoom": 16.9,
               "pitch": 70
             },
             "Runways": {
               "bearing": 0,
-              "center": [ -0.464285, 51.471648],
+              "center": {"lng":-0.4401840484013064,"lat":51.46855340051587},
               "zoom": 13.9,
               "pitch": 0
             }
