@@ -174,7 +174,7 @@ var cardData = [{
         '<br />Longitude: ' + String(_lngLat.lng.toFixed(5))
 
       featureDiv.append('h3')
-        .classed('feature-subheader', true)
+        .classed('feature-subheader mb-0', true)
         .text('Airport');
 
       var featureRow = featureDiv.append('div')
@@ -287,7 +287,7 @@ var cardData = [{
       //   '&nbsp;&nbsp; Longitude: ' + String(_featureMetadata.properties.longitude.toFixed(5))
 
       featureDiv.append('h5')
-        .classed('feature-subheader', true)
+        .classed('feature-subheader mb-0', true)
         .text('Port');
 
       var featureHeader = featureDiv.append('h3')

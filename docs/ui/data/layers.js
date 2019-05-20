@@ -364,7 +364,14 @@ var layersData = [
     },
     tooltip: function(_data) {
       console.log(_data);
-      // pop tooltip with data.
+
+      // Could deal with hyphenated words too ...
+      var portName = _data.properties.port_name.toLowerCase().split(' ');
+
+      portName = portName.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+
+      return "<p class='mb-0'>"  + portName + "</p>";
     }
   }, {
     "name": "us-states",
