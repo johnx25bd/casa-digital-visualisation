@@ -27,7 +27,8 @@
 
 <script>
 
-  function createLegends(_title,_div_id,_svg_id,_dataType,_dataPaint){
+  function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
+
     ////////////////////// Defining parameters ////////////////////////////
     var id = _div_id
     // Defining the variables based on the type of the data loaded in.
@@ -66,76 +67,124 @@
       var _elementWidth = 15;
       _step = null;
     }
-
-    var generateRange = d3.scaleLinear()
-      .domain([0,_step])
-      .range([_min,_max])
-
-    //////////////////////////// Creating the legend /////////////////////////////////////
-
+    ////////////////////// Done defining parameters - Let's build! ////////////////////////////
     if (_dataType == 'fill'){
+      if (_dataPaint.length > 1){
+        // var generateRange = d3.scaleLinear()
+        //   .domain([0,_step])
+        //   .range([_min,_max])
+        //////////////////////////// Data /////////////////////////////////////
+        var color = d3.scaleLinear()
+            .domain([0, _step])//.domain([_min, _max])
+            .range([_color1, _color2])
+            .interpolate(d3.interpolateHcl); //interpolateHsl interpolateHcl interpolateRgb
 
-      var color = d3.scaleLinear()
-          .domain([0, _step])//.domain([_min, _max])
-          .range([_color1, _color2])
-          .interpolate(d3.interpolateHcl); //interpolateHsl interpolateHcl interpolateRgb
+        var data = [];
 
-      var data = [];
+        for (var ele = 0; ele < _step; ele++){
 
-      for (var ele = 0; ele < _step; ele++){
-
-        if (ele === 0 || ele === (_step - 1)){
-            data.push({'id':ele, 'value':generateRange(ele)});
-        } else {
-          data.push({'id': ele, 'value':''})
+          if (ele === 0){
+              data.push({'id':ele, 'value':'Low'});
+          } else if (ele === (_step - 1)){
+              data.push({'id':ele, 'value':'High'});
+          } else {
+            data.push({'id': ele, 'value':''})
+          }
         }
+        //////////////////////////// Creating the legend /////////////////////////////////////
+        var svg = d3.select(id)
+          .append('svg')
+          .attr('id',_svg_id)
+            // Adjust the factor below to allows for more space for the legends
+            .attr("width", '100%;')
+            .attr("height", 'auto;')
+          .append("g")
+            .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
+
+        svg
+          .append('text')
+          .attr('x',-125)//
+          .attr('y',-30)
+          .attr('text-anchor','middle')
+          .classed('title',true)
+          .text(_svg_id);
+
+        var legends = svg
+              .append('g')
+              .attr('transform','translate(-175,-100)')
+              .selectAll('.legends')
+              .data(data);
+
+        var legend = legends
+              .enter()
+              .append('g')
+              .classed('legends',true)
+              .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
+
+        legend
+          .append('rect')
+          // Adjust these for the size of the colored boxes.
+          .attr('width',_elementWidth)
+          .attr('height',15)
+          .attr(_dataType,function(d){return color(d.id);});
+
+        legend
+          .append('text')
+          .text(function(d,i){ return d.value;})
+          .attr('x',5)
+          .attr('y',35)
+
+      } else if (_dataPaint.length == 1){
+        //////////////////////////// Data /////////////////////////////////////
+        var color = [_dataPaint[0]];
+        var data = [_svg_id];
+        //////////////////////////// Creating the legend /////////////////////////////////////
+        var svg = d3.select(id)
+          .append('svg')
+          .attr('id',_svg_id)
+            // Adjust the factor below to allows for more space for the legends
+            .attr("width", '100%;')
+            .attr("height", 'auto;')
+          .append("g")
+            .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
+
+        svg
+          .append('text')
+          .attr('x',-125)//
+          .attr('y',-30)
+          .attr('text-anchor','middle')
+          .classed('title',true)
+          .text(_svg_id);
+
+        var legends = svg
+              .append('g')
+              .attr('transform','translate(-175,-100)')
+              .selectAll('.legends')
+              .data(data);
+
+        var legend = legends
+              .enter()
+              .append('g')
+              .classed('legends',true)
+              .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
+
+        legend
+          .append('rect')
+          // Adjust these for the size of the colored boxes.
+          .attr('width',_elementWidth)
+          .attr('height',15)
+          .attr(_dataType,color[0]);//function(d){return color(d.id);});
+
+        legend
+          .append('text')
+          .text(data[0])
+          .attr('x',65)
+          .attr('y',12)
+
       }
-
-      var svg = d3.select(id)
-        .append('svg')
-        .attr('id',_svg_id)
-          // Adjust the factor below to allows for more space for the legends
-          .attr("width", '100%;')
-          .attr("height", 'auto;')
-        .append("g")
-          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
-
-      svg
-        .append('text')
-        .attr('x',-125)//
-        .attr('y',-30)
-        .attr('text-anchor','middle')
-        .classed('title',true)
-        .text(_svg_id);
-
-      var legends = svg
-            .append('g')
-            .attr('transform','translate(-175,-100)')
-            .selectAll('.legends')
-            .data(data);
-
-      var legend = legends
-            .enter()
-            .append('g')
-            .classed('legends',true)
-            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
-
-      legend
-        .append('rect')
-        // Adjust these for the size of the colored boxes.
-        .attr('width',_elementWidth)
-        .attr('height',15)
-        .attr(_dataType,function(d){return color(d.id);});
-
-      legend
-        .append('text')
-        .text(function(d,i){ return d.value;})
-        .attr('x',5)
-        .attr('y',35)
-
     } else if (_dataType == 'circle'){
       ////////////////////////// CIRCLES /////////////////////////////////////////
-      /// Generating the data
+      //////////////////////////// Data /////////////////////////////////////
       var color = [];
       var data = [];
 
@@ -155,8 +204,7 @@
       }
       size.push(5)
       sizedata.push('other')
-
-      /// Creating the legends
+      //////////////////////////// Creating the legend /////////////////////////////////////
       var svg = d3.select(id)
         .append('svg')
         .attr('id',_svg_id)
@@ -280,7 +328,7 @@
 
 for (key in data_combined){
 
-  createLegends('Legends','#my_dataviz',key,data_combined[key].type,data_combined[key].paint);
+  createLegends('#my_dataviz',key,data_combined[key].type,data_combined[key].paint);
 }
 
 

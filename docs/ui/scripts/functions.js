@@ -126,7 +126,31 @@ function showCardLayers(_cardNum) {
 }
 
 
-function updateLegend(layers) {
+function updateLegend(_layers,_legendSelector) {
+
+  //var data = [];
+
+  for (layer in _layers){
+
+    var layerOfInterst = map.getLayer(layer);
+    var layerType = layerOfInterst.add.type;
+
+    if (layerType == 'fill'){
+
+      var layerPaint = map.getLayoutProperty(layer,'fill-color')
+
+    } else if (layerType == 'circle'){
+
+      var layerPaint = {
+        'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
+        'circle-color' : map.getLayoutProperty(layer,'circle-color'),
+        'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
+      };
+    }
+
+    createLegends(_legendSelector,layer,layerType,layerPaint);
+  }
+
   // iterate through array of layers
   // Add each layer's legend to .legend div
   // console.log("updateLegend() Called");
@@ -388,10 +412,256 @@ function createPieChart(_params, _parentEl){
 
   }
 
+function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
 
+  ////////////////////// Defining parameters ////////////////////////////
+  var id = _div_id
+  // Defining the variables based on the type of the data loaded in.
+  if (_dataType == 'fill'){
+    ///////////////////////// FILL ////////////////////////////////////////////
+    var width = 150//300
+        height = 100//150
 
+    if (_dataPaint.length > 1){
+      // If you are a fill taking on many colors!
+      _step = 20;
+      _min = _dataPaint[3];
+      _max = _dataPaint[5];
+      _color1 = _dataPaint[4][1];
+      _color2 = _dataPaint[6][1];
+      var _offSet = (width*2/_step);
+      var _elementWidth = (width*2/_step);
+    } else {
+      // If you are a fill taking only one color
+      _step = 1;
+      _min = 1
+      _max = 2;
+      _color1 = _dataPaint[0];
+      _color2 = _dataPaint[0];
+      var _offSet = 15;//(width*2/_step);
+      var _elementWidth = 50;
+    }
 
+  } else if (_dataType == 'circle') {
+    // If you are circle layer, we need a lot more information.
 
+    var width = 300
+        height = 300
+
+    var _offSet = 50;
+    var _elementWidth = 15;
+    _step = null;
+  }
+  ////////////////////// Done defining parameters - Let's build! ////////////////////////////
+  if (_dataType == 'fill'){
+    if (_dataPaint.length > 1){
+      // var generateRange = d3.scaleLinear()
+      //   .domain([0,_step])
+      //   .range([_min,_max])
+      //////////////////////////// Data /////////////////////////////////////
+      var color = d3.scaleLinear()
+          .domain([0, _step])//.domain([_min, _max])
+          .range([_color1, _color2])
+          .interpolate(d3.interpolateHcl); //interpolateHsl interpolateHcl interpolateRgb
+
+      var data = [];
+
+      for (var ele = 0; ele < _step; ele++){
+
+        if (ele === 0){
+            data.push({'id':ele, 'value':'Low'});
+        } else if (ele === (_step - 1)){
+            data.push({'id':ele, 'value':'High'});
+        } else {
+          data.push({'id': ele, 'value':''})
+        }
+      }
+      //////////////////////////// Creating the legend /////////////////////////////////////
+      var svg = d3.select(id)
+        .append('svg')
+        .attr('id',_svg_id)
+          // Adjust the factor below to allows for more space for the legends
+          .attr("width", '100%;')
+          .attr("height", 'auto;')
+        .append("g")
+          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
+
+      svg
+        .append('text')
+        .attr('x',-125)//
+        .attr('y',-30)
+        .attr('text-anchor','middle')
+        .classed('title',true)
+        .text(_svg_id);
+
+      var legends = svg
+            .append('g')
+            .attr('transform','translate(-175,-100)')
+            .selectAll('.legends')
+            .data(data);
+
+      var legend = legends
+            .enter()
+            .append('g')
+            .classed('legends',true)
+            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
+
+      legend
+        .append('rect')
+        // Adjust these for the size of the colored boxes.
+        .attr('width',_elementWidth)
+        .attr('height',15)
+        .attr(_dataType,function(d){return color(d.id);});
+
+      legend
+        .append('text')
+        .text(function(d,i){ return d.value;})
+        .attr('x',5)
+        .attr('y',35)
+
+    } else if (_dataPaint.length == 1){
+      //////////////////////////// Data /////////////////////////////////////
+      var color = [_dataPaint[0]];
+      var data = [_svg_id];
+      //////////////////////////// Creating the legend /////////////////////////////////////
+      var svg = d3.select(id)
+        .append('svg')
+        .attr('id',_svg_id)
+          // Adjust the factor below to allows for more space for the legends
+          .attr("width", '100%;')
+          .attr("height", 'auto;')
+        .append("g")
+          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
+
+      svg
+        .append('text')
+        .attr('x',-125)//
+        .attr('y',-30)
+        .attr('text-anchor','middle')
+        .classed('title',true)
+        .text(_svg_id);
+
+      var legends = svg
+            .append('g')
+            .attr('transform','translate(-175,-100)')
+            .selectAll('.legends')
+            .data(data);
+
+      var legend = legends
+            .enter()
+            .append('g')
+            .classed('legends',true)
+            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
+
+      legend
+        .append('rect')
+        // Adjust these for the size of the colored boxes.
+        .attr('width',_elementWidth)
+        .attr('height',15)
+        .attr(_dataType,color[0]);//function(d){return color(d.id);});
+
+      legend
+        .append('text')
+        .text(data[0])
+        .attr('x',65)
+        .attr('y',12)
+
+    }
+  } else if (_dataType == 'circle'){
+    ////////////////////////// CIRCLES /////////////////////////////////////////
+    //////////////////////////// Data /////////////////////////////////////
+    var color = [];
+    var data = [];
+
+    for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
+      color.push(_dataPaint['circle-color'][i]);
+      data.push(_dataPaint['circle-color'][i-1])
+    }
+    color.push('#cfd9df')
+    data.push('other')
+
+    var size = [];
+    var sizedata = [];
+
+    for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
+      size.push(_dataPaint['circle-radius'][i]);
+      sizedata.push(_dataPaint['circle-radius'][i-1])
+    }
+    size.push(5)
+    sizedata.push('other')
+    //////////////////////////// Creating the legend /////////////////////////////////////
+    var svg = d3.select(id)
+      .append('svg')
+      .attr('id',_svg_id)
+        // Adjust the factor below to allows for more space for the legends
+        .attr("width", width)
+        .attr("height", height)
+      .append("g")
+        .attr("transform", "translate(" + width/1.5 + "," + height/4 + ")");//" + width / 2 + "
+
+    svg
+      .append('text')
+      .attr('x',-140)//
+      .attr('y',-30)
+      .attr('text-anchor','middle')
+      .classed('title',true)
+      .text(_svg_id);
+    // Categories
+    var legends = svg
+          .append('g')
+          .attr('transform','translate(-175,-150)')
+          .selectAll('.legends')
+          .data(data);
+
+    var legend = legends
+          .enter()
+          .append('g')
+          .classed('legends',true)
+          .attr('transform',function(d,i) {return "translate(0,"+ + (i+3)*_offSet + ")";});//*(width/_step)
+
+    legend
+      .append('circle')
+      // Adjust these for the size of the colored boxes.
+      .attr('cx',_elementWidth)
+      .attr('cy',_elementWidth)
+      .attr('r',_elementWidth)
+      .style('fill',function(d,i){return color[i];});
+
+    legend
+      .append('text')
+      .text(function(d,i){ return data[i];})
+      .attr('x',50)
+      .attr('y',20)
+    // Size ///
+    var legends = svg
+          .append('g')
+          .attr('transform','translate(-175,-150)')
+          .selectAll('.legends')
+          .data(sizedata);
+
+    var legend = legends
+          .enter()
+          .append('g')
+          .classed('legends',true)
+          .attr('transform',function(d,i) {return "translate(150,"+ + (i+3)*_offSet + ")";});//*(width/_step)
+
+    legend
+      .append('circle')
+      // Adjust these for the size of the colored boxes.
+      .attr('cx',_elementWidth)
+      .attr('cy',_elementWidth)//function(d,i) {return size[i]*2;}
+      .attr('r',function(d,i) {return size[i]*2;})
+      .style('fill','white')
+      .style('stroke','black');
+    legend
+      .append('text')
+      .text(function(d,i){ return sizedata[i];})
+      .attr('x',50)
+      .attr('y',20)
+  } else {
+    console.log('ERROR:  I dont know this datatype!')
+  }
+}
 
 function createPieChartOld (_params, _parentEl) {
 
