@@ -17,17 +17,17 @@ SHUKE
 
 KRISTIAN
 
-[] Build legends
+[x] Build legends
 
-[] Add National Level card 1 layer
+[x] Add National Level card 1 layer
 
 [] Add pie chart feature content update for UK largest ports and airports card
 
 [] Feature-content: On pie segment click display amount of category.
 
-[] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
+[x] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
 
-[] Extent legends to include multiple layers.
+[x] Extent legends to include multiple layers.
 
 
 JOHN
