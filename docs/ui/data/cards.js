@@ -51,7 +51,7 @@ var cardData = [
       };
 
 
-      createBarChart(exportersBarChartParams, "#exports-bar-chart");
+      // createBarChart(exportersBarChartParams, "#exports-bar-chart");
       // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
@@ -150,7 +150,7 @@ var cardData = [
       };
 
 
-      createBarChart(importersBarChartParams, "#imports-bar-chart");
+      // createBarChart(importersBarChartParams, "#imports-bar-chart");
       // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
@@ -496,8 +496,8 @@ var cardData = [
           </p>
         </div>
       </div>
-      
-      
+
+
 
     `,
     "layers": ["airports-mapbox-data", 'ports'],
@@ -520,14 +520,14 @@ var cardData = [
         </div>
       </div>
       <img src='./assets/images/national-airport.jpg' class='img-fluid' alt='National Airport'>
-<figcaption class="figure-caption mb-4">   
-        The bar chart for The United Kingdom's airports. 
+<figcaption class="figure-caption mb-4">
+        The bar chart for The United Kingdom's airports.
       </figcaption>
 
      <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
 
 </p>
-     
+
 
     `,
     "layers": ["airports-mapbox-data"],
@@ -549,8 +549,8 @@ var cardData = [
         </div>
       </div>
       <img src='./assets/images/national-port.jpg' class='img-fluid' alt='National Port'>
-<figcaption class="figure-caption mb-4">   
-        The bar chart for The United Kingdom's ports. 
+<figcaption class="figure-caption mb-4">
+        The bar chart for The United Kingdom's ports.
       </figcaption>
 
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
@@ -574,7 +574,7 @@ var cardData = [
         </div>
       </div>
       <img src='./assets/images/Heathrow.jpg' class='img-fluid' alt='Heathrow Airport'>
-      <figcaption class="figure-caption mb-4">   
+      <figcaption class="figure-caption mb-4">
         Heathrow Airport. <a href="https://youtu.be/LI_apMKa2c0" target="_blank">Source</a>
       </figcaption>
        <img src='./assets/images/Heathrow1.jpg' class='img-fluid' alt='Heathrow Airport'>
@@ -679,7 +679,7 @@ var cardData = [
         </div>
       </div>
       <img src='./assets/images/London-port.jpg' class='img-fluid' alt='Port of London'>
-      <figcaption class="figure-caption mb-4">   
+      <figcaption class="figure-caption mb-4">
         Port of London. <a href="https://youtu.be/IINJU5k2WuY">Source</a>
       </figcaption>
        <img src='./assets/images/London-port1.jpg' class='img-fluid' alt='Port of London'>
