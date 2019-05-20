@@ -25,6 +25,11 @@ h3 span.light {
   color: silver;
 }
 
+.header-span {
+  font-size: 25px;
+  
+}
+
 .feature-subheader {
   font-size: 20px;
   color: silver;
@@ -74,7 +79,8 @@ h3 span.light {
   background-color: lightgrey;
   color: grey;
   margin-bottom: 25px;
-  border-radius: 10px;
+  /* border-bottom: 1px solid grey; */
+  /* border-radius: 10px; */
   padding: 25px;
   /* border: 1px solid black; */
 
@@ -130,7 +136,7 @@ h3 span.light {
 #main-container {
   margin-top: 56px;
   height: 100%;
-  background-color: green;
+  /* background-color: green; */
 }
 
 #main-map {
@@ -149,8 +155,8 @@ h3 span.light {
 
 #info-body {
   /* background-color: yellow; */
-  margin-top: 25px;
-  margin-right: 2%;
+  /* margin-top: 25px;
+  margin-right: 2%; */
 }
 
 #map-nav {

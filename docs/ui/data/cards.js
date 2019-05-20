@@ -1,12 +1,13 @@
-var cardData = [{
+var cardData = [
+  {
     "extent": "global",
     "title": "World Trade: Exports",
     "content": "<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><div id='exports-bar-chart' class='col-12'></div><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>",
     "layers": ['export-countries'],
     "flyTo": {
       "bearing": 0,
-      "center": [99.44084624, 22.10876354],
-      "zoom": 2,
+      "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
+      "zoom": 1.2183705438114467,
       "pitch": 0
     },
     "featureContent": {
@@ -31,6 +32,9 @@ var cardData = [{
       createBarChart(exportersBarChartParams, "#exports-bar-chart");
       // loadFeatureContent(_params.)
 
+      setFeatureContentText(_i, "country")
+
+
     },
     updateFeature: function(_featureMetadata, _lngLat) {
       console.log(_featureMetadata);
@@ -41,10 +45,10 @@ var cardData = [{
         .select('.card-body').html('');
 
       var headerSpan = featureDiv.append('h3')
-        .classed('display-3', true)
+        .classed('display-3 mb-0', true)
         .text(_featureMetadata.properties.name);
 
-      headerSpan.append('span')
+      featureDiv.append('p')
         .classed('header-span', true)
         .text('Exports by category')
 
@@ -86,14 +90,14 @@ var cardData = [{
     "layers": ['import-countries'],
     "flyTo": {
       "bearing": 0,
-      "center": [99.44084624, 22.10876354],
-      "zoom": 2,
+      "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
+      "zoom": 1.2183705438114467,
       "pitch": 0
     },
     "featureContent": {
 
     },
-    loadCard: function(_params) {
+    loadCard: function(_i, _params) {
       // Set countries layer style to Imports choropleth colors
       var importersBarChartParams = {
         "chartType": "bar",
@@ -108,6 +112,10 @@ var cardData = [{
       createBarChart(importersBarChartParams, "#imports-bar-chart");
       // loadFeatureContent(_params.)
 
+      setFeatureContentText(_i, "country")
+
+
+
     },
     updateFeature: function(_featureMetadata, _lngLat) {
       console.log(_featureMetadata);
@@ -118,10 +126,10 @@ var cardData = [{
         .select('.card-body').html('');
 
       var headerSpan = featureDiv.append('h3')
-        .classed('display-3', true)
+        .classed('display-3 mb-0', true)
         .text(_featureMetadata.properties.name);
 
-      headerSpan.append('span')
+      featureDiv.append('p')
         .classed('header-span', true)
         .text('Imports by category')
 
@@ -180,11 +188,14 @@ var cardData = [{
     "layers": ["airports-mapbox-data"],
     "flyTo": {
       "bearing": 0,
-      "center": [99.44084624, 22.10876354],
-      "zoom": 2,
+      "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
+      "zoom": 1.2183705438114467,
       "pitch": 0
     },
-    loadCard: function(_params) {
+    loadCard: function(_i, _params) {
+
+      setFeatureContentText(_i, "airport")
+
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
@@ -297,11 +308,13 @@ var cardData = [{
     "layers": ["ports"],
     "flyTo": {
       "bearing": 0,
-      "center": [40.15591514, 51.51830379],
-      "zoom": 2.5,
+      "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
+      "zoom": 1.2183705438114467,
       "pitch": 0
     },
-    loadCard: function(_params) {
+    loadCard: function(_i, _params) {
+      // console.log('card load!', _params);
+      setFeatureContentText(_i, "port")
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
