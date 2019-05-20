@@ -126,11 +126,11 @@ function showCardLayers(_cardNum) {
 }
 
 
-function updateLegend(layers) {
+function updateLegend(_layers,_legendSelector) {
 
   //var data = [];
 
-  for (layer in layers){
+  for (layer in _layers){
 
     var layerOfInterst = map.getLayer(layer);
     var layerType = layerOfInterst.add.type;
@@ -148,7 +148,7 @@ function updateLegend(layers) {
       };
     }
 
-    createLegends('*INSERT-div-ID*',layer,layerType,layerPaint);
+    createLegends(_legendSelector,layer,layerType,layerPaint);
   }
 
   // iterate through array of layers
