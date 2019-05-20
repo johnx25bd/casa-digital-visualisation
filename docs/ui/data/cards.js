@@ -1,12 +1,34 @@
 var cardData = [{
     "extent": "global",
     "title": "World Trade: Exports",
-    "content": "<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><div id='exports-bar-chart' class='col-12'></div><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>",
+    "content": `<p>This map displays the 2017 exports of eight categories of products by country are related respectively. The colour of polygons shows the total export volume. </p>
+      <div class='card border-secondary mb-3'>
+        <div class='card-body'>
+          <p class="lead mb-0">Click on the polygon representing the corresponding country to learn more details about its export volumes of eight typical kinds of products available now for export. 
+          </p>
+        </div>
+      </div>
+      <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+      <div id='top-five-exporter-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+      <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+
+
+      <h4 class='display-4'>Facts</h4>
+      <ul>
+        <li>United States and China are magnate of exporting countries, followed by Germany, Japan and South Korea. </li>
+        <li>In the barchart related to 2017 total export volumes, China is the largest exporting country in 2017, which leads the world with its exporting worth 2,200 billion US dollars. </li>
+        <li>From the main eight categories, it can be seen that technical has become the major country’s exports for China and U.S. which have 627,454 units and 705,700 units respectively. </li>
+        <li>They both mainly export products in secondary sector. </li>
+        <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
+      </ul>
+
+    `,
     "layers": ['export-countries'],
     "flyTo": {
       "bearing": 0,
-      "center": [99.44084624, 22.10876354],
-      "zoom": 2,
+      "center": [104.9167434, 35.1207138],
+      "zoom": 1,
       "pitch": 0
     },
     "featureContent": {
@@ -80,14 +102,33 @@ var cardData = [{
   {
     "extent": "global",
     "title": "World Trade: Imports",
-    "content": `<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p>
-      <div id='imports-bar-chart' class='col-12'></div>
-    <p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>`,
+    "content": `<p>This map displays the 2017 imports of eight categories of products by country are related respectively. The colour of polygons shows the total import volume.</p>
+      <div class='card border-secondary mb-3'>
+        <div class='card-body'>
+          <p class="lead mb-0">Click on the polygon representing the corresponding country to learn more details about its import volumes of eight typical kinds of products available now for import. 
+          </p>
+        </div>
+      </div>
+      <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+      <div id='top-five-importer-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+
+      <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+      <h4 class='display-4'>Facts</h4>
+      <ul>
+        <li>United States and China are still magnate of importing countries, followed by Germany, Japan. But the United Kingdom ranked the fifth with nearly 600 biliion US dollars. </li>
+        <li>Compare with the export, Non-Asia countries have taken quite a large share in the import trade. </li>
+        <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
+        <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
+        </ul>
+
+    `,
+          
     "layers": ['import-countries'],
     "flyTo": {
       "bearing": 0,
-      "center": [99.44084624, 22.10876354],
-      "zoom": 2,
+      "center": [104.9167434, 35.1207138],
+      "zoom": 1,
       "pitch": 0
     },
     "featureContent": {
@@ -160,11 +201,8 @@ var cardData = [{
           </p>
         </div>
       </div>
-      <img src='./assets/images/hk-airport.jpg' class='img-fluid' alt='Hong Kong Airport'>
-      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-        Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
-      </figcaption>
-      <div id='air-transport-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+  
+      <img src='./assets/images/top5Air.jpeg' class='img-fluid' alt='Hong Kong Airport'>
 
 
       <h4 class='display-4'>Facts</h4>
@@ -172,16 +210,20 @@ var cardData = [{
         <li>When looking at the air transport mode, airports are concentrated in the Asia, Europe and Americas.</li>
         <li>In fact, most airports in Asia are located around southeast, south and China’s coastal region.</li>
         <li>Most airports are concentrated in the middle of Americas.</li>
-        <li>the top 20 rankings based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that 10 out of the 20 airports are located in Asia, six in Americas and four in Europe.</li>
+        <li>The top five ranking based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that three out of the five airports are located in Asia, six in Americas and four in Europe.</li>
         <li>Hong Kong has become the busiest cargo hub in the world, the passed- through amounts has reaches up to 5,000,000 tonnes.</li>
       </ul>
+      <img src='./assets/images/hk-airport.jpg' class='img-fluid' alt='Hong Kong Airport'>
+      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+        Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
+      </figcaption>
 
     `,
     "layers": ["airports-mapbox-data"],
     "flyTo": {
       "bearing": 0,
-      "center": [99.44084624, 22.10876354],
-      "zoom": 2,
+      "center": [104.9167434, 35.1207138],
+      "zoom": 1,
       "pitch": 0
     },
     loadCard: function(_params) {
@@ -286,12 +328,33 @@ var cardData = [{
   {
     "extent": "global",
     "title": "Sea Transport",
-    "content": "<p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p><p>Celerisque suscipit semper purus fringilla habitasse hac dignissim nibh facilisis torquent imperdiet semper dictum praesent dictum parturient. Ullamcorper ullamcorper cubilia fringilla adipiscing nisl condimentum parturient vestibulum cursus purus parturient condimentum ante ullamcorper platea senectus semper. Ultricies curae egestas molestie blandit parturient nullam fusce etiam laoreet adipiscing facilisi sociosqu per a posuere mi. Nisi condimentum odio magnis a a duis metus morbi sagittis habitant hac lacinia condimentum arcu nullam a morbi vestibulum parturient pulvinar nunc hendrerit vestibulum himenaeos.</p><p>Sagittis nisi libero interdum hac curabitur nam duis a congue parturient justo bibendum congue nibh litora.Tempor parturient.</p>",
+    "content": `<p>The map displays globally distributed ports across different geographical areas, as well as their shipped-through amounts in the year of 2017. </p>
+      <div class='card border-secondary mb-3'>
+        <div class='card-body'>
+          <p class="lead mb-0">Click on the circle the airport is located to show its rank in the global busiest airports ranking.
+          </p>
+        </div>
+      </div>
+
+      <img src='./assets/images/top5Sea.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+      <h4 class='display-4'>Facts</h4>
+      <ul>
+        <li>The number of ports decreases with increasing latitude. Obviously, there is very few ports located in latitude above 72.15 degree. For example, there are three ports in Svalbard, but 23 ports in Greenland.</li>
+        <li>Most ports are also located in Asia. Most ports are concentrated near the equator. We can mention that there are less than 30 ports in Russian, but Indonesia has more than 100 ports.</li>
+        <li>However, more ports are concentrated in Mediterranean compared with North Africa. In continent, there are ports only locate in the countries near coast. And Inland countries does not need ports. In Mediterranean, there are 60 Basin countries. But most countries in North Africa are inland.</li>
+        <li>In a similar way, Indonesia is made of hundreds of islands. The simplest transportation for these island countries is by sea. So it makes sense there are many ports appears in Indonesia.</li>
+      </ul>
+      <img src='./assets/images/indonesia.png' class='img-fluid' alt='Hong Kong Airport'>
+      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+        The distribution of islands from Indonesia <a href="https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia" target="_blank">Source</a>
+      </figcaption>
+    `,
     "layers": ["ports"],
     "flyTo": {
       "bearing": 0,
-      "center": [40.15591514, 51.51830379],
-      "zoom": 2.5,
+      "center": [104.9167434, 35.1207138],
+      "zoom": 1,
       "pitch": 0
     },
     loadCard: function(_params) {
