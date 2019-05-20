@@ -118,6 +118,64 @@ var layersData = [
         }
       }
     }},
+       {
+      "name": "UKairports-mapbox-data",
+      "type": "mapbox",
+      "path": "none",
+      "addLayerParams": {
+        "default": {
+          "id": "UKairports-mapbox-data",
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://kristianln.cjvne9hos03qt2xmbc389p414-253yc"
+          },
+          "source-layer": "UKFreightAirports",
+
+          "paint": {
+        // make circles larger as the user zooms from z12 to z22
+        'circle-radius': [
+            'match',
+            ['get', 'size'],
+            'small', 3,
+            'mid', 5,
+            'major', 7,
+            /* other */ 5
+        ],
+        //                 {
+        //     'base': 1.75,
+        //     'stops': [[2, 2], [12, 180]]
+        // },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+        'circle-color': [
+            'match',
+            ['get', 'usage'],
+            'civilian', '#5769D3',
+            'military/civilian', '#38f9d7',
+            'military', '#6f86d6',
+            'spaceport', '#48c6ef',
+            /* other */ '#ccc'
+        ],
+        'circle-stroke-color': [
+            'match',
+            ['get', 'usage'],
+            'civilian', '#ccc',
+            'military/civilian', '#ccc',
+            'military', '#ccc',
+            'spaceport', '#ccc',
+            /* other */ '#ccc'
+        ],
+        'circle-stroke-width': 2
+        }
+      
+      },
+
+    tooltip: function(_data) {
+      console.log(_data);
+    }
+
+  }},
     {
       "name": "airports-mapbox-data",
       "type": "mapbox",
@@ -151,8 +209,8 @@ var layersData = [
         'circle-color': [
             'match',
             ['get', 'usage'],
-            'civilian', '#a18cd1',
-            'military/civilian', '#a6c0fe',
+            'civilian', '#5769D3',
+            'military/civilian', '#38f9d7',
             'military', '#6f86d6',
             'spaceport', '#48c6ef',
             /* other */ '#ccc'
@@ -168,19 +226,15 @@ var layersData = [
         ],
         'circle-stroke-width': 2
         }
-        },
-        "source-layer": "Heathrow_Station-20t8o9",
-        "paint": {
-          "circle-radius": 4,
-          "circle-color": "red"
-        }
+        
       },
 
     tooltip: function(_data) {
       console.log(_data);
     }
 
-  },
+  }},
+    
   {
     "name": "heathrow-hotels",
     "type": "mapbox",
@@ -383,10 +437,9 @@ var layersData = [
     }
 
   },
-
-  {
-    "name": "ports",
-    "path": "./data/ports.json",
+      {
+    "name": "UKports",
+    "path": "./data/uk-ports.geojson",
     "type": "geojson",
     "addLayerParams": {
       "default": {
@@ -412,13 +465,10 @@ var layersData = [
          [
              'match',
             ['get', 'harbortype'],
-             'CB', '#1F2E75',
-             'CN', '#1F2E75',
-             'CT', '#1F2E75',
-             'LC', '#00AEDA',
-             'RB', '#5769D3',
-             'RN', '#5769D3',
-             'RT', '#5769D3',
+             'coastal', '#f83600',
+             'lake', '#ff5858',
+             'river', '#fee140',
+           
 
              /* other */ '#cfd9df'
          ]
@@ -427,13 +477,74 @@ var layersData = [
             [
             'match',
             ['get', 'harbortype'],
-             'CB', '#ccc',
-             'CN', '#ccc',
-             'CT', '#ccc',
-             'LC', '#ccc',
-             'RB', '#ccc',
-             'RN', '#ccc',
-             'RT', '#ccc',
+             'coastal', '#ccc',
+             'lake', '#ccc',
+             'river', '#ccc',
+
+            /* other */ '#ccc'
+        ]
+        ,
+        'circle-stroke-width': 0.5
+        }
+
+      }
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+
+      // Could deal with hyphenated words too ...
+      var portName = _data.properties.port_name.toLowerCase().split(' ');
+
+      portName = portName.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+
+      return "<p class='mb-0'>"  + portName + "</p>";
+    }
+  },
+
+  {
+    "name": "ports",
+    "path": "./data/ports.geojson",
+    "type": "geojson",
+    "addLayerParams": {
+      "default": {
+        "type": "circle",
+        "paint":{
+        // make circles larger as the user zooms from z12 to z22
+        'circle-radius': [
+            'match',
+            ['get', 'harborsize'],
+            'V', 2,
+            'S', 4,
+            'M', 6,
+            'L', 8,
+            /* other */ 5
+        ],
+        //                 {
+        //     'base': 1.75,
+        //     'stops': [[2, 2], [12, 180]]
+        // },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+        'circle-color':
+         [
+             'match',
+            ['get', 'harbortype'],
+             'coastal', '#f83600',
+             'lake', '#ff5858',
+             'river', '#fee140',
+           
+
+             /* other */ '#cfd9df'
+         ]
+        ,
+        'circle-stroke-color':
+            [
+            'match',
+            ['get', 'harbortype'],
+             'coastal', '#ccc',
+             'lake', '#ccc',
+             'river', '#ccc',
 
             /* other */ '#ccc'
         ]
@@ -504,21 +615,5 @@ var layersData = [
       }
     }
   },
-  {
-    "name": "china-demo-poly",
-    "path": "./data/china-demo-poly.json",
-    "type": "geojson",
-    "addLayerParams": {
-      "type": "fill",
-      "layout": {},
-      "paint": {
-        "fill-color": "#088",
-        "fill-opacity": 0.8
-      }
-    },
-    tooltip: function(_data) {
-      console.log(_data);
-      // pop tooltip with data.
-    }
-  }
+  
 ];

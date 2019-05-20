@@ -419,7 +419,7 @@ var cardData = [{
       
 
     `,
-    "layers": ["airports-mapbox-data", 'ports'],
+    "layers": ["UKairports-mapbox-data", 'UKports'],
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -449,7 +449,7 @@ var cardData = [{
      
 
     `,
-    "layers": ["airports-mapbox-data"],
+    "layers": ["UKairports-mapbox-data"],
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -474,7 +474,7 @@ var cardData = [{
 
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
-    "layers": ["ports"],
+    "layers": ["UKports"],
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
