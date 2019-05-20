@@ -9,13 +9,26 @@ SHUKE
 - Harbor Size: Circle size
 - Aggregated Harbor type: Color
 
+[] Outline presentation
+
+[] Fix coloring of airports
+
+
+
 KRISTIAN
 
-[] Build legends
+[x] Build legends
 
-[] Add National Level card 1 layer
+[x] Add National Level card 1 layer
 
 [] Add pie chart feature content update for UK largest ports and airports card
+
+[] Feature-content: On pie segment click display amount of category.
+
+[x] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
+
+[x] Extent legends to include multiple layers.
+
 
 JOHN
 
@@ -27,19 +40,36 @@ JOHN
 
 [x] Figure out map control
 
-[] Build port flythrough tour
+[-] Build port flythrough tour
 
-[] Set up feature content functionality for Imports card.
+[x] Set up feature content functionality for Imports card.
 
 [x] Update pie chart function definition
 
-[] Fix hover tooltip position and background
+[x] Fix hover tooltip position and background
 
-[] Fix some positioning of text in feature content cards
+[x] Fix some positioning of text in feature content cards
 
 [] if time: add raster heatmap of shipping heatmap
 
-[] Make it so tooltips only show if not undefined ...
+[x] Make it so tooltips only show if not undefined ...
+
+[] Add fly-to in airport feature content.
+
+[] Change port tooltip to h5.
+
+[] Add Heathrow/Tilbury point-of-interest-tooltip
+
+[] Change to satellite-street on Tillbury-port-card
+
+[] On load map extend is not right.
+
+[] On airport/port fly-to ensure correct extend/center.
+
+
+
+
+
 
 EVERYONE
 
@@ -59,3 +89,11 @@ LATER
 [] Buy and configure domain
 
 [] Add roads and rails to UK national card
+
+
+
+
+
+
+
+##

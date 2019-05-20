@@ -77,9 +77,9 @@ function loadCards(_cards) {
     .append('div')
     .classed('card-body', true);
 
-  featureContent.append('h3')
-    .classed('card-title', true)
-    .text('Feature Content');
+  featureContent.append('p')
+    .classed('card-title lead mb-0', true)
+    .text('');
 
   featureContent.append('div')
     .classed('col-12 feature-content', true);
@@ -161,12 +161,10 @@ function setActiveCard(_cardNum) {
   $('#' + cardData[_cardNum].extent + '-view')
     .addClass('active');
 
-  // consider scroll .cards div to card ...
-
   showCardLayers(_cardNum);
 
   activeCardNum = _cardNum;
-  // }
+
 }
 
 function scrollToCard(_cardNum) {
@@ -180,13 +178,18 @@ function scrollToCard(_cardNum) {
   // setActiveCard(cardNum);
 
   $([document.documentElement, document.body]).animate({
-    scrollTop: $(id).offset().top - 80
+    scrollTop: $(id).offset().top - 56
   }, 500, function() {
     inAnimation = false;
   });
 }
 
-
+function setFeatureContentText (_cardNum, _layer) {
+  console.log("SetFeatureContext", _cardNum)
+  var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
+  d3.select(cardId + ' .card-title')
+    .text('Click on a ' + _layer + ' to learn more.')
+}
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
 

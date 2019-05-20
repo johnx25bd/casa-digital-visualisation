@@ -17,12 +17,17 @@ svg {
 }
 
 h3 span {
-  font-size: 15px;
+  font-size: 25px;
   margin-left: 10%;
 }
 
 h3 span.light {
   color: silver;
+}
+
+.header-span {
+  font-size: 25px;
+  
 }
 
 .feature-subheader {
@@ -33,6 +38,11 @@ h3 span.light {
 .feature .static-satellite {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.airport-coords {
+  margin-top: -20px;
+  margin-left: 0px;
 }
 
 .pie-chart-holder path {
@@ -59,13 +69,18 @@ h3 span.light {
 
 }
 
+.mapbox-popup p {
+  margin-bottom: 0rem !important;
+}
+
 .app-card {
 
   height: auto;
   background-color: lightgrey;
   color: grey;
   margin-bottom: 25px;
-  border-radius: 10px;
+  /* border-bottom: 1px solid grey; */
+  /* border-radius: 10px; */
   padding: 25px;
   /* border: 1px solid black; */
 
@@ -121,7 +136,7 @@ h3 span.light {
 #main-container {
   margin-top: 56px;
   height: 100%;
-  background-color: green;
+  /* background-color: green; */
 }
 
 #main-map {
@@ -140,8 +155,8 @@ h3 span.light {
 
 #info-body {
   /* background-color: yellow; */
-  margin-top: 25px;
-  margin-right: 2%;
+  /* margin-top: 25px;
+  margin-right: 2%; */
 }
 
 #map-nav {
