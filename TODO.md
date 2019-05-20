@@ -66,6 +66,8 @@ JOHN
 
 [] On airport/port fly-to ensure correct extend/center.
 
+[] Add popup card for national airports and ports.
+
 
 
 
