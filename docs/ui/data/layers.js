@@ -124,10 +124,10 @@ var layersData = [
         'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 3,
-            'mid', 5,
-            'major', 7,
-            /* other */ 5
+            'small', 2,
+            'mid', 4,
+            'major', 6,
+            /* other */ 4
         ],
         //                 {
         //     'base': 1.75,
@@ -138,8 +138,8 @@ var layersData = [
         'circle-color': [
             'match',
             ['get', 'usage'],
-            'civilian', '#a18cd1',
-            'military/civilian', '#a6c0fe',
+            'civilian', '#5769D3',
+            'military/civilian', '#38f9d7',
             'military', '#6f86d6',
             'spaceport', '#48c6ef',
             /* other */ '#ccc'
@@ -153,7 +153,7 @@ var layersData = [
             'spaceport', '#ccc',
             /* other */ '#ccc'
         ],
-        'circle-stroke-width': 2
+        'circle-stroke-width': 0.5
         }
         },
         "dim_a": {}
@@ -201,7 +201,7 @@ var layersData = [
           "source-layer": "Heathrow_Station-20t8o9",
           "paint": {
             "circle-radius": 4,
-            "circle-color": "red"
+            "circle-color": "#B51C97"
           }
         }
       },
@@ -225,7 +225,7 @@ var layersData = [
           "source-layer": "Heathrow_Hotel-10lk8m",
           "paint": {
             "circle-radius": 4,
-            "circle-color": "gray"
+            "circle-color": "#FFD104"
           }
         }
       },
@@ -249,7 +249,7 @@ var layersData = [
           "source-layer": "Heathrow_restaurant-drs6o5",
           "paint": {
             "circle-radius": 4,
-            "circle-color": "brown"
+            "circle-color": "#5841D8"
           }
         }
       },
@@ -441,15 +441,15 @@ var layersData = [
          [
              'match',
             ['get', 'harbortype'],
-             'CB', '#1F2E75',
-             'CN', '#1F2E75',
-             'CT', '#1F2E75',
-             'LC', '#00AEDA',
-             'RB', '#5769D3',
-             'RN', '#5769D3',
-             'RT', '#5769D3',
+             'CB', '#f83600',
+             'CN', '#f83600',
+             'CT', '#f83600',
+             'LC', '#ff5858',
+             'RB', '#fee140',
+             'RN', '#fee140',
+             'RT', '#fee140',
              
-             /* other */ '#cfd9df'
+             /* other */ '#808080'
          ]
         ,
         'circle-stroke-color':
