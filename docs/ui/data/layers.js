@@ -31,8 +31,9 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
-      // pop tooltip with data.
+      return '<h5 class="text-center mb-0">' + _data.properties.name +
+        '</h5><p class="text-center mb-0">Total Exports (million USD):<br />' +
+         _data.properties.all_commodities_export + '</p>';
     }
   },
   {
@@ -65,8 +66,10 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
       // pop tooltip with data.
+      return '<h5 class="text-center mb-0">' + _data.properties.name +
+        '</h5><p class="text-center mb-0">Total Imports (million USD):<br />' +
+         _data.properties.all_commodities_import + '</p>';
     }
   },
   {
@@ -92,7 +95,7 @@ var layersData = [
       "dim_a": {}
     },
     tooltip: function(_data) {
-      return '<p>' + _data.properties.abbrev + '</p>';
+      return '<h5 class="mb-0">' + _data.properties.abbrev + '</h5>';
       // pop tooltip with data.
     }
   },

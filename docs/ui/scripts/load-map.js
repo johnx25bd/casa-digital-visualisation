@@ -25,15 +25,16 @@ var map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 // map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
 var scale = new mapboxgl.ScaleControl({
-    maxWidth: 80,
-    unit: 'imperial'
+  maxWidth: 80,
+  unit: 'imperial'
 });
 map.addControl(scale, 'bottom-left');
 
 
 var popup = new mapboxgl.Popup({
   closeButton: false,
-  closeOnClick: false
+  closeOnClick: false,
+  anchor: 'left'
 });
 
 // map.addControl(new mapboxgl.NavigationControl(), 'top-left2D');
@@ -123,32 +124,36 @@ var loadedData = {};
             if (layerData.tooltip) {
               map.on('mouseenter', layerData.name, function(e) {
                 var tooltipContent = layerData.tooltip(e.features[0]);
-                // console.log(tooltipContent);
-                // Change the cursor style as a UI indicator.
-                map.getCanvas().style.cursor = 'pointer';
-                // console.log(e);
-                var coordinates = e.lngLat;
-                var description = e.features[0].properties.description;
+                if (tooltipContent != undefined) {
 
-                // Ensure that if the map is zoomed out such that multiple
-                // copies of the feature are visible, the popup appears
-                // over the copy being pointed to.
-                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+
+                  // console.log(tooltipContent);
+                  // Change the cursor style as a UI indicator.
+                  map.getCanvas().style.cursor = 'pointer';
+                  // console.log(e);
+                  var coordinates = e.lngLat;
+                  var description = e.features[0].properties.description;
+
+                  // Ensure that if the map is zoomed out such that multiple
+                  // copies of the feature are visible, the popup appears
+                  // over the copy being pointed to.
+                  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                  }
+
+                  // Populate the popup and set its coordinates
+                  // based on the feature found.
+                  popup.setLngLat(coordinates)
+                    .setHTML(tooltipContent)
+                    .addTo(map);
+                  // show tooltipcontent
                 }
-
-                // Populate the popup and set its coordinates
-                // based on the feature found.
-                popup.setLngLat(coordinates)
-                  .setHTML(tooltipContent)
-                  .addTo(map);
-                // show tooltipcontent
               });
 
               map.on('mouseleave', layerData.name, function(e) {
                 map.getCanvas().style.cursor = '';
                 popup.remove();
-                })
+              })
             }
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
@@ -157,8 +162,8 @@ var loadedData = {};
 
                 var renderedFeatures = map.queryRenderedFeatures(e.point);
 
-                var featureOfInterest = renderedFeatures.find(function (feature) {
-                  return targetLayers.includes(feature.layer.id );
+                var featureOfInterest = renderedFeatures.find(function(feature) {
+                  return targetLayers.includes(feature.layer.id);
                 })
 
                 cardData[activeCardNum]
