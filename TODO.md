@@ -27,19 +27,19 @@ JOHN
 
 [x] Figure out map control
 
-[] Build port flythrough tour
+[-] Build port flythrough tour
 
-[] Set up feature content functionality for Imports card.
+[x] Set up feature content functionality for Imports card.
 
 [x] Update pie chart function definition
 
-[] Fix hover tooltip position and background
+[x] Fix hover tooltip position and background
 
-[] Fix some positioning of text in feature content cards
+[x] Fix some positioning of text in feature content cards
 
 [] if time: add raster heatmap of shipping heatmap
 
-[] Make it so tooltips only show if not undefined ...
+[x] Make it so tooltips only show if not undefined ...
 
 EVERYONE
 

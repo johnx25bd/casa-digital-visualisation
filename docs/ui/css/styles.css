@@ -17,7 +17,7 @@ svg {
 }
 
 h3 span {
-  font-size: 15px;
+  font-size: 25px;
   margin-left: 10%;
 }
 
@@ -33,6 +33,11 @@ h3 span.light {
 .feature .static-satellite {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.airport-coords {
+  margin-top: -20px;
+  margin-left: 0px;
 }
 
 .pie-chart-holder path {
@@ -57,6 +62,10 @@ h3 span.light {
 
 .story-nav-btns {
 
+}
+
+.mapbox-popup p {
+  margin-bottom: 0rem !important;
 }
 
 .app-card {
