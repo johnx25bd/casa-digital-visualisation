@@ -292,6 +292,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
             this.className = 'active';
             map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
             console.log(map.getPaintProperty(clickedLayer,'fill-color'));
+
             if (previouslyClickedLayer){
                 map.setLayoutProperty(previouslyClickedLayer, 'visibility', 'none');
 

@@ -106,5 +106,19 @@
 
   }
 
+  // If a layer was loaded, the below could work
+
+  // The title could be pulled from the layer, or hard-coded.
+  // var legendTitle = "Value of exported goods, Millions (USD)";
+  // var elementOfInterest = '#exportLegend';
+  // var steps = 5;
+  // var layerPaint = map.getPaintProperty(clickedLayer,'fill-color'); // clickedLayer should be changed
+  // var minVal = layerPaint[3];
+  // var maxVal = layerPaint[5];
+  // var colorLow = layerPaint[4][1];
+  // var colorHigh = layerPaint[6][1];
+  //
+  // createLegends(300,150,legendTitle,elementOfInterest,steps,minVal,maxVal,colorLow,colorHigh);
+
   createLegends(300,150,'testLegends','#my_dataviz',5,2,15,"#fff7bc","#d95f0e");
 </script>
