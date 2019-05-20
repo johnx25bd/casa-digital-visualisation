@@ -117,7 +117,7 @@ var layersData = [
           "circle-color": "blue"
         }
       }
-    },
+    }},
     {
       "name": "airports-mapbox-data",
       "type": "mapbox",
@@ -174,8 +174,8 @@ var layersData = [
           "circle-radius": 4,
           "circle-color": "red"
         }
-      }
-    },
+      },
+
     tooltip: function(_data) {
       console.log(_data);
     }
