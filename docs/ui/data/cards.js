@@ -188,7 +188,7 @@ var cardData = [{
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
-      console.log(_featureMetadata);
+      // console.log(_featureMetadata.geometry.coordinates);
 
       var featureSelector = currentCardId() + ' .feature';
 
@@ -206,11 +206,13 @@ var cardData = [{
         .classed('row', true);
 
       var featureAirportCode = featureRow.append('div')
-        .classed('col-6', true);
+        .classed('col-12', true);
 
       featureAirportCode.append('h1')
         .classed('airport-code', true)
         .text(_featureMetadata.properties.abbrev);
+
+      $('.airport-code').fitText(0.3);
 
       var coordsList = featureAirportCode.append('dl')
         .classed('row', true);
@@ -231,55 +233,60 @@ var cardData = [{
         .classed('col-8', true)
         .text(String(_lngLat.lng.toFixed(5)));
 
-      $('.airport-code').fitText(0.3);
-
-      var featureInfo = featureRow.append('div')
-        .classed('col-6', true);
-
-      var airportDataTable = featureInfo.append('dl')
-        .classed('row', true);
-
-      airportDataTable.append('dt')
+      coordsList.append('dt')
         .classed('col-4', true)
         .text('Name:');
 
-      airportDataTable.append('dd')
+      coordsList.append('dd')
         .classed('col-8', true)
         .text(_featureMetadata.properties.airport_name);
 
-      airportDataTable.append('dt')
+      coordsList.append('dt')
         .classed('col-4', true)
         .text('Country:');
 
-      airportDataTable.append('dd')
+      coordsList.append('dd')
         .classed('col-8', true)
         .text(_featureMetadata.properties.name);
 
 
-      airportDataTable.append('dt')
+      coordsList.append('dt')
         .classed('col-4', true)
         .text('Size:');
 
-      airportDataTable.append('dd')
+      coordsList.append('dd')
         .classed('col-8', true)
         .text(_featureMetadata.properties.size);
 
-      airportDataTable.append('dt')
+      coordsList.append('dt')
         .classed('col-4', true)
         .text('Usage:');
 
-      airportDataTable.append('dd')
+      coordsList.append('dd')
         .classed('col-8', true)
         .text(_featureMetadata.properties.usage);
 
+      featureAirportCode.append('button')
+        .attr('type', 'button')
+        .classed('btn btn-block btn-outline-primary mb-1', true)
+        .text('Fly to airport')
+        .on('click', function(d) {
+          map.flyTo({
+            "bearing": 0,
+            "center": _featureMetadata.geometry.coordinates,
+            "zoom": 12.5,
+            "pitch": 0
+          })
+        });
 
-      featureInfo.append('a')
-      .attr('href', _featureMetadata.properties.wikipedia)
-      .attr('target', '_blank')
+      featureAirportCode.append('a')
+          .attr('href', _featureMetadata.properties.wikipedia)
+          .attr('target', '_blank')
         .append('button')
           .attr('type', 'button')
-          .classed('btn btn-block btn-outline-primary', true)
-        .text('More info ...');
+          .classed('btn btn-block btn-outline-primary mb-1', true)
+          .text('More info ...');
+
 
     }
   },
@@ -298,8 +305,6 @@ var cardData = [{
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
-
-      console.log('METADATA', _featureMetadata);
 
       var featureSelector = currentCardId() + ' .feature';
 
@@ -352,33 +357,33 @@ var cardData = [{
         .classed('col-8', true)
         .text(String(_featureMetadata.properties.longitude.toFixed(5)))
 
-        var luckyUrl = "http://www.google.com/search?q=Port+of+" + _featureMetadata.properties.port_name + "+wikipedia&btnI"
+      var luckyUrl = "http://www.google.com/search?q=Port+of+" + _featureMetadata.properties.port_name + "+wikipedia&btnI"
 
-        var extraButtons = portContent.append('div')
-          .classed('col-6', true);
+      var extraButtons = portContent.append('div')
+        .classed('col-6', true);
 
-        extraButtons.append('button')
-          .classed('btn-lg btn-block btn-outline-primary mb-1', true)
-          .text("Fly to port.")
-          .on('click', function(d) {
+      extraButtons.append('button')
+        .classed('btn-lg btn-block btn-outline-primary mb-1', true)
+        .text("Fly to port.")
+        .on('click', function(d) {
 
-            map.flyTo({
-              "bearing": 0,
-              "center": [_featureMetadata.properties.longitude,
-                _featureMetadata.properties.latitude
-              ],
-              "zoom": 12.5,
-              "pitch": 0
-            })
-          });
+          map.flyTo({
+            "bearing": 0,
+            "center": [_featureMetadata.properties.longitude,
+              _featureMetadata.properties.latitude
+            ],
+            "zoom": 12.5,
+            "pitch": 0
+          })
+        });
 
-        extraButtons
-          .append('a')
-          .attr('href', luckyUrl)
-          .attr('target', '_blank')
-          .append('button')
-            .classed('btn-lg btn-block btn-outline-primary', true)
-          .text("More info ...");
+      extraButtons
+        .append('a')
+        .attr('href', luckyUrl)
+        .attr('target', '_blank')
+        .append('button')
+        .classed('btn-lg btn-block btn-outline-primary', true)
+        .text("More info ...");
 
       var imgSrc = "https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/static/" +
         _featureMetadata.properties.longitude + ',' + _featureMetadata.properties.latitude +
