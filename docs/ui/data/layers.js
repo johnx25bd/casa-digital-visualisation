@@ -137,10 +137,10 @@ var layersData = [
         'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 3,
-            'mid', 5,
-            'major', 7,
-            /* other */ 5
+            'small', 2,
+            'mid', 4,
+            'major', 6,
+            /* other */ 4
         ],
         //                 {
         //     'base': 1.75,
@@ -166,7 +166,7 @@ var layersData = [
             'spaceport', '#ccc',
             /* other */ '#ccc'
         ],
-        'circle-stroke-width': 2
+        'circle-stroke-width': 1
         }
       
       },
@@ -195,10 +195,10 @@ var layersData = [
         'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 3,
-            'mid', 5,
-            'major', 7,
-            /* other */ 5
+            'small', 2,
+            'mid', 4,
+            'major', 6,
+            /* other */ 4
         ],
         //                 {
         //     'base': 1.75,
@@ -226,14 +226,14 @@ var layersData = [
         ],
         'circle-stroke-width': 2
         }
-        
       },
-
+        "dim_a":{}
+      },
     tooltip: function(_data) {
       console.log(_data);
     }
 
-  }},
+  },
     
   {
     "name": "heathrow-hotels",
@@ -439,7 +439,7 @@ var layersData = [
   },
       {
     "name": "UKports",
-    "path": "./data/uk-ports.geojson",
+    "path": "./data/uk-ports.json",
     "type": "geojson",
     "addLayerParams": {
       "default": {
@@ -504,7 +504,7 @@ var layersData = [
 
   {
     "name": "ports",
-    "path": "./data/ports.geojson",
+    "path": "./data/ports.json",
     "type": "geojson",
     "addLayerParams": {
       "default": {
