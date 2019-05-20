@@ -37,6 +37,42 @@ var layersData = [
     }
   },
   {
+    "name": "export-countries-highlighted",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "id": "export-countries",
+      "type": "fill",
+      "source": {
+        "type": "vector",
+        "url": "mapbox://kristianln.cjvl9zsp80snn33po4igmbs80-1uw2l"
+      },
+      "layout": {
+        "visibility": "visible"
+      },
+      "source-layer": "Global_data",
+      "paint": {
+        "fill-color": [
+          "interpolate-hcl",
+          ["exponential", 1.1],
+          ["get", "normalised_export_2017"],
+          2.00,
+          ["to-color", "#deebf7"],
+          15.00,
+          ["to-color", "#537895"]
+        ],
+        "fill-opacity": 1,
+        "fill-outline-color": "rgb(0, 0, 0)",
+        'fill-translate': [0,-7]
+      },
+      "filter": ["==", "iso3", ""]
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+      // pop tooltip with data.
+    }
+  },
+  {
     "name": "import-countries",
     "type": "mapbox",
     "path": "none",
@@ -73,6 +109,42 @@ var layersData = [
     }
   },
   {
+    "name": "import-countries-highlighted",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "id": "import-countries",
+      "type": "fill",
+      "source": {
+        "type": "vector",
+        "url": "mapbox://kristianln.cjvl9zsp80snn33po4igmbs80-1uw2l"
+      },
+      "layout": {
+        "visibility": "visible"
+      },
+      "source-layer": "Global_data",
+      "paint": {
+        "fill-color": [
+          "interpolate-hcl",
+          ["exponential", 1.1],
+          ["get", "normalised_import_2017"],
+          4.98,
+          ["to-color", "#fff7bc"],
+          15.00,
+          ["to-color", "#d95f0e"]
+        ],
+        "fill-opacity": 1,
+        "fill-outline-color": "rgb(0, 0, 0)",
+        'fill-translate': [0,-7]
+      },
+      "filter": ["==", "iso3", ""]
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+      // pop tooltip with data.
+    }
+  },
+  {
     "name": "airports-mapbox-data",
     "type": "mapbox",
     "path": "none",
@@ -96,6 +168,62 @@ var layersData = [
     },
     tooltip: function(_data) {
       return '<h5 class="mb-0">' + _data.properties.abbrev + '</h5>';
+      // pop tooltip with data.
+    }
+  },
+  {
+    "name": "airports-mapbox-data-busiest",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "airports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+        },
+        "source-layer": "Global_airports",
+
+        "paint": {
+          "circle-color": "#6991c7",
+          "circle-opacity": 0.8,
+          "circle-radius": 5
+        },
+        "filter": ["==", "top_20_busiest_airports", ""]
+      },
+      "dim_a": {}
+    },
+    tooltip: function(_data) {
+      return '<p>' + _data.properties.abbrev + '</p>';
+      // pop tooltip with data.
+    }
+  },
+  {
+    "name": "airports-mapbox-data-uk",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "airports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+        },
+        "source-layer": "Global_airports",
+
+        "paint": {
+          "circle-color": "#6991c7",
+          "circle-opacity": 0.8,
+          "circle-radius": 5
+        },
+        "filter": ["==", "iso3", ""]
+      },
+      "dim_a": {}
+    },
+    tooltip: function(_data) {
+      return '<p>' + _data.properties.abbrev + '</p>';
       // pop tooltip with data.
     }
   },
@@ -383,7 +511,6 @@ var layersData = [
     }
 
   },
-
   {
     "name": "ports",
     "path": "./data/ports.json",
@@ -456,7 +583,46 @@ var layersData = [
 
       return "<h5 class='mb-0'>"  + portName + "</h5>";
     }
-  }, {
+  },
+  {
+    "name": "ports-busiest",
+    "path": "./data/ports.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "default": {
+        "type": "circle",
+        "paint": {
+          "circle-radius": 3,
+          "circle-color": "#537895"
+        },
+        "filter": ["==", "top_20_busiest_ports", ""]
+      }
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+      // pop tooltip with data.
+    }
+  },
+  {
+    "name": "ports-uk",
+    "path": "./data/ports.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "default": {
+        "type": "circle",
+        "paint": {
+          "circle-radius": 3,
+          "circle-color": "#537895"
+        },
+        "filter": ["==", "iso3", ""]
+      }
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+      // pop tooltip with data.
+    }
+  },
+  {
     "name": "us-states",
     "path": "./data/us-states.json",
     "type": "geojson",
