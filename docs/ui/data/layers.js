@@ -452,7 +452,9 @@ var layersData = [
       portName = portName.map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
 
-      return "<p class='mb-0'>"  + portName + "</p>";
+      // portName.charAt(portName.indexOf('-') + 1).toUpperCase()
+
+      return "<h5 class='mb-0'>"  + portName + "</h5>";
     }
   }, {
     "name": "us-states",

@@ -327,10 +327,10 @@ var cardData = [{
       var portContent = featureDiv.append('div')
         .classed('row', true)
 
-      var portContentCol1 = portContent.append('div')
-        .classed('col-6', true);
+      var portContent = portContent.append('div')
+        .classed('col-12', true);
 
-      var portTable = portContentCol1.append('dl')
+      var portTable = portContent.append('dl')
         .classed('row', true);
 
       portTable.append('dt')
@@ -357,12 +357,22 @@ var cardData = [{
         .classed('col-8', true)
         .text(String(_featureMetadata.properties.longitude.toFixed(5)))
 
+      var imgSrc = "https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/static/" +
+        _featureMetadata.properties.longitude + ',' + _featureMetadata.properties.latitude +
+        ',11,0,0/1000x250?access_token=' + mapboxgl.accessToken;
+
+
+      portContent.append('img')
+        .classed('img-fluid', true)
+        // .attr('height', '250px')
+        .attr('src', imgSrc)
+        .classed('static-satellite', true)
+
+
+
       var luckyUrl = "http://www.google.com/search?q=Port+of+" + _featureMetadata.properties.port_name + "+wikipedia&btnI"
 
-      var extraButtons = portContent.append('div')
-        .classed('col-6', true);
-
-      extraButtons.append('button')
+      portContent.append('button')
         .classed('btn-lg btn-block btn-outline-primary mb-1', true)
         .text("Fly to port.")
         .on('click', function(d) {
@@ -377,23 +387,13 @@ var cardData = [{
           })
         });
 
-      extraButtons
+      portContent
         .append('a')
         .attr('href', luckyUrl)
         .attr('target', '_blank')
         .append('button')
         .classed('btn-lg btn-block btn-outline-primary', true)
         .text("More info ...");
-
-      var imgSrc = "https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/static/" +
-        _featureMetadata.properties.longitude + ',' + _featureMetadata.properties.latitude +
-        ',11,0,0/1000x250?access_token=' + mapboxgl.accessToken;
-
-
-      featureDiv.append('img')
-        .classed('img-fluid', true)
-        .attr('src', imgSrc)
-        .classed('static-satellite', true)
 
 
       // fea
