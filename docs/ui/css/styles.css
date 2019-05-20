@@ -27,7 +27,7 @@ h3 span.light {
 
 .header-span {
   font-size: 25px;
-  
+
 }
 
 .feature-subheader {
@@ -55,6 +55,11 @@ h3 span.light {
 
 .airport-code {
   margin-top: -25px;
+}
+
+#app-nav {
+  height: 50px;
+  background-color: pink;
 }
 
 #app-cards svg {

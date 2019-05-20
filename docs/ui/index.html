@@ -23,7 +23,7 @@
   <!-- Custom stylesheet -->
   <link rel="stylesheet" href="./css/styles.css" />
 
-  <title>Hello, world!</title>
+  <title>🌐🚢✈ : How Things Move Around</title>
   <style>
 
 
@@ -33,14 +33,14 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">🌐🚢✈</a>
+      <a class="navbar-brand" href="#">🌐🚢✈ : How Things Move Around</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="https://github.com/robisoniv/casa-digital-visualisation" target="_blank">Github <span class="sr-only">(current)</span></a>
+            <a class="nav-link ml-5" href="https://github.com/robisoniv/casa-digital-visualisation" target="_blank">Github <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <!-- <div id="mode-buttons" class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -57,7 +57,7 @@
 
               <input id="previous-card" class="btn btn-light" type="button" value="<">
               <input id="global-view" class="jump-to-view btn btn-secondary active" type="button" value="Global">
-              <input id="national-view" class="jump-to-view btn btn-secondary" type="button" value="National">
+              <input id="national-view" class="jump-to-view btn btn-secondary" type="button" value="UK">
               <input id="local-view" class="jump-to-view btn btn-secondary" type="button" value="Local">
 
               <input id="next-card" class="btn btn-light" type="button" value=">">
@@ -89,11 +89,33 @@
     <div class='row '>
       <div id='main-map' class='col-8'></div>
       <!-- <svg id="world"></svg> -->
-</div>
-<div class='row justify-content-end'>
+    </div>
+    <div class='row justify-content-end'>
 
 
       <div id="info-body" class="col-md-4">
+        <div id='app-nav' class='col-12'>
+          <div class='row'>
+            <div class='col-1'>
+              <button class='btn btn-outline-primary'><<</btn>
+
+
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>Global</btn>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>UK</btn>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>Local</btn>
+            </div>
+            <div class='col-1'>
+              <button class='btn btn-block btn-outline-primary'>>></btn>
+            </div>
+
+          </div>
+        </div>
 
         <div id="story-cards" class="row">
 

@@ -17,17 +17,19 @@ SHUKE
 
 KRISTIAN
 
-[x] Build legends
+[] Build legends
 
-[x] Add National Level card 1 layer
+[] Add National Level card 1 layer
 
 [] Add pie chart feature content update for UK largest ports and airports card
 
 [] Feature-content: On pie segment click display amount of category.
 
-[x] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
+[] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
 
-[x] Extent legends to include multiple layers.
+[] Extent legends to include multiple layers.
+
+[] Replace pie chart images with d3 pie charts
 
 
 JOHN
@@ -51,22 +53,22 @@ JOHN
 [x] Fix some positioning of text in feature content cards
 
 [] if time: add raster heatmap of shipping heatmap
+  [] Tippecanoe to mbtile
 
 [x] Make it so tooltips only show if not undefined ...
 
-[] Add fly-to in airport feature content.
+[x] Add fly-to in airport feature content.
 
-[] Change port tooltip to h5.
+[x] Change port tooltip to h5.
 
 [] Add Heathrow/Tilbury point-of-interest-tooltip
 
 [] Change to satellite-street on Tillbury-port-card
+  [] Switch is removing or obscuring vector layers
 
 [] On load map extend is not right.
 
 [] On airport/port fly-to ensure correct extend/center.
-
-[] Add popup card for national airports and ports.
 
 
 

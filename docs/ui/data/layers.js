@@ -144,40 +144,40 @@ var layersData = [
       // pop tooltip with data.
     }
   },
-  {
-    "name": "airports-mapbox-data",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "default": {
-        "id": "airports-mapbox-data",
-        "type": "circle",
-        "source": {
-          "type": "vector",
-          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
-        },
-        "source-layer": "Global_airports",
-
-        "paint": {
-          "circle-color": "#6991c7",
-          "circle-opacity": 0.8,
-          "circle-radius": 5
-        }
-      },
-      "dim_a": {}
-    },
-    tooltip: function(_data) {
-      return '<h5 class="mb-0">' + _data.properties.abbrev + '</h5>';
-      // pop tooltip with data.
-    }
-  },
+  // {
+  //   "name": "airports-mapbox-data",
+  //   "type": "mapbox",
+  //   "path": "none",
+  //   "addLayerParams": {
+  //     "default": {
+  //       "id": "airports-mapbox-data",
+  //       "type": "circle",
+  //       "source": {
+  //         "type": "vector",
+  //         "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+  //       },
+  //       "source-layer": "Global_airports",
+  //
+  //       "paint": {
+  //         "circle-color": "#6991c7",
+  //         "circle-opacity": 0.8,
+  //         "circle-radius": 5
+  //       }
+  //     },
+  //     "dim_a": {}
+  //   },
+  //   tooltip: function(_data) {
+  //     return '<h5 class="mb-0">' + _data.properties.abbrev + '</h5>';
+  //     // pop tooltip with data.
+  //   }
+  // },
   {
     "name": "airports-mapbox-data-busiest",
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
-        "id": "airports-mapbox-data",
+        "id": "airports-mapbox-data-busiest",
         "type": "circle",
         "source": {
           "type": "vector",
@@ -205,7 +205,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-        "id": "airports-mapbox-data",
+        "id": "airports-mapbox-data-uk",
         "type": "circle",
         "source": {
           "type": "vector",
@@ -297,11 +297,11 @@ var layersData = [
         'circle-stroke-width': 2
         }
         },
-        "source-layer": "Heathrow_Station-20t8o9",
-        "paint": {
-          "circle-radius": 4,
-          "circle-color": "red"
-        }
+        // "source-layer": "Heathrow_Station-20t8o9",
+        // "paint": {
+        //   "circle-radius": 4,
+        //   "circle-color": "red"
+        // }
       },
 
     tooltip: function(_data) {
@@ -430,7 +430,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
+      return "Transit station"
     }
 
   },
@@ -454,7 +454,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
+        return "School"
     }
 
   },
@@ -478,7 +478,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
+      return "Restaurant";
     }
 
   },

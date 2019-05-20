@@ -597,47 +597,32 @@ var cardData = [
       var heathrowTourParams = {
         "Terminal 2": {
           "bearing": 200,
-          "center": {
-            "lng": -0.45183706289185466,
-            "lat": 51.475127930801506
-          },
+          "center": {"lng":-0.4486882364210487,"lat":51.47359905325979},
           "zoom": 16.5,
           "pitch": 70
         },
         "Terminal 3": {
           "bearing": 130,
-          "center": {
-            lng: -0.4623692398431558,
-            lat: 51.469771694617265
-          },
+          "center": {"lng":-0.45806017135078037,"lat":51.47203158686838},
           "zoom": 16,
           "pitch": 70
         },
         "Terminal 4": {
           "bearing": 330,
-          "center": {
-            "lng": -0.4437268331968198,
-            "lat": 51.45981682919407
-          },
+          "center": {"lng":-0.4464386965286167,"lat":51.45880884719156},
           "zoom": 16.7,
           "pitch": 70
         },
         "Terminal 5": {
           "bearing": 90,
-          "center": {
-            "lng": -0.48849590095176154,
-            "lat": 51.47020173214935
-          },
-          "zoom": 16.9,
+          "center": {"lng":-0.48900859468392355,"lat":51.47234217585134},
+          "zoom": 16.44994533191072,
           "pitch": 70
         },
         "Runways": {
           "bearing": 0,
-          "center": {
-            "lng": -0.44210786010671654,
-            "lat": 51.456970583583995
-          },
-          "zoom": 13.9,
+          "center": {"lng":-0.45851946795733056,"lat":51.469904797147706},
+          "zoom": 13.694469215066832,
           "pitch": 0
         }
       }
@@ -687,7 +672,7 @@ var cardData = [
 
 
     `,
-    "layers": ["3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants", "tilbury-buffer"],
+    "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
     "flyTo": {
       "bearing": 0,
       "center": {

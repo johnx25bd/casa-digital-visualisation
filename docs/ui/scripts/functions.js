@@ -52,7 +52,7 @@ function loadCards(_cards) {
       return i;
     })
     .attr('class', function(d) {
-      return d.extent + 'card-body';
+      return d.extent + ' card-body';
     })
     .classed('col-12', true)
     .classed('app-card', true)
