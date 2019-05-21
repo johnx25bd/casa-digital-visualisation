@@ -57,6 +57,14 @@ h3 span.light {
   margin-top: -25px;
 }
 
+.octicon {
+  fill: white;
+}
+
+.octicon:hover {
+  fill: lightgrey;
+}
+
 #app-nav {
   top: 56px !important ;
   height: 70px;
@@ -176,11 +184,7 @@ h3 span.light {
   padding-left: 0px;
 }
 
-#map-nav {
-  /* margin-bottom: 15px; */
-  margin-right: 9%;
-  /* background-color: */
-}
+
 
 #info-body {
   /* background-color: yellow; */

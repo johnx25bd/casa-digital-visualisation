@@ -95,7 +95,7 @@ JOHN
 
 [x] J Merge country highlighting feature from highlightingCountries branch
 
-[] J Change nav control to sticky top of cards
+[x*] J Change nav control to sticky top of cards
   [] Move github link to right of nav
 
 [x] J Embed sound and video
@@ -114,10 +114,6 @@ JOHN
 [?] On airport/port fly-to ensure correct extent/center.
 
 [] Add popup card for national airports and ports.
-
-[] Add video embed to some card
-
-[] Add soundcloud embed to some card
 
 [] if time: add raster heatmap of shipping heatmap
 
