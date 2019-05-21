@@ -22,11 +22,6 @@ function currentCardId() {
     + '-card-' + activeCardNum;
 }
 
-function getCardId(_cardNum) {
-  return '#' + cardData[_cardNum].extent
-    + '-card-' + _cardNum;
-}
-
 function isElementOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
   var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
@@ -101,8 +96,6 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
-    /// Loading legends /////
-    updateLegend(card.layers,i);
   }
 }
 
@@ -120,40 +113,34 @@ function showCardLayers(_cardNum) {
     }
   });
 
-  //updateLegend(_cardNum)
+  updateLegend(_cardNum)
 }
 
 
-function updateLegend(_layers,_cardNum) {
+function updateLegend(_layers,_legendSelector) {
 
-  _legendSelector = getCardId(_cardNum) + ' .legend-content'
+  //var data = [];
 
-  for (layer of _layers){
+  for (layer in _layers){
 
-    var layerOfInterst = layersData.find(function (l) {
-      return l.name == layer;
-    });
-
-    var layerType = layerOfInterst.addLayerParams.default ?
-      layerOfInterst.addLayerParams.default.type :
-      layerOfInterst.addLayerParams.type;
+    var layerOfInterst = map.getLayer(layer);
+    var layerType = layerOfInterst.add.type;
 
     if (layerType == 'fill'){
 
-      var layerPaint = map.getPaintProperty(layer,'fill-color');
+      var layerPaint = map.getLayoutProperty(layer,'fill-color')
 
     } else if (layerType == 'circle'){
 
       var layerPaint = {
-        'circle-radius': map.getPaintProperty(layer,'circle-radius'),
-        'circle-color' : map.getPaintProperty(layer,'circle-color'),
-        'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
+        'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
+        'circle-color' : map.getLayoutProperty(layer,'circle-color'),
+        'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
       };
     }
 
     createLegends(_legendSelector,layer,layerType,layerPaint);
   }
-}
 
   // iterate through array of layers
   // Add each layer's legend to .legend div
