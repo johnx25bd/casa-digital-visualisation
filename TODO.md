@@ -1,38 +1,71 @@
 
 SHUKE
 
-[] Style ports:
+[] Finalize styling
+
+[] Build presentation
+
+[?] Style ports:
 - Harbor Size: Circle size
 - Aggregated Harbor type: Color
 
-[] Style airports
+[?] Style airports
 - Harbor Size: Circle size
 - Aggregated Harbor type: Color
 
-[] Outline presentation
+[?] Fix coloring of airports
 
-[] Fix coloring of airports
+[x] Outline presentation
+
+[x] Create presentation design
 
 
 
 KRISTIAN
 
-[] Build legends
-
-[] Add National Level card 1 layer
+[] Merge / integrate legends 
 
 [] Add pie chart feature content update for UK largest ports and airports card
 
 [] Feature-content: On pie segment click display amount of category.
 
-[] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
+[] Maybe help with shipping density heatmap - tippecanoe etc.
 
-[] Extent legends to include multiple layers.
+[x] Build legends
 
-[] Replace pie chart images with d3 pie charts
+[x] Add National Level card 1 layer
+
+[x] Filter UK airport/port for national card one. (This will mean adding the filter in the loadCard() method I think)
+
+[x] Extent legends to include multiple layers.
+
+[] Add categorical dimensions to airports and ports datasets
+  [x] UK (iso3)
+  [] Busiest UK
+  [] ??
+
 
 
 JOHN
+
+[] Change to satellite-street on Tillbury-port-card
+
+[] On load map extent is not right.
+
+[?] On airport/port fly-to ensure correct extent/center.
+
+[] Add popup card for national airports and ports.
+
+[] Add video embed to some card
+
+[] Add soundcloud embed to some card
+
+[] if time: add raster heatmap of shipping heatmap
+
+[] Add layer filter toggle button to ports and airports
+
+[] Add filter remove to each layer on card change
+
 
 [-] Flip Heathrow background to satellite-streets
 
@@ -52,24 +85,13 @@ JOHN
 
 [x] Fix some positioning of text in feature content cards
 
-[] if time: add raster heatmap of shipping heatmap
-  [] Tippecanoe to mbtile
-
 [x] Make it so tooltips only show if not undefined ...
 
 [x] Add fly-to in airport feature content.
 
 [x] Change port tooltip to h5.
 
-[] Add Heathrow/Tilbury point-of-interest-tooltip
-
-[] Change to satellite-street on Tillbury-port-card
-  [] Switch is removing or obscuring vector layers
-
-[] On load map extend is not right.
-
-[] On airport/port fly-to ensure correct extend/center.
-
+[x] Add Heathrow/Tilbury point-of-interest-tooltip
 
 
 
@@ -77,9 +99,9 @@ JOHN
 
 EVERYONE
 
-[] Load content into cards.
+[x] Load content into cards.
 
-[] Add card content - text
+[x] Add card content - text
 
 [] Add card content - images, videos, etc.
 
