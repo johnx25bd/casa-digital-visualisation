@@ -1,7 +1,6 @@
 console.log('loading layers data')
 
-var layersData = [
-  {
+var layersData = [{
     "name": "export-countries",
     "type": "mapbox",
     "path": "none",
@@ -33,9 +32,9 @@ var layersData = [
     tooltip: function(_data) {
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Exports (million USD):<br />' +
-         _data.properties.all_commodities_export + '</p>';
+        _data.properties.all_commodities_export + '</p>';
     },
-    highlight: function(_data){
+    highlight: function(_data) {
       console.log(_data);
     }
   },
@@ -66,7 +65,7 @@ var layersData = [
         ],
         "fill-opacity": 1,
         "fill-outline-color": "rgb(0, 0, 0)",
-        'fill-translate': [0,-7]
+        'fill-translate': [0, -7]
       },
       "filter": ["==", "iso3", ""]
     },
@@ -108,9 +107,9 @@ var layersData = [
       // pop tooltip with data.
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Imports (million USD):<br />' +
-         _data.properties.all_commodities_import + '</p>';
+        _data.properties.all_commodities_import + '</p>';
     },
-    highlight: function(_data){
+    highlight: function(_data) {
       console.log(_data);
     }
   },
@@ -141,7 +140,7 @@ var layersData = [
         ],
         "fill-opacity": 1,
         "fill-outline-color": "rgb(0, 0, 0)",
-        'fill-translate': [0,-7]
+        'fill-translate': [0, -7]
       },
       "filter": ["==", "iso3", ""]
     },
@@ -224,120 +223,153 @@ var layersData = [
           "circle-color": "blue"
         }
       }
-    }},
-       {
-      "name": "UKairports-mapbox-data",
-      "type": "mapbox",
-      "path": "none",
-      "addLayerParams": {
-        "default": {
-          "id": "UKairports-mapbox-data",
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://kristianln.cjvne9hos03qt2xmbc389p414-253yc"
-          },
-          "source-layer": "UKFreightAirports",
+    }
+  },
+  {
+    "name": "UKairports-mapbox-data",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "UKairports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvne9hos03qt2xmbc389p414-253yc"
+        },
+        "source-layer": "UKFreightAirports",
 
-          "paint": {
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': [
+        "paint": {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': [
             'match',
             ['get', 'size'],
             'small', 2,
             'mid', 4,
             'major', 6,
-            /* other */ 4
-        ],
-        //                 {
-        //     'base': 1.75,
-        //     'stops': [[2, 2], [12, 180]]
-        // },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-        'circle-color': [
+            /* other */
+            4
+          ],
+          //                 {
+          //     'base': 1.75,
+          //     'stops': [[2, 2], [12, 180]]
+          // },
+          // color circles by ethnicity, using a match expression
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+          'circle-color': [
             'match',
             ['get', 'usage'],
             'civilian', '#5769D3',
             'military/civilian', '#38f9d7',
             'military', '#6f86d6',
             'spaceport', '#48c6ef',
-            /* other */ '#ccc'
-        ],
-        'circle-stroke-color': [
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-color': [
             'match',
             ['get', 'usage'],
             'civilian', '#ccc',
             'military/civilian', '#ccc',
             'military', '#ccc',
             'spaceport', '#ccc',
-            /* other */ '#ccc'
-        ],
-        'circle-stroke-width': 1
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-width': 1
         }
 
       },
 
+      tooltip: function(_data) {
+        console.log(_data);
+      }
+
+    }
+  },
+  {
+    "name": "airports-mapbox-data",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "airports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+        },
+        "source-layer": "Global_airports",
+
+        "paint": {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': [
+            'match',
+            ['get', 'size'],
+            'small', 2,
+            'mid', 4,
+            'major', 6,
+            /* other */
+            4
+          ],
+          //                 {
+          //     'base': 1.75,
+          //     'stops': [[2, 2], [12, 180]]
+          // },
+          // color circles by ethnicity, using a match expression
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+          'circle-color': [
+            'match',
+            ['get', 'usage'],
+            'civilian', '#5769D3',
+            'military/civilian', '#38f9d7',
+            'military', '#6f86d6',
+            'spaceport', '#48c6ef',
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-color': [
+            'match',
+            ['get', 'usage'],
+            'civilian', '#ccc',
+            'military/civilian', '#ccc',
+            'military', '#ccc',
+            'spaceport', '#ccc',
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-width': 0.5
+        }
+      },
+      "dim_a": {}
+    },
     tooltip: function(_data) {
-      console.log(_data);
+      console.log(data)
     }
 
-  }},
-    {
-      "name": "airports-mapbox-data",
-      "type": "mapbox",
-      "path": "none",
-      "addLayerParams": {
-        "default": {
-          "id": "airports-mapbox-data",
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
-          },
-          "source-layer": "Global_airports",
-
-          "paint": {
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': [
-            'match',
-            ['get', 'size'],
-            'small', 2,
-            'mid', 4,
-            'major', 6,
-            /* other */ 4
-        ],
-        //                 {
-        //     'base': 1.75,
-        //     'stops': [[2, 2], [12, 180]]
-        // },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-        'circle-color': [
-            'match',
-            ['get', 'usage'],
-            'civilian', '#5769D3',
-            'military/civilian', '#38f9d7',
-            'military', '#6f86d6',
-            'spaceport', '#48c6ef',
-            /* other */ '#ccc'
-        ],
-        'circle-stroke-color': [
-            'match',
-            ['get', 'usage'],
-            'civilian', '#ccc',
-            'military/civilian', '#ccc',
-            'military', '#ccc',
-            'spaceport', '#ccc',
-            /* other */ '#ccc'
-        ],
-        'circle-stroke-width': 0.5
+  },
+  {
+    "name": "heathrow-stations",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "heathrow-stations",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://ucfnlei.5xepc2ho"
+        },
+        "source-layer": "Heathrow_Station-20t8o9",
+        "paint": {
+          "circle-radius": 4,
+          "circle-color": "red"
         }
-      },
-        "dim_a":{}
-      },
+      }
+    },
     tooltip: function(_data) {
       console.log(_data);
+      return "Transit station";
     }
 
   },
@@ -362,7 +394,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
+      return "Hotel";
     }
 
   },
@@ -386,7 +418,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-      console.log(_data);
+      return "Restaurant";
     }
 
   },
@@ -487,7 +519,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-        return "School"
+      return "School"
     }
 
   },
@@ -544,54 +576,53 @@ var layersData = [
     }
 
   },
-      {
+  {
     "name": "UKports",
     "path": "./data/uk-ports.json",
     "type": "geojson",
     "addLayerParams": {
       "default": {
         "type": "circle",
-        "paint":{
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': [
+        "paint": {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': [
             'match',
             ['get', 'harborsize'],
             'V', 2,
             'S', 4,
             'M', 6,
             'L', 8,
-            /* other */ 5
-        ],
-        //                 {
-        //     'base': 1.75,
-        //     'stops': [[2, 2], [12, 180]]
-        // },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-        'circle-color':
-         [
-             'match',
-            ['get', 'harbortype'],
-             'coastal', '#f83600',
-             'lake', '#ff5858',
-             'river', '#fee140',
-
-
-             /* other */ '#cfd9df'
-         ]
-        ,
-        'circle-stroke-color':
-            [
+            /* other */
+            5
+          ],
+          //                 {
+          //     'base': 1.75,
+          //     'stops': [[2, 2], [12, 180]]
+          // },
+          // color circles by ethnicity, using a match expression
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+          'circle-color': [
             'match',
             ['get', 'harbortype'],
-             'coastal', '#ccc',
-             'lake', '#ccc',
-             'river', '#ccc',
+            'coastal', '#f83600',
+            'lake', '#ff5858',
+            'river', '#fee140',
 
-            /* other */ '#ccc'
-        ]
-        ,
-        'circle-stroke-width': 0.5
+
+            /* other */
+            '#cfd9df'
+          ],
+          'circle-stroke-color': [
+            'match',
+            ['get', 'harbortype'],
+            'coastal', '#ccc',
+            'lake', '#ccc',
+            'river', '#ccc',
+
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-width': 0.5
         }
 
       }
@@ -605,7 +636,7 @@ var layersData = [
       portName = portName.map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
 
-      return "<p class='mb-0'>"  + portName + "</p>";
+      return "<p class='mb-0'>" + portName + "</p>";
     }
   },
 
@@ -616,47 +647,46 @@ var layersData = [
     "addLayerParams": {
       "default": {
         "type": "circle",
-        "paint":{
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': [
+        "paint": {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': [
             'match',
             ['get', 'harborsize'],
             'V', 2,
             'S', 4,
             'M', 6,
             'L', 8,
-            /* other */ 5
-        ],
-        //                 {
-        //     'base': 1.75,
-        //     'stops': [[2, 2], [12, 180]]
-        // },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-        'circle-color':
-         [
-             'match',
-            ['get', 'harbortype'],
-             'coastal', '#f83600',
-             'lake', '#ff5858',
-             'river', '#fee140',
-
-
-             /* other */ '#808080'
-         ]
-        ,
-        'circle-stroke-color':
-            [
+            /* other */
+            5
+          ],
+          //                 {
+          //     'base': 1.75,
+          //     'stops': [[2, 2], [12, 180]]
+          // },
+          // color circles by ethnicity, using a match expression
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+          'circle-color': [
             'match',
             ['get', 'harbortype'],
-             'coastal', '#ccc',
-             'lake', '#ccc',
-             'river', '#ccc',
+            'coastal', '#f83600',
+            'lake', '#ff5858',
+            'river', '#fee140',
 
-            /* other */ '#ccc'
-        ]
-        ,
-        'circle-stroke-width': 0.5
+
+            /* other */
+            '#808080'
+          ],
+          'circle-stroke-color': [
+            'match',
+            ['get', 'harbortype'],
+            'coastal', '#ccc',
+            'lake', '#ccc',
+            'river', '#ccc',
+
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-width': 0.5
         }
 
       }
@@ -672,7 +702,7 @@ var layersData = [
 
       // portName.charAt(portName.indexOf('-') + 1).toUpperCase()
 
-      return "<h5 class='mb-0'>"  + portName + "</h5>";
+      return "<h5 class='mb-0'>" + portName + "</h5>";
     }
   },
   {
@@ -732,7 +762,8 @@ var layersData = [
         'fill-extrusion-height': [
           '*',
           2.5,
-          ['get', 'height']],
+          ['get', 'height']
+        ],
         // [
         //   "interpolate", ["linear"],
         //   ["zoom"],
