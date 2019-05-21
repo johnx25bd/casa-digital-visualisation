@@ -113,39 +113,71 @@ function showCardLayers(_cardNum) {
     }
   });
 
-  updateLegend(_cardNum)
+  updateLegend(layers,_cardNum)
 }
 
+function updateLegend(_layers,_cardNum) {
 
-function updateLegend(_layers,_legendSelector) {
+  _legendSelector = getCardId(_cardNum) + ' .legend-content'
 
-  //var data = [];
+  for (layer of _layers){
 
-  for (layer in _layers){
 
-    var layerOfInterst = map.getLayer(layer);
-    var layerType = layerOfInterst.add.type;
+
+    var layerOfInterst = layersData.find(function (l) {
+      return l.name == layer;
+    });
+
+    var layerType = layerOfInterst.addLayerParams.default ?
+      layerOfInterst.addLayerParams.default.type :
+      layerOfInterst.addLayerParams.type;
 
     if (layerType == 'fill'){
 
-      var layerPaint = map.getLayoutProperty(layer,'fill-color')
+      var layerPaint = map.getPaintProperty(layer,'fill-color');
 
     } else if (layerType == 'circle'){
 
       var layerPaint = {
-        'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
-        'circle-color' : map.getLayoutProperty(layer,'circle-color'),
-        'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
+        'circle-radius': map.getPaintProperty(layer,'circle-radius'),
+        'circle-color' : map.getPaintProperty(layer,'circle-color'),
+        'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
       };
     }
 
     createLegends(_legendSelector,layer,layerType,layerPaint);
   }
-
-  // iterate through array of layers
-  // Add each layer's legend to .legend div
-  // console.log("updateLegend() Called");
 }
+
+// function updateLegend(_layers,_legendSelector) {
+//
+//   //var data = [];
+//
+//   for (layer in _layers){
+//
+//     var layerOfInterst = map.getLayer(layer);
+//     var layerType = layerOfInterst.add.type;
+//
+//     if (layerType == 'fill'){
+//
+//       var layerPaint = map.getLayoutProperty(layer,'fill-color')
+//
+//     } else if (layerType == 'circle'){
+//
+//       var layerPaint = {
+//         'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
+//         'circle-color' : map.getLayoutProperty(layer,'circle-color'),
+//         'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
+//       };
+//     }
+//
+//     createLegends(_legendSelector,layer,layerType,layerPaint);
+//   }
+//
+//   // iterate through array of layers
+//   // Add each layer's legend to .legend div
+//   // console.log("updateLegend() Called");
+// }
 
 function titleCase(_str) {
   // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
