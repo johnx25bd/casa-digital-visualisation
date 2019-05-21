@@ -106,12 +106,12 @@ JOHN
 
 [x] J Increase 3d-buildings extrusion scaling factor
 
-[] Add back in heathrow stations 
+[x] Add back in heathrow stations
 
 
-[] Change to satellite-street on Tillbury-port-card
+[-] Change to satellite-street on Tillbury-port-card
 
-[] On load map extent is not right.
+[x] On load map extent is not right.
 
 [?] On airport/port fly-to ensure correct extent/center.
 
@@ -123,7 +123,7 @@ JOHN
 
 [] Add filter remove to each layer on card change
 
-[] Add favicon
+[x] Add favicon
 
 [] Work out how to add and remove filters from layeres
   [] Toggle

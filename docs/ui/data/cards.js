@@ -541,7 +541,7 @@ var cardData = [
     "layers": ["UKairports-mapbox-data"],
     "flyTo": {
       "bearing": 0,
-      "center": [2.43025502683804, 54.19428441594809],
+      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
       "zoom": 4.5,
       "pitch": 0
     }
@@ -566,7 +566,7 @@ var cardData = [
     "layers": ["UKports"],
     "flyTo": {
       "bearing": 0,
-      "center": [2.43025502683804, 54.19428441594809],
+      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
       "zoom": 4.5,
       "pitch": 0
     }
