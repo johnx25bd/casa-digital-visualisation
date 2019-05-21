@@ -37,10 +37,7 @@ function isElementOnScreen(_cardNum) {
 function loadCards(_cards) {
   // iterate through and load cards into .cards div
 
-  // console.log(_cards);
-
   var cardsHolder = d3.select('#story-cards');
-
 
   var cardEls = cardsHolder.selectAll('div')
     .data(_cards).enter()
@@ -52,10 +49,8 @@ function loadCards(_cards) {
       return i;
     })
     .attr('class', function(d) {
-      return d.extent + ' card-body';
+      return d.extent + ' card-body app-card col-12';
     })
-    .classed('col-12', true)
-    .classed('app-card', true)
     .on('click', function(d, i) {
       // console.log("CLICK!");
       setActiveCard(i);
@@ -67,7 +62,6 @@ function loadCards(_cards) {
     });
 
   cardEls.append('div')
-    // .classed('card-body', true)
     .html(function(d) {
       return d.content;
     });
@@ -83,7 +77,6 @@ function loadCards(_cards) {
 
   featureContent.append('div')
     .classed('col-12 feature-content', true);
-
 
   var legendContent = cardEls.append('div')
     .classed('card legend', true)
@@ -103,9 +96,7 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
-    // console.log("CARD", card);
   }
-
 }
 
 function showCardLayers(_cardNum) {
@@ -126,7 +117,31 @@ function showCardLayers(_cardNum) {
 }
 
 
-function updateLegend(layers) {
+function updateLegend(_layers,_legendSelector) {
+
+  //var data = [];
+
+  for (layer in _layers){
+
+    var layerOfInterst = map.getLayer(layer);
+    var layerType = layerOfInterst.add.type;
+
+    if (layerType == 'fill'){
+
+      var layerPaint = map.getLayoutProperty(layer,'fill-color')
+
+    } else if (layerType == 'circle'){
+
+      var layerPaint = {
+        'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
+        'circle-color' : map.getLayoutProperty(layer,'circle-color'),
+        'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
+      };
+    }
+
+    createLegends(_legendSelector,layer,layerType,layerPaint);
+  }
+
   // iterate through array of layers
   // Add each layer's legend to .legend div
   // console.log("updateLegend() Called");
@@ -146,9 +161,11 @@ function setActiveCard(_cardNum) {
   }
 
   // map.setStyle(baseStyle);
-
+// if (!inAnimation) {
+//
+// }
   scrollToCard(_cardNum);
-  // console.log(cardData[cardNum]);
+
   map.flyTo(cardData[_cardNum].flyTo);
 
   $("div[data-index='" + String(_cardNum) + "']")
@@ -190,6 +207,7 @@ function setFeatureContentText (_cardNum, _layer) {
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
+
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
 
@@ -388,119 +406,261 @@ function createPieChart(_params, _parentEl){
 
   }
 
+function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
 
+  ////////////////////// Defining parameters ////////////////////////////
+  var id = _div_id
+  // Defining the variables based on the type of the data loaded in.
+  if (_dataType == 'fill'){
+    ///////////////////////// FILL ////////////////////////////////////////////
+    var width = 150//300
+        height = 100//150
 
+    if (_dataPaint.length > 1){
+      // If you are a fill taking on many colors!
+      _step = 20;
+      _min = _dataPaint[3];
+      _max = _dataPaint[5];
+      _color1 = _dataPaint[4][1];
+      _color2 = _dataPaint[6][1];
+      var _offSet = (width*2/_step);
+      var _elementWidth = (width*2/_step);
+    } else {
+      // If you are a fill taking only one color
+      _step = 1;
+      _min = 1
+      _max = 2;
+      _color1 = _dataPaint[0];
+      _color2 = _dataPaint[0];
+      var _offSet = 15;//(width*2/_step);
+      var _elementWidth = 50;
+    }
 
+  } else if (_dataType == 'circle') {
+    // If you are circle layer, we need a lot more information.
 
+    var width = 300
+        height = 300
 
-function createPieChartOld (_params, _parentEl) {
+    var _offSet = 50;
+    var _elementWidth = 15;
+    _step = null;
+  }
+  ////////////////////// Done defining parameters - Let's build! ////////////////////////////
+  if (_dataType == 'fill'){
+    if (_dataPaint.length > 1){
+      // var generateRange = d3.scaleLinear()
+      //   .domain([0,_step])
+      //   .range([_min,_max])
+      //////////////////////////// Data /////////////////////////////////////
+      var color = d3.scaleLinear()
+          .domain([0, _step])//.domain([_min, _max])
+          .range([_color1, _color2])
+          .interpolate(d3.interpolateHcl); //interpolateHsl interpolateHcl interpolateRgb
 
-  var _data = _params.data;
-  var _title = _params.title;
-  var _parentEl = _params.id;
+      var data = [];
 
+      for (var ele = 0; ele < _step; ele++){
 
-  // set the dimensions and margins of the graph
-  var width = d3.select(_parentEl).node().getBoundingClientRect().width,
-      height = width / 2.5,
-      margin = 10;
+        if (ele === 0){
+            data.push({'id':ele, 'value':'Low'});
+        } else if (ele === (_step - 1)){
+            data.push({'id':ele, 'value':'High'});
+        } else {
+          data.push({'id': ele, 'value':''})
+        }
+      }
+      //////////////////////////// Creating the legend /////////////////////////////////////
+      var svg = d3.select(id)
+        .append('svg')
+        .attr('id',_svg_id)
+          // Adjust the factor below to allows for more space for the legends
+          .attr("width", '100%;')
+          .attr("height", 'auto;')
+        .append("g")
+          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
 
-  // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
-  var radius = Math.min(width, height) / 2 - margin
+      svg
+        .append('text')
+        .attr('x',-125)//
+        .attr('y',-30)
+        .attr('text-anchor','middle')
+        .classed('title',true)
+        .text(_svg_id);
 
-  // append the svg object to the div called 'my_dataviz'
-  var svg = d3.select(_parentEl)
-    .append("svg")
-      .classed('pie-chart', true)
-      .attr("width", width)
-      .attr("height", height)
-    .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      var legends = svg
+            .append('g')
+            .attr('transform','translate(-175,-100)')
+            .selectAll('.legends')
+            .data(data);
 
-  // Create dummy data
-  // var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
-  var dataDomain = Object.keys(data);
+      var legend = legends
+            .enter()
+            .append('g')
+            .classed('legends',true)
+            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
 
-  // set the color scale
-  var color = d3.scaleOrdinal()
-    // Alternated to allow for dynamically colouring.
-    .domain(dataDomain)//.domain(["aa", "bb", "cc", "d", "e", "f", "g", "h"])
-    .range(d3.schemeDark2);
+      legend
+        .append('rect')
+        // Adjust these for the size of the colored boxes.
+        .attr('width',_elementWidth)
+        .attr('height',15)
+        .attr(_dataType,function(d){return color(d.id);});
 
-  // Compute the position of each group on the pie:
-  var pie = d3.pie()
-    .sort(null) // Do not sort group by size
-    .value(function(d) {return d.value; })
+      legend
+        .append('text')
+        .text(function(d,i){ return d.value;})
+        .attr('x',5)
+        .attr('y',35)
 
-  var data_ready = pie(d3.entries(data))
-  // The arc generator
-  var arc = d3.arc()
-    .innerRadius(radius * 0.5)         // This is the size of the donut hole
-    .outerRadius(radius * 0.8)
+    } else if (_dataPaint.length == 1){
+      //////////////////////////// Data /////////////////////////////////////
+      var color = [_dataPaint[0]];
+      var data = [_svg_id];
+      //////////////////////////// Creating the legend /////////////////////////////////////
+      var svg = d3.select(id)
+        .append('svg')
+        .attr('id',_svg_id)
+          // Adjust the factor below to allows for more space for the legends
+          .attr("width", '100%;')
+          .attr("height", 'auto;')
+        .append("g")
+          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
 
-  // Another arc that won't be drawn. Just for labels positionning
-  var outerArc = d3.arc()
-    .innerRadius(radius * 0.9)
-    .outerRadius(radius * 0.9)
+      svg
+        .append('text')
+        .attr('x',-125)//
+        .attr('y',-30)
+        .attr('text-anchor','middle')
+        .classed('title',true)
+        .text(_svg_id);
 
-  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-  svg
-    .selectAll('.pie-slice')
-    .data(data_ready)
-    .enter()
-    .append('path')
-    .attr('d', arc)
-    .attr('fill', function(d, i){
-      // console.log(d.data.key)
-      return color(d.data.key); })
-    .attr("stroke", "white")
-    .style("stroke-width", "2px")
-    .style("opacity", 0.7)
-    .classed('pie-slice', true);
+      var legends = svg
+            .append('g')
+            .attr('transform','translate(-175,-100)')
+            .selectAll('.legends')
+            .data(data);
 
-  // Add the polylines between chart and labels:
-  svg
-    .selectAll('polyline')
-    .data(data_ready)
-    .enter()
-    .append('polyline')
-      .attr("stroke", "black")
-      .style("fill", "none")
-      .attr("stroke-width", 1)
-      .attr('points', function(d) {
-        var posA = arc.centroid(d) // line insertion in the slice
-        var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-        var posC = outerArc.centroid(d); // Label position = almost the same as posB
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
-        return [posA, posB, posC]
-      })
+      var legend = legends
+            .enter()
+            .append('g')
+            .classed('legends',true)
+            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
 
-  // Add the polylines between chart and labels:
-  svg
-    .selectAll('pie-label')
-    .data(data_ready)
-    .enter()
-    .append('text')
-      .text( function(d) { return d.data.key } )
-      .attr('transform', function(d) {
-          var pos = outerArc.centroid(d);
-          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-          return 'translate(' + pos + ')';
-      })
-      .style('text-anchor', function(d) {
-          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          return (midangle < Math.PI ? 'start' : 'end')
-      })
-    .classed('pie-label', true);
+      legend
+        .append('rect')
+        // Adjust these for the size of the colored boxes.
+        .attr('width',_elementWidth)
+        .attr('height',15)
+        .attr(_dataType,color[0]);//function(d){return color(d.id);});
+
+      legend
+        .append('text')
+        .text(data[0])
+        .attr('x',65)
+        .attr('y',12)
+
+    }
+  } else if (_dataType == 'circle'){
+    ////////////////////////// CIRCLES /////////////////////////////////////////
+    //////////////////////////// Data /////////////////////////////////////
+    var color = [];
+    var data = [];
+
+    for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
+      color.push(_dataPaint['circle-color'][i]);
+      data.push(_dataPaint['circle-color'][i-1])
+    }
+    color.push('#cfd9df')
+    data.push('other')
+
+    var size = [];
+    var sizedata = [];
+
+    for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
+      size.push(_dataPaint['circle-radius'][i]);
+      sizedata.push(_dataPaint['circle-radius'][i-1])
+    }
+    size.push(5)
+    sizedata.push('other')
+    //////////////////////////// Creating the legend /////////////////////////////////////
+    var svg = d3.select(id)
+      .append('svg')
+      .attr('id',_svg_id)
+        // Adjust the factor below to allows for more space for the legends
+        .attr("width", width)
+        .attr("height", height)
+      .append("g")
+        .attr("transform", "translate(" + width/1.5 + "," + height/4 + ")");//" + width / 2 + "
+
+    svg
+      .append('text')
+      .attr('x',-140)//
+      .attr('y',-30)
+      .attr('text-anchor','middle')
+      .classed('title',true)
+      .text(_svg_id);
+    // Categories
+    var legends = svg
+          .append('g')
+          .attr('transform','translate(-175,-150)')
+          .selectAll('.legends')
+          .data(data);
+
+    var legend = legends
+          .enter()
+          .append('g')
+          .classed('legends',true)
+          .attr('transform',function(d,i) {return "translate(0,"+ + (i+3)*_offSet + ")";});//*(width/_step)
+
+    legend
+      .append('circle')
+      // Adjust these for the size of the colored boxes.
+      .attr('cx',_elementWidth)
+      .attr('cy',_elementWidth)
+      .attr('r',_elementWidth)
+      .style('fill',function(d,i){return color[i];});
+
+    legend
+      .append('text')
+      .text(function(d,i){ return data[i];})
+      .attr('x',50)
+      .attr('y',20)
+    // Size ///
+    var legends = svg
+          .append('g')
+          .attr('transform','translate(-175,-150)')
+          .selectAll('.legends')
+          .data(sizedata);
+
+    var legend = legends
+          .enter()
+          .append('g')
+          .classed('legends',true)
+          .attr('transform',function(d,i) {return "translate(150,"+ + (i+3)*_offSet + ")";});//*(width/_step)
+
+    legend
+      .append('circle')
+      // Adjust these for the size of the colored boxes.
+      .attr('cx',_elementWidth)
+      .attr('cy',_elementWidth)//function(d,i) {return size[i]*2;}
+      .attr('r',function(d,i) {return size[i]*2;})
+      .style('fill','white')
+      .style('stroke','black');
+    legend
+      .append('text')
+      .text(function(d,i){ return sizedata[i];})
+      .attr('x',50)
+      .attr('y',20)
+  } else {
+    console.log('ERROR:  I dont know this datatype!')
+  }
 }
-
 
 // fitText jQuery plugin, for airport codes
 // from https://github.com/davatron5000/FitText.js
 
-(function( $ ){
+(function ( $ ){
 
   $.fn.fitText = function( kompressor, options ) {
 

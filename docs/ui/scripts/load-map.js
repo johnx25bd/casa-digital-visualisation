@@ -37,22 +37,16 @@ var popup = new mapboxgl.Popup({
   anchor: 'left'
 });
 
-// map.addControl(new mapboxgl.NavigationControl(), 'top-left2D');
-// map.addControl(new mapboxgl.ScaleControl({position: 'bottom-right'}));
-
-
 var loadedData = {};
 
 // LOAD LAYERS
-
 // Load and organize all data
-(function(_layersData) {
-  // console.log(cardData);
+(function(_layersData) { // IIFE
 
   var dataPromises = [];
 
-
   layersData.forEach(function(layerData) {
+
     if (layerData.type != "mapbox") {
       var filename = layerData.path;
       var filetype = filename.split('.'),
@@ -71,20 +65,13 @@ var loadedData = {};
       })
       dataPromises.push(mapboxPromise)
     }
-
   });
 
   Promise.all(dataPromises)
     .then(function(values) {
 
       for (var i = 0; i < values.length; i++) {
-        // console.log(i);
-        // console.log(values[i]);
-        if (layersData[i].name === 'cards') {
-          cardData = values[i];
-          // console.log("includes cards", values[i]);
-        } else if (values[i].type === 'mapbox') {
-          // console.log(values[i]);
+        if (values[i].type === 'mapbox') {
           loadedData[values[i].name] = {
             filetype: "mapbox",
             data: layersData[i]
@@ -126,8 +113,6 @@ var loadedData = {};
                 var tooltipContent = layerData.tooltip(e.features[0]);
                 if (tooltipContent != undefined) {
 
-
-                  // console.log(tooltipContent);
                   // Change the cursor style as a UI indicator.
                   map.getCanvas().style.cursor = 'pointer';
                   // console.log(e);
@@ -155,6 +140,7 @@ var loadedData = {};
                 popup.remove();
               })
             }
+
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
 
@@ -168,9 +154,10 @@ var loadedData = {};
 
                 cardData[activeCardNum]
                   .updateFeature(featureOfInterest, e.lngLat);
-              }
 
-            })
+              }
+            });
+
           }
         });
 
@@ -179,8 +166,8 @@ var loadedData = {};
 
         setActiveCard(0);
       });
-    }).catch(function(e) {
-      console.log(e);
+    }).catch(function(error) {
+      console.log(error);
     });
 })(layersData)
 
@@ -202,7 +189,6 @@ $('#next-card').on('click', function(e) {
   if (activeCardNum < cardData.length) {
     setActiveCard(activeCardNum + 1);
   }
-
 })
 
 $('#previous-card').on('click', function(e) {
@@ -210,7 +196,7 @@ $('#previous-card').on('click', function(e) {
   // console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {
     setActiveCard(activeCardNum - 1);
-    scrollToCard(activeCardNum);
+    // scrollToCard(activeCardNum);
   }
 })
 
@@ -224,21 +210,3 @@ $('.jump-to-view').on('click', function(e) {
   }));
 
 })
-
-
-// Cards:
-/*
-Cards will have a number of attributes and methods, which
-will be read when the updateCard() function is called.
-
-content: "<h1></h1>" // html string, or object / array of html elements.
-                        // ^^ easier but less flexible
-                        // this would include d3 graphics ?
-layers: [... layer names, i.e. file names], // layers to load
-flyTo: {
-    bearing: 0,
-    center: [-0.15591514, 51.51830379],
-    zoom: 15.5,
-    pitch: 20 // for 3d effect
-  },
-*/
