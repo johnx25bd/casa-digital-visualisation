@@ -140,7 +140,28 @@ var loadedData = {};
                 popup.remove();
               })
             }
+            if (layerData.highligt) {
+              map.on("mousemove", layerData.name, function(e) {
 
+                  var features = map.queryRenderedFeatures(e.point);
+
+                  var currentISO3 = features[0].properties.iso3;
+
+                  var feature = features[0];
+
+                  if (e.features.length > 0) {
+
+                      map.setFilter(layerData+'-highlighted', ['==', 'iso3', currentISO3]);
+                  }
+                  });
+
+                      // When the mouse leaves the state-fill layer, update the feature state of the
+                      // previously hovered feature.
+              map.on("mouseleave", layerData.name, function() {
+
+                  map.setFilter(layerData+'-highlighted', ['==', 'iso3', '']);
+              });
+            }
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
 
