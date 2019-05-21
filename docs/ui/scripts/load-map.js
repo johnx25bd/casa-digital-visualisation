@@ -198,8 +198,7 @@ var loadedData = {};
 // window.onscroll = function() {
 //   for (var i = 0; i < cardData.length; i++) {
 //     if (isElementOnScreen(i)
-//       || inAnimation == false
-//       || !$('body').hasClass('scrolling')) {
+//       && !$('body').hasClass('scrolling')) {
 //       setActiveCard(i);
 //       break;
 //     }
