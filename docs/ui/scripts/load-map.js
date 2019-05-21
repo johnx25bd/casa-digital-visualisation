@@ -140,7 +140,7 @@ var loadedData = {};
                 popup.remove();
               })
             }
-            if (layerData.highligt) {
+            if (layerData.highlight) {
               map.on("mousemove", layerData.name, function(e) {
 
                   var features = map.queryRenderedFeatures(e.point);
@@ -150,8 +150,8 @@ var loadedData = {};
                   var feature = features[0];
 
                   if (e.features.length > 0) {
-
-                      map.setFilter(layerData+'-highlighted', ['==', 'iso3', currentISO3]);
+                    console.log("LAYREDATA>", layerData, currentISO3);
+                      map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', currentISO3]);
                   }
                   });
 
@@ -159,7 +159,7 @@ var loadedData = {};
                       // previously hovered feature.
               map.on("mouseleave", layerData.name, function() {
 
-                  map.setFilter(layerData+'-highlighted', ['==', 'iso3', '']);
+                  map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', '']);
               });
             }
             map.on('click', layerData.name, function(e) {

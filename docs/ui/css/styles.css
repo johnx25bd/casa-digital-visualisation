@@ -102,10 +102,6 @@ h3 span.light {
 
 }
 
-.app-card:last-child {
-  margin-bottom: 1000px;
-}
-
 .app-card.active {
 
   background-color: white;

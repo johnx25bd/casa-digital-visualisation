@@ -44,7 +44,7 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
-      "id": "export-countries-highlighted",
+      // "id": "export-countries-highlighted",
       "type": "fill",
       "source": {
         "type": "vector",
@@ -80,7 +80,7 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
-      "id": "import-countries",
+      // "id": "import-countries",
       "type": "fill",
       "source": {
         "type": "vector",
@@ -119,7 +119,7 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
-      "id": "import-countries",
+      // "id": "import-countries",
       "type": "fill",
       "source": {
         "type": "vector",
@@ -730,16 +730,20 @@ var layersData = [
         // use an 'interpolate' expression to add a smooth transition effect to the
         // buildings as the user zooms in
         'fill-extrusion-height': [
-          "interpolate", ["linear"],
-          ["zoom"],
-          15, 0,
-          15.05, ["get", "height"]
-        ],
+          '*',
+          2.5,
+          ['get', 'height']],
+        // [
+        //   "interpolate", ["linear"],
+        //   ["zoom"],
+        //   15, 0,
+        //   15.05, ["get", "height"]
+        // ],
         'fill-extrusion-base': [
           "interpolate", ["linear"],
           ["zoom"],
           15, 0,
-          15.05, ["get", "min_height"]
+          35.05, ["get", "min_height"]
         ],
         'fill-extrusion-opacity': .6
       }

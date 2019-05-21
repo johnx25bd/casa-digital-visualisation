@@ -1,9 +1,38 @@
 
+# Mission Critical Deliverables
+
+_prior to presentation_
+
+
+
+
+[x] Add north arrow
+
+
+
+
+
+IF time
+
+[] Add air traffic over UK
+
+[] Add feature content to National cards
+  [] Airports - passenger flows pie charts (Inwards + Outwards)
+  [] Ports - what info?
+
+
+
+
+
+
+
 SHUKE
 
 [] Finalize styling
 
-[] Build presentation
+[] Finish presentation
+
+[] Write presentation notes
 
 [?] Style ports:
 - Harbor Size: Circle size
@@ -23,6 +52,22 @@ SHUKE
 
 KRISTIAN
 
+[] K+J Legends loading looking good
+
+[] K Fix Heathrow center attribute
+
+[] K Add favicon
+
+
+[] K Implement D3 bar charts in cards
+  [] Set hover state opacity 0.7 - to show interactivity
+
+[] K Add in-card bar charts for UK Ports and UK Air Transport cards.
+
+[] J + K Add shipping density map
+
+[] K Pie chart value pop-up on click
+
 [] Merge / integrate legends
 
 [] Add pie chart feature content update for UK largest ports and airports card
@@ -39,14 +84,28 @@ KRISTIAN
 
 [x] Extent legends to include multiple layers.
 
-[x] Add categorical dimensions to airports and ports datasets
+[] Add categorical dimensions to airports and ports datasets
   [x] UK (iso3)
-  [x] Busiest UK
-  [x] ??
+  [] Busiest UK
+  [] ??
 
 
 
 JOHN
+
+[x] J Merge country highlighting feature from highlightingCountries branch
+
+[] J Change nav control to sticky top of cards
+  [] Move github link to right of nav
+
+[x] J Embed sound and video
+
+[] J Set up layer add demo
+
+[x] J Remove bottom margin-bottom
+
+[x] J Increase 3d-buildings extrusion scaling factor
+
 
 [] Change to satellite-street on Tillbury-port-card
 
