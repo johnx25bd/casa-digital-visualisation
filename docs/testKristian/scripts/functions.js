@@ -118,7 +118,7 @@ function showCardLayers(_cardNum) {
     }
   });
 
-  updateLegend(layers,0)
+  updateLegend(layers,_cardNum);
 }
 
 function updateLegend(_layers,_cardNum) {
