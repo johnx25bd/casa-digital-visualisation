@@ -14,7 +14,6 @@ function buildAddLayerParams(_layerData) {
       _layerData.addLayerParams.default :
       _layerData.addLayerParams;
   }
-
 }
 
 function getCardId(_cardNum) {
@@ -247,12 +246,12 @@ function scrollToCard(_cardNum) {
 function setFeatureContentText (_cardNum, _layer) {
   console.log("SetFeatureContext", _cardNum)
   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
-  console.log("CardID: ",cardId);
+  //console.log("CardID: ",cardId);
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
 
-// function setLegendContentText (_cardNum) {
+//function setLegendContentText (_cardNum) {
 //   console.log("SetFeatureContext", _cardNum)
 //   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
 //   d3.select(cardId + ' .card-title')
