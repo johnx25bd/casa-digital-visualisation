@@ -17,6 +17,11 @@ function buildAddLayerParams(_layerData) {
 
 }
 
+function getCardId(_cardNum) {
+  return '#' + cardData[_cardNum].extent
+    + '-card-' + _cardNum;
+}
+
 function currentCardId() {
   return '#' + cardData[activeCardNum].extent
     + '-card-' + activeCardNum;
@@ -113,7 +118,7 @@ function showCardLayers(_cardNum) {
     }
   });
 
-  updateLegend(layers,_cardNum)
+  //updateLegend(layers,0)
 }
 
 function updateLegend(_layers,_cardNum) {
@@ -121,8 +126,6 @@ function updateLegend(_layers,_cardNum) {
   _legendSelector = getCardId(_cardNum) + ' .legend-content'
 
   for (layer of _layers){
-
-
 
     var layerOfInterst = layersData.find(function (l) {
       return l.name == layer;
