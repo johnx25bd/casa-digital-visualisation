@@ -6,7 +6,11 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
+<<<<<<< HEAD
       //"id": "export-countries-volumes",
+=======
+      // "id": "export-countries",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -34,6 +38,9 @@ var layersData = [
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Exports (million USD):<br />' +
          _data.properties.all_commodities_export + '</p>';
+    },
+    highlight: function(_data){
+      console.log(_data);
     }
   },
   {
@@ -41,7 +48,11 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
+<<<<<<< HEAD
       // "id": "export-countries-volumes-highlighted",
+=======
+      // "id": "export-countries-highlighted",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -106,6 +117,9 @@ var layersData = [
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Imports (million USD):<br />' +
          _data.properties.all_commodities_import + '</p>';
+    },
+    highlight: function(_data){
+      console.log(_data);
     }
   },
   {
@@ -113,7 +127,11 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
+<<<<<<< HEAD
       // "id": "import-countries-highlighted",
+=======
+      // "id": "import-countries",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -145,12 +163,20 @@ var layersData = [
     }
   },
   {
+<<<<<<< HEAD
     "name": "busiest-airports",
+=======
+    "name": "airports-mapbox-data-busiest",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
+<<<<<<< HEAD
         // "id": "airports-mapbox-data-busiest",
+=======
+        "id": "airports-mapbox-data-busiest",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -178,7 +204,11 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
+<<<<<<< HEAD
         // "id": "airports-mapbox-data-uk",
+=======
+        "id": "airports-mapbox-data-uk",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -220,12 +250,20 @@ var layersData = [
       }
     }},
        {
+<<<<<<< HEAD
       "name": "uK-airports",
+=======
+      "name": "UKairports-mapbox-data",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "mapbox",
       "path": "none",
       "addLayerParams": {
         "default": {
+<<<<<<< HEAD
           // "id": "UKairports-mapbox-data",
+=======
+          "id": "UKairports-mapbox-data",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "type": "circle",
           "source": {
             "type": "vector",
@@ -243,6 +281,15 @@ var layersData = [
             'major', 6,
             /* other */ 4
         ],
+<<<<<<< HEAD
+=======
+        //                 {
+        //     'base': 1.75,
+        //     'stops': [[2, 2], [12, 180]]
+        // },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         'circle-color': [
             'match',
             ['get', 'usage'],
@@ -517,7 +564,11 @@ var layersData = [
 
   },
       {
+<<<<<<< HEAD
     "name": "uK-ports",
+=======
+    "name": "UKports",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "path": "./data/uk-ports.json",
     "type": "geojson",
     "addLayerParams": {
@@ -534,6 +585,15 @@ var layersData = [
             'L', 8,
             /* other */ 5
         ],
+<<<<<<< HEAD
+=======
+        //                 {
+        //     'base': 1.75,
+        //     'stops': [[2, 2], [12, 180]]
+        // },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         'circle-color':
          [
              'match',
@@ -690,16 +750,20 @@ var layersData = [
         // use an 'interpolate' expression to add a smooth transition effect to the
         // buildings as the user zooms in
         'fill-extrusion-height': [
-          "interpolate", ["linear"],
-          ["zoom"],
-          15, 0,
-          15.05, ["get", "height"]
-        ],
+          '*',
+          2.5,
+          ['get', 'height']],
+        // [
+        //   "interpolate", ["linear"],
+        //   ["zoom"],
+        //   15, 0,
+        //   15.05, ["get", "height"]
+        // ],
         'fill-extrusion-base': [
           "interpolate", ["linear"],
           ["zoom"],
           15, 0,
-          15.05, ["get", "min_height"]
+          35.05, ["get", "min_height"]
         ],
         'fill-extrusion-opacity': .6
       }

@@ -25,7 +25,11 @@ var cardData = [
       </ul>
 
     `,
+<<<<<<< HEAD
     "layers": ['export-countries'],
+=======
+    "layers": ['export-countries-volumes'],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -128,7 +132,11 @@ var cardData = [
 
     `,
 
+<<<<<<< HEAD
     "layers": ['import-countries'],
+=======
+    "layers": ['import-countries-volumes','import-countries-volumes-highlighted'],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -227,7 +235,11 @@ var cardData = [
       </figcaption>
 
     `,
+<<<<<<< HEAD
     "layers": ["airports-mapbox-data"],
+=======
+    "layers": ["global-airports"],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -368,7 +380,11 @@ var cardData = [
         The distribution of islands from Indonesia <a href="https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia" target="_blank">Source</a>
       </figcaption>
     `,
+<<<<<<< HEAD
     "layers": ["ports"],
+=======
+    "layers": ["global-ports"],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -500,7 +516,11 @@ var cardData = [
 
 
     `,
+<<<<<<< HEAD
     "layers": ["airports-mapbox-data", 'ports'],
+=======
+    "layers": ["uK-airports", 'uK-ports'],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -530,7 +550,11 @@ var cardData = [
 
 
     `,
+<<<<<<< HEAD
     "layers": ["airports-mapbox-data"],
+=======
+    "layers": ["uK-airports"],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -555,7 +579,11 @@ var cardData = [
 
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
+<<<<<<< HEAD
     "layers": ["ports"],
+=======
+    "layers": ["uK-ports"],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -582,7 +610,11 @@ var cardData = [
 
 
     `,
+<<<<<<< HEAD
     "layers": ["heathrow-point", "heathrow-stations", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],
+=======
+    "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": [-0.4172184, 51.459262],
@@ -597,47 +629,69 @@ var cardData = [
       var heathrowTourParams = {
         "Terminal 2": {
           "bearing": 200,
+<<<<<<< HEAD
           "center": {
             "lng": -0.45183706289185466,
             "lat": 51.475127930801506
           },
+=======
+          "center": {"lng":-0.4486882364210487,"lat":51.47359905325979},
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "zoom": 16.5,
           "pitch": 70
         },
         "Terminal 3": {
           "bearing": 130,
+<<<<<<< HEAD
           "center": {
             lng: -0.4623692398431558,
             lat: 51.469771694617265
           },
+=======
+          "center": {"lng":-0.45806017135078037,"lat":51.47203158686838},
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "zoom": 16,
           "pitch": 70
         },
         "Terminal 4": {
           "bearing": 330,
+<<<<<<< HEAD
           "center": {
             "lng": -0.4437268331968198,
             "lat": 51.45981682919407
           },
+=======
+          "center": {"lng":-0.4464386965286167,"lat":51.45880884719156},
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "zoom": 16.7,
           "pitch": 70
         },
         "Terminal 5": {
           "bearing": 90,
+<<<<<<< HEAD
           "center": {
             "lng": -0.48849590095176154,
             "lat": 51.47020173214935
           },
           "zoom": 16.9,
+=======
+          "center": {"lng":-0.48900859468392355,"lat":51.47234217585134},
+          "zoom": 16.44994533191072,
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "pitch": 70
         },
         "Runways": {
           "bearing": 0,
+<<<<<<< HEAD
           "center": {
             "lng": -0.44210786010671654,
             "lat": 51.456970583583995
           },
           "zoom": 13.9,
+=======
+          "center": {"lng":-0.45851946795733056,"lat":51.469904797147706},
+          "zoom": 13.694469215066832,
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "pitch": 0
         }
       }
@@ -687,7 +741,11 @@ var cardData = [
 
 
     `,
+<<<<<<< HEAD
     "layers": ["3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants", "tilbury-buffer"],
+=======
+    "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
+>>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "flyTo": {
       "bearing": 0,
       "center": {

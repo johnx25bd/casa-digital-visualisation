@@ -13,72 +13,41 @@
   <!-- Leaflet style sheet and JS library -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.css" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-
-
-  <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-unminified.js" charset="utf-utf-8"></script>
-
-
   <!-- Custom stylesheet -->
   <link rel="stylesheet" href="./css/styles.css" />
 
-  <title>Hello, world!</title>
-  <style>
+  <!-- Load JS Libraries -->
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+  <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-unminified.js" charset="utf-utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-
-  </style>
+  <title>🌐🚢✈ : How Things Move Around</title>
+  <!-- load favicon -->
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">🌐🚢✈</a>
+      <a class="navbar-brand" href="#">🌐🚢✈ : How Things Move Around</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="https://github.com/robisoniv/casa-digital-visualisation" target="_blank">Github <span class="sr-only">(current)</span></a>
+        
+        <ul class='navbar-nav pull-right ml-auto mr-5'>
+          <li>
+            <a href="https://github.com/robisoniv/casa-digital-visualisation" target="_blank">
+            <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+
+          </a>
           </li>
         </ul>
-        <!-- <div id="mode-buttons" class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Explore
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Story
-          </label>
-        </div> -->
-        <div id="map-nav">
-          <div class="row">
-            <div class="btn-group story-nav-btns" role="group" aria-label="Basic example">
+        <div></div>
 
-              <input id="previous-card" class="btn btn-light" type="button" value="<">
-              <input id="global-view" class="jump-to-view btn btn-secondary active" type="button" value="Global">
-              <input id="national-view" class="jump-to-view btn btn-secondary" type="button" value="National">
-              <input id="local-view" class="jump-to-view btn btn-secondary" type="button" value="Local">
 
-              <input id="next-card" class="btn btn-light" type="button" value=">">
-            </div>
-            <!-- <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary-outline active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked>
-                < </label> <label class="btn btn-secondary active">
-                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Global
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> National
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Local
-              </label>
-              <label id="next-card" class="btn btn-secondary-outline">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> >
-              </label>
-            </div> -->
-          </div>
         </div>
       </div>
     </nav>
@@ -89,11 +58,42 @@
     <div class='row '>
       <div id='main-map' class='col-8'></div>
       <!-- <svg id="world"></svg> -->
-</div>
-<div class='row justify-content-end'>
+    </div>
+    <div class='row justify-content-end'>
 
 
       <div id="info-body" class="col-md-4">
+
+        <div id='app-nav' class='d-flex flex-row align-items-center sticky-top'>
+          <div id="previous-card" class="col-2 text-center"><p class='mb-0'><<</p></div>
+          <div id='global-view' class="col text-center jump-to-view"><p class='mb-0'>Global</p></div>
+          <div id='national-view' class="col text-center jump-to-view"><p class='mb-0'>UK</p></div>
+          <div id='local-view' class="col text-center jump-to-view"><p class='mb-0'>Local</p></div>
+          <div id="next-card" class="col-2 text-center"><p class='mb-0'>>></p></div>
+
+          <!-- <div class='col-12'>
+            <div class='row'>
+            <div class='col-1'>
+              <span class='align-middle'><<</span>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>Global</btn>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>UK</btn>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>Local</btn>
+            </div>
+            <div class='col-1'>
+              <button class='btn btn-block btn-outline-primary'>>></btn>
+            </div>
+
+          </div>
+          </div> -->
+
+        </div>
+
 
         <div id="story-cards" class="row">
 
@@ -109,9 +109,7 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
   <!-- Custom scripts -->
   <script src="./scripts/functions.js"></script>
   <script src="./data/layers.js"></script>
