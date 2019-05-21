@@ -493,6 +493,11 @@ var cardData = [
     // "cardNum": 3,
     "title": "The UK in the World",
     "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude. Besides, it is clearly that the top 5 busiest airports in the UK are London Heathrow, Manchester Airport, London Gatwick, Birmingham Airport and London Luton. Three of them are in London, the biggest city in the UK, and the other two also located in big cities. The top 5 busiest ports are London, Liverpool, Felixstowe, Belfast and Bristol.</p>
+    <img src='./assets/images/uk-airports-traffic.jpeg' class='img-fluid' alt='UK Airport Traffic Pie Chart'>
+    <figcaption class="figure-caption mb-4">
+            Proportionate UK air traffic by origin.
+          </figcaption>
+
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport or the port is located to show its rank in the global busiest airports ranking.
