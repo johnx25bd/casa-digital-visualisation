@@ -110,6 +110,7 @@ function loadCards(_cards) {
   //console.log("Layers",_cards[0].layers)
 }
 
+
 function showCardLayers(_cardNum) {
 
   var layers = cardData[_cardNum].layers;
