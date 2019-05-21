@@ -247,7 +247,7 @@ function scrollToCard(_cardNum) {
 function setFeatureContentText (_cardNum, _layer) {
   console.log("SetFeatureContext", _cardNum)
   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
-  console.log(cardId);
+  console.log("CardID: ",cardId);
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
