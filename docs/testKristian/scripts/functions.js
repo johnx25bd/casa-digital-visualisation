@@ -102,6 +102,7 @@ function loadCards(_cards) {
       card.loadCard(i, card);
     }
   }
+  console.log(_cards[0])
 }
 
 function showCardLayers(_cardNum) {
