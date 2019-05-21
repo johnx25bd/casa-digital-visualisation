@@ -150,7 +150,7 @@ var loadedData = {};
                   var feature = features[0];
 
                   if (e.features.length > 0) {
-                    console.log("LAYREDATA>", layerData, currentISO3);
+                    // console.log("LAYREDATA>", layerData, currentISO3);
                       map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', currentISO3]);
                   }
                   });
@@ -195,39 +195,63 @@ var loadedData = {};
 
 
 // EVENT LISTENERS
-window.onscroll = function() {
-  for (var i = 0; i < cardData.length; i++) {
-    if (isElementOnScreen(i) && inAnimation == false) {
-      setActiveCard(i);
-      break;
-    }
-  }
-};
+// window.onscroll = function() {
+//   for (var i = 0; i < cardData.length; i++) {
+//     if (isElementOnScreen(i)
+//       || inAnimation == false
+//       || !$('body').hasClass('scrolling')) {
+//       setActiveCard(i);
+//       break;
+//     }
+//   }
+// };
 
 
 $('#next-card').on('click', function(e) {
   e.preventDefault();
+
+  var t = this;
+  $(this).addClass('clicking');
+
+  setTimeout(function (el) {
+    $(el).removeClass('clicking');
+  }, 100, t);
+
   if (activeCardNum < cardData.length) {
-    setActiveCard(activeCardNum + 1);
+    scrollToCard(activeCardNum + 1)
+    // setActiveCard(activeCardNum + 1);
   }
 })
 
 $('#previous-card').on('click', function(e) {
   e.preventDefault();
+
+  var t = this;
+  $(this).addClass('clicking');
+
+  setTimeout(function (el) {
+    $(el).removeClass('clicking');
+  }, 100, t)
+
   // console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {
-    setActiveCard(activeCardNum - 1);
+    scrollToCard(activeCardNum - 1)
+    // setActiveCard(activeCardNum - 1);
     // scrollToCard(activeCardNum);
   }
 })
 
 $('.jump-to-view').on('click', function(e) {
 
+  $(this).addClass('clicking')
+    .delay(100).removeClass('clicking')
+
   e.preventDefault();
   var jumpToExtent = this.id.split('-')[0];
-
-  setActiveCard(cardData.findIndex(function(c) {
+  var targetCard = cardData.findIndex(function(c) {
     return c.extent == jumpToExtent
-  }));
+  });
+  scrollToCard(targetCard);
+  // setActiveCard(targetCard);
 
 })
