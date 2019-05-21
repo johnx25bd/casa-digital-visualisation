@@ -84,7 +84,8 @@ function loadCards(_cards) {
     .classed('col-12 feature-content', true);
 
   var legendContent = cardEls.append('div')
-    .classed('card legend', true)
+    .classed('
+    ', true)
     .append('div')
     .classed('card-body', true);
 
@@ -246,9 +247,17 @@ function scrollToCard(_cardNum) {
 function setFeatureContentText (_cardNum, _layer) {
   console.log("SetFeatureContext", _cardNum)
   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
+  console.log(cardId);
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
+
+// function setLegendContentText (_cardNum) {
+//   console.log("SetFeatureContext", _cardNum)
+//   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
+//   d3.select(cardId + ' .card-title')
+//     .text('Click on a ' + _layer + ' to learn more.')
+// }
 
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
