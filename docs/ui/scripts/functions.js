@@ -133,7 +133,7 @@ function updateLegend(_layers,_legendSelector) {
   for (layer in _layers){
 
     var layerOfInterst = map.getLayer(layer);
-    var layerType = layerOfInterst.add.type;
+    var layerType = layerOfInterst.addLayerParams.default.type;
 
     if (layerType == 'fill'){
 
