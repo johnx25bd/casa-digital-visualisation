@@ -101,6 +101,9 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
+    /// Loading legends /////
+    updateLegend(card.layers,i)
+
   }
   console.log("Layers",_cards[0].layers)
 }
