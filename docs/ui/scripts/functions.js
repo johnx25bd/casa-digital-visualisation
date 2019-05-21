@@ -585,7 +585,16 @@ function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
 
     for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
       size.push(_dataPaint['circle-radius'][i]);
-      sizedata.push(_dataPaint['circle-radius'][i-1])
+      if (_dataPaint['circle-radius'][i-1] == 'V' || _dataPaint['circle-radius'][i-1] == 'v'){
+        sizedata.push('Minor')
+      } else if (_dataPaint['circle-radius'][i-1] == 'S' || _dataPaint['circle-radius'][i-1] == 's'){
+        sizedata.push('Small')
+      } else if (_dataPaint['circle-radius'][i-1] == 'M' || _dataPaint['circle-radius'][i-1] == 'm'){
+        sizedata.push('Medium')
+      } else if (_dataPaint['circle-radius'][i-1] == 'L' || _dataPaint['circle-radius'][i-1] == 'l'){
+        sizedata.push('Major')
+      }
+      //sizedata.push(_dataPaint['circle-radius'][i-1])
     }
     size.push(5)
     sizedata.push('other')
