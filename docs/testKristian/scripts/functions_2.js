@@ -14,17 +14,16 @@ function buildAddLayerParams(_layerData) {
       _layerData.addLayerParams.default :
       _layerData.addLayerParams;
   }
-
-}
-
-function currentCardId() {
-  return '#' + cardData[activeCardNum].extent
-    + '-card-' + activeCardNum;
 }
 
 function getCardId(_cardNum) {
   return '#' + cardData[_cardNum].extent
     + '-card-' + _cardNum;
+}
+
+function currentCardId() {
+  return '#' + cardData[activeCardNum].extent
+    + '-card-' + activeCardNum;
 }
 
 function isElementOnScreen(_cardNum) {
@@ -84,7 +83,8 @@ function loadCards(_cards) {
     .classed('col-12 feature-content', true);
 
   var legendContent = cardEls.append('div')
-    .classed('card legend', true)
+    .classed('
+    ', true)
     .append('div')
     .classed('card-body', true);
 
@@ -103,8 +103,10 @@ function loadCards(_cards) {
     }
     /// Loading legends /////
     updateLegend(card.layers,i);
+
   }
 }
+
 
 function showCardLayers(_cardNum) {
 
@@ -120,9 +122,8 @@ function showCardLayers(_cardNum) {
     }
   });
 
-  //updateLegend(_cardNum)
+  //updateLegend(layers,_cardNum);
 }
-
 
 function updateLegend(_layers,_cardNum) {
 
@@ -155,10 +156,6 @@ function updateLegend(_layers,_cardNum) {
   }
 }
 
-  // iterate through array of layers
-  // Add each layer's legend to .legend div
-  // console.log("updateLegend() Called");
-}
 
 function titleCase(_str) {
   // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
@@ -217,9 +214,17 @@ function scrollToCard(_cardNum) {
 function setFeatureContentText (_cardNum, _layer) {
   console.log("SetFeatureContext", _cardNum)
   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
+  //console.log("CardID: ",cardId);
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
+
+//function setLegendContentText (_cardNum) {
+//   console.log("SetFeatureContext", _cardNum)
+//   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
+//   d3.select(cardId + ' .card-title')
+//     .text('Click on a ' + _layer + ' to learn more.')
+// }
 
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
@@ -322,8 +327,6 @@ function createBarChart(_params, _parentEl) {
 
   });
 }
-
-
 
 function createPieChart(_params, _parentEl){
 
