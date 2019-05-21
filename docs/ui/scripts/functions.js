@@ -10,9 +10,14 @@ function buildAddLayerParams(_layerData) {
     };
     return outputParams;
   } else if (_layerData.type == 'mapbox') {
-    return _layerData.addLayerParams.default ?
+    var outputParams = _layerData.addLayerParams.default ?
       _layerData.addLayerParams.default :
       _layerData.addLayerParams;
+
+    outputParams.id = _layerData.name;
+
+    return outputParams;
+
   }
 
 }
@@ -147,10 +152,10 @@ function updateLegend(_layers,_legendSelector) {
   // console.log("updateLegend() Called");
 }
 
-function titleCase(_str) {
+function titleCase(_str, _separator=' ') {
   // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
   // 🙏🙏🙏🙏🙏🙏🙏
-  return _str.toLowerCase().split(' ').map(function(word) {
+  return _str.toLowerCase().split(_separator).map(function(word) {
     return (word.charAt(0).toUpperCase() + word.slice(1));
   }).join(' ');
 }

@@ -6,7 +6,7 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
-      "id": "export-countries",
+      // "id": "export-countries",
       "type": "fill",
       "source": {
         "type": "vector",
