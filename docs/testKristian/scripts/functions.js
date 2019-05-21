@@ -103,6 +103,7 @@ function loadCards(_cards) {
     }
     /// Loading legends /////
     updateLegend(card.layers,i);
+    console.log("Layers", card.layers);
   }
 }
 
@@ -148,7 +149,7 @@ function updateLegend(_layers,_cardNum) {
         'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
       };
     }
-
+    console.log("LayerPaint", layerPaint);
     createLegends(_legendSelector,layer,layerType,layerPaint);
   }
 }
