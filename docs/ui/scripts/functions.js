@@ -37,10 +37,7 @@ function isElementOnScreen(_cardNum) {
 function loadCards(_cards) {
   // iterate through and load cards into .cards div
 
-  // console.log(_cards);
-
   var cardsHolder = d3.select('#story-cards');
-
 
   var cardEls = cardsHolder.selectAll('div')
     .data(_cards).enter()
@@ -52,10 +49,8 @@ function loadCards(_cards) {
       return i;
     })
     .attr('class', function(d) {
-      return d.extent + ' card-body';
+      return d.extent + ' card-body app-card col-12';
     })
-    .classed('col-12', true)
-    .classed('app-card', true)
     .on('click', function(d, i) {
       // console.log("CLICK!");
       setActiveCard(i);
@@ -67,7 +62,6 @@ function loadCards(_cards) {
     });
 
   cardEls.append('div')
-    // .classed('card-body', true)
     .html(function(d) {
       return d.content;
     });
@@ -83,7 +77,6 @@ function loadCards(_cards) {
 
   featureContent.append('div')
     .classed('col-12 feature-content', true);
-
 
   var legendContent = cardEls.append('div')
     .classed('card legend', true)
@@ -103,9 +96,7 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
-    // console.log("CARD", card);
   }
-
 }
 
 function showCardLayers(_cardNum) {
@@ -170,9 +161,11 @@ function setActiveCard(_cardNum) {
   }
 
   // map.setStyle(baseStyle);
-
+// if (!inAnimation) {
+//
+// }
   scrollToCard(_cardNum);
-  // console.log(cardData[cardNum]);
+
   map.flyTo(cardData[_cardNum].flyTo);
 
   $("div[data-index='" + String(_cardNum) + "']")
@@ -214,6 +207,7 @@ function setFeatureContentText (_cardNum, _layer) {
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
+
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
 
@@ -663,114 +657,10 @@ function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
   }
 }
 
-function createPieChartOld (_params, _parentEl) {
-
-  var _data = _params.data;
-  var _title = _params.title;
-  var _parentEl = _params.id;
-
-
-  // set the dimensions and margins of the graph
-  var width = d3.select(_parentEl).node().getBoundingClientRect().width,
-      height = width / 2.5,
-      margin = 10;
-
-  // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
-  var radius = Math.min(width, height) / 2 - margin
-
-  // append the svg object to the div called 'my_dataviz'
-  var svg = d3.select(_parentEl)
-    .append("svg")
-      .classed('pie-chart', true)
-      .attr("width", width)
-      .attr("height", height)
-    .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-  // Create dummy data
-  // var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
-  var dataDomain = Object.keys(data);
-
-  // set the color scale
-  var color = d3.scaleOrdinal()
-    // Alternated to allow for dynamically colouring.
-    .domain(dataDomain)//.domain(["aa", "bb", "cc", "d", "e", "f", "g", "h"])
-    .range(d3.schemeDark2);
-
-  // Compute the position of each group on the pie:
-  var pie = d3.pie()
-    .sort(null) // Do not sort group by size
-    .value(function(d) {return d.value; })
-
-  var data_ready = pie(d3.entries(data))
-  // The arc generator
-  var arc = d3.arc()
-    .innerRadius(radius * 0.5)         // This is the size of the donut hole
-    .outerRadius(radius * 0.8)
-
-  // Another arc that won't be drawn. Just for labels positionning
-  var outerArc = d3.arc()
-    .innerRadius(radius * 0.9)
-    .outerRadius(radius * 0.9)
-
-  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-  svg
-    .selectAll('.pie-slice')
-    .data(data_ready)
-    .enter()
-    .append('path')
-    .attr('d', arc)
-    .attr('fill', function(d, i){
-      // console.log(d.data.key)
-      return color(d.data.key); })
-    .attr("stroke", "white")
-    .style("stroke-width", "2px")
-    .style("opacity", 0.7)
-    .classed('pie-slice', true);
-
-  // Add the polylines between chart and labels:
-  svg
-    .selectAll('polyline')
-    .data(data_ready)
-    .enter()
-    .append('polyline')
-      .attr("stroke", "black")
-      .style("fill", "none")
-      .attr("stroke-width", 1)
-      .attr('points', function(d) {
-        var posA = arc.centroid(d) // line insertion in the slice
-        var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-        var posC = outerArc.centroid(d); // Label position = almost the same as posB
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
-        return [posA, posB, posC]
-      })
-
-  // Add the polylines between chart and labels:
-  svg
-    .selectAll('pie-label')
-    .data(data_ready)
-    .enter()
-    .append('text')
-      .text( function(d) { return d.data.key } )
-      .attr('transform', function(d) {
-          var pos = outerArc.centroid(d);
-          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-          return 'translate(' + pos + ')';
-      })
-      .style('text-anchor', function(d) {
-          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          return (midangle < Math.PI ? 'start' : 'end')
-      })
-    .classed('pie-label', true);
-}
-
-
 // fitText jQuery plugin, for airport codes
 // from https://github.com/davatron5000/FitText.js
 
-(function( $ ){
+(function ( $ ){
 
   $.fn.fitText = function( kompressor, options ) {
 

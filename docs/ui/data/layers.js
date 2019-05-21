@@ -41,7 +41,7 @@ var layersData = [
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
-      "id": "export-countries",
+      "id": "export-countries-highlighted",
       "type": "fill",
       "source": {
         "type": "vector",
@@ -144,33 +144,6 @@ var layersData = [
       // pop tooltip with data.
     }
   },
-  // {
-  //   "name": "airports-mapbox-data",
-  //   "type": "mapbox",
-  //   "path": "none",
-  //   "addLayerParams": {
-  //     "default": {
-  //       "id": "airports-mapbox-data",
-  //       "type": "circle",
-  //       "source": {
-  //         "type": "vector",
-  //         "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
-  //       },
-  //       "source-layer": "Global_airports",
-  //
-  //       "paint": {
-  //         "circle-color": "#6991c7",
-  //         "circle-opacity": 0.8,
-  //         "circle-radius": 5
-  //       }
-  //     },
-  //     "dim_a": {}
-  //   },
-  //   tooltip: function(_data) {
-  //     return '<h5 class="mb-0">' + _data.properties.abbrev + '</h5>';
-  //     // pop tooltip with data.
-  //   }
-  // },
   {
     "name": "airports-mapbox-data-busiest",
     "type": "mapbox",
@@ -735,24 +708,6 @@ var layersData = [
     }
   },
   {
-    "name": "us-states",
-    "path": "./data/us-states.json",
-    "type": "geojson",
-    "addLayerParams": {
-      "type": "fill",
-      "layout": {},
-      "paint": {
-        "fill-color": "#088",
-        "fill-opacity": 0.8
-      }
-    },
-    tooltip: function(_data) {
-      console.log(_data);
-      // pop tooltip with data.
-    }
-  },
-
-  {
     "name": "3d-buildings",
     "path": "none",
     "type": "mapbox",
@@ -784,5 +739,4 @@ var layersData = [
       }
     }
   },
-
 ];

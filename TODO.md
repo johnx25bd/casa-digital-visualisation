@@ -23,7 +23,7 @@ SHUKE
 
 KRISTIAN
 
-[] Merge / integrate legends 
+[] Merge / integrate legends
 
 [] Add pie chart feature content update for UK largest ports and airports card
 
@@ -65,6 +65,13 @@ JOHN
 [] Add layer filter toggle button to ports and airports
 
 [] Add filter remove to each layer on card change
+
+[] Add favicon
+
+[] Work out how to add and remove filters from layeres
+  [] Toggle
+  [] on card load
+
 
 
 [-] Flip Heathrow background to satellite-streets
