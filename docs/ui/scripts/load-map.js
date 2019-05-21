@@ -176,8 +176,8 @@ var loadedData = {};
 
         // LOAD CARDS
         loadCards(cardData);
-
         setActiveCard(0);
+
       });
     }).catch(function(e) {
       console.log(e);

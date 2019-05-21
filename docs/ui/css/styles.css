@@ -27,7 +27,7 @@ h3 span.light {
 
 .header-span {
   font-size: 25px;
-  
+
 }
 
 .feature-subheader {
@@ -108,7 +108,7 @@ h3 span.light {
 }
 
 .legend {
-  height: 100px;
+  /* height: 100px; */
   margin-bottom: 40px;
   background-color: none;
 

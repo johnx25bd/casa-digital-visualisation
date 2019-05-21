@@ -1,25 +1,12 @@
-function buildAddLayerParams(_layerData) {
-  if (_layerData.type == 'geojson') {
-    var outputParams = {};
-    outputParams.id = _layerData.name;
-    outputParams.source = _layerData.name + '-source';
-    outputParams = { ...outputParams,
-      ..._layerData.addLayerParams.default ?
-      _layerData.addLayerParams.default :
-        _layerData.addLayerParams
-    };
-    return outputParams;
-  } else if (_layerData.type == 'mapbox') {
-    return _layerData.addLayerParams.default ?
-      _layerData.addLayerParams.default :
-      _layerData.addLayerParams;
-  }
 
+
+function getCardId(_cardNum) {
+  return '#' + cardData[_cardNum].extent
+    + '-card-' + _cardNum;
 }
 
 function currentCardId() {
-  return '#' + cardData[activeCardNum].extent
-    + '-card-' + activeCardNum;
+  return getCardId(activeCardNum);
 }
 
 function isElementOnScreen(_cardNum) {
@@ -103,6 +90,8 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
+
+    // createLegend()
     // console.log("CARD", card);
   }
 
@@ -115,36 +104,44 @@ function showCardLayers(_cardNum) {
   Object.keys(loadedData).forEach(function(layer) {
 
     if (layers.includes(layer)) {
-      console.log("Setting", layer, 'to visible!')
+      // console.log("Setting", layer, 'to visible!')
       map.setLayoutProperty(layer, 'visibility', 'visible');
     } else {
       map.setLayoutProperty(layer, 'visibility', 'none');
     }
   });
 
-  updateLegend(layers)
+  updateLegend(layers, 0)
 }
 
 
-function updateLegend(_layers,_legendSelector) {
+function updateLegend(_layers,_cardNum) {
+  // console.log(_layers);
 
-  //var data = [];
+  _legendSelector = getCardId(_cardNum) + ' .legend-content'
 
-  for (layer in _layers){
+  for (layer of _layers){
 
-    var layerOfInterst = map.getLayer(layer);
-    var layerType = layerOfInterst.addLayerParams.default.type;
+
+
+    var layerOfInterst = layersData.find(function (l) {
+      return l.name == layer;
+    });
+
+    var layerType = layerOfInterst.addLayerParams.default ?
+      layerOfInterst.addLayerParams.default.type :
+      layerOfInterst.addLayerParams.type;
 
     if (layerType == 'fill'){
 
-      var layerPaint = map.getLayoutProperty(layer,'fill-color')
+      var layerPaint = map.getPaintProperty(layer,'fill-color');
 
     } else if (layerType == 'circle'){
 
       var layerPaint = {
-        'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
-        'circle-color' : map.getLayoutProperty(layer,'circle-color'),
-        'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
+        'circle-radius': map.getPaintProperty(layer,'circle-radius'),
+        'circle-color' : map.getPaintProperty(layer,'circle-color'),
+        'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
       };
     }
 
@@ -164,12 +161,33 @@ function titleCase(_str) {
   }).join(' ');
 }
 
+function buildAddLayerParams(_layerData) {
+  if (_layerData.type == 'geojson') {
+    var outputParams = {};
+    outputParams.id = _layerData.name;
+    outputParams.source = _layerData.name + '-source';
+    outputParams = { ...outputParams,
+      ..._layerData.addLayerParams.default ?
+      _layerData.addLayerParams.default :
+        _layerData.addLayerParams
+    };
+    return outputParams;
+  } else if (_layerData.type == 'mapbox') {
+    return _layerData.addLayerParams.default ?
+      _layerData.addLayerParams.default :
+      _layerData.addLayerParams;
+  }
+
+}
+
+
 function setActiveCard(_cardNum) {
   if (_cardNum === activeCardNum) {
+    // console.log("Issues arising")
     return;
   }
 
-  // map.setStyle(baseStyle);
+  // console.log('setActiveCard Invoked!')
 
   scrollToCard(_cardNum);
   // console.log(cardData[cardNum]);
@@ -187,6 +205,7 @@ function setActiveCard(_cardNum) {
 
   showCardLayers(_cardNum);
 
+  // console.log('Setting activeCardNum')
   activeCardNum = _cardNum;
 
 }
@@ -209,7 +228,7 @@ function scrollToCard(_cardNum) {
 }
 
 function setFeatureContentText (_cardNum, _layer) {
-  console.log("SetFeatureContext", _cardNum)
+  // console.log("SetFeatureContext", _cardNum)
   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
@@ -412,7 +431,7 @@ function createPieChart(_params, _parentEl){
 
   }
 
-function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
+function createLegends(_div_id, _svg_id, _dataType, _dataPaint){
 
   ////////////////////// Defining parameters ////////////////////////////
   var id = _div_id
@@ -500,19 +519,22 @@ function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
             .selectAll('.legends')
             .data(data);
 
+      // potential refactor here v ^
+
       var legend = legends
             .enter()
-            .append('g')
+            .append('g') //  <-- probably don't need this
             .classed('legends',true)
-            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
+            .attr('transform',function(d,i) {return "translate(" + (i+1) * _offSet + ",100)";});//*(width/_step)
 
       legend
         .append('rect')
         // Adjust these for the size of the colored boxes.
         .attr('width',_elementWidth)
         .attr('height',15)
-        .attr(_dataType,function(d){return color(d.id);});
+        .attr("fill",function(d){return color(d.id);});
 
+      // vvv this would be included in the refactor from line 503
       legend
         .append('text')
         .text(function(d,i){ return d.value;})
