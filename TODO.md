@@ -39,10 +39,10 @@ KRISTIAN
 
 [x] Extent legends to include multiple layers.
 
-[] Add categorical dimensions to airports and ports datasets
+[x] Add categorical dimensions to airports and ports datasets
   [x] UK (iso3)
-  [] Busiest UK
-  [] ??
+  [x] Busiest UK
+  [x] ??
 
 
 

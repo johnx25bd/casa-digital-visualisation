@@ -1,0 +1,142 @@
+<!-- Template from https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--  -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Leaflet style sheet and JS library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.css" crossorigin="" />
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Load JS Libraries -->
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+  <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-unminified.js" charset="utf-utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+  <title>🌐🚢✈ : How Things Move Around</title>
+  <!-- load favicon -->
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">🌐🚢✈ : How Things Move Around</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link ml-5" href="https://github.com/robisoniv/casa-digital-visualisation" target="_blank">Github <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <!-- <div id="mode-buttons" class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Explore
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Story
+          </label>
+        </div> -->
+        <div id="map-nav">
+          <div class="row">
+            <div class="btn-group story-nav-btns" role="group" aria-label="Basic example">
+
+              <input id="previous-card" class="btn btn-light" type="button" value="<">
+              <input id="global-view" class="jump-to-view btn btn-secondary active" type="button" value="Global">
+              <input id="national-view" class="jump-to-view btn btn-secondary" type="button" value="UK">
+              <input id="local-view" class="jump-to-view btn btn-secondary" type="button" value="Local">
+
+              <input id="next-card" class="btn btn-light" type="button" value=">">
+            </div>
+            <!-- <div class="col-12 btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary-outline active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                < </label> <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Global
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> National
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Local
+              </label>
+              <label id="next-card" class="btn btn-secondary-outline">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> >
+              </label>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div id='main-container' class="container-fluid">
+    <!-- Content here -->
+
+    <div class='row '>
+      <div id='main-map' class='col-8'></div>
+      <!-- <svg id="world"></svg> -->
+    </div>
+    <div class='row justify-content-end'>
+
+
+      <div id="info-body" class="col-md-4">
+        <!-- <div id='app-nav' class='col-12'>
+          <div class='row'>
+            <div class='col-1'>
+              <button class='btn btn-outline-primary'><<</btn>
+
+
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>Global</btn>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>UK</btn>
+            </div>
+            <div class='col'>
+              <button class='btn btn-block btn-outline-primary'>Local</btn>
+            </div>
+            <div class='col-1'>
+              <button class='btn btn-block btn-outline-primary'>>></btn>
+            </div>
+
+          </div>
+        </div> -->
+
+        <div id="story-cards" class="row">
+
+        </div>
+        <div id="explore-cards invisible" class="row">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <!-- Custom scripts -->
+  <script src="./scripts/functions.js"></script>
+  <script src="./data/layers.js"></script>
+  <script src="./data/cards.js"></script>
+  <script src="./scripts/load-map.js"></script>
+
+
+</body>
+
+</html>
