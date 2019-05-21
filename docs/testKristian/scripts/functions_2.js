@@ -151,7 +151,7 @@ function updateLegend(_layers,_cardNum) {
         'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
       };
     }
-
+    //console.log("LayerOfInterst ",layerOfInterst);
     createLegends(_legendSelector,layer,layerType,layerPaint);
   }
 }

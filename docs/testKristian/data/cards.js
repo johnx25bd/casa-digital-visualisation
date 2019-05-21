@@ -25,7 +25,7 @@ var cardData = [
       </ul>
 
     `,
-    "layers": ['export-countries'],
+    "layers": ['export-countries-volumes'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -128,7 +128,7 @@ var cardData = [
 
     `,
 
-    "layers": ['import-countries'],
+    "layers": ['import-countries-volumes','import-countries-volumes-highlighted'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -227,7 +227,7 @@ var cardData = [
       </figcaption>
 
     `,
-    "layers": ["airports-mapbox-data"],
+    "layers": ["global-airports"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -368,7 +368,7 @@ var cardData = [
         The distribution of islands from Indonesia <a href="https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia" target="_blank">Source</a>
       </figcaption>
     `,
-    "layers": ["ports"],
+    "layers": ["global-ports"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -500,7 +500,7 @@ var cardData = [
 
 
     `,
-    "layers": ["UKairports-mapbox-data", 'UKports'],
+    "layers": ["uK-airports", 'uK-ports'],
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -530,7 +530,7 @@ var cardData = [
 
 
     `,
-    "layers": ["UKairports-mapbox-data"],
+    "layers": ["uK-airports"],
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -555,7 +555,7 @@ var cardData = [
 
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
-    "layers": ["UKports"],
+    "layers": ["uK-ports"],
     "flyTo": {
       "bearing": 0,
       "center": [2.43025502683804, 54.19428441594809],
@@ -582,7 +582,7 @@ var cardData = [
 
 
     `,
-    "layers": ["heathrow-point", "heathrow-stations", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],
+    "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
       "bearing": 0,
       "center": [-0.4172184, 51.459262],
