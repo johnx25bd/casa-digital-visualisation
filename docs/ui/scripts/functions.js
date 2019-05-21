@@ -8,23 +8,10 @@ function buildAddLayerParams(_layerData) {
       _layerData.addLayerParams.default : _layerData.addLayerParams
     };
     return outputParams;
-<<<<<<< HEAD
     } else if (_layerData.type == 'mapbox') {
     var outputParams = _layerData.addLayerParams.default ?
       _layerData.addLayerParams.default :
       _layerData.addLayerParams;
-=======
-  } else if (_layerData.type == 'mapbox') {
-    var outputParams = _layerData.addLayerParams.default ?
-      _layerData.addLayerParams.default :
-      _layerData.addLayerParams;
-
-    outputParams.id = _layerData.name;
-
-    return outputParams;
-
-  }
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
     outputParams.id = _layerData.name;
 
@@ -118,13 +105,10 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
-<<<<<<< HEAD
     console.log(card.layers);
     /// Loading legends /////
     updateLegend(card.layers,i);
     //console.log("Layers", card.layers);
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   }
 }
 
@@ -135,39 +119,27 @@ function showCardLayers(_cardNum) {
   Object.keys(loadedData).forEach(function(layer) {
 
     if (layers.includes(layer)) {
-      console.log("Setting", layer, 'to visible!')
+      // console.log("Setting", layer, 'to visible!')
       map.setLayoutProperty(layer, 'visibility', 'visible');
     } else {
       map.setLayoutProperty(layer, 'visibility', 'none');
     }
   });
-}
-
-
-<<<<<<< HEAD
-function updateLegend(_layers,_cardNum) {
-=======
 function updateLegend(_layers, _legendSelector) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
   _legendSelector = getCardId(_cardNum) + ' .legend-content'
 
-<<<<<<< HEAD
   for (layer of _layers){
     // console.log("Layer",layer);
     if (!layer.includes('highlighted')){
       var layerOfInterst = layersData.find(function (l) {
         return l.name == layer;
       });
-=======
-  for (layer in _layers) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
       var layerType = layerOfInterst.addLayerParams.default ?
         layerOfInterst.addLayerParams.default.type :
         layerOfInterst.addLayerParams.type;
 
-<<<<<<< HEAD
       if (layerType == 'fill'){
 
         var layerPaint = map.getPaintProperty(layer,'fill-color');
@@ -189,14 +161,14 @@ function updateLegend(_layers, _legendSelector) {
 =======
     if (layerType == 'fill') {
 
-      var layerPaint = map.getLayoutProperty(layer, 'fill-color')
+      var layerPaint = map.getPaintProperty(layer,'fill-color');
 
     } else if (layerType == 'circle') {
 
       var layerPaint = {
-        'circle-radius': map.getLayoutProperty(layer, 'circle-radius'),
-        'circle-color': map.getLayoutProperty(layer, 'circle-color'),
-        'circle-stroke-color': map.getLayoutProperty(layour, 'circle-stroke-color')
+        'circle-radius': map.getPaintProperty(layer,'circle-radius'),
+        'circle-color' : map.getPaintProperty(layer,'circle-color'),
+        'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
       };
     }
 
@@ -205,11 +177,7 @@ function updateLegend(_layers, _legendSelector) {
   }
 }
 
-<<<<<<< HEAD
-function titleCase(_str,_separator=' ') {
-=======
 function titleCase(_str, _separator = ' ') {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
   // 🙏🙏🙏🙏🙏🙏🙏
   return _str.toLowerCase().split(_separator).map(function(word) {
@@ -217,20 +185,32 @@ function titleCase(_str, _separator = ' ') {
   }).join(' ');
 }
 
-function setActiveCard(_cardNum) {
-  if (_cardNum === activeCardNum) {
-    return;
+function buildAddLayerParams(_layerData) {
+  if (_layerData.type == 'geojson') {
+    var outputParams = {};
+    outputParams.id = _layerData.name;
+    outputParams.source = _layerData.name + '-source';
+    outputParams = { ...outputParams,
+      ..._layerData.addLayerParams.default ?
+      _layerData.addLayerParams.default :
+        _layerData.addLayerParams
+    };
+    return outputParams;
+  } else if (_layerData.type == 'mapbox') {
+    return _layerData.addLayerParams.default ?
+      _layerData.addLayerParams.default :
+      _layerData.addLayerParams;
   }
 
-<<<<<<< HEAD
-  // map.setStyle(baseStyle);
-// if (!inAnimation) {
-//
-// }
-  scrollToCard(_cardNum);
+}
 
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
+
+function setActiveCard(_cardNum) {
+  if (_cardNum === activeCardNum) {
+    // console.log("Issues arising")
+    return;
+  }
+}
   map.flyTo(cardData[_cardNum].flyTo);
 
   $("div[data-index='" + String(_cardNum) + "']")
@@ -245,6 +225,7 @@ function setActiveCard(_cardNum) {
 
   showCardLayers(_cardNum);
 
+  // console.log('Setting activeCardNum')
   activeCardNum = _cardNum;
 
 }
@@ -256,7 +237,7 @@ function scrollToCard(_cardNum) {
 
 
     $('body').addClass('scrolling');
-    
+
     setTimeout(function () {
       $('body').removeClass('scrolling');
     }, 1000)
@@ -499,28 +480,17 @@ function createPieChart(_params, _parentEl) {
 
 }
 
-<<<<<<< HEAD
 function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
-=======
-function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
   ////////////////////// Defining parameters ////////////////////////////
   var id = _div_id
   // Defining the variables based on the type of the data loaded in.
   if (_dataType == 'fill') {
     ///////////////////////// FILL ////////////////////////////////////////////
-<<<<<<< HEAD
     var width = 150//300
         height = 75//150
 
     if (Array.isArray(_dataPaint) && _dataPaint.length > 3){
-=======
-    var width = 150 //300
-    height = 100 //150
-
-    if (_dataPaint.length > 1) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       // If you are a fill taking on many colors!
       _step = 20;
       _min = _dataPaint[3];
@@ -543,26 +513,16 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
   } else if (_dataType == 'circle') {
     // If you are circle layer, we need a lot more information.
 
-<<<<<<< HEAD
     // var width = 300
     //     height = 300
-=======
-    var width = 300
-    height = 300
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
     var _offSet = 50;
     var _elementWidth = 15;
     _step = null;
   }
   ////////////////////// Done defining parameters - Let's build! ////////////////////////////
-<<<<<<< HEAD
   if (_dataType == 'fill'){
     if (Array.isArray(_dataPaint)){//.length > 1
-=======
-  if (_dataType == 'fill') {
-    if (_dataPaint.length > 1) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       // var generateRange = d3.scaleLinear()
       //   .domain([0,_step])
       //   .range([_min,_max])
@@ -601,7 +561,6 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
         .attr("width", '100%;')
         .attr("height", 'auto;')
         .append("g")
-<<<<<<< HEAD
           .attr("transform", "translate(" + width*1.25 + "," + height*0.7 + ")");//" + width / 2 + "
 
       svg
@@ -617,23 +576,8 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
             .attr('transform','translate(-200,-100)')
             .selectAll('.legends')
             .data(data);
-=======
-        .attr("transform", "translate(" + width * 1.25 + "," + height + ")"); //" + width / 2 + "
 
-      svg
-        .append('text')
-        .attr('x', -125) //
-        .attr('y', -30)
-        .attr('text-anchor', 'middle')
-        .classed('title', true)
-        .text(_svg_id);
-
-      var legends = svg
-        .append('g')
-        .attr('transform', 'translate(-175,-100)')
-        .selectAll('.legends')
-        .data(data);
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
+      // potential refactor here v ^
 
       var legend = legends
         .enter()
@@ -652,6 +596,7 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
           return color(d.id);
         });
 
+      // vvv this would be included in the refactor from line 503
       legend
         .append('text')
         .text(function(d, i) {
@@ -660,11 +605,7 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
         .attr('x', 5)
         .attr('y', 35)
 
-<<<<<<< HEAD
     } else if (!Array.isArray(_dataPaint)){
-=======
-    } else if (_dataPaint.length == 1) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       //////////////////////////// Data /////////////////////////////////////
       var color = [_dataPaint];
       var data = [_title];
@@ -672,7 +613,6 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
       //////////////////////////// Creating the legend /////////////////////////////////////
       var svg = d3.select(id)
         .append('svg')
-<<<<<<< HEAD
         .attr('id',_svg_id)
           // Adjust the factor below to allows for more space for the legends
           //.attr("width", '100%;')
@@ -685,30 +625,16 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
             ' ' +
             height//(height + margin + margin)
           )
-=======
-        .attr('id', _svg_id)
-        // Adjust the factor below to allows for more space for the legends
-        .attr("width", '100%;')
-        .attr("height", 'auto;')
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         .append("g")
         .attr("transform", "translate(" + width * 1.25 + "," + height + ")"); //" + width / 2 + "
 
       svg
         .append('text')
-<<<<<<< HEAD
         .attr('x',0)//
         .attr('y',-30)
         .attr('text-anchor','end')
         .classed('title',true)
         .text(_title);
-=======
-        .attr('x', -125) //
-        .attr('y', -30)
-        .attr('text-anchor', 'middle')
-        .classed('title', true)
-        .text(_svg_id);
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
       var legends = svg
         .append('g')
@@ -746,21 +672,12 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
       var color = [];
       var data = [];
 
-<<<<<<< HEAD
       for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
         color.push(_dataPaint['circle-color'][i]);
         data.push(_dataPaint['circle-color'][i-1])
       }
       color.push('#cfd9df')
       data.push('other')
-=======
-    for (var i = 3; i < (_dataPaint['circle-color'].length); i += 2) {
-      color.push(_dataPaint['circle-color'][i]);
-      data.push(_dataPaint['circle-color'][i - 1])
-    }
-    color.push('#cfd9df')
-    data.push('other')
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
       var size = [];
       var sizedata = [];
@@ -772,7 +689,6 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
       size.push(5)
       sizedata.push('other')
 
-<<<<<<< HEAD
       if (data.length >= sizedata.length){
         var height = (data.length + 1)*50
       } else {
@@ -784,17 +700,11 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
       var color = [_dataPaint['circle-color']]
       var data = [_title]
       var height = 100;
-=======
-    for (var i = 3; i < (_dataPaint['circle-radius'].length); i += 2) {
-      size.push(_dataPaint['circle-radius'][i]);
-      sizedata.push(_dataPaint['circle-radius'][i - 1])
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     }
 
     //////////////////////////// Creating the legend /////////////////////////////////////
     var svg = d3.select(id)
       .append('svg')
-<<<<<<< HEAD
       .attr('id',_svg_id)
         // Adjust the factor below to allows for more space for the legends
         //.attr("width", height)
@@ -816,22 +726,6 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
       .attr('text-anchor','end')
       .classed('title',true)
       .text(_title);
-=======
-      .attr('id', _svg_id)
-      // Adjust the factor below to allows for more space for the legends
-      .attr("width", width)
-      .attr("height", height)
-      .append("g")
-      .attr("transform", "translate(" + width / 1.5 + "," + height / 4 + ")"); //" + width / 2 + "
-
-    svg
-      .append('text')
-      .attr('x', -140) //
-      .attr('y', -30)
-      .attr('text-anchor', 'middle')
-      .classed('title', true)
-      .text(_svg_id);
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     // Categories
     var legends = svg
       .append('g')
@@ -859,7 +753,6 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
 
     legend
       .append('text')
-<<<<<<< HEAD
       .text(function(d,i){ return data[i];})
       .attr('x',50)
       .attr('y',20)
@@ -898,58 +791,13 @@ function createLegends(_div_id, _svg_id, _dataType, _dataPaint) {
   } else {
     console.log(_dataType,': ERROR:  I dont know this datatype!')
     return;
-=======
-      .text(function(d, i) {
-        return data[i];
-      })
-      .attr('x', 50)
-      .attr('y', 20)
-    // Size ///
-    var legends = svg
-      .append('g')
-      .attr('transform', 'translate(-175,-150)')
-      .selectAll('.legends')
-      .data(sizedata);
-
-    var legend = legends
-      .enter()
-      .append('g')
-      .classed('legends', true)
-      .attr('transform', function(d, i) {
-        return "translate(150," + +(i + 3) * _offSet + ")";
-      }); //*(width/_step)
-
-    legend
-      .append('circle')
-      // Adjust these for the size of the colored boxes.
-      .attr('cx', _elementWidth)
-      .attr('cy', _elementWidth) //function(d,i) {return size[i]*2;}
-      .attr('r', function(d, i) {
-        return size[i] * 2;
-      })
-      .style('fill', 'white')
-      .style('stroke', 'black');
-    legend
-      .append('text')
-      .text(function(d, i) {
-        return sizedata[i];
-      })
-      .attr('x', 50)
-      .attr('y', 20)
-  } else {
-    console.log('ERROR:  I dont know this datatype!')
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   }
 }
 
 // fitText jQuery plugin, for airport codes
 // from https://github.com/davatron5000/FitText.js
 
-<<<<<<< HEAD
 (function ( $ ){
-=======
-(function($) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
   $.fn.fitText = function(kompressor, options) {
 
