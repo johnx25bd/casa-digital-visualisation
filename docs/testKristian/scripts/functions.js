@@ -102,9 +102,9 @@ function loadCards(_cards) {
       card.loadCard(i, card);
     }
     /// Loading legends /////
-    console.log("The layers are: ",card.layers)
-    console.log("The card number are",i)
-    //updateLegend(card.layers,i);
+    //console.log("The layers are: ",card.layers)
+    //console.log("The card number are",i)
+    updateLegend(card.layers,i);
 
   }
   //console.log("Layers",_cards[0].layers)
