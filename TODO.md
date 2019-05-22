@@ -9,7 +9,7 @@ _prior to presentation_
 
 [] Replace jpg bar charts with D3 bar charts
 
-[] Add tooltips to airports layer 
+[] Add tooltips to airports layer
 
 [] Figure out scroll update card situation
 
@@ -17,13 +17,19 @@ _prior to presentation_
 
 [] Fix broken image in Port of London
 
-[]
+[] Add data source on the maps
+
+[] Add to description in Global Air Transport card
 
 [] Add air traffic over UK
 
 [] Add feature content to National cards
   [] Airports - passenger flows pie charts (Inwards + Outwards)
   [] Ports - what info?
+
+[] Improve analysis in cards
+
+[] Add country highlight on bar hover?
 
 ###############################################################################
 

@@ -1,7 +1,6 @@
 console.log('loading layers data')
 
-var layersData = [
-  {
+var layersData = [{
     "name": "export-countries-volumes",
     "type": "mapbox",
     "path": "none",
@@ -33,9 +32,9 @@ var layersData = [
     tooltip: function(_data) {
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Exports (million USD):<br />' +
-         _data.properties.all_commodities_export + '</p>';
+        _data.properties.all_commodities_export + '</p>';
     },
-    highlight: function ( ) {
+    highlight: function() {
       return "yes";
     }
   },
@@ -108,9 +107,9 @@ var layersData = [
       // pop tooltip with data.
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Imports (million USD):<br />' +
-         _data.properties.all_commodities_import + '</p>';
+        _data.properties.all_commodities_import + '</p>';
     },
-    highlight: function () {
+    highlight: function() {
       return;
     }
   },
@@ -224,32 +223,34 @@ var layersData = [
           "circle-color": "blue"
         }
       }
-    }},
-       {
-      "name": "uK-airports",
-      "type": "mapbox",
-      "path": "none",
-      "addLayerParams": {
-        "default": {
-          // "id": "UKairports-mapbox-data",
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://kristianln.cjvne9hos03qt2xmbc389p414-253yc"
-          },
-          "source-layer": "UKFreightAirports",
+    }
+  },
+  {
+    "name": "uK-airports",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        // "id": "UKairports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvne9hos03qt2xmbc389p414-253yc"
+        },
+        "source-layer": "UKFreightAirports",
 
-          "paint": {
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': [
+        "paint": {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': [
             'match',
             ['get', 'size'],
             'small', 2,
             'mid', 4,
             'major', 6,
-            /* other */ 4
-        ],
-        'circle-color': [
+            /* other */
+            4
+          ],
+          'circle-color': [
             'match',
             ['get', 'usage'],
             'civilian', '#5769D3',
@@ -294,32 +295,98 @@ var layersData = [
         },
         "source-layer": "Global_airports",
 
-  }}},
-    {
-      "name": "global-airports",
-      "type": "mapbox",
-      "path": "none",
-      "addLayerParams": {
-        "default": {
-          // "id": "airports-mapbox-data",
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
-          },
-          "source-layer": "Global_airports",
+      }
+    }
+  },
+  {
+    "name": "uk-ais-points",
+    "type": 'mapbox',
+    "path": 'none',
+    "addLayerParams": {
+      "default": {
+        "type": "heatmap",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://robisoniv.811ohs7d"
+        },
+        "source-layer": "uk_points",
+        "paint": {
+          // Increase the heatmap weight based on frequency and property magnitude
+          "heatmap-weight": [
+            "interpolate",
+            ["linear"],
+            ["get", "mag"],
+            0, 0,
+            6, 1
+          ],
+          // Increase the heatmap color weight weight by zoom level
+          // heatmap-intensity is a multiplier on top of heatmap-weight
+          "heatmap-intensity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0, 1,
+            9, 3
+          ],
+          // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+          // Begin color ramp at 0-stop with a 0-transparancy color
+          // to create a blur-like effect.
+          "heatmap-color": [
+            "interpolate",
+            ["linear"],
+            ["heatmap-density"],
+            0, "rgba(33,102,172,0)",
+            0.2, "rgb(103,169,207)",
+            0.4, "rgb(209,229,240)",
+            0.6, "rgb(253,219,199)",
+            0.8, "rgb(239,138,98)",
+            1, "rgb(178,24,43)"
+          ],
+          // Adjust the heatmap radius by zoom level
+          "heatmap-radius": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0, .2,
+            13, 2
+          ],
+          // Transition from heatmap to circle layer by zoom level
+          "heatmap-opacity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            10, 1,
+            13, 0
+          ],
+        }
+      }
+    }
+  }, {
+    "name": "global-airports",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        // "id": "airports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+        },
+        "source-layer": "Global_airports",
 
-          "paint": {
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': [
+        "paint": {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': [
             'match',
             ['get', 'size'],
             'small', 2,
             'mid', 4,
             'major', 6,
-            /* other */ 4
-        ],
-        'circle-color': [
+            /* other */
+            4
+          ],
+          'circle-color': [
             'match',
             ['get', 'usage'],
             'civilian', '#5769D3',
@@ -462,7 +529,7 @@ var layersData = [
         "source-layer": "Port_of_Tilbury-7w0i1u",
         "paint": {
           "circle-radius": 10,
-          "circle-color": "green"
+          "circle-color": "blue"
         }
       }
     },
@@ -510,7 +577,7 @@ var layersData = [
         "source-layer": "Tilbury_School-1s7kw8",
         "paint": {
           "circle-radius": 4,
-          "circle-color": "blue"
+          "circle-color": "grey"
         }
       }
     },
@@ -567,7 +634,7 @@ var layersData = [
     }
 
   },
-      {
+  {
     "name": "uK-ports",
     "path": "./data/uk-ports.json",
     "type": "geojson",
@@ -583,11 +650,11 @@ var layersData = [
             'S', 4,
             'M', 6,
             'L', 8,
-            /* other */ 5
-        ],
-        'circle-color':
-         [
-             'match',
+            /* other */
+            5
+          ],
+          'circle-color': [
+            'match',
             ['get', 'harbortype'],
             'coastal', '#f83600',
             'lake', '#ff5858',
@@ -641,11 +708,11 @@ var layersData = [
             'S', 4,
             'M', 6,
             'L', 8,
-            /* other */ 5
-        ],
-        'circle-color':
-         [
-             'match',
+            /* other */
+            5
+          ],
+          'circle-color': [
+            'match',
             ['get', 'harbortype'],
             'coastal', '#f83600',
             'lake', '#ff5858',

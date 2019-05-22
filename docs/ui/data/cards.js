@@ -47,7 +47,6 @@ var cardData = [
 
 
       createBarChart(exportersBarChartParams, "#exports-bar-chart");
-      // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
 
@@ -119,6 +118,8 @@ var cardData = [
         <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
         <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
         </ul>
+        <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/553784094&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
     `,
 
     "layers": ['import-countries-volumes','import-countries-volumes-highlighted'],
@@ -165,7 +166,7 @@ var cardData = [
 
       featureDiv.append('p')
         .classed('header-span', true)
-        .text('Imports by category')
+        .text('Imports by category (billion USD)')
 
       var featureContent = featureDiv
         .append('div')
@@ -195,7 +196,7 @@ var cardData = [
   {
     "extent": "global",
     "title": "Air Transport",
-    "content": `<p>The map displays globally distributed airports across different geographical areas, as well as their passed-through amounts in the year of 2017.</p>
+    "content": `<p>The map displays globally distributed airports across different geographical areas, as well as their passed-through amounts in the year of 2017 (thousand tons).</p>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport is located to show its rank in the global busiest airports ranking.
@@ -203,6 +204,11 @@ var cardData = [
         </div>
       </div>
       <img src='./assets/images/top5Air.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+      <img src='./assets/images/hk-airport.jpg' class='img-fluid' alt='Hong Kong Airport'>
+      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+        Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
+      </figcaption>
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>When looking at the air transport mode, airports are concentrated in the Asia, Europe and Americas.</li>
@@ -211,10 +217,7 @@ var cardData = [
         <li>The top five ranking based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that three out of the five airports are located in Asia, six in Americas and four in Europe.</li>
         <li>Hong Kong has become the busiest cargo hub in the world, the passed- through amounts has reaches up to 5,000,000 tonnes.</li>
       </ul>
-      <img src='./assets/images/hk-airport.jpg' class='img-fluid' alt='Hong Kong Airport'>
-      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-        Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
-      </figcaption>
+
     `,
     "layers": ["global-airports"],
     "flyTo": {
@@ -335,7 +338,7 @@ var cardData = [
   {
     "extent": "global",
     "title": "Sea Transport",
-    "content": `<p>The map displays globally distributed ports across different geographical areas, as well as their shipped-through amounts in the year of 2017. </p>
+    "content": `<p>The map displays globally distributed ports across different geographical areas, as well as their shipped-through amounts in the year of 2017 (thousand TEUs). </p>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport is located to show its rank in the global busiest airports ranking.
@@ -350,9 +353,11 @@ var cardData = [
         <li>However, more ports are concentrated in Mediterranean compared with North Africa. In continent, there are ports only locate in the countries near coast. And Inland countries does not need ports. In Mediterranean, there are 60 Basin countries. But most countries in North Africa are inland.</li>
         <li>In a similar way, Indonesia is made of hundreds of islands. The simplest transportation for these island countries is by sea. So it makes sense there are many ports appears in Indonesia.</li>
       </ul>
-      <img src='./assets/images/indonesia.png' class='img-fluid' alt='Hong Kong Airport'>
-      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-        The distribution of islands from Indonesia <a href="https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia" target="_blank">Source</a>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe  class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/LHRfRfBqPL0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <figcaption class="figure-caption mb-4">
+        A container terminal in Malaysia. <a href="https://www.youtube.com/embed/LHRfRfBqPL0" target="_blank">Source</a>
       </figcaption>
     `,
     "layers": ["global-ports"],
@@ -476,18 +481,22 @@ var cardData = [
     "extent": "national",
     // "cardNum": 3,
     "title": "The UK in the World",
-    "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude. Besides, it is clearly that the top 5 busiest airports in the UK are London Heathrow, Manchester Airport, London Gatwick, Birmingham Airport and London Luton. Three of them are in London, the biggest city in the UK, and the other two also located in big cities. The top 5 busiest ports are London, Liverpool, Felixstowe, Belfast and Bristol.</p>
-    <img src='./assets/images/uk-airports-traffic.jpeg' class='img-fluid' alt='UK Airport Traffic Pie Chart'>
+    "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude.</p>
+  <!--  <img src='./assets/images/uk-airports-traffic.jpeg' class='img-fluid' alt='UK Airport Traffic Pie Chart'>
     <figcaption class="figure-caption mb-4">
             Proportionate UK air traffic by origin.
-          </figcaption>
+          </figcaption> -->
+      <h4>UK Port Traffic By Origin</h4>
+      <div id="uk-ports-pie-chart" class='pie-chart-holder'></div>
+      <h4>UK Airport Traffic By Origin</h4>
+      <div id="uk-airports-pie-chart" class='pie-chart-holder'></div>
 
-      <div class='card border-secondary mb-3'>
+      <!--<div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport or the port is located to show its rank in the global busiest airports ranking.
           </p>
         </div>
-      </div>
+      </div>-->
     `,
     "layers": ["uK-airports", 'uK-ports'],
     "flyTo": {
@@ -495,6 +504,52 @@ var cardData = [
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
       "zoom": 4.5,
       "pitch": 0
+    },
+    loadCard: function (_i, _params) {
+      console.log(_i, _params)
+
+      d3.csv("./data/uk-port-pie.csv")
+        .then(function (data) {
+          var pieData = {};
+
+          data.forEach(function (row) {
+            pieData[row.type] = +row.value;
+          })
+
+          var pieParams = {
+            data: pieData
+          };
+
+
+
+          console.log('PieData', pieParams);
+
+          createPieChart(pieParams, '#uk-ports-pie-chart');
+
+        });
+
+        d3.csv("./data/uk-airport-pie.csv")
+          .then(function (data) {
+            var pieData = {};
+
+            data.forEach(function (row) {
+              pieData[row.type] = +row.value;
+            })
+
+            var pieParams = {
+              data: pieData
+            };
+
+            // console.log('PieData', pieData);
+
+            createPieChart(pieParams, '#uk-airports-pie-chart');
+
+          });
+
+
+
+      // setFeatureContentText(_i, "country")
+
     }
   },
   {
@@ -539,7 +594,7 @@ var cardData = [
       </figcaption>
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
-    "layers": ["uK-ports"],
+    "layers": ["uK-ports", 'uk-ais-points'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -557,12 +612,16 @@ var cardData = [
           </p>
         </div>
       </div>
-      <img src='./assets/images/Heathrow.jpg' class='img-fluid' alt='Heathrow Airport'>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class='embed-responsive-item' width="560" height="315" src="https://www.youtube.com/embed/LI_apMKa2c0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
       <figcaption class="figure-caption mb-4">
-        Heathrow Airport. <a href="https://youtu.be/LI_apMKa2c0" target="_blank">Source</a>
+        A Tale of Modern Britain. <a href="https://youtu.be/LI_apMKa2c0" target="_blank">Source</a>
       </figcaption>
-       <img src='./assets/images/Heathrow1.jpg' class='img-fluid' alt='Heathrow Airport'>
-    <p>The pie chart shows that the international goods transtation in Heathrow is more than it for domestic goods transportation. </p>
+
+      <h4>Heathrow Freight Traffic (thousand tons)</h4>
+      <div id="heathrow-pie-chart" class='pie-chart-holder'></div>
+
     `,
     "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
@@ -609,8 +668,9 @@ var cardData = [
         }
       }
 
-      var featureSelector = "#" + _params.extent + '-card-' + i + ' .feature .card-body';
-
+      var cardId = "#" + _params.extent + '-card-' + i,
+        featureSelector = cardId + ' .feature',
+        legendSelector = cardId + ' .legend';
       var featureContent = d3.select(featureSelector)
         .append('div')
         .classed('col-12', true);
@@ -631,6 +691,38 @@ var cardData = [
           map.flyTo(heathrowTourParams[d]);
         });
 
+
+      d3.csv("./data/heathrow-pie.csv")
+        .then(function (data) {
+          var pieData = {};
+
+          data.forEach(function (row) {
+            pieData[row.type] = +row.value;
+          })
+
+          var pieParams = {
+            data: pieData
+          };
+
+          // console.log('PieData', pieData);
+
+          createPieChart(pieParams, '#heathrow-pie-chart');
+
+        });
+
+        var legendHtml = `
+        <div class="card legend-fakeout">
+          <div class="card-body">
+            <h3 class="card-title">Legend</h3>
+              <img src='./assets/images/local-legends.png' class='img-fluid' alt='Port of London'>
+
+          </div>
+        </div>
+        `
+
+        d3.select(legendSelector)
+          .html(legendHtml);
+          // .classed('d-none', true);
       // set up Feature Content with tour ...
 
     }
@@ -649,10 +741,21 @@ var cardData = [
       <figcaption class="figure-caption mb-4">
         Port of London. <a href="https://youtu.be/IINJU5k2WuY">Source</a>
       </figcaption>
-       <img src='./assets/images/London-port1.jpg' class='img-fluid' alt='Port of London'>
-    <p>The pie chart shows the inwards and outwards for domestic and international transportation.</p>
+      <h4>Port of London Freight Traffic (thousand tons)</h4>
+      <div id="london-port-pie-chart" class='pie-chart-holder'></div>
+
+
+    <figcaption class="figure-caption mb-4">The pie chart shows the inwards and outwards for domestic and international transportation.</figcaption>
+    <div class="card legend-fakeout">
+      <div class="card-body">
+        <h3 class="card-title">Legend</h3>
+          <img src='./assets/images/local-legends.png' class='img-fluid' alt='Port of London'>
+
+      </div>
+    </div>
+
     `,
-    "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
+    "layers": ["tilbury-buffer", "3d-buildings", "tilbury-center", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":0.34804926378694745,"lat":51.46306234902639},
@@ -660,9 +763,34 @@ var cardData = [
       "pitch": 0
     },
     loadCard: function(_i, _params) {
-      var featureSelector = "#" + _params.extent + '-card-' + i + ' .feature';
+      var cardId = "#" + _params.extent + '-card-' + i,
+        featureSelector = cardId + ' .feature',
+        legendSelector = cardId + ' .legend';
+
       d3.select(featureSelector)
         .classed('d-none', true);
+
+      d3.csv("./data/london-port-pie.csv")
+        .then(function (data) {
+          var pieData = {};
+
+          data.forEach(function (row) {
+            pieData[row.type] = +row.value;
+          })
+
+          var pieParams = {
+            data: pieData
+          };
+
+          // console.log('PieData', pieData);
+
+          createPieChart(pieParams, '#london-port-pie-chart');
+
+        });
+
+        d3.select(legendSelector)
+          .classed('d-none', true);
+
     }
   },
 
