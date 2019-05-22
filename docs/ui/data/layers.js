@@ -109,6 +109,9 @@ var layersData = [
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Imports (million USD):<br />' +
          _data.properties.all_commodities_import + '</p>';
+    },
+    highlight: function () {
+      return;
     }
   },
   {
