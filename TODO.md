@@ -52,27 +52,27 @@ SHUKE
 
 KRISTIAN
 
-[] K+J Legends loading looking good
+[x] K+J Legends loading looking good
 
-[] K Fix Heathrow center attribute
+[x] K Fix Heathrow center attribute
 
-[] K Add favicon
+[x] K Add favicon
 
 
-[] K Implement D3 bar charts in cards
-  [] Set hover state opacity 0.7 - to show interactivity
+[x] K Implement D3 bar charts in cards
+  [x] Set hover state opacity 0.7 - to show interactivity
 
 [] K Add in-card bar charts for UK Ports and UK Air Transport cards.
 
 [] J + K Add shipping density map
 
-[] K Pie chart value pop-up on click
+[x] K Pie chart value pop-up on click
 
-[] Merge / integrate legends
+[x] Merge / integrate legends
 
 [] Add pie chart feature content update for UK largest ports and airports card
 
-[] Feature-content: On pie segment click display amount of category.
+[-] Feature-content: On pie segment click display amount of category.
 
 [] Maybe help with shipping density heatmap - tippecanoe etc.
 
