@@ -52,8 +52,148 @@ var cardData = [
       };
 
 
-      createBarChart(exportersBarChartParams, "#exports-bar-chart");
+      createCustomBarChart(exportersBarChartParams, "#exports-bar-chart");
 
+      function createCustomBarChart(_params, _parentEl) {
+
+        var file = _params.dataPath,
+          y_legend = _params.yAxisLabel,
+          title = _params.title,
+          type = _params.valueType;
+
+        var width = d3.select(_parentEl).node().getBoundingClientRect().width,
+          height = width * 0.3 ,
+          margin = 0;
+
+          console.log(height);
+
+        var svg = d3.select(_parentEl)
+          .append("svg")
+          .attr('height', height * 1.5)
+          .attr('width', width - 15)
+          .attr('preserveAspectRatio', 'xMinYMin meet')
+          .attr(
+            'viewBox',
+            '0 0 ' +
+            (width + margin + margin) * 1.3 +
+            ' ' +
+            (height + margin + margin)
+          );
+
+          // from https://eddyerburgh.me/create-responsive-bar-chart-d3-js
+
+          //
+          var mouseover = function(d) {
+            Tooltip
+              .style("opacity", 1)
+            d3.select(this)
+              .style("stroke", "black")
+              .style("opacity", 1)
+          }
+          var mousemove = function(d) {
+            Tooltip
+              .html("The exact value of<br>this cell is: " + d.value)
+              .style("left", (d3.mouse(this)[0]+70) + "px")
+              .style("top", (d3.mouse(this)[1]) + "px")
+          }
+          var mouseleave = function(d) {
+            Tooltip
+              .style("opacity", 0)
+            d3.select(this)
+              .style("stroke", "none")
+              .style("opacity", 0.8)
+          }
+
+        svg.append("text")
+          .attr("transform", "translate(" + width * 0.1 + ",0)")
+          .attr("x", width * 0.1)
+          .attr("y", width * 0.1)
+          .attr("font-size", "24px")
+          .text(title)
+
+        var xScale = d3.scaleBand().range([0, width]).padding(0.4),
+          yScale = d3.scaleLinear().range([height, 0]); //height
+
+        var g = svg.append("g")
+          .classed('chart-body', true)
+          .attr("transform", "translate(" + margin + 70 + "," + margin + 80 + ")");
+
+        d3.csv(file).then(function(data) {
+          data.forEach(function(d) {
+            d.value = +d.value;
+          });
+
+          xScale.domain(data.map(function(d) {
+            return d.name;
+          }));
+          yScale.domain([0, d3.max(data, function(d) {
+            return d.value;
+          })]); //
+
+          g.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(xScale))
+            .append("text")
+            .attr("y", height * 0.2)
+            .attr("x", width * 0.45)
+            .attr("text-anchor", "end")
+            .attr("stroke", "black")
+            .text("Name");
+
+
+          g.append("g")
+            .call(d3.axisLeft(yScale).tickFormat(function(d) {
+
+                if (type == 'value') {
+                  return "$" + d;
+                } else if (type == 'amount') {
+                  return d;
+                }
+              })
+
+              .ticks(10))
+            .append("text")
+            .attr("transform", "rotate(0)")
+            .attr("y", 5)
+            .attr("dy", "-2.1em")
+            .attr("text-anchor", "end")
+            .attr("stroke", "black")
+            .text(y_legend);
+
+          g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) {
+              return xScale(d.name);
+            })
+            .attr("y", function(d) {
+              return yScale(d.value);
+            })
+            .attr("width", xScale.bandwidth())
+            .attr("height", function(d) {
+              return height - yScale(d.value);
+            })
+
+            .on('mouseenter', function(d) {
+
+              text = svg.append("text")
+                    .attr("transform", function(d, i) { return "translate(100," + height * 1.8 + ")";})
+                    .attr("dy", ".5em")
+                    .style("text-anchor", "middle")
+                    .attr("class", "on")
+                    .text("Bar value: "+d.value);
+                  console.log(d);
+
+              highlightCountry('export-countries-volumes', d.iso3);
+            })
+            .on("mouseout", function(d) {
+              unhighlightCountry('export-countries-volumes');
+                   text.remove();
+            });
+
+        });
+      }
       setFeatureContentText(_i, "country")
 
 
@@ -258,6 +398,8 @@ var cardData = [
 
 
       createBarChart(topAirportsBarChartParams, "#top-five-airports-bar-chart");
+
+
 
       setFeatureContentText(_i, "airport")
 
@@ -701,7 +843,7 @@ var cardData = [
             var topUKPortsBarChartParams = {
               "chartType": "bar",
               "valueType": "value", // or "amount"
-              "title": "Top Five British Airports by Volume",
+              "title": "Top Five British Ports by Volume",
               "dataPath": "./data/top_five_ukports.csv",
               "yAxisLabel": "Port traffic volumes (thousand TEU)",
 

@@ -247,6 +247,8 @@ function createBarChart(_params, _parentEl) {
     height = width * 0.3 ,
     margin = 0;
 
+    console.log(height);
+
   var svg = d3.select(_parentEl)
     .append("svg")
     .attr('height', height * 1.5)
@@ -262,6 +264,27 @@ function createBarChart(_params, _parentEl) {
 
     // from https://eddyerburgh.me/create-responsive-bar-chart-d3-js
 
+    //
+    var mouseover = function(d) {
+      Tooltip
+        .style("opacity", 1)
+      d3.select(this)
+        .style("stroke", "black")
+        .style("opacity", 1)
+    }
+    var mousemove = function(d) {
+      Tooltip
+        .html("The exact value of<br>this cell is: " + d.value)
+        .style("left", (d3.mouse(this)[0]+70) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px")
+    }
+    var mouseleave = function(d) {
+      Tooltip
+        .style("opacity", 0)
+      d3.select(this)
+        .style("stroke", "none")
+        .style("opacity", 0.8)
+    }
 
   svg.append("text")
     .attr("transform", "translate(" + width * 0.1 + ",0)")
@@ -332,12 +355,31 @@ function createBarChart(_params, _parentEl) {
       .attr("width", xScale.bandwidth())
       .attr("height", function(d) {
         return height - yScale(d.value);
+      })
+
+      .on('mouseenter', function(d) {
+
+        text = svg.append("text")
+              .attr("transform", function(d, i) { return "translate(100," + height * 1.8 + ")";})
+              .attr("dy", ".5em")
+              .style("text-anchor", "middle")
+              .attr("class", "on")
+              .text("Bar value: "+d.value);
+      })
+      .on("mouseout", function(d) {
+             text.remove();
       });
 
   });
 }
 
+function highlightCountry (_layerName, _iso3) {
+  map.setFilter(_layerName +'-highlighted', ['==', 'iso3', _iso3]);
+}
 
+function unhighlightCountry (_layerName) {
+  map.setFilter(_layerName +'-highlighted', ['==', 'iso3', '']);
+}
 
 function createPieChart(_params, _parentEl) {
 
