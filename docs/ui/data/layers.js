@@ -34,6 +34,9 @@ var layersData = [
       return '<h5 class="text-center mb-0">' + _data.properties.name +
         '</h5><p class="text-center mb-0">Total Exports (million USD):<br />' +
          _data.properties.all_commodities_export + '</p>';
+    },
+    highlight: function ( ) {
+      return "yes";
     }
   },
   {

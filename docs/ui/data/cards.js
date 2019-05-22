@@ -20,7 +20,7 @@ var cardData = [
         <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
       </ul>
     `,
-    "layers": ['export-countries-volumes'],
+    "layers": ['export-countries-volumes', 'export-countries-volumes-highlighted'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -96,7 +96,8 @@ var cardData = [
 
       createPieChart(pieData, featureSelector + ' .pie-chart-holder');
 
-    }
+    },
+  
   },
   {
     "extent": "global",

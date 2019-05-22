@@ -339,99 +339,126 @@ function createBarChart(_params, _parentEl) {
 
 
 
-function createPieChart(_params, _parentEl){
+function createPieChart(_params, _parentEl) {
 
 
-  var width = d3.select(_parentEl).node().getBoundingClientRect().width ,
-      height = width / 2,
-      margin = 0;
+  var width = d3.select(_parentEl).node().getBoundingClientRect().width,
+    height = width / 2,
+    margin = 0;
 
-    var id = _parentEl,
-        _title = _params.title;
+  var id = _parentEl,
+    _title = _params.title;
 
-    var data = _params.data;
+  var data = _params.data;
 
-    // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
-    var radius = Math.min(width, height) / 2 - margin;
+  // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
+  var radius = Math.min(width, height) / 2 - margin;
 
-    // append the svg object to the div called 'my_dataviz'
-    var svg = d3.select(id)
-      .append("svg")
-        // Adjust the factor below to allows for more space for the legends
-        .attr("width", width*1)
-        .attr("height", height)
-      .append("g")
-        .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");//" + width / 2 + "
+  // append the svg object to the div called 'my_dataviz'
+  var svg = d3.select(id)
+    .append("svg")
+    // Adjust the factor below to allows for more space for the legends
+    .attr("width", width * 1)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")"); //" + width / 2 + "
 
-    var dataDomain = Object.keys(data)
+  var dataDomain = Object.keys(data)
 
-    // set the color scale
-    var color = d3.scaleOrdinal()
-      // Alternated to allow for dynamically colouring.
-      .domain(dataDomain)
-      .range(d3.schemeDark2);
+  // set the color scale
+  var color = d3.scaleOrdinal()
+    // Alternated to allow for dynamically colouring.
+    .domain(dataDomain)
+    .range(d3.schemeDark2);
 
-    // Compute the position of each group on the pie:
-    var pie = d3.pie()
-      .sort(null) // Do not sort group by size
-      .value(function(d) {return d.value; });
+  // Compute the position of each group on the pie:
+  var pie = d3.pie()
+    .sort(null) // Do not sort group by size
+    .value(function(d) {
+      return d.value;
+    });
 
-    var data_ready = pie(d3.entries(data))
+  var data_ready = pie(d3.entries(data))
 
-    // The arc generator
-    var arc = d3.arc()
-      .innerRadius(radius * 0.5)         // This is the size of the donut hole
-      .outerRadius(radius * 0.8)
+  // The arc generator
+  var arc = d3.arc()
+    .innerRadius(radius * 0.5) // This is the size of the donut hole
+    .outerRadius(radius * 0.8)
 
-    // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-    svg
-      .append('g')
-      .selectAll('path')
-      .data(data_ready)
-      .enter()
-      .append('path')
-      .attr('d', arc)
-      .attr('fill', function(d){return color(d.data.key);})
-      .attr("stroke", "white")
-      .style("stroke-width", "2px")
-      .style("opacity", 0.90);
+  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+  svg
+    .append('g')
+    .selectAll('path')
+    .data(data_ready)
+    .enter()
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', function(d) {
+      return color(d.data.key);
+    })
+    .on("mouseenter", function(d) {
+        //console.log("mousein")
+        text = svg.append("text")
+            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            //.attr("transform", arc.centroid(d))
+            .attr("dy", ".5em")
+            .style("text-anchor", "middle")
+            //.style("fill", "blue")
+            .attr("class", "on")
+            .text(d.data.value);
+      })
 
-    // Adding a title
-    svg
-      .append('text')
-      .attr('x',0)//
-      .attr('y',-180)
-      .attr('text-anchor','middle')
-      .classed('title',true)
-      .text(_title);
+    .on("mouseout", function(d) {
+           text.remove();
+    })
+    .attr("stroke", "white")
+    .style("stroke-width", "2px")
+    .style("opacity", 0.90);
 
-    var legends = svg
-                    .append('g')
-                    .attr('transform','translate(' + width / 2 +  ',' + height * -.5 + ')') // 300,-140
-                    .selectAll('.legends')
-                    .data(data_ready);
+  // Adding a title
+  svg
+    .append('text')
+    .attr('x', 0) //
+    .attr('y', -180)
+    .attr('text-anchor', 'middle')
+    .classed('title', true)
+    .text(_title);
 
-    var legend = legends
-                    .enter()
-                    .append('g')
-                    .classed('legends',true)
-                    .attr('transform',function(d,i) {return "translate(-80," + (i+1)*20 + ")";});
+  var legends = svg
+    .append('g')
+    .attr('transform', 'translate(' + width / 2 + ',' + height * -.5 + ')') // 300,-140
+    .selectAll('.legends')
+    .data(data_ready);
 
-    legend
-      .append('rect')
-      // Adjust these for the size of the colored boxes.
-      .attr('width',15)
-      .attr('height',15)
-      .attr('fill',function(d){return color(d.data.key);});
+  var legend = legends
+    .enter()
+    .append('g')
+    .classed('legends', true)
+    .attr('transform', function(d, i) {
+      return "translate(-80," + (i + 1) * 20 + ")";
+    });
 
-    legend
-      .append('text')
-      .text(function(d,i){ return dataDomain[i];})
-      .attr('fill',function(d){return color(d.data.key);})
-      .attr('x',25)
-      .attr('y',15)
+  legend
+    .append('rect')
+    // Adjust these for the size of the colored boxes.
+    .attr('width', 15)
+    .attr('height', 15)
+    .attr('fill', function(d) {
+      return color(d.data.key);
+    });
 
-  }
+  legend
+    .append('text')
+    .text(function(d, i) {
+      return dataDomain[i];
+    })
+    .attr('fill', function(d) {
+      return color(d.data.key);
+    })
+    .attr('x', 25)
+    .attr('y', 15)
+
+}
 
 function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
 
