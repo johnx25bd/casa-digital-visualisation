@@ -9,7 +9,7 @@ _prior to presentation_
 
 [] Replace jpg bar charts with D3 bar charts
 
-[] Add tooltips to airports layer 
+[] Add tooltips to airports layer
 
 [] Figure out scroll update card situation
 
@@ -33,9 +33,9 @@ _prior to presentation_
 
 [] Change layer by scrolling
 
-[] Add d3 barshart for airport/port layer
+[] Add d3 barChart for airport/port layer
 
-[] Missing tooltips on airport layer when hovering
+[x] Missing tooltips on airport layer when hovering
 
 [] d3 piecharts for national layer
 
