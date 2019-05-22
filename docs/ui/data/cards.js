@@ -67,7 +67,7 @@ var cardData = [
 
       featureDiv.append('p')
         .classed('header-span', true)
-        .text('Exports by category')
+        .text('Exports by category (billion USD)')
 
       // featureDiv.append('p')
       //   .text('Total Exports (million USD): ' + _featureMetadata.properties.all_commodities_export);
@@ -97,7 +97,7 @@ var cardData = [
       createPieChart(pieData, featureSelector + ' .pie-chart-holder');
 
     },
-  
+
   },
   {
     "extent": "global",

@@ -345,7 +345,7 @@ var layersData = [
       "dim_a": {}
     },
     tooltip: function(_data) {
-      console.log(data)
+      return "<h5 class='mb-0'>" + _data.properties.abbrev + "</h5>";
     }
 
   },
