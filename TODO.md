@@ -29,7 +29,7 @@ _prior to presentation_
 
 [Kristan] - Spotted things to correct
 
-[] Add value to d3 barchart on hover
+(E) [] Add value to d3 barchart on hover
 
 [] Change layer by scrolling
 
@@ -42,6 +42,12 @@ _prior to presentation_
 [] d3 barchart for national layers
 
 [] d3 piecharts for local layer
+
+(E) [] Include the unit in the text (Global Air Transport(1000 tonnes)/Global sea transport (1000 TEUs))
+
+(E) [x] Re-unit the categories in the global data set to billions
+
+(E) [] Re-unit the amounts in the UK airport data to 1000 tonnes from tonnes
 
 ###############################################################################
 
