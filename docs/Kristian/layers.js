@@ -2,19 +2,11 @@ console.log('loading layers data')
 
 var layersData = [
   {
-<<<<<<< HEAD
-    "name": "export-countries",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "id": "export-countries",
-=======
     "name": "export-countries-volumes",
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       //"id": "export-countries-volumes",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -45,19 +37,11 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "export-countries-highlighted",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "id": "export-countries",
-=======
     "name": "export-countries-volumes-highlighted",
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       // "id": "export-countries-volumes-highlighted",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -89,19 +73,11 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "import-countries",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "id": "import-countries",
-=======
     "name": "import-countries-volumes",
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       // "id": "import-countries",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -133,19 +109,11 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "import-countries-highlighted",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "id": "import-countries",
-=======
     "name": "import-countries-volumes-highlighted",
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       // "id": "import-countries-highlighted",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "fill",
       "source": {
         "type": "vector",
@@ -177,47 +145,12 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "airports-mapbox-data",
-=======
     "name": "busiest-airports",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "airports-mapbox-data",
-        "type": "circle",
-        "source": {
-          "type": "vector",
-          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
-        },
-        "source-layer": "Global_airports",
-
-        "paint": {
-          "circle-color": "#6991c7",
-          "circle-opacity": 0.8,
-          "circle-radius": 5
-        }
-      },
-      "dim_a": {}
-    },
-    tooltip: function(_data) {
-      return '<h5 class="mb-0">' + _data.properties.abbrev + '</h5>';
-      // pop tooltip with data.
-    }
-  },
-  {
-    "name": "airports-mapbox-data-busiest",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "default": {
-        "id": "airports-mapbox-data",
-=======
         // "id": "airports-mapbox-data-busiest",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -240,20 +173,12 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "airports-mapbox-data-uk",
-=======
     "name": "uK-airports-filter",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "airports-mapbox-data",
-=======
         // "id": "airports-mapbox-data-uk",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -276,20 +201,12 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "heathrow-point",
-=======
     "name": "heathrow-center",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "heathrow-point",
-=======
         // "id": "heathrow-point",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -302,10 +219,6 @@ var layersData = [
         }
       }
     }},
-<<<<<<< HEAD
-    {
-      "name": "airports-mapbox-data",
-=======
        {
       "name": "uK-airports",
       "type": "mapbox",
@@ -360,16 +273,11 @@ var layersData = [
   }},
     {
       "name": "global-airports",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       "type": "mapbox",
       "path": "none",
       "addLayerParams": {
         "default": {
-<<<<<<< HEAD
-          "id": "airports-mapbox-data",
-=======
           // "id": "airports-mapbox-data",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
           "type": "circle",
           "source": {
             "type": "vector",
@@ -382,24 +290,6 @@ var layersData = [
         'circle-radius': [
             'match',
             ['get', 'size'],
-<<<<<<< HEAD
-            'small', 3,
-            'mid', 5,
-            'major', 7,
-            /* other */ 5
-        ],
-        //                 {
-        //     'base': 1.75,
-        //     'stops': [[2, 2], [12, 180]]
-        // },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-        'circle-color': [
-            'match',
-            ['get', 'usage'],
-            'civilian', '#a18cd1',
-            'military/civilian', '#a6c0fe',
-=======
             'small', 2,
             'mid', 4,
             'major', 6,
@@ -410,7 +300,6 @@ var layersData = [
             ['get', 'usage'],
             'civilian', '#5769D3',
             'military/civilian', '#38f9d7',
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
             'military', '#6f86d6',
             'spaceport', '#48c6ef',
             /* other */ '#ccc'
@@ -424,44 +313,24 @@ var layersData = [
             'spaceport', '#ccc',
             /* other */ '#ccc'
         ],
-<<<<<<< HEAD
-        'circle-stroke-width': 2
-        }
-        },
-        "source-layer": "Heathrow_Station-20t8o9",
-        "paint": {
-          "circle-radius": 4,
-          "circle-color": "red"
-        }
-      },
-
-=======
         'circle-stroke-width': 0.5
         }
       },
         "dim_a":{}
       },
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     tooltip: function(_data) {
       console.log(_data);
     }
 
   },
-<<<<<<< HEAD
-=======
 
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   {
     "name": "heathrow-hotels",
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "heathrow-hotels",
-=======
         // "id": "heathrow-hotels",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -470,11 +339,7 @@ var layersData = [
         "source-layer": "Heathrow_Hotel-10lk8m",
         "paint": {
           "circle-radius": 4,
-<<<<<<< HEAD
-          "circle-color": "gray"
-=======
           "circle-color": "grey"
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         }
       }
     },
@@ -489,11 +354,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "heathrow-restaurants",
-=======
         // "id": "heathrow-restaurants",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -517,11 +378,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "heathrow-buffer",
-=======
         // "id": "heathrow-buffer",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "fill",
         "source": {
           "type": "vector",
@@ -532,14 +389,6 @@ var layersData = [
           "fill-color": "#9795f0",
           "fill-opacity": 0.2
         }
-<<<<<<< HEAD
-
-        // "paint": {
-        //   "line-color": "#ff69b4",
-        //   "line-width": 1
-        // }
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       }
     },
     tooltip: function(_data) {
@@ -548,20 +397,12 @@ var layersData = [
 
   },
   {
-<<<<<<< HEAD
-    "name": "tilbury-point",
-=======
     "name": "tilbury-center",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "tilbury-point",
-=======
         // "id": "tilbury-point",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -585,11 +426,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "tilbury-stations",
-=======
         // "id": "tilbury-stations",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -603,11 +440,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-<<<<<<< HEAD
-      console.log(_data);
-=======
       return "Transit station"
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     }
 
   },
@@ -617,11 +450,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "tilbury-schools",
-=======
         // "id": "tilbury-schools",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -635,11 +464,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-<<<<<<< HEAD
-      console.log(_data);
-=======
         return "School"
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     }
 
   },
@@ -649,11 +474,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "tilbury-restaurants",
-=======
         // "id": "tilbury-restaurants",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "circle",
         "source": {
           "type": "vector",
@@ -667,11 +488,7 @@ var layersData = [
       }
     },
     tooltip: function(_data) {
-<<<<<<< HEAD
-      console.log(_data);
-=======
       return "Restaurant";
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     }
 
   },
@@ -681,11 +498,7 @@ var layersData = [
     "path": "none",
     "addLayerParams": {
       "default": {
-<<<<<<< HEAD
-        "id": "tilbury-buffer",
-=======
         // "id": "tilbury-buffer",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         "type": "fill",
         "source": {
           "type": "vector",
@@ -696,14 +509,6 @@ var layersData = [
           "fill-color": "#a3bded",
           "fill-opacity": 0.2
         }
-<<<<<<< HEAD
-
-        // "paint": {
-        //   "line-color": "#ff69b4",
-        //   "line-width": 1
-        // }
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       }
     },
     tooltip: function(_data) {
@@ -711,10 +516,6 @@ var layersData = [
     }
 
   },
-<<<<<<< HEAD
-  {
-    "name": "ports",
-=======
       {
     "name": "uK-ports",
     "path": "./data/uk-ports.json",
@@ -776,7 +577,6 @@ var layersData = [
 
   {
     "name": "global-ports",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "path": "./data/ports.json",
     "type": "geojson",
     "addLayerParams": {
@@ -793,56 +593,25 @@ var layersData = [
             'L', 8,
             /* other */ 5
         ],
-<<<<<<< HEAD
-        //                 {
-        //     'base': 1.75,
-        //     'stops': [[2, 2], [12, 180]]
-        // },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         'circle-color':
          [
              'match',
             ['get', 'harbortype'],
-<<<<<<< HEAD
-             'CB', '#1F2E75',
-             'CN', '#1F2E75',
-             'CT', '#1F2E75',
-             'LC', '#00AEDA',
-             'RB', '#5769D3',
-             'RN', '#5769D3',
-             'RT', '#5769D3',
-
-             /* other */ '#cfd9df'
-=======
              'coastal', '#f83600',
              'lake', '#ff5858',
              'river', '#fee140',
 
 
              /* other */ '#808080'
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
          ]
         ,
         'circle-stroke-color':
             [
             'match',
             ['get', 'harbortype'],
-<<<<<<< HEAD
-             'CB', '#ccc',
-             'CN', '#ccc',
-             'CT', '#ccc',
-             'LC', '#ccc',
-             'RB', '#ccc',
-             'RN', '#ccc',
-             'RT', '#ccc',
-=======
              'coastal', '#ccc',
              'lake', '#ccc',
              'river', '#ccc',
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
             /* other */ '#ccc'
         ]
@@ -867,11 +636,7 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "ports-busiest",
-=======
     "name": "busiest-global-ports",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "path": "./data/ports.json",
     "type": "geojson",
     "addLayerParams": {
@@ -890,11 +655,7 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "ports-uk",
-=======
     "name": "uK-ports-filter",
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "path": "./data/ports.json",
     "type": "geojson",
     "addLayerParams": {
@@ -913,36 +674,11 @@ var layersData = [
     }
   },
   {
-<<<<<<< HEAD
-    "name": "us-states",
-    "path": "./data/us-states.json",
-    "type": "geojson",
-    "addLayerParams": {
-      "type": "fill",
-      "layout": {},
-      "paint": {
-        "fill-color": "#088",
-        "fill-opacity": 0.8
-      }
-    },
-    tooltip: function(_data) {
-      console.log(_data);
-      // pop tooltip with data.
-    }
-  },
-
-  {
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     "name": "3d-buildings",
     "path": "none",
     "type": "mapbox",
     "addLayerParams": {
-<<<<<<< HEAD
-      'id': '3d-buildings',
-=======
       // 'id': '3d-buildings',
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       'source': 'composite',
       'source-layer': 'building',
       'filter': ['==', 'extrude', 'true'],
@@ -969,24 +705,4 @@ var layersData = [
       }
     }
   },
-<<<<<<< HEAD
-  {
-    "name": "china-demo-poly",
-    "path": "./data/china-demo-poly.json",
-    "type": "geojson",
-    "addLayerParams": {
-      "type": "fill",
-      "layout": {},
-      "paint": {
-        "fill-color": "#088",
-        "fill-opacity": 0.8
-      }
-    },
-    tooltip: function(_data) {
-      console.log(_data);
-      // pop tooltip with data.
-    }
-  }
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 ];

@@ -12,9 +12,6 @@ var cardData = [
       <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
       <div id='top-five-exporter-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
       <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'>
-
-
-
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>United States and China are magnate of exporting countries, followed by Germany, Japan and South Korea. </li>
@@ -23,9 +20,8 @@ var cardData = [
         <li>They both mainly export products in secondary sector. </li>
         <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
       </ul>
-
     `,
-    "layers": ['export-countries', 'export-countries-highlighted'],
+    "layers": ['export-countries-volumes'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -115,9 +111,7 @@ var cardData = [
       </div>
       <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
       <div id='top-five-importer-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
-
       <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'>
-
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>United States and China are still magnate of importing countries, followed by Germany, Japan. But the United Kingdom ranked the fifth with nearly 600 biliion US dollars. </li>
@@ -125,11 +119,9 @@ var cardData = [
         <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
         <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
         </ul>
-        <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/553784094&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-
     `,
 
-    "layers": ['import-countries', 'import-countries-highlighted'],
+    "layers": ['import-countries-volumes','import-countries-volumes-highlighted'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -210,10 +202,7 @@ var cardData = [
           </p>
         </div>
       </div>
-
       <img src='./assets/images/top5Air.jpeg' class='img-fluid' alt='Hong Kong Airport'>
-
-
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>When looking at the air transport mode, airports are concentrated in the Asia, Europe and Americas.</li>
@@ -226,9 +215,8 @@ var cardData = [
       <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
         Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
       </figcaption>
-
     `,
-    "layers": ["airports-mapbox-data"],
+    "layers": ["global-airports"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -354,9 +342,7 @@ var cardData = [
           </p>
         </div>
       </div>
-
       <img src='./assets/images/top5Sea.jpeg' class='img-fluid' alt='Hong Kong Airport'>
-
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>The number of ports decreases with increasing latitude. Obviously, there is very few ports located in latitude above 72.15 degree. For example, there are three ports in Svalbard, but 23 ports in Greenland.</li>
@@ -364,14 +350,12 @@ var cardData = [
         <li>However, more ports are concentrated in Mediterranean compared with North Africa. In continent, there are ports only locate in the countries near coast. And Inland countries does not need ports. In Mediterranean, there are 60 Basin countries. But most countries in North Africa are inland.</li>
         <li>In a similar way, Indonesia is made of hundreds of islands. The simplest transportation for these island countries is by sea. So it makes sense there are many ports appears in Indonesia.</li>
       </ul>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe  class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/LHRfRfBqPL0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <figcaption class="figure-caption mb-4">
-        A container terminal in Malaysia. <a href="https://www.youtube.com/embed/LHRfRfBqPL0" target="_blank">Source</a>
+      <img src='./assets/images/indonesia.png' class='img-fluid' alt='Hong Kong Airport'>
+      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+        The distribution of islands from Indonesia <a href="https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia" target="_blank">Source</a>
       </figcaption>
     `,
-    "layers": ["ports"],
+    "layers": ["global-ports"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -504,14 +488,11 @@ var cardData = [
           </p>
         </div>
       </div>
-
-
-
     `,
-    "layers": ["UKairports-mapbox-data", 'UKports'],
+    "layers": ["uK-airports", 'uK-ports'],
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
+      "center": [2.43025502683804, 54.19428441594809],
       "zoom": 4.5,
       "pitch": 0
     }
@@ -531,14 +512,10 @@ var cardData = [
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's airports.
       </figcaption>
-
      <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
-
 </p>
-
-
     `,
-    "layers": ["UKairports-mapbox-data"],
+    "layers": ["uK-airports"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -560,10 +537,9 @@ var cardData = [
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's ports.
       </figcaption>
-
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
-    "layers": ["UKports"],
+    "layers": ["uK-ports"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -581,21 +557,17 @@ var cardData = [
           </p>
         </div>
       </div>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class='embed-responsive-item' width="560" height="315" src="https://www.youtube.com/embed/LI_apMKa2c0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <img src='./assets/images/Heathrow.jpg' class='img-fluid' alt='Heathrow Airport'>
       <figcaption class="figure-caption mb-4">
-        A Tale of Modern Britain. <a href="https://youtu.be/LI_apMKa2c0" target="_blank">Source</a>
+        Heathrow Airport. <a href="https://youtu.be/LI_apMKa2c0" target="_blank">Source</a>
       </figcaption>
        <img src='./assets/images/Heathrow1.jpg' class='img-fluid' alt='Heathrow Airport'>
     <p>The pie chart shows that the international goods transtation in Heathrow is more than it for domestic goods transportation. </p>
-
-
     `,
-    "layers": ["heathrow-point", "heathrow-stations", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],
+    "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":-0.4578920298282583,"lat":51.46775286737795},
+      "center": [-0.4172184, 51.459262],
       "zoom": 11.5,
       "pitch": 0
     },
@@ -631,8 +603,8 @@ var cardData = [
         },
         "Runways": {
           "bearing": 0,
-          "center": {"lng":-0.45947752155620947,"lat":51.469698028007},
-          "zoom": 13.056094540119544,
+          "center": {"lng":-0.45851946795733056,"lat":51.469904797147706},
+          "zoom": 13.694469215066832,
           "pitch": 0
         }
       }
@@ -679,13 +651,14 @@ var cardData = [
       </figcaption>
        <img src='./assets/images/London-port1.jpg' class='img-fluid' alt='Port of London'>
     <p>The pie chart shows the inwards and outwards for domestic and international transportation.</p>
-
-
     `,
     "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":0.3529768543382943,"lat":51.46436633728425},
+      "center": {
+        lng: 0.38210875599440897,
+        lat: 51.45468573166235
+      },
       "zoom": 11.5,
       "pitch": 0
     },
