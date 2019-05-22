@@ -576,6 +576,11 @@ var cardData = [
           });
 
 
+        var cardId = "#" + _params.extent + '-card-' + i;
+
+        d3.select(cardId + ' .feature')
+          .classed('d-none', true);
+
 
       // setFeatureContentText(_i, "country")
 
@@ -619,6 +624,10 @@ var cardData = [
 
             createBarChart(topUKAirportsBarChartParams, "#top-five-uk-airports-bar-chart");
 
+                    var cardId = "#" + _params.extent + '-card-' + i;
+
+                    d3.select(cardId + ' .feature')
+                      .classed('d-none', true);
     }
   },
   {
@@ -658,6 +667,10 @@ var cardData = [
 
             createBarChart(topUKPortsBarChartParams, "#top-five-uk-ports-bar-chart");
 
+                    var cardId = "#" + _params.extent + '-card-' + i;
+
+                    d3.select(cardId + ' .feature')
+                      .classed('d-none', true);
 
     }
   },
