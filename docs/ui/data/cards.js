@@ -349,12 +349,7 @@ var cardData = [
     "extent": "global",
     "title": "Global Air Transport",
     "content": `<p>The map displays globally distributed airports across different geographical areas, as well as their passed-through amounts in the year of 2017 (thousand tons).</p>
-      <div class='card border-secondary mb-3'>
-        <div class='card-body'>
-          <p class="lead mb-0">Click on the circle the airport is located to show its rank in the global busiest airports ranking.
-          </p>
-        </div>
-      </div>
+
 
       <div id='top-five-airports-bar-chart' class='col-12'></div>
 
@@ -676,10 +671,6 @@ var cardData = [
     // "cardNum": 3,
     "title": "The UK in the World",
     "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude.</p>
-  <!--  <img src='./assets/images/uk-airports-traffic.jpeg' class='img-fluid' alt='UK Airport Traffic Pie Chart'>
-    <figcaption class="figure-caption mb-4">
-            Proportionate UK air traffic by origin.
-          </figcaption>
           <h4>UK Port Traffic By Origin</h4>
           <div id="uk-ports-pie-chart" class='pie-chart-holder'></div>
           <h4>UK Airport Traffic By Origin</h4>
