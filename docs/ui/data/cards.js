@@ -19,6 +19,12 @@ var cardData = [
         <li>They both mainly export products in secondary sector. </li>
         <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
       </ul>
+      <h5 class='display-5'>Sources</h5>
+      <ul>
+        <li><p class="lead mb-0">UN ComTrade, Data: <a href="https://comtrade.un.org/">Source</a></p></li>
+        <li><p class="lead mb-0">UN ComTrade, API: <a href="https://github.com/danieljschmidt/UN-Comtrade-Download">Source</a></p></li>
+        <li><p class="lead mb-0">Natural Earth, Country geometries: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
+      </ul>
     `,
     "layers": ['export-countries-volumes', 'export-countries-volumes-highlighted'],
     "flyTo": {
@@ -97,7 +103,7 @@ var cardData = [
       createPieChart(pieData, featureSelector + ' .pie-chart-holder');
 
     },
-  
+
   },
   {
     "extent": "global",
@@ -118,6 +124,12 @@ var cardData = [
         <li>Compare with the export, Non-Asia countries have taken quite a large share in the import trade. </li>
         <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
         <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
+        </ul>
+        <h5 class='display-5'>Sources</h5>
+        <ul>
+          <li><p class="lead mb-0">UN ComTrade, Data: <a href="https://comtrade.un.org/">Source</a></p></li>
+          <li><p class="lead mb-0">UN ComTrade, API: <a href="https://github.com/danieljschmidt/UN-Comtrade-Download">Source</a></p></li>
+          <li><p class="lead mb-0">Natural Earth, Country geometries: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
         </ul>
     `,
 
@@ -215,6 +227,12 @@ var cardData = [
       <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
         Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
       </figcaption>
+      <h5 class='display-5'>Sources</h5>
+      <ul>
+        <li><p class="lead mb-0">Civil Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
+        <li><p class="lead mb-0">Civil Council International, Data: <a href="https://aci.aero/data-centre/annual-traffic-data/cargo/2017-cargo-summary-annual-traffic-data/">Source</a></p></li>
+        <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
+      </ul>
     `,
     "layers": ["global-airports"],
     "flyTo": {
@@ -354,6 +372,12 @@ var cardData = [
       <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
         The distribution of islands from Indonesia <a href="https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia" target="_blank">Source</a>
       </figcaption>
+      <h5 class='display-5'>Sources</h5>
+      <ul>
+      <li><p class="lead mb-0">US National Geospatial Intelligence</p>
+      <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
+        <li><p class="lead mb-0">Wikipedia, Data: <a href="https://en.wikipedia.org/wiki/List_of_busiest_container_ports">Source</a></p></li>
+      </ul>
     `,
     "layers": ["global-ports"],
     "flyTo": {
@@ -481,7 +505,14 @@ var cardData = [
     <figcaption class="figure-caption mb-4">
             Proportionate UK air traffic by origin.
           </figcaption>
-
+          <h5 class='display-5'>Sources</h5>
+          <ul>
+            <li><p class="lead mb-0">UK GOV, Data: <a href="https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures">Source</a></p></li>
+            <li><p class="lead mb-0">Civial Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
+            <li><p class="lead mb-0">US National Geospatial Intelligence</p>
+            <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
+            <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
+          </ul>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport or the port is located to show its rank in the global busiest airports ranking.
@@ -514,6 +545,11 @@ var cardData = [
       </figcaption>
      <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
 </p>
+<h5 class='display-5'>Sources</h5>
+<ul>
+  <li><p class="lead mb-0">Civial Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
+  <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
+</ul>
     `,
     "layers": ["uK-airports"],
     "flyTo": {
@@ -538,6 +574,13 @@ var cardData = [
         The bar chart for The United Kingdom's ports.
       </figcaption>
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
+     <h5 class='display-5'>Sources</h5>
+     <ul>
+       <li><p class="lead mb-0">UK GOV, Data: <a href="https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures">Source</a></p></li>
+       <li><p class="lead mb-0">UK GOV, AIS Data: <a href="https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015">Source</a></p></li>
+       <li><p class="lead mb-0">US National Geospatial Intelligence</p>
+       <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
+     </ul>
  `,
     "layers": ["uK-ports"],
     "flyTo": {
@@ -563,6 +606,10 @@ var cardData = [
       </figcaption>
        <img src='./assets/images/Heathrow1.jpg' class='img-fluid' alt='Heathrow Airport'>
     <p>The pie chart shows that the international goods transtation in Heathrow is more than it for domestic goods transportation. </p>
+    <h5 class='display-5'>Sources</h5>
+    <ul>
+      <li><p class="lead mb-0">Open Street Map, Locations: <a href="https://studio.mapbox.com/">Source</a></p></li>
+    </ul>
     `,
     "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
@@ -651,6 +698,10 @@ var cardData = [
       </figcaption>
        <img src='./assets/images/London-port1.jpg' class='img-fluid' alt='Port of London'>
     <p>The pie chart shows the inwards and outwards for domestic and international transportation.</p>
+    <h5 class='display-5'>Sources</h5>
+    <ul>
+      <li><p class="lead mb-0">Open Street Map, Locations: <a href="https://studio.mapbox.com/">Source</a></p></li>
+    </ul>
     `,
     "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
     "flyTo": {
