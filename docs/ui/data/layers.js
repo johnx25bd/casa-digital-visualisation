@@ -20,9 +20,9 @@ var layersData = [{
           "interpolate-hcl",
           ["exponential", 1.1],
           ["get", "normalised_export_2017"],
-          2.00,
+          0.00,
           ["to-color", "#deebf7"],
-          15.00,
+          8.00,
           ["to-color", "#537895"]
         ],
         "fill-opacity": 0.8,
@@ -94,9 +94,9 @@ var layersData = [{
           "interpolate-hcl",
           ["exponential", 1.1],
           ["get", "normalised_import_2017"],
-          4.98,
+          0.00,
           ["to-color", "#fff7bc"],
-          15.00,
+          8.00,
           ["to-color", "#d95f0e"]
         ],
         "fill-opacity": 0.75,
