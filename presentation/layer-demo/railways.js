@@ -1,6 +1,6 @@
 {
   "name": "railways",
-  "path": "./data/tq-railways-simplifi.json",
+  "path": "./data/tq-railways-wgs.json",
   "type": "geojson",
   "addLayerParams": {
     "default": {
@@ -17,6 +17,7 @@
   },
   tooltip: function(_data) {
     console.log(_data);
+    return _data.properties.CLASSIFICA;
 
   }
-}
+},
