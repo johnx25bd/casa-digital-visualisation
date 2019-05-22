@@ -9,9 +9,8 @@ var cardData = [
           </p>
         </div>
       </div>
-      <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-      <div id='top-five-exporter-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
-      <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+      <div id='exports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+      <!-- <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>United States and China are magnate of exporting countries, followed by Germany, Japan and South Korea. </li>
@@ -47,7 +46,7 @@ var cardData = [
       };
 
 
-      // createBarChart(exportersBarChartParams, "#exports-bar-chart");
+      createBarChart(exportersBarChartParams, "#exports-bar-chart");
       // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
@@ -110,8 +109,8 @@ var cardData = [
         </div>
       </div>
       <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-      <div id='top-five-importer-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
-      <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+      <div id='imports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+      <!-- <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>United States and China are still magnate of importing countries, followed by Germany, Japan. But the United Kingdom ranked the fifth with nearly 600 biliion US dollars. </li>
@@ -143,7 +142,7 @@ var cardData = [
       };
 
 
-      // createBarChart(importersBarChartParams, "#imports-bar-chart");
+      createBarChart(importersBarChartParams, "#imports-bar-chart");
       // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
@@ -492,7 +491,7 @@ var cardData = [
     "layers": ["uK-airports", 'uK-ports'],
     "flyTo": {
       "bearing": 0,
-      "center": [2.43025502683804, 54.19428441594809],
+      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
       "zoom": 4.5,
       "pitch": 0
     }
@@ -567,7 +566,7 @@ var cardData = [
     "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
       "bearing": 0,
-      "center": [-0.4172184, 51.459262],
+      "center": {"lng":-0.4570810632882285,"lat":51.46984899553564},
       "zoom": 11.5,
       "pitch": 0
     },
@@ -655,10 +654,7 @@ var cardData = [
     "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
     "flyTo": {
       "bearing": 0,
-      "center": {
-        lng: 0.38210875599440897,
-        lat: 51.45468573166235
-      },
+      "center": {"lng":0.34804926378694745,"lat":51.46306234902639},
       "zoom": 11.5,
       "pitch": 0
     },

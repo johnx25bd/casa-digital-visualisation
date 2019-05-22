@@ -103,7 +103,15 @@ h3 span.light {
 }
 
 .bar {
-  fill: darkblue;
+  fill: #537895;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+#imports-bar-chart .bar {
+  fill: #d95f0e;
 }
 
 .story-nav-btns {

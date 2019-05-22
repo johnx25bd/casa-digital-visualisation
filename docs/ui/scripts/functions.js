@@ -177,12 +177,6 @@ function setActiveCard(_cardNum) {
     return;
   }
 
-  // map.setStyle(baseStyle);
-// if (!inAnimation) {
-//
-// }
-  scrollToCard(_cardNum);
-
   map.flyTo(cardData[_cardNum].flyTo);
 
   $("div[data-index='" + String(_cardNum) + "']")
@@ -201,21 +195,36 @@ function setActiveCard(_cardNum) {
 
 }
 
+// DEPRECATED FOR NOW : erratic animation behavior
 function scrollToCard(_cardNum) {
   // adapted from https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
+  if (!$('body').hasClass('scrolling')) {
 
-  inAnimation = true;
-  // console.log("inAnimation:", inAnimation);
-  var cardTmp = cardData[_cardNum];
-  var id = '#' + cardTmp.extent + '-card-' + String(_cardNum);
-  // console.log(id);
-  // setActiveCard(cardNum);
 
-  $([document.documentElement, document.body]).animate({
-    scrollTop: $(id).offset().top - 56
-  }, 500, function() {
-    inAnimation = false;
-  });
+    $('body').addClass('scrolling');
+
+    setTimeout(function () {
+      $('body').removeClass('scrolling');
+    }, 1000)
+
+    setActiveCard(_cardNum);
+
+
+
+
+
+    // console.log("inAnimation:", inAnimation);
+    var cardTmp = cardData[_cardNum];
+    var id = '#' + cardTmp.extent + '-card-' + String(_cardNum);
+    // console.log(id);
+    // setActiveCard(cardNum);
+
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $(id).offset().top - (56 + 70)
+    }, 1000, function() {
+      inAnimation = false;
+    });
+  }
 }
 
 function setFeatureContentText (_cardNum, _layer) {
