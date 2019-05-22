@@ -195,7 +195,7 @@ var cardData = [
   },
   {
     "extent": "global",
-    "title": "Air Transport",
+    "title": "Global Air Transport",
     "content": `<p>The map displays globally distributed airports across different geographical areas, as well as their passed-through amounts in the year of 2017 (thousand tons).</p>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
@@ -203,7 +203,9 @@ var cardData = [
           </p>
         </div>
       </div>
-      <img src='./assets/images/top5Air.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+      <div id='top-five-airports-bar-chart' class='col-12'></div>
+
 
       <img src='./assets/images/hk-airport.jpg' class='img-fluid' alt='Hong Kong Airport'>
       <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
@@ -227,6 +229,18 @@ var cardData = [
       "pitch": 0
     },
     loadCard: function(_i, _params) {
+
+      var topAirportsBarChartParams = {
+        "chartType": "bar",
+        "valueType": "value", // or "amount"
+        "title": "Top Five Global Airports by Volume",
+        "dataPath": "./data/top_five_airports.csv",
+        "yAxisLabel": "Air traffic volumes (thousand tons)",
+
+      };
+
+
+      createBarChart(topAirportsBarChartParams, "#top-five-airports-bar-chart");
 
       setFeatureContentText(_i, "airport")
 
@@ -568,7 +582,8 @@ var cardData = [
         The bar chart for The United Kingdom's airports.
       </figcaption>
      <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
-</p>
+     </p>
+
     `,
     "layers": ["uK-airports"],
     "flyTo": {
