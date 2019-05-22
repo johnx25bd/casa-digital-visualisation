@@ -351,7 +351,7 @@ var cardData = [
   },
   {
     "extent": "global",
-    "title": "Sea Transport",
+    "title": "Global Sea Transport",
     "content": `<p>The map displays globally distributed ports across different geographical areas, as well as their shipped-through amounts in the year of 2017 (thousand TEUs). </p>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
@@ -359,7 +359,9 @@ var cardData = [
           </p>
         </div>
       </div>
-      <img src='./assets/images/top5Sea.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+      <div id='top-five-ports-bar-chart' class='col-12'></div>
+
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>The number of ports decreases with increasing latitude. Obviously, there is very few ports located in latitude above 72.15 degree. For example, there are three ports in Svalbard, but 23 ports in Greenland.</li>
@@ -384,6 +386,19 @@ var cardData = [
     loadCard: function(_i, _params) {
       // console.log('card load!', _params);
       setFeatureContentText(_i, "port")
+
+      var topPortsBarChartParams = {
+        "chartType": "bar",
+        "valueType": "value", // or "amount"
+        "title": "Top Five Global Ports by Volume",
+        "dataPath": "./data/top_five_ports.csv",
+        "yAxisLabel": "Port traffic volumes (thousand TEU)",
+
+      };
+
+
+      createBarChart(topPortsBarChartParams, "#top-five-ports-bar-chart");
+
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
@@ -571,13 +586,9 @@ var cardData = [
     // "cardNum": 3,
     "title": "British Air Transport",
     "content": `<p>This page shows the freight airports of UK by using the data from Civil Aviation Authority. The map will show the name and size of the airports, and also the values (1000 tonnes) of pick up and set down freight for both domestics and international trade by clicking the icons.</p>
-      <div class='card border-secondary mb-3'>
-        <div class='card-body'>
-          <p class="lead mb-0">Click on the circle the airport is located to show its rank in the global busiest airports ranking.
-          </p>
-        </div>
-      </div>
-      <img src='./assets/images/national-airport.jpg' class='img-fluid' alt='National Airport'>
+
+      <div id='top-five-uk-airports-bar-chart' class='col-12'></div>
+
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's airports.
       </figcaption>
@@ -591,6 +602,23 @@ var cardData = [
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
       "zoom": 4.5,
       "pitch": 0
+    },
+    loadCard: function (_i, _params) {
+
+
+
+            var topUKAirportsBarChartParams = {
+              "chartType": "bar",
+              "valueType": "value", // or "amount"
+              "title": "Top Five British Airports by Volume",
+              "dataPath": "./data/top_five_ukairports.csv",
+              "yAxisLabel": "Airport traffic volumes (thousand tons)",
+
+            };
+
+
+            createBarChart(topUKAirportsBarChartParams, "#top-five-uk-airports-bar-chart");
+
     }
   },
   {
@@ -599,11 +627,11 @@ var cardData = [
     "content":  `<p>This page shows the freight ports of UK by using the data from the UK government. The map will show the name, size, type and railway information of the ports, and also the values (1000 tonnes)  of inward and outward for both domestics and international trade by clicking the icons.</p>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
-          <p class="lead mb-0">Click on the circle the port is located to show its rank in the global busiest airports ranking.
+          <p class="lead mb-0">The heatmap display shipping traffic volumes based on AIS pings.
           </p>
         </div>
       </div>
-      <img src='./assets/images/national-port.jpg' class='img-fluid' alt='National Port'>
+      <div id='top-five-uk-ports-bar-chart' class='col-12'></div>
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's ports.
       </figcaption>
@@ -615,6 +643,22 @@ var cardData = [
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
       "zoom": 4.5,
       "pitch": 0
+    },
+    loadCard: function (_i, _params) {
+
+            var topUKPortsBarChartParams = {
+              "chartType": "bar",
+              "valueType": "value", // or "amount"
+              "title": "Top Five British Airports by Volume",
+              "dataPath": "./data/top_five_ukports.csv",
+              "yAxisLabel": "Port traffic volumes (thousand TEU)",
+
+            };
+
+
+            createBarChart(topUKPortsBarChartParams, "#top-five-uk-ports-bar-chart");
+
+
     }
   },
   {

@@ -114,6 +114,10 @@ h3 span.light {
   fill: #d95f0e;
 }
 
+#top-five-ports-bar-chart .bar {
+  fill: #d95f0e;
+}
+
 .story-nav-btns {
 
 }
