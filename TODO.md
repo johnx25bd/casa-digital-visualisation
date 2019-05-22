@@ -3,16 +3,21 @@
 
 _prior to presentation_
 
+## Home Stretch:
 
+[] Add heatmap from QGIS
 
+[] Replace jpg bar charts with D3 bar charts
 
-[x] Add north arrow
+[] Add tooltips to airports layer 
 
+[] Figure out scroll update card situation
 
+[] Add units to pie chart hover labels
 
+[] Fix broken image in Port of London
 
-
-IF time
+[]
 
 [] Add air traffic over UK
 
