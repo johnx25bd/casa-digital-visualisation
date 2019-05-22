@@ -9,8 +9,12 @@ var cardData = [
           </p>
         </div>
       </div>
-      <div id='exports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
-      <!-- <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
+      <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+      <div id='top-five-exporter-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+      <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+
+
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>United States and China are magnate of exporting countries, followed by Germany, Japan and South Korea. </li>
@@ -19,6 +23,7 @@ var cardData = [
         <li>They both mainly export products in secondary sector. </li>
         <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
       </ul>
+
     `,
     "layers": ['export-countries-volumes'],
     "flyTo": {
@@ -46,7 +51,7 @@ var cardData = [
       };
 
 
-      createBarChart(exportersBarChartParams, "#exports-bar-chart");
+      // createBarChart(exportersBarChartParams, "#exports-bar-chart");
       // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
@@ -109,8 +114,10 @@ var cardData = [
         </div>
       </div>
       <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-      <div id='imports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
-      <!-- <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
+      <div id='top-five-importer-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+
+      <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>United States and China are still magnate of importing countries, followed by Germany, Japan. But the United Kingdom ranked the fifth with nearly 600 biliion US dollars. </li>
@@ -118,6 +125,7 @@ var cardData = [
         <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
         <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
         </ul>
+
     `,
 
     "layers": ['import-countries-volumes','import-countries-volumes-highlighted'],
@@ -142,7 +150,7 @@ var cardData = [
       };
 
 
-      createBarChart(importersBarChartParams, "#imports-bar-chart");
+      // createBarChart(importersBarChartParams, "#imports-bar-chart");
       // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
@@ -201,7 +209,10 @@ var cardData = [
           </p>
         </div>
       </div>
+
       <img src='./assets/images/top5Air.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
+
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>When looking at the air transport mode, airports are concentrated in the Asia, Europe and Americas.</li>
@@ -214,6 +225,7 @@ var cardData = [
       <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
         Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
       </figcaption>
+
     `,
     "layers": ["global-airports"],
     "flyTo": {
@@ -341,7 +353,9 @@ var cardData = [
           </p>
         </div>
       </div>
+
       <img src='./assets/images/top5Sea.jpeg' class='img-fluid' alt='Hong Kong Airport'>
+
       <h4 class='display-4'>Facts</h4>
       <ul>
         <li>The number of ports decreases with increasing latitude. Obviously, there is very few ports located in latitude above 72.15 degree. For example, there are three ports in Svalbard, but 23 ports in Greenland.</li>
@@ -476,22 +490,20 @@ var cardData = [
     // "cardNum": 3,
     "title": "The UK in the World",
     "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude. Besides, it is clearly that the top 5 busiest airports in the UK are London Heathrow, Manchester Airport, London Gatwick, Birmingham Airport and London Luton. Three of them are in London, the biggest city in the UK, and the other two also located in big cities. The top 5 busiest ports are London, Liverpool, Felixstowe, Belfast and Bristol.</p>
-    <img src='./assets/images/uk-airports-traffic.jpeg' class='img-fluid' alt='UK Airport Traffic Pie Chart'>
-    <figcaption class="figure-caption mb-4">
-            Proportionate UK air traffic by origin.
-          </figcaption>
-
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport or the port is located to show its rank in the global busiest airports ranking.
           </p>
         </div>
       </div>
+
+
+
     `,
     "layers": ["uK-airports", 'uK-ports'],
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
+      "center": [2.43025502683804, 54.19428441594809],
       "zoom": 4.5,
       "pitch": 0
     }
@@ -511,13 +523,17 @@ var cardData = [
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's airports.
       </figcaption>
+
      <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
+
 </p>
+
+
     `,
     "layers": ["uK-airports"],
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
+      "center": [2.43025502683804, 54.19428441594809],
       "zoom": 4.5,
       "pitch": 0
     }
@@ -536,12 +552,13 @@ var cardData = [
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's ports.
       </figcaption>
+
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
     "layers": ["uK-ports"],
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
+      "center": [2.43025502683804, 54.19428441594809],
       "zoom": 4.5,
       "pitch": 0
     }
@@ -562,11 +579,13 @@ var cardData = [
       </figcaption>
        <img src='./assets/images/Heathrow1.jpg' class='img-fluid' alt='Heathrow Airport'>
     <p>The pie chart shows that the international goods transtation in Heathrow is more than it for domestic goods transportation. </p>
+
+
     `,
     "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":-0.4570810632882285,"lat":51.46984899553564},
+      "center": [-0.4172184, 51.459262],
       "zoom": 11.5,
       "pitch": 0
     },
@@ -650,11 +669,16 @@ var cardData = [
       </figcaption>
        <img src='./assets/images/London-port1.jpg' class='img-fluid' alt='Port of London'>
     <p>The pie chart shows the inwards and outwards for domestic and international transportation.</p>
+
+
     `,
     "layers": ["tilbury-buffer", "3d-buildings", "tilbury-point", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
     "flyTo": {
       "bearing": 0,
-      "center": {"lng":0.34804926378694745,"lat":51.46306234902639},
+      "center": {
+        lng: 0.38210875599440897,
+        lat: 51.45468573166235
+      },
       "zoom": 11.5,
       "pitch": 0
     },

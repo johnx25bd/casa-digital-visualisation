@@ -1,9 +1,5 @@
 function buildAddLayerParams(_layerData) {
-<<<<<<< HEAD
-  if (_layerData.type == 'geojson') {
-=======
     if (_layerData.type == 'geojson') {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     var outputParams = {};
     outputParams.id = _layerData.name;
     outputParams.source = _layerData.name + '-source';
@@ -13,16 +9,6 @@ function buildAddLayerParams(_layerData) {
         _layerData.addLayerParams
     };
     return outputParams;
-<<<<<<< HEAD
-  } else if (_layerData.type == 'mapbox') {
-    return _layerData.addLayerParams.default ?
-      _layerData.addLayerParams.default :
-      _layerData.addLayerParams;
-  }
-
-}
-
-=======
     } else if (_layerData.type == 'mapbox') {
     var outputParams = _layerData.addLayerParams.default ?
       _layerData.addLayerParams.default :
@@ -35,20 +21,16 @@ function buildAddLayerParams(_layerData) {
     }
 
 }
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 function currentCardId() {
   return '#' + cardData[activeCardNum].extent
     + '-card-' + activeCardNum;
 }
 
-<<<<<<< HEAD
-=======
 function getCardId(_cardNum) {
   return '#' + cardData[_cardNum].extent
     + '-card-' + _cardNum;
 }
 
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 function isElementOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
   var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
@@ -64,16 +46,8 @@ function isElementOnScreen(_cardNum) {
 function loadCards(_cards) {
   // iterate through and load cards into .cards div
 
-<<<<<<< HEAD
-  // console.log(_cards);
-
   var cardsHolder = d3.select('#story-cards');
 
-
-=======
-  var cardsHolder = d3.select('#story-cards');
-
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   var cardEls = cardsHolder.selectAll('div')
     .data(_cards).enter()
     .append('div')
@@ -84,15 +58,8 @@ function loadCards(_cards) {
       return i;
     })
     .attr('class', function(d) {
-<<<<<<< HEAD
-      return d.extent + 'card-body';
-    })
-    .classed('col-12', true)
-    .classed('app-card', true)
-=======
       return d.extent + ' card-body app-card col-12';
     })
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     .on('click', function(d, i) {
       // console.log("CLICK!");
       setActiveCard(i);
@@ -104,10 +71,6 @@ function loadCards(_cards) {
     });
 
   cardEls.append('div')
-<<<<<<< HEAD
-    // .classed('card-body', true)
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     .html(function(d) {
       return d.content;
     });
@@ -124,10 +87,6 @@ function loadCards(_cards) {
   featureContent.append('div')
     .classed('col-12 feature-content', true);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   var legendContent = cardEls.append('div')
     .classed('card legend', true)
     .append('div')
@@ -146,17 +105,11 @@ function loadCards(_cards) {
     if (card.loadCard) {
       card.loadCard(i, card);
     }
-<<<<<<< HEAD
-    // console.log("CARD", card);
-  }
-
-=======
     console.log(card.layers);
     /// Loading legends /////
     updateLegend(card.layers,i);
     //console.log("Layers", card.layers);
   }
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 }
 
 function showCardLayers(_cardNum) {
@@ -172,47 +125,6 @@ function showCardLayers(_cardNum) {
       map.setLayoutProperty(layer, 'visibility', 'none');
     }
   });
-<<<<<<< HEAD
-
-  updateLegend(layers)
-}
-
-
-function updateLegend(_layers,_legendSelector) {
-
-  //var data = [];
-
-  for (layer in _layers){
-
-    var layerOfInterst = map.getLayer(layer);
-    var layerType = layerOfInterst.addLayerParams.default.type;
-
-    if (layerType == 'fill'){
-
-      var layerPaint = map.getLayoutProperty(layer,'fill-color')
-
-    } else if (layerType == 'circle'){
-
-      var layerPaint = {
-        'circle-radius': map.getLayoutProperty(layer,'circle-radius'),
-        'circle-color' : map.getLayoutProperty(layer,'circle-color'),
-        'circle-stroke-color': map.getLayoutProperty(layour,'circle-stroke-color')
-      };
-    }
-
-    createLegends(_legendSelector,layer,layerType,layerPaint);
-  }
-
-  // iterate through array of layers
-  // Add each layer's legend to .legend div
-  // console.log("updateLegend() Called");
-}
-
-function titleCase(_str) {
-  // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
-  // 🙏🙏🙏🙏🙏🙏🙏
-  return _str.toLowerCase().split(' ').map(function(word) {
-=======
 }
 
 
@@ -256,7 +168,6 @@ function titleCase(_str,_separator=' ') {
   // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
   // 🙏🙏🙏🙏🙏🙏🙏
   return _str.toLowerCase().split(_separator).map(function(word) {
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     return (word.charAt(0).toUpperCase() + word.slice(1));
   }).join(' ');
 }
@@ -267,17 +178,11 @@ function setActiveCard(_cardNum) {
   }
 
   // map.setStyle(baseStyle);
-<<<<<<< HEAD
-
-  scrollToCard(_cardNum);
-  // console.log(cardData[cardNum]);
-=======
 // if (!inAnimation) {
 //
 // }
   scrollToCard(_cardNum);
 
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
   map.flyTo(cardData[_cardNum].flyTo);
 
   $("div[data-index='" + String(_cardNum) + "']")
@@ -316,17 +221,11 @@ function scrollToCard(_cardNum) {
 function setFeatureContentText (_cardNum, _layer) {
   console.log("SetFeatureContext", _cardNum)
   var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
-<<<<<<< HEAD
-  d3.select(cardId + ' .card-title')
-    .text('Click on a ' + _layer + ' to learn more.')
-}
-=======
   // console.log("The card ID is: ",cardId)
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
 
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
 
@@ -525,11 +424,7 @@ function createPieChart(_params, _parentEl){
 
   }
 
-<<<<<<< HEAD
-function createLegends(_div_id,_svg_id,_dataType,_dataPaint){
-=======
 function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
   ////////////////////// Defining parameters ////////////////////////////
   var id = _div_id
@@ -537,15 +432,9 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
   if (_dataType == 'fill'){
     ///////////////////////// FILL ////////////////////////////////////////////
     var width = 150//300
-<<<<<<< HEAD
-        height = 100//150
-
-    if (_dataPaint.length > 1){
-=======
         height = 75//150
 
     if (Array.isArray(_dataPaint) && _dataPaint.length > 3){
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       // If you are a fill taking on many colors!
       _step = 20;
       _min = _dataPaint[3];
@@ -568,13 +457,8 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
   } else if (_dataType == 'circle') {
     // If you are circle layer, we need a lot more information.
 
-<<<<<<< HEAD
-    var width = 300
-        height = 300
-=======
     // var width = 300
     //     height = 300
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
     var _offSet = 50;
     var _elementWidth = 15;
@@ -582,11 +466,7 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
   }
   ////////////////////// Done defining parameters - Let's build! ////////////////////////////
   if (_dataType == 'fill'){
-<<<<<<< HEAD
-    if (_dataPaint.length > 1){
-=======
     if (Array.isArray(_dataPaint)){//.length > 1
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       // var generateRange = d3.scaleLinear()
       //   .domain([0,_step])
       //   .range([_min,_max])
@@ -616,21 +496,6 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
           .attr("width", '100%;')
           .attr("height", 'auto;')
         .append("g")
-<<<<<<< HEAD
-          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
-
-      svg
-        .append('text')
-        .attr('x',-125)//
-        .attr('y',-30)
-        .attr('text-anchor','middle')
-        .classed('title',true)
-        .text(_svg_id);
-
-      var legends = svg
-            .append('g')
-            .attr('transform','translate(-175,-100)')
-=======
           .attr("transform", "translate(" + width*1.25 + "," + height*0.7 + ")");//" + width / 2 + "
 
       svg
@@ -644,7 +509,6 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
       var legends = svg
             .append('g')
             .attr('transform','translate(-200,-100)')
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
             .selectAll('.legends')
             .data(data);
 
@@ -667,27 +531,16 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
         .attr('x',5)
         .attr('y',35)
 
-<<<<<<< HEAD
-    } else if (_dataPaint.length == 1){
-      //////////////////////////// Data /////////////////////////////////////
-      var color = [_dataPaint[0]];
-      var data = [_svg_id];
-=======
     } else if (!Array.isArray(_dataPaint)){
       //////////////////////////// Data /////////////////////////////////////
       var color = [_dataPaint];
       var data = [_title];
       var height = 100;
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
       //////////////////////////// Creating the legend /////////////////////////////////////
       var svg = d3.select(id)
         .append('svg')
         .attr('id',_svg_id)
           // Adjust the factor below to allows for more space for the legends
-<<<<<<< HEAD
-          .attr("width", '100%;')
-          .attr("height", 'auto;')
-=======
           //.attr("width", '100%;')
           //.attr("height", 'auto;')
           .attr("height", height)//height
@@ -698,25 +551,16 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
             ' ' +
             height//(height + margin + margin)
           )
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
         .append("g")
           .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
 
       svg
         .append('text')
-<<<<<<< HEAD
-        .attr('x',-125)//
-        .attr('y',-30)
-        .attr('text-anchor','middle')
-        .classed('title',true)
-        .text(_svg_id);
-=======
         .attr('x',0)//
         .attr('y',-30)
         .attr('text-anchor','end')
         .classed('title',true)
         .text(_title);
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
       var legends = svg
             .append('g')
@@ -747,36 +591,6 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
   } else if (_dataType == 'circle'){
     ////////////////////////// CIRCLES /////////////////////////////////////////
     //////////////////////////// Data /////////////////////////////////////
-<<<<<<< HEAD
-    var color = [];
-    var data = [];
-
-    for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
-      color.push(_dataPaint['circle-color'][i]);
-      data.push(_dataPaint['circle-color'][i-1])
-    }
-    color.push('#cfd9df')
-    data.push('other')
-
-    var size = [];
-    var sizedata = [];
-
-    for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
-      size.push(_dataPaint['circle-radius'][i]);
-      if (_dataPaint['circle-radius'][i-1] == 'V' || _dataPaint['circle-radius'][i-1] == 'v'){
-        sizedata.push('Minor')
-      } else if (_dataPaint['circle-radius'][i-1] == 'S' || _dataPaint['circle-radius'][i-1] == 's'){
-        sizedata.push('Small')
-      } else if (_dataPaint['circle-radius'][i-1] == 'M' || _dataPaint['circle-radius'][i-1] == 'm'){
-        sizedata.push('Medium')
-      } else if (_dataPaint['circle-radius'][i-1] == 'L' || _dataPaint['circle-radius'][i-1] == 'l'){
-        sizedata.push('Major')
-      }
-      //sizedata.push(_dataPaint['circle-radius'][i-1])
-    }
-    size.push(5)
-    sizedata.push('other')
-=======
     //console.log(_svg_id,' ',_dataPaint['circle-color'])
     if (Array.isArray(_dataPaint['circle-color']) && _dataPaint['circle-color'].length > 3){
       var color = [];
@@ -812,26 +626,11 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
       var height = 100;
     }
 
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     //////////////////////////// Creating the legend /////////////////////////////////////
     var svg = d3.select(id)
       .append('svg')
       .attr('id',_svg_id)
         // Adjust the factor below to allows for more space for the legends
-<<<<<<< HEAD
-        .attr("width", width)
-        .attr("height", height)
-      .append("g")
-        .attr("transform", "translate(" + width/1.5 + "," + height/4 + ")");//" + width / 2 + "
-
-    svg
-      .append('text')
-      .attr('x',-140)//
-      .attr('y',-30)
-      .attr('text-anchor','middle')
-      .classed('title',true)
-      .text(_svg_id);
-=======
         //.attr("width", height)
         .attr("height", height)//height
         .attr(
@@ -851,7 +650,6 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
       .attr('text-anchor','end')
       .classed('title',true)
       .text(_title);
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
     // Categories
     var legends = svg
           .append('g')
@@ -878,147 +676,6 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
       .text(function(d,i){ return data[i];})
       .attr('x',50)
       .attr('y',20)
-<<<<<<< HEAD
-    // Size ///
-    var legends = svg
-          .append('g')
-          .attr('transform','translate(-175,-150)')
-          .selectAll('.legends')
-          .data(sizedata);
-
-    var legend = legends
-          .enter()
-          .append('g')
-          .classed('legends',true)
-          .attr('transform',function(d,i) {return "translate(150,"+ + (i+3)*_offSet + ")";});//*(width/_step)
-
-    legend
-      .append('circle')
-      // Adjust these for the size of the colored boxes.
-      .attr('cx',_elementWidth)
-      .attr('cy',_elementWidth)//function(d,i) {return size[i]*2;}
-      .attr('r',function(d,i) {return size[i]*2;})
-      .style('fill','white')
-      .style('stroke','black');
-    legend
-      .append('text')
-      .text(function(d,i){ return sizedata[i];})
-      .attr('x',50)
-      .attr('y',20)
-  } else {
-    console.log('ERROR:  I dont know this datatype!')
-  }
-}
-
-function createPieChartOld (_params, _parentEl) {
-
-  var _data = _params.data;
-  var _title = _params.title;
-  var _parentEl = _params.id;
-
-
-  // set the dimensions and margins of the graph
-  var width = d3.select(_parentEl).node().getBoundingClientRect().width,
-      height = width / 2.5,
-      margin = 10;
-
-  // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
-  var radius = Math.min(width, height) / 2 - margin
-
-  // append the svg object to the div called 'my_dataviz'
-  var svg = d3.select(_parentEl)
-    .append("svg")
-      .classed('pie-chart', true)
-      .attr("width", width)
-      .attr("height", height)
-    .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-  // Create dummy data
-  // var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
-  var dataDomain = Object.keys(data);
-
-  // set the color scale
-  var color = d3.scaleOrdinal()
-    // Alternated to allow for dynamically colouring.
-    .domain(dataDomain)//.domain(["aa", "bb", "cc", "d", "e", "f", "g", "h"])
-    .range(d3.schemeDark2);
-
-  // Compute the position of each group on the pie:
-  var pie = d3.pie()
-    .sort(null) // Do not sort group by size
-    .value(function(d) {return d.value; })
-
-  var data_ready = pie(d3.entries(data))
-  // The arc generator
-  var arc = d3.arc()
-    .innerRadius(radius * 0.5)         // This is the size of the donut hole
-    .outerRadius(radius * 0.8)
-
-  // Another arc that won't be drawn. Just for labels positionning
-  var outerArc = d3.arc()
-    .innerRadius(radius * 0.9)
-    .outerRadius(radius * 0.9)
-
-  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-  svg
-    .selectAll('.pie-slice')
-    .data(data_ready)
-    .enter()
-    .append('path')
-    .attr('d', arc)
-    .attr('fill', function(d, i){
-      // console.log(d.data.key)
-      return color(d.data.key); })
-    .attr("stroke", "white")
-    .style("stroke-width", "2px")
-    .style("opacity", 0.7)
-    .classed('pie-slice', true);
-
-  // Add the polylines between chart and labels:
-  svg
-    .selectAll('polyline')
-    .data(data_ready)
-    .enter()
-    .append('polyline')
-      .attr("stroke", "black")
-      .style("fill", "none")
-      .attr("stroke-width", 1)
-      .attr('points', function(d) {
-        var posA = arc.centroid(d) // line insertion in the slice
-        var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-        var posC = outerArc.centroid(d); // Label position = almost the same as posB
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
-        return [posA, posB, posC]
-      })
-
-  // Add the polylines between chart and labels:
-  svg
-    .selectAll('pie-label')
-    .data(data_ready)
-    .enter()
-    .append('text')
-      .text( function(d) { return d.data.key } )
-      .attr('transform', function(d) {
-          var pos = outerArc.centroid(d);
-          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-          return 'translate(' + pos + ')';
-      })
-      .style('text-anchor', function(d) {
-          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          return (midangle < Math.PI ? 'start' : 'end')
-      })
-    .classed('pie-label', true);
-}
-
-
-// fitText jQuery plugin, for airport codes
-// from https://github.com/davatron5000/FitText.js
-
-(function( $ ){
-=======
 
     if (setSize){
 
@@ -1061,7 +718,6 @@ function createPieChartOld (_params, _parentEl) {
 // from https://github.com/davatron5000/FitText.js
 
 (function ( $ ){
->>>>>>> 7a6689b297a3e4ee47580a2e0e061f8a98253aea
 
   $.fn.fitText = function( kompressor, options ) {
 
