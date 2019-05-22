@@ -47,7 +47,7 @@ _prior to presentation_
 
 (E) [x] Re-unit the categories in the global data set to billions
 
-(E) [] Re-unit the amounts in the UK airport data to 1000 tonnes from tonnes
+(E) [x] Re-unit the amounts in the UK airport data to 1000 tonnes from tonnes
 
 ###############################################################################
 
