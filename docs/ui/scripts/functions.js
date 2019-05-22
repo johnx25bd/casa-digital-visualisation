@@ -190,7 +190,7 @@ function scrollToCard(_cardNum) {
 
 
     $('body').addClass('scrolling');
-    
+
     setTimeout(function () {
       $('body').removeClass('scrolling');
     }, 1000)
@@ -382,6 +382,21 @@ function createPieChart(_params, _parentEl) {
     .attr('d', arc)
     .attr('fill', function(d) {
       return color(d.data.key);
+    })
+    .on("mouseenter", function(d) {
+        //console.log("mousein")
+        text = svg.append("text")
+            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            //.attr("transform", arc.centroid(d))
+            .attr("dy", ".5em")
+            .style("text-anchor", "middle")
+            //.style("fill", "blue")
+            .attr("class", "on")
+            .text(d.data.value);
+      })
+
+    .on("mouseout", function(d) {
+           text.remove();
     })
     .attr("stroke", "white")
     .style("stroke-width", "2px")
