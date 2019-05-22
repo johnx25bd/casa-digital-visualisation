@@ -231,10 +231,6 @@ var cardData = [
         <li>The top five ranking based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that three out of the five airports are located in Asia, six in Americas and four in Europe.</li>
         <li>Hong Kong has become the busiest cargo hub in the world, the passed- through amounts has reaches up to 5,000,000 tonnes.</li>
       </ul>
-      <img src='./assets/images/hk-airport.jpg' class='img-fluid' alt='Hong Kong Airport'>
-      <figcaption class="figure-caption mb-4">   <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
-        Hong Kong International Airport from a passenger airliner. <a href="https://www.youtube.com/watch?v=LT4qH8OwuvI" target="_blank">Source</a>
-      </figcaption>
       <h5 class='display-5'>Sources</h5>
       <ul>
         <li><p class="lead mb-0">Civil Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
