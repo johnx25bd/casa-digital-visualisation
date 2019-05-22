@@ -20,11 +20,25 @@ IF time
   [] Airports - passenger flows pie charts (Inwards + Outwards)
   [] Ports - what info?
 
+###############################################################################
 
+[Kristan] - Spotted things to correct
 
+[] Add value to d3 barchart on hover
 
+[] Change layer by scrolling
 
+[] Add d3 barshart for airport/port layer
 
+[] Missing tooltips on airport layer when hovering
+
+[] d3 piecharts for national layer
+
+[] d3 barchart for national layers
+
+[] d3 piecharts for local layer
+
+###############################################################################
 
 SHUKE
 
