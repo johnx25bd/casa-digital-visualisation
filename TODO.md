@@ -17,9 +17,7 @@ _prior to presentation_
 
 [] Fix broken image in Port of London
 
-[] Add data source on the maps
-
-[] Add to description in Global Air Transport card
+[]
 
 [] Add air traffic over UK
 
@@ -27,15 +25,11 @@ _prior to presentation_
   [] Airports - passenger flows pie charts (Inwards + Outwards)
   [] Ports - what info?
 
-[] Improve analysis in cards
-
-[] Add country highlight on bar hover?
-
 ###############################################################################
 
 [Kristan] - Spotted things to correct
 
-(E) [] Add value to d3 barchart on hover
+(E) [x] Add value to d3 barchart on hover
 
 [] Change layer by scrolling
 
