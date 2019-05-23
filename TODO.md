@@ -12,6 +12,8 @@ _prior to presentation_
 UPDATE: Both task are done.
 Updates occur in all scripts and data has been updated with a new column filter on, which is named the same for all datasets, but the content vary. An example is that export/import is filtered based on iso3 but ports are filtered based on their iata_code.
 
+Branch: UpdatedBarChartFunction
+
 [] More sophisticated flow map - probably of UK with trading partners? This could go on National view card 1 or the last card on the Global view
 
 [] Some time series visualization? How could we get this in there? Do we have any time series data? Maybe of export volumes? Even just adding a slider to the card and updating the choropleth would mean this is a 'temporal' visualization as well as spatial.
