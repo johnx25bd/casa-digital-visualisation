@@ -43,7 +43,7 @@ _prior to presentation_
 
 [] d3 piecharts for local layer
 
-(E) [] Include the unit in the text (Global Air Transport(1000 tonnes)/Global sea transport (1000 TEUs))
+(E) [x] Include the unit in the text (Global Air Transport(1000 tonnes)/Global sea transport (1000 TEUs))
 
 (E) [x] Re-unit the categories in the global data set to billions
 
