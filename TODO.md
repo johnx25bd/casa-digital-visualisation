@@ -6,9 +6,11 @@ _prior to presentation_
 
 ## Kristian
 
-[] Refactor bar chart to accept `_highlightId` (column in csv) and `_highlightLayer` (layer id from map), and apply filter to highlight layer. See `createCustomBarChart()` defined in `cardData[0].loadCard()`.
-  [] Bonus - can we get it so the bar highlights when you hover on the country? Probably by classing the `<rect>` element with ISO3 code, then on mouseenter `d3.selectAll('.' + feature.iso3).classed('active', true);`, and removing the class on mouseleave.
+[x] Refactor bar chart to accept `_highlightId` (column in csv) and `_highlightLayer` (layer id from map), and apply filter to highlight layer. See `createCustomBarChart()` defined in `cardData[0].loadCard()`.
+  [x] Bonus - can we get it so the bar highlights when you hover on the country? Probably by classing the `<rect>` element with ISO3 code, then on mouseenter `d3.selectAll('.' + feature.iso3).classed('active', true);`, and removing the class on mouseleave.
 
+UPDATE: Both task are done.
+Updates occur in all scripts and data has been updated with a new column filter on, which is named the same for all datasets, but the content vary. An example is that export/import is filtered based on iso3 but ports are filtered based on their iata_code.
 
 [] More sophisticated flow map - probably of UK with trading partners? This could go on National view card 1 or the last card on the Global view
 
