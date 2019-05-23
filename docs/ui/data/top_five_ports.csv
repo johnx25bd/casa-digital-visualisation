@@ -1,6 +1,6 @@
-name,value
-Shanghai,40233
-SERANGOON HARBOR,33666
-Chiwan,25208
-Ningbo,24607
-Hong Kong,20770
+name,value,code
+Shanghai,40233,SHANGHAI
+Serangoon Harbor,33666,SERANGOON HARBOR
+Chiwan,25208,CHIWAN
+Ningbo,24607,NINGBO
+Hong Kong,20770,HONG KONG
