@@ -35,7 +35,7 @@ _prior to presentation_
 
 [] Purchase invisible-origins.com
 
-[] create invisible-origins github account 
+[] create invisible-origins github account
 
 ## John
 
@@ -101,9 +101,7 @@ _prior to presentation_
 
 [x] Fix broken image in Port of London
 
-[x] Add data source on the maps
-
-[] Add to description in Global Air Transport card
+[]
 
 [] Add air traffic over UK
 
@@ -119,7 +117,7 @@ _prior to presentation_
 
 [Kristian] - Spotted things to correct
 
-(E) [] Add value to d3 barchart on hover
+(E) [x] Add value to d3 barchart on hover
 
 [] Change layer by scrolling
 
@@ -133,7 +131,7 @@ _prior to presentation_
 
 [x] d3 piecharts for local layer
 
-(E) [] Include the unit in the text (Global Air Transport(1000 tonnes)/Global sea transport (1000 TEUs))
+(E) [x] Include the unit in the text (Global Air Transport(1000 tonnes)/Global sea transport (1000 TEUs))
 
 (E) [x] Re-unit the categories in the global data set to billions
 
