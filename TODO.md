@@ -50,7 +50,9 @@ Branch: UpdatedBarChartFunction
   [] If the top of the next card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
   [] If the bottom of the previous card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
 
-[] Restructure cards to reflect recommendation of Dan?
+[-] Restructure cards to reflect recommendation of Dan?
+  [x] Implement code
+  [] Review and merge 
 
 [] Add landing page
 
