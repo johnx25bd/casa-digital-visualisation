@@ -1,6 +1,6 @@
-name,value
-London,49868.395
-Southamton,34471.04
-Liverpool,32541.249
-Milford Haven,31989.639
-Felixstowe,29027.79
+name,value,code
+London,49868.395,LONDON
+Southampton,34471.04,SOUTHAMPTON
+Liverpool,32541.249,LIVERPOOL
+Milford Haven,31989.639000000006,MILFORD HAVEN
+Felixstowe,29027.79,FELIXSTOWE

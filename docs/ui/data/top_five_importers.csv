@@ -1,6 +1,6 @@
-name,value
-USA,2316
-China,1829
-Germany,1153
-Japan,660
-United Kingdom,627
+name,value,code
+United States Of America,2316,USA
+China,1829,CHN
+Germany,1153,DEU
+Japan,660,JPN
+United Kingdom,627,GBR

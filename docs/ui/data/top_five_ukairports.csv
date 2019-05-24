@@ -1,6 +1,6 @@
-name,value
-London Heathrow,1698.460908
-Manchester Int'l,120.181422
-London Gatwick,96.982582
-Birmingham Int'l,41.803276
-London Luton,21.026612
+name,value,code
+London Heathrow,1698.4609079999998,LHR
+Manchester,120.181422,MAN
+London Gatwick,96.982582,LGW
+Birmingham,41.803276000000004,BHX
+London Luton,21.026612,LTN

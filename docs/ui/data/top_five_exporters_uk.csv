@@ -1,6 +1,6 @@
-name,value
-USA,693.8121
-Germany,466.3152
-Switzerland,340.2157
-China,276.2541
-France,272.7562
+,name,value,code
+0,United States,693.8121000000001,USA
+1,Germany,466.31519999999995,DEU
+2,Switzerland,340.21569999999997,CHE
+3,China,276.2541,CHN
+4,France,272.7562,FRA
