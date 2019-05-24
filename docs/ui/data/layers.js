@@ -277,10 +277,10 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'usage'],
-            'civilian', '#5769D3',
-            'military/civilian', '#38f9d7',
-            'military', '#6f86d6',
-            'spaceport', '#48c6ef',
+            'civilian', '#1f78b4',
+            'military/civilian', '#ff7f00',
+            'military', '#33a02c',
+            'spaceport', '#b15928',
             /* other */
             '#ccc'
           ],
@@ -360,11 +360,11 @@ var layersData = [{
             ["linear"],
             ["heatmap-density"],
             0, "rgba(33,102,172,0)",
-            0.2, "rgb(103,169,207)",
-            0.4, "rgb(209,229,240)",
-            0.6, "rgb(253,219,199)",
-            0.8, "rgb(239,138,98)",
-            1, "rgb(178,24,43)"
+            0.2, "#81F7F3",
+            0.4, "#2ECCFA",
+            0.6, "#80b1d3",
+            0.8, "#1f78b4",
+            1, "#33a02c"
           ],
           // Adjust the heatmap radius by zoom level
           "heatmap-radius": [
@@ -413,10 +413,10 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'usage'],
-            'civilian', '#5769D3',
-            'military/civilian', '#38f9d7',
-            'military', '#6f86d6',
-            'spaceport', '#48c6ef',
+            'civilian', '#1f78b4',
+            'military/civilian', '#ff7f00',
+            'military', '#33a02c',
+            'spaceport', '#b15928',
             /* other */
             '#ccc'
           ],
@@ -680,9 +680,9 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'harbortype'],
-            'coastal', '#f83600',
-            'lake', '#ff5858',
-            'river', '#fee140',
+            'coastal', '#e31a1c',
+            'lake', '#80b1d3',
+            'river', '#ffed6f',
 
 
             /* other */
@@ -738,9 +738,9 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'harbortype'],
-            'coastal', '#f83600',
-            'lake', '#ff5858',
-            'river', '#fee140',
+            'coastal', '#e31a1c',
+            'lake', '#80b1d3',
+            'river', '#ffed6f',
 
 
             /* other */
