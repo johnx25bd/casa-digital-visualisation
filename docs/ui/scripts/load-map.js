@@ -231,16 +231,6 @@ window.onscroll = function() {
     }
   }
 
-
-  //
-  // for (var i = 0; i < cardData.length; i++) {
-  //   console.log(i);
-  //   if (((i == activeCardNum + 1) || (i == activeCardNum - 1))
-  //       && !$('body').hasClass('scrolling') ) {
-  //
-  //       console.log('card', i);
-  //     }
-  //   }
 };
 
 

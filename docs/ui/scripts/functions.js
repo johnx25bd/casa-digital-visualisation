@@ -32,6 +32,9 @@ function getCardId(_cardNum) {
 }
 
 function isNextCardOnScreen(_cardNum) {
+  if (activeCardNum == cardData.length - 1) {
+    return false;
+  }
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
   var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
   var bounds = element.getBoundingClientRect();
