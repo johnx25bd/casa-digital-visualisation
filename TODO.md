@@ -29,11 +29,13 @@ Branch: UpdatedBarChartFunction
 
 ## Shuke
 
-[] Use categorical colors for categorical dimensions. Color ramp for quantitative / ordinal.
+[x] Use categorical colors for categorical dimensions. Branch name: CategoricalColors.
 
-[] Adjust style of shipping density heatmap
+[x] Adjust style of shipping density heatmap. Branch name: CategoricalColors.
 
 [] Find a realtime data layer
+
+[] Prepare csv files for UK pie charts
 
 ## Haien
 
