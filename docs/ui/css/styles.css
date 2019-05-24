@@ -38,6 +38,7 @@ h3 span.light {
 .modal-content {
   background-color: white;
   /* background-image: url('../assets/images/containers.png'); */
+  cursor: default;
 }
 
 #landing-content {
@@ -47,9 +48,47 @@ h3 span.light {
   /* background-image: url('./assets/images/containers.png'); */
 }
 
+#landing-content h1 {
+  opacity: 0.8;
+  font-size: 72px;
+  background: -webkit-linear-gradient(45deg, #eee,#d7d8d8, #717171);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#landing-content h1:hover {
+  opacity: 1;
+  transition: opacity .2s ease;
+  -moz-transition: opacity .2s ease;
+  -webkit-transition: opacity .5s ease;
+  -o-transition: opacity .2s ease;
+
+}
+
 #landing-content p {
   font-size: 24px;
+  color: #949494;
 }
+
+#landing-content a {
+  color: #83acd8;
+}
+
+#landing-content button {
+  color: #83acd8;
+  border-color: #83acd8;
+}
+
+#landing-content button:hover {
+  color: white;
+  background-color:  #83acd8;
+}
+
+#ucl-logo {
+  left: none !important;
+  right: none !important;
+}
+
 
 #app-page {
 
@@ -81,6 +120,13 @@ h3 span.light {
 
 .airport-code {
   margin-top: -25px;
+}
+
+#navbar-title {
+  font-size: 25px;
+  background: -webkit-linear-gradient(45deg, #eee,#d7d8d8, #717171);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .octicon {

@@ -799,11 +799,10 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
   }
 }
 
+
 // fitText jQuery plugin, for airport codes
 // from https://github.com/davatron5000/FitText.js
-
 (function ( $ ){
-
   $.fn.fitText = function( kompressor, options ) {
 
     // Setup options

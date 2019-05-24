@@ -26,27 +26,42 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <title>🌐🚢✈ : How Things Move Around</title>
+  <title>🌐🚢✈</title>
   <!-- load favicon -->
 </head>
 
 <body>
-  <div class="modal fade" id="landing-page" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade show" id="landing-page" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
 
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
         <div id='landing-content' class='container'>
-          <div class='col-7 mb-5'>
+          <div class='row'>
+          <div class='col-lg-7 mb-5'>
             <h1 class='display-1 mb-4'>Invisible Origins</h1>
-            <p class='mb-5'>Cities are places where we can buy almost anything. These products come from somewhere - often from very far away. Here we visualise how things move around in our globalising world.</p>
-            <p>Created with 💛 for UCL's Centre for Advanced Spatial Analysis' Digital Visualisation module by:</p>
-            <a target="_blank" href="https://github.com/HaienTan"><p class='mb-0 ml-4'>Haien Tan</p></a>
-            <a target="_blank" href="https://github.com/Shukelei"><p class='mb-0 ml-4'>Shuke Lei</p></a>
-            <a target="_blank" href="https://github.com/KristianLN"><p class='mb-0 ml-4'>Kristian Lunow Nielsen</p></a>
-            <a target="_blank" href="https://github.com/robisoniv"><p class='mb-5 ml-4'>John IV</p></a>
+            <div id='landing-text' style="opacity: 0;">
+              <p class='mb-5'>Cities are places where we can buy almost anything. These products come from somewhere - often from very far away. Here we visualise how things move around in our globalising world.</p>
+              <p>Created with <a href="https://d3js.org/" target="_blank">d3</a>, <a href="https://mapbox.com/" target="_blank">mapbox</a>, <a href="https://getbootstrap.com/" target="_blank">bootstrap</a> and 💛 for the Bartlett Centre for Advanced Spatial Analysis CASA0003:
+                Digital Visualisation module by:</p>
+              <p class='mt-3 mb-0'><a target="_blank" href="https://github.com/HaienTan">
+                Haien Tan
+              </a></p>
+              <p class='mb-0'><a target="_blank" href="https://github.com/Shukelei">
+                Shuke Lei
+              </a></p>
+              <p class='mb-0'><a target="_blank" href="https://github.com/KristianLN">
+                Kristian Lunow Nielsen
+              </a></p>
+              <p class='mb-5'><a target="_blank" href="https://github.com/robisoniv">
+                John IV
+              </a></p>
 
-            <button type="button" class="btn btn-lg btn-outline-primary ml-4" data-toggle="modal" data-target="#landing-page">Explore visualisation.</button>
+              <button id='launch-vis' type="button" class="btn btn-lg btn-outline-primary " data-toggle="modal" data-target="#landing-page" >Explore visualisation.</button>
+                  <!-- <img id='ucl-logo' class='img-fluid col-4 pull-right mt-5' src='./assets/images/ucl.png'> -->
+              </div>
+            </div>
+
           </div>
         </div>
         <!-- <div class="modal-header">
@@ -68,7 +83,7 @@
   <div id='app-page'>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pl-5">
-        <a class="navbar-brand" href="#">🌐 🚢 ✈ Invisible Origins : How Things Move Around</a>
+        <a id='navbar-title' class="navbar-brand" href="#">Invisible Origins</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

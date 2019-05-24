@@ -8,8 +8,9 @@ var dims = {
   w: window.innerWidth
 }
 
-var activeCardNum = null;
-var inAnimation = false;
+var activeCardNum = null,
+  inAnimation = false,
+  firstMove = true;
 
 // Instantiate map:
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA';
@@ -185,7 +186,8 @@ var loadedData = {};
         // LOAD CARDS
         loadCards(cardData);
         setActiveCard(0);
-        $('.modal').modal('toggle')
+
+        $('#landing-page').modal('show');
 
 
       });
@@ -271,3 +273,27 @@ $('.jump-to-view').on('click', function(e) {
   // setActiveCard(targetCard);
 
 })
+
+d3.select('#landing-content h1')
+  .on('mouseenter', function () {
+    if (firstMove) {
+      d3.select('#landing-text')
+        .transition()
+        .duration(1000)
+        .style('opacity', 0.2);
+      setTimeout(function () {
+        firstMove = false;
+      }, 1000);
+    }
+
+  })
+
+d3.selectAll('.modal-content')
+  .on('mousemove', function () {
+    var visibility = (d3.mouse(this)[1] / window.innerHeight) ;
+    if (!firstMove) {
+      d3.select('#landing-text')
+        .style('opacity', visibility);
+    }
+
+  })
