@@ -185,6 +185,8 @@ var loadedData = {};
         // LOAD CARDS
         loadCards(cardData);
         setActiveCard(0);
+        $('.modal').modal('toggle')
+
 
       });
     }).catch(function(error) {
@@ -205,7 +207,7 @@ window.onscroll = function() {
       setActiveCard(activeCardNum + 1);
     } else if (isPriorCardOnScreen(activeCardNum - 1)) {
       setActiveCard(activeCardNum - 1);
-    }    
+    }
   }
 
 

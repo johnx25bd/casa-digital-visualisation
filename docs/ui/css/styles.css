@@ -30,6 +30,32 @@ h3 span.light {
 
 }
 
+.modal-dialog {
+  max-width: 100% !important;
+  margin: 0px;
+}
+
+.modal-content {
+  background-color: white;
+  /* background-image: url('../assets/images/containers.png'); */
+}
+
+#landing-content {
+  height: 100vh;
+  margin-top: 20vh;
+  /* background-color: pink; */
+  /* background-image: url('./assets/images/containers.png'); */
+}
+
+#landing-content p {
+  font-size: 24px;
+}
+
+#app-page {
+
+}
+
+
 .feature-subheader {
   font-size: 20px;
   color: silver;
