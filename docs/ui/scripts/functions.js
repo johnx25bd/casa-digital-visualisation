@@ -248,13 +248,14 @@ function createBarChart(_params, _parentEl) {
   var file = _params.dataPath,
     y_legend = _params.yAxisLabel,
     title = _params.title,
-    type = _params.valueType;
+    type = _params.valueType,
+    layerOfInterst = _params.layerName;
 
   var width = d3.select(_parentEl).node().getBoundingClientRect().width,
     height = width * 0.3 ,
     margin = 0;
 
-    console.log(height);
+    //console.log(height);
 
   var svg = d3.select(_parentEl)
     .append("svg")
@@ -352,7 +353,10 @@ function createBarChart(_params, _parentEl) {
     g.selectAll(".bar")
       .data(data)
       .enter().append("rect")
-      .attr("class", "bar")
+      //.attr("class", "bar")
+      .attr("class", function(d){
+        return 'bar '+d.code;
+      })
       .attr("x", function(d) {
         return xScale(d.name);
       })
@@ -363,7 +367,8 @@ function createBarChart(_params, _parentEl) {
       .attr("height", function(d) {
         return height - yScale(d.value);
       })
-
+      //.style('fill','#537895')
+      .style('fill-opacity','0.7')
       .on('mouseenter', function(d) {
 
         text = svg.append("text")
@@ -372,9 +377,14 @@ function createBarChart(_params, _parentEl) {
               .style("text-anchor", "middle")
               .attr("class", "on")
               .text("Bar value: "+d.value);
+
+        //map.setPaintProperty(layerOfInterst, ['==', 'iso3', d.iso3]);
+        console.log(layerOfInterst);
+        map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
       })
       .on("mouseout", function(d) {
              text.remove();
+             map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', '']);
       });
 
   });

@@ -179,7 +179,7 @@ h3 span.light {
 }
 
 .bar:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 #imports-bar-chart .bar {

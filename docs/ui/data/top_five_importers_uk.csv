@@ -1,6 +1,6 @@
-name,value
-Germany,943.4806
-China,629.7961
-USA,580.6645
-Netherlands,475.49
-France,387.0382
+,name,value,code
+0,Germany,943.4806,DEU
+1,China,629.7961,CHN
+2,United States,580.6645,USA
+3,Netherlands,475.49,NLD
+4,France,387.0382,FRA

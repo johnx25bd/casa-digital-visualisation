@@ -35,9 +35,33 @@ var layersData = [{
         _data.properties.all_commodities_export + '</p>';
     },
     highlight: function() {
-      return;// "yes";
+      return "yes";
     }
   },
+  {
+    "name": "railways",
+    "path": "./data/tq-railways-wgs.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "default": {
+        "type": "line",
+        "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        "paint": {
+          "line-color": "#888",
+          "line-width": 2
+        }
+      }
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+      return _data.properties.CLASSIFICA;
+
+    }
+  },
+
   {
     "name": "export-countries-volumes-highlighted",
     "type": "mapbox",
@@ -78,6 +102,7 @@ var layersData = [{
     "type": "mapbox",
     "path": "none",
     "addLayerParams": {
+      // "id": "import-countries",
       "type": "fill",
       "source": {
         "type": "vector",
@@ -146,6 +171,64 @@ var layersData = [{
       // pop tooltip with data.
     }
   },
+  // {
+  //   "name": "busiest-airports",
+  //   "type": "mapbox",
+  //   "path": "none",
+  //   "addLayerParams": {
+  //     "default": {
+  //       // "id": "airports-mapbox-data-busiest",
+  //       "type": "circle",
+  //       "source": {
+  //         "type": "vector",
+  //         "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+  //       },
+  //       "source-layer": "Global_airports",
+  //
+  //       "paint": {
+  //         "circle-color": "#6991c7",
+  //         "circle-opacity": 0.8,
+  //         "circle-radius": 5
+  //       },
+  //       "filter": ["==", "top_20_busiest_airports", ""]
+  //     },
+  //     "dim_a": {}
+  //   },
+  //   tooltip: function(_data) {
+  //     return '<p>' + _data.properties.abbrev + '</p>';
+  //     // pop tooltip with data.
+  //   }
+  // }
+  ,
+  // {
+  //   "name": "uK-airports-filter",
+  //   "type": "mapbox",
+  //   "path": "none",
+  //   "addLayerParams": {
+  //     "default": {
+  //       // "id": "airports-mapbox-data-uk",
+  //       "type": "circle",
+  //       "source": {
+  //         "type": "vector",
+  //         "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+  //       },
+  //       "source-layer": "Global_airports",
+  //
+  //       "paint": {
+  //         "circle-color": "#6991c7",
+  //         "circle-opacity": 0.8,
+  //         "circle-radius": 5
+  //       },
+  //       "filter": ["==", "iso3", ""]
+  //     },
+  //     "dim_a": {}
+  //   },
+  //   tooltip: function(_data) {
+  //     return '<p>' + _data.properties.abbrev + '</p>';
+  //     // pop tooltip with data.
+  //   }
+  // }
+  ,
   {
     "name": "heathrow-center",
     "type": "mapbox",
@@ -215,15 +298,12 @@ var layersData = [{
           'circle-opacity': 0.8
         }
 
-      }
-    },
+      },
 
-    tooltip: function(_data) {
-      console.log(_data);
-      return "<h5 class='mb-0'>" + _data.properties.code + "</h5>";
-    },
-    highlight: function() {
-      return;
+      tooltip: function(_data) {
+        console.log(_data);
+      }
+
     }
   },
   {
@@ -250,18 +330,39 @@ var layersData = [{
             /* other */
             4
           ],
-          'circle-color': 'black'
+          'circle-color': 'red'
 
           ,
-          'circle-stroke-color': 'black'
+          'circle-stroke-color': 'red'
+          ,
+          'circle-stroke-width': 1,
+          'circle-opacity': 1
         },
         "filter": ["==", "code", ""]
 
-      }
-    },
+      },
 
-    tooltip: function(_data) {
-      console.log(_data);
+      tooltip: function(_data) {
+        console.log(_data);
+      }
+
+    }
+  },
+  {
+    "name": "airports-mapbox-data",
+    "type": "mapbox",
+    "path": "none",
+    "addLayerParams": {
+      "default": {
+        "id": "airports-mapbox-data",
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
+        },
+        "source-layer": "Global_airports",
+
+      }
     }
   },
   {
@@ -327,8 +428,7 @@ var layersData = [{
         }
       }
     }
-  },
-  {
+  }, {
     "name": "global-airports",
     "type": "mapbox",
     "path": "none",
@@ -375,46 +475,6 @@ var layersData = [{
           ],
           'circle-stroke-width': 0.5
         }
-      },
-      "dim_a": {}
-    },
-    tooltip: function(_data) {
-      return "<h5 class='mb-0'>" + _data.properties.abbrev + "</h5>";
-    },
-    highlight: function() {
-      return;
-    }
-
-  },
-  {
-    "name": "global-airports-highlighted",
-    "type": "mapbox",
-    "path": "none",
-    "addLayerParams": {
-      "default": {
-        // "id": "airports-mapbox-data",
-        "type": "circle",
-        "source": {
-          "type": "vector",
-          "url": "mapbox://kristianln.cjvlf8v0y0tca2rl9kgp0zoq3-8xp3c"
-        },
-        "source-layer": "Global_airports",
-
-        "paint": {
-          // make circles larger as the user zooms from z12 to z22
-          'circle-radius': [
-            'match',
-            ['get', 'size'],
-            'small', 2,
-            'mid', 4,
-            'major', 6,
-            /* other */
-            4
-          ],
-          'circle-color': 'black',
-          'circle-stroke-color': 'black'
-        },
-        "filter": ["==", "code", ""]
       },
       "dim_a": {}
     },
@@ -681,8 +741,7 @@ var layersData = [{
             /* other */
             '#ccc'
           ],
-          'circle-stroke-width': 0.5,
-          'circle-opacity':0.5
+          'circle-stroke-width': 0.5
         }
 
       }
@@ -697,49 +756,9 @@ var layersData = [{
         .join(' ')
 
       return "<p class='mb-0'>" + portName + "</p>";
-    },
-    highlight: function() {
-      return;
     }
   },
-  {
-    "name": "uK-ports-highlighted",
-    "path": "./data/uk-ports.json",
-    "type": "geojson",
-    "addLayerParams": {
-      "default": {
-        "type": "circle",
-        "paint": {
-          // make circles larger as the user zooms from z12 to z22
-          'circle-radius': [
-            'match',
-            ['get', 'harborsize'],
-            'V', 2,
-            'S', 4,
-            'M', 6,
-            'L', 8,
-            /* other */
-            5
-          ],
-          'circle-color': 'black'
-          ,
-          'circle-stroke-color': 'black'
-        },
-        "filter": ["==", "code", ""]
-      }
-    },
-    tooltip: function(_data) {
-      console.log(_data);
 
-      // Could deal with hyphenated words too ...
-      var portName = _data.properties.port_name.toLowerCase().split(' ');
-
-      portName = portName.map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-
-      return "<p class='mb-0'>" + portName + "</p>";
-    }
-  },
   {
     "name": "global-ports",
     "path": "./data/ports.json",
@@ -797,49 +816,44 @@ var layersData = [{
       // portName.charAt(portName.indexOf('-') + 1).toUpperCase()
 
       return "<h5 class='mb-0'>" + portName + "</h5>";
-    },
-    highlight: function() {
-      return;
     }
   },
   {
-    "name": "global-ports-highlighted",
+    "name": "busiest-global-ports",
     "path": "./data/ports.json",
     "type": "geojson",
     "addLayerParams": {
       "default": {
         "type": "circle",
         "paint": {
-          // make circles larger as the user zooms from z12 to z22
-          'circle-radius': [
-            'match',
-            ['get', 'harborsize'],
-            'V', 2,
-            'S', 4,
-            'M', 6,
-            'L', 8,
-            /* other */
-            5
-          ],
-          'circle-color': 'black',
-          'circle-stroke-color': 'black'
+          "circle-radius": 3,
+          "circle-color": "#537895"
         },
-        "filter": ["==", "code", ""]
-
+        "filter": ["==", "top_20_busiest_ports", ""]
       }
     },
     tooltip: function(_data) {
       console.log(_data);
-
-      // Could deal with hyphenated words too ...
-      var portName = _data.properties.port_name.toLowerCase().split(' ');
-
-      portName = portName.map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-
-      // portName.charAt(portName.indexOf('-') + 1).toUpperCase()
-
-      return "<h5 class='mb-0'>" + portName + "</h5>";
+      // pop tooltip with data.
+    }
+  },
+  {
+    "name": "uK-ports-filter",
+    "path": "./data/ports.json",
+    "type": "geojson",
+    "addLayerParams": {
+      "default": {
+        "type": "circle",
+        "paint": {
+          "circle-radius": 3,
+          "circle-color": "#537895"
+        },
+        "filter": ["==", "iso3", ""]
+      }
+    },
+    tooltip: function(_data) {
+      console.log(_data);
+      // pop tooltip with data.
     }
   },
   {

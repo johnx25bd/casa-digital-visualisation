@@ -109,8 +109,12 @@ var loadedData = {};
 
             map.addLayer(buildAddLayerParams(layerData), "country-label");
 
+            //var prevCoordinates = null;
+
             if (layerData.tooltip) {
+              //console.log('Layer have tooltip',layerData.name);
               map.on('mouseenter', layerData.name, function(e) {
+                //console.log(e.features[0]);
                 var tooltipContent = layerData.tooltip(e.features[0]);
                 if (tooltipContent != undefined) {
 
@@ -133,6 +137,7 @@ var loadedData = {};
                     .setHTML(tooltipContent)
                     .addTo(map);
                   // show tooltipcontent
+
                 }
               });
 
@@ -142,25 +147,39 @@ var loadedData = {};
               })
             }
             if (layerData.highlight) {
+              //console.log(layerData.highlight);
               map.on("mousemove", layerData.name, function(e) {
 
                   var features = map.queryRenderedFeatures(e.point);
 
-                  var currentISO3 = features[0].properties.iso3;
+                  var currentISO3 = features[0].properties.code;
+                  if (typeof currentISO3 === 'undefined'){
+                    return;
+                  } else {
+                    var feature = features[0];
 
-                  var feature = features[0];
+                    if (e.features.length > 0) {
+                      map.setFilter(layerData.name +'-highlighted', ['==', 'code', currentISO3]);
+                    }
 
-                  if (e.features.length > 0) {
-                    // console.log("LAYREDATA>", layerData, currentISO3);
-                      map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', currentISO3]);
+                    d3.selectAll('.' + currentISO3)
+                        .classed('active', true)
+                        .style('fill-opacity','1');
+
                   }
-                  });
-
+              });
                       // When the mouse leaves the state-fill layer, update the feature state of the
                       // previously hovered feature.
-              map.on("mouseleave", layerData.name, function() {
+              map.on("mouseleave", layerData.name, function(e) {
+
+                  //var features = map.queryRenderedFeatures(e.point);
+
+                  //var currentISO3 = features[0].properties.iso3;
 
                   map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', '']);
+                  d3.selectAll('.bar')// + currentISO3)
+                      .classed('active', false)
+                      .style('fill-opacity','0.7');
               });
             }
             map.on('click', layerData.name, function(e) {

@@ -48,154 +48,15 @@ var cardData = [
         "title": "Top Five Exporting Countries",
         "dataPath": "./data/top_five_exporters.csv",
         "yAxisLabel": "Billions (USD)",
+        'layerName': 'export-countries-volumes',
 
       };
 
 
-      createCustomBarChart(exportersBarChartParams, "#exports-bar-chart");
+      //createCustomBarChart(exportersBarChartParams, "#exports-bar-chart");
+      createBarChart(exportersBarChartParams, "#exports-bar-chart");
 
-      function createCustomBarChart(_params, _parentEl) {
-
-        var file = _params.dataPath,
-          y_legend = _params.yAxisLabel,
-          title = _params.title,
-          type = _params.valueType;
-
-        var width = d3.select(_parentEl).node().getBoundingClientRect().width,
-          height = width * 0.3 ,
-          margin = 0;
-
-          console.log(height);
-
-        var svg = d3.select(_parentEl)
-          .append("svg")
-          .attr('height', height * 1.5)
-          .attr('width', width - 15)
-          .attr('preserveAspectRatio', 'xMinYMin meet')
-          .attr(
-            'viewBox',
-            '0 0 ' +
-            (width + margin + margin) * 1.3 +
-            ' ' +
-            (height + margin + margin)
-          );
-
-          // from https://eddyerburgh.me/create-responsive-bar-chart-d3-js
-
-          //
-          var mouseover = function(d) {
-            Tooltip
-              .style("opacity", 1)
-            d3.select(this)
-              .style("stroke", "black")
-              .style("opacity", 1)
-          }
-          var mousemove = function(d) {
-            Tooltip
-              .html("The exact value of<br>this cell is: " + d.value)
-              .style("left", (d3.mouse(this)[0]+70) + "px")
-              .style("top", (d3.mouse(this)[1]) + "px")
-          }
-          var mouseleave = function(d) {
-            Tooltip
-              .style("opacity", 0)
-            d3.select(this)
-              .style("stroke", "none")
-              .style("opacity", 0.8)
-          }
-
-        svg.append("text")
-          .attr("transform", "translate(" + width * 0.1 + ",0)")
-          .attr("x", width * 0.1)
-          .attr("y", width * 0.1)
-          .attr("font-size", "24px")
-          .text(title)
-
-        var xScale = d3.scaleBand().range([0, width]).padding(0.4),
-          yScale = d3.scaleLinear().range([height, 0]); //height
-
-        var g = svg.append("g")
-          .classed('chart-body', true)
-          .attr("transform", "translate(" + margin + 70 + "," + margin + 80 + ")");
-
-        d3.csv(file).then(function(data) {
-          data.forEach(function(d) {
-            d.value = +d.value;
-          });
-
-          xScale.domain(data.map(function(d) {
-            return d.name;
-          }));
-          yScale.domain([0, d3.max(data, function(d) {
-            return d.value;
-          })]); //
-
-          g.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale))
-            .append("text")
-            .attr("y", height * 0.2)
-            .attr("x", width * 0.45)
-            .attr("text-anchor", "end")
-            .attr("stroke", "black")
-            .text("Name");
-
-
-          g.append("g")
-            .call(d3.axisLeft(yScale).tickFormat(function(d) {
-
-                if (type == 'value') {
-                  return "$" + d;
-                } else if (type == 'amount') {
-                  return d;
-                }
-              })
-
-              .ticks(10))
-            .append("text")
-            .attr("transform", "rotate(0)")
-            .attr("y", 5)
-            .attr("dy", "-2.1em")
-            .attr("text-anchor", "end")
-            .attr("stroke", "black")
-            .text(y_legend);
-
-          g.selectAll(".bar")
-            .data(data)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d) {
-              return xScale(d.name);
-            })
-            .attr("y", function(d) {
-              return yScale(d.value);
-            })
-            .attr("width", xScale.bandwidth())
-            .attr("height", function(d) {
-              return height - yScale(d.value);
-            })
-
-            .on('mouseenter', function(d) {
-
-              text = svg.append("text")
-                    .attr("transform", function(d, i) { return "translate(100," + height * 1.8 + ")";})
-                    .attr("dy", ".5em")
-                    .style("text-anchor", "middle")
-                    .attr("class", "on")
-                    .text("Bar value: "+d.value);
-                  console.log(d);
-
-              highlightCountry('export-countries-volumes', d.iso3);
-            })
-            .on("mouseout", function(d) {
-              unhighlightCountry('export-countries-volumes');
-                   text.remove();
-            });
-
-        });
-      }
       setFeatureContentText(_i, "country")
-
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
@@ -292,6 +153,7 @@ var cardData = [
         "title": "Top Five Importing Countries",
         "dataPath": "./data/top_five_importers.csv",
         "yAxisLabel": "Billions (USD)",
+        'layerName': 'import-countries-volumes',
 
       };
 
@@ -373,7 +235,7 @@ var cardData = [
         <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
       </ul>
     `,
-    "layers": ["global-airports"],
+    "layers": ["global-airports",'global-airports-highlighted'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -388,6 +250,7 @@ var cardData = [
         "title": "Top Five Global Airports by Volume",
         "dataPath": "./data/top_five_airports.csv",
         "yAxisLabel": "Air traffic volumes (thousand tons)",
+        'layerName': 'global-airports',
 
       };
 
@@ -536,7 +399,7 @@ var cardData = [
         <li><p class="lead mb-0">Wikipedia, Data: <a href="https://en.wikipedia.org/wiki/List_of_busiest_container_ports">Source</a></p></li>
       </ul>
     `,
-    "layers": ["global-ports"],
+    "layers": ["global-ports","global-ports-highlighted"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
@@ -553,6 +416,7 @@ var cardData = [
         "title": "Top Five Global Ports by Volume",
         "dataPath": "./data/top_five_ports.csv",
         "yAxisLabel": "Port traffic volumes (thousand TEU)",
+        'layerName': 'global-ports',
 
       };
 
@@ -692,7 +556,7 @@ var cardData = [
         </div>
       </div>-->
     `,
-    "layers": ["uK-airports", 'uK-ports', 'railways'],
+    "layers": ["uK-airports", 'uK-ports'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -770,7 +634,7 @@ var cardData = [
   <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
 </ul>
     `,
-    "layers": ["uK-airports"],
+    "layers": ["uK-airports",'uK-airports-highlighted'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -787,6 +651,7 @@ var cardData = [
               "title": "Top Five British Airports by Volume",
               "dataPath": "./data/top_five_ukairports.csv",
               "yAxisLabel": "Airport traffic volumes (thousand tons)",
+              'layerName': 'uK-airports',
 
             };
 
@@ -822,7 +687,7 @@ var cardData = [
        <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
      </ul>
  `,
-    "layers": ["uK-ports", 'uk-ais-points'],
+    "layers": ["uK-ports", "uK-ports-highlighted",'uk-ais-points'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -837,6 +702,7 @@ var cardData = [
               "title": "Top Five British Ports by Volume",
               "dataPath": "./data/top_five_ukports.csv",
               "yAxisLabel": "Port traffic volumes (thousand TEU)",
+              'layerName':'uK-ports',
 
             };
 
