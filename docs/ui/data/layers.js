@@ -215,16 +215,15 @@ var layersData = [{
           'circle-opacity': 0.8
         }
 
-      },
-
-      tooltip: function(_data) {
-        console.log(_data);
-        return "<h5 class='mb-0'>" + _data.properties.abbrev + "</h5>";
-      },
-      highlight: function() {
-        return;
       }
+    },
 
+    tooltip: function(_data) {
+      console.log(_data);
+      return "<h5 class='mb-0'>" + _data.properties.code + "</h5>";
+    },
+    highlight: function() {
+      return;
     }
   },
   {
@@ -258,12 +257,11 @@ var layersData = [{
         },
         "filter": ["==", "code", ""]
 
-      },
-
-      tooltip: function(_data) {
-        console.log(_data);
       }
+    },
 
+    tooltip: function(_data) {
+      console.log(_data);
     }
   },
   {
