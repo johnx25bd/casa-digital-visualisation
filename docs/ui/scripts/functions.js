@@ -68,7 +68,6 @@ function loadCards(_cards) {
       return d.extent + ' card-body app-card col-12';
     })
     .on('click', function(d, i) {
-      // console.log("CLICK!");
       setActiveCard(i);
     });
 
@@ -77,13 +76,9 @@ function loadCards(_cards) {
       return d.title;
     });
 
-  cardEls.append('div')
-    .html(function(d) {
-      return d.content;
-    });
-
+  // Interactive feature content area:
   var featureContent = cardEls.append('div')
-    .classed('card feature', true)
+    .classed('card feature mb-2', true)
     .append('div')
     .classed('card-body', true);
 
@@ -94,6 +89,8 @@ function loadCards(_cards) {
   featureContent.append('div')
     .classed('col-12 feature-content', true);
 
+
+  // Legend
   var legendContent = cardEls.append('div')
     .classed('card legend', true)
     .append('div')
@@ -105,6 +102,21 @@ function loadCards(_cards) {
 
   legendContent.append('div')
     .classed('col-12 legend-content', true);
+
+
+  // Additional facts area:
+  var additionalContent = cardEls.append('div')
+    // .classed('card', true);
+
+  additionalContent.append('div')
+    .classed('col-12', true)
+    .html(function(d) {
+      return d.content;
+    });
+
+
+
+
 
   for (i in _cards) {
     var card = _cards[i];
@@ -215,10 +227,6 @@ function scrollToCard(_cardNum) {
     }, 1200)
 
     setActiveCard(_cardNum);
-
-
-
-
 
     // console.log("inAnimation:", inAnimation);
     var cardTmp = cardData[_cardNum];

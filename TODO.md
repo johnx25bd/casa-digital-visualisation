@@ -26,6 +26,9 @@ Branch: UpdatedBarChartFunction
 
 [] Add some realtime data layer - fetch JSON from API.
 
+[] Add heatmap legend entry ...
+
+[] Integrate sources into layers objects
 
 ## Shuke
 
@@ -43,7 +46,7 @@ Branch: UpdatedBarChartFunction
 
 ## John
 
-[] Set up scrolling animation function, or make it so you have to use the nav buttons to advance to the next card.
+[x] Set up scrolling animation function, or make it so you have to use the nav buttons to advance to the next card.
   [] If the top of the next card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
   [] If the bottom of the previous card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
 
@@ -51,7 +54,6 @@ Branch: UpdatedBarChartFunction
 
 [] Add landing page
 
-[] Integrate sources into layers objects
 
 
 

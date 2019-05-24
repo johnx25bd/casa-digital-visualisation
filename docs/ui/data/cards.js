@@ -3,12 +3,7 @@ var cardData = [
     "extent": "global",
     "title": "World Trade: Exports",
     "content": `<p>This map displays the 2017 exports of eight categories of products by country are related respectively. The colour of polygons shows the total export volume. </p>
-      <div class='card border-secondary mb-3'>
-        <div class='card-body'>
-          <p class="lead mb-0">Click on the polygon representing the corresponding country to learn more details about its export volumes of eight typical kinds of products available now for export.
-          </p>
-        </div>
-      </div>
+
       <div id='exports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
       <!-- <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
       <h4 class='display-4'>Facts</h4>
@@ -248,12 +243,6 @@ var cardData = [
     "extent": "global",
     "title": "World Trade: Imports",
     "content": `<p>This map displays the 2017 imports of eight categories of products by country are related respectively. The colour of polygons shows the total import volume.</p>
-      <div class='card border-secondary mb-3'>
-        <div class='card-body'>
-          <p class="lead mb-0">Click on the polygon representing the corresponding country to learn more details about its import volumes of eight typical kinds of products available now for import.
-          </p>
-        </div>
-      </div>
       <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
       <div id='imports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
       <!-- <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
