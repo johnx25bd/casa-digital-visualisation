@@ -111,8 +111,9 @@ var loadedData = {};
             //var prevCoordinates = null;
 
             if (layerData.tooltip) {
-
+              //console.log('Layer have tooltip',layerData.name);
               map.on('mouseenter', layerData.name, function(e) {
+                //console.log(e.features[0]);
                 var tooltipContent = layerData.tooltip(e.features[0]);
                 if (tooltipContent != undefined) {
 
@@ -157,7 +158,7 @@ var loadedData = {};
                     var feature = features[0];
 
                     if (e.features.length > 0) {
-                      map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', currentISO3]);
+                      map.setFilter(layerData.name +'-highlighted', ['==', 'code', currentISO3]);
                     }
 
                     d3.selectAll('.' + currentISO3)

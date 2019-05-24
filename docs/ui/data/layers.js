@@ -219,6 +219,7 @@ var layersData = [{
 
       tooltip: function(_data) {
         console.log(_data);
+        return "<h5 class='mb-0'>" + _data.properties.abbrev + "</h5>";
       },
       highlight: function() {
         return;
