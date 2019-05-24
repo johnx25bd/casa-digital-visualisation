@@ -43,16 +43,22 @@ Branch: UpdatedBarChartFunction
 
 ## John
 
+[] Set up scrolling animation function, or make it so you have to use the nav buttons to advance to the next card.
+  [] If the top of the next card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
+  [] If the bottom of the previous card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
+
+[] Restructure cards to reflect recommendation of Dan?
+
 [] Add landing page
+
+[] Integrate sources into layers objects
+
+
 
 [] Can we quickly convert this to mobile? :eeee
   [] At breakpoint, convert to two stacked divs - map and content.
   [] Content scrolls "under" map (sort of ....)
   [] Drop map nav to anchor bottom
-
-[] Set up scrolling animation function, or make it so you have to use the nav buttons to advance to the next card.
-  [] If the top of the next card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
-  [] If the bottom of the previous card is less than halfway to the top of the viewport, and it is not the active card, switch to card.
 
 [] Card-specific layer filtering architecture adaptation
 
@@ -61,12 +67,7 @@ Branch: UpdatedBarChartFunction
   [] Fix fact that it doesn't pop up sometimes
   [] Smooth on mousemove.
 
-[] Restructure cards to reflect recommendation of Dan?
-
-[] Integrate sources into layers objects
-
 [] Put feature content pie charts for British Air Traffic and British Port Traffic cards. (+ Shuke)
-
 
 [] Define classes for cards, layers. Refactor to read from some data source and instantiate an object for each instance of the respective classes. This could clean up the data massively.
   [] How do define custom methods?

@@ -297,13 +297,15 @@ var layersData = [{
           'circle-stroke-width': 1
         }
 
-      },
-
-      tooltip: function(_data) {
-        console.log(_data);
       }
 
-    }
+},
+      tooltip: function(_data) {
+        console.log(_data);
+        return _data.properties.airport_name;
+      }
+
+
   },
   {
     "name": "airports-mapbox-data",

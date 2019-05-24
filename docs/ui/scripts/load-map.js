@@ -195,15 +195,30 @@ var loadedData = {};
 
 
 // EVENT LISTENERS
-// window.onscroll = function() {
-//   for (var i = 0; i < cardData.length; i++) {
-//     if (isElementOnScreen(i)
-//       && !$('body').hasClass('scrolling')) {
-//       setActiveCard(i);
-//       break;
-//     }
-//   }
-// };
+// Adapted from from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
+
+window.onscroll = function() {
+
+  if ( !$('body').hasClass('scrolling') ) {
+    if (isNextCardOnScreen(activeCardNum + 1)) {
+      console.log("On screen!");
+      setActiveCard(activeCardNum + 1);
+    } else if (isPriorCardOnScreen(activeCardNum - 1)) {
+      setActiveCard(activeCardNum - 1);
+    }    
+  }
+
+
+  //
+  // for (var i = 0; i < cardData.length; i++) {
+  //   console.log(i);
+  //   if (((i == activeCardNum + 1) || (i == activeCardNum - 1))
+  //       && !$('body').hasClass('scrolling') ) {
+  //
+  //       console.log('card', i);
+  //     }
+  //   }
+};
 
 
 $('#next-card').on('click', function(e) {

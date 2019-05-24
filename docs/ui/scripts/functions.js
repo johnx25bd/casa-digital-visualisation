@@ -31,15 +31,22 @@ function getCardId(_cardNum) {
     + '-card-' + _cardNum;
 }
 
-function isElementOnScreen(_cardNum) {
+function isNextCardOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
   var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
   var bounds = element.getBoundingClientRect();
+  console.log(bounds);
 
-  // !!! This could use some work - improve moment when
-  // new active card is set ... could add clicked? attribute,
-  // and
-  return bounds.top < window.innerHeight && bounds.bottom > 80;
+  return bounds.top < window.innerHeight / 2;
+}
+
+function isPriorCardOnScreen(_cardNum) {
+  // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
+  var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
+  var bounds = element.getBoundingClientRect();
+  console.log(bounds);
+
+  return bounds.bottom > window.innerHeight / 2;
 }
 
 
@@ -205,7 +212,7 @@ function scrollToCard(_cardNum) {
 
     setTimeout(function () {
       $('body').removeClass('scrolling');
-    }, 1000)
+    }, 1200)
 
     setActiveCard(_cardNum);
 
