@@ -135,17 +135,20 @@ function updateLegend(_layers,_cardNum) {
   for (layer of _layers){
     // console.log("Layer",layer);
     if (!layer.includes('highlighted')){
-      var layerOfInterst = layersData.find(function (l) {
+      var layerOfInterest = layersData.find(function (l) {
         return l.name == layer;
       });
 
-      var layerType = layerOfInterst.addLayerParams.default ?
-        layerOfInterst.addLayerParams.default.type :
-        layerOfInterst.addLayerParams.type;
+      var layerType = layerOfInterest.addLayerParams.default ?
+        layerOfInterest.addLayerParams.default.type :
+        layerOfInterest.addLayerParams.type;
+
+      // To access the source
+      //layerOfInterest.source
 
       if (layerType == 'fill'){
 
-        var layerPaint = map.getPaintProperty(layer,'fill-color');
+        var layerPaint = map.getPaintProperty(layer,'fill-color');// All where changed from layer to layerOfInterest
 
       } else if (layerType == 'circle'){
 

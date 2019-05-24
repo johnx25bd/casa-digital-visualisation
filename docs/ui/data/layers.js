@@ -4,6 +4,11 @@ var layersData = [{
     "name": "export-countries-volumes",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Import Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
     "addLayerParams": {
       //"id": "export-countries-volumes",
       "type": "fill",
