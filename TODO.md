@@ -54,11 +54,9 @@ Branch: UpdatedBarChartFunction
 
 [-] Restructure cards to reflect recommendation of Dan?
   [x] Implement code
-  [] Review and merge 
+  [] Review and merge
 
-[] Add landing page
-
-
+[x] Add landing page
 
 
 [] Can we quickly convert this to mobile? :eeee
