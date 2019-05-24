@@ -30,15 +30,17 @@ Branch: UpdatedBarChartFunction
 
 *  Fix size categories in data
 
-* Shrink symbols
+* Shrink symbols - Done
 
 * adjust whitespace of fill-based legends - Done
 
-* Add sources
+* Add sources - Done
 
 * Add highlight feature
 
-* Consider if the code can be written more elegantly
+* Consider if the code can be written more elegantly - Done
+
+  * Next step: Make the code dynamic with respect to the number of sources. *
 #############################################
 
 [] Add some realtime data layer - fetch JSON from API.
