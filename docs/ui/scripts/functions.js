@@ -500,7 +500,9 @@ for (layer of _layers){
     var type = layerOfInterest.addLayerParams.default ?
       layerOfInterest.addLayerParams.default.type :
       layerOfInterest.addLayerParams.type;
+
     var layerName = layer;
+
     if (type == 'fill'){
 
       howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
@@ -513,27 +515,32 @@ for (layer of _layers){
       };
 
       if (paint['circle-color'] || paint['circle-radius']){
-        if (paint['circle-color'].length >= paint['circle-radius'].length){
-          howLong += ((((paint['circle-color'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*layerOfInterest.source.url.length));
+        if ((Array.isArray(paint['circle-color'])) && (Array.isArray(paint['circle-radius']))){
+          if (paint['circle-color'].length >= paint['circle-radius'].length){
+            howLong += ((((paint['circle-color'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*layerOfInterest.source.url.length));
+          } else {
+            howLong += ((((paint['circle-radius'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*(layerOfInterest.source.url.length + 1)));
+          }
         } else {
-          howLong += ((((paint['circle-radius'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*(layerOfInterest.source.url.length + 1)));
+          howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
         }
       } else {
         howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
       }
+    } else if (type == 'fill-extrusion'){
+      howLong += 0//(2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
+    } else if (type == 'heatmap'){
+      howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
     }
     if (layerOfInterest.source.content[0].length>maxWidth){
       maxWidth = layerOfInterest.source.content[0].length;
     }
-
   }
 }
 //################################ END OF NEW ##############################################
   var width = 300,
       widthExtent = width + 5*maxWidth
-      //height = 125;
-  console.log('How Long?: '+howLong);
-  console.log('How wide?: '+ maxWidth);
+
   var svg = d3.select(_id)
     .append('svg')
     .attr('id','hej')
@@ -554,7 +561,7 @@ for (layer of _layers){
         var type = layerOfInterest.addLayerParams.default ?
           layerOfInterest.addLayerParams.default.type :
           layerOfInterest.addLayerParams.type;
-
+        //console.log(layer+'s type is: '+type)
         var title = layerOfInterest.source.content,
             sourceNames = layerOfInterest.source.name,
             sourceTypes = layerOfInterest.source.type,
@@ -571,7 +578,7 @@ for (layer of _layers){
         if (type == 'fill'){
 
           var paint = map.getPaintProperty(layer,'fill-color');// All where changed from layer to layerOfInterest
-
+          //console.log(layer+'s type is: ' + paint)
         } else if (type == 'circle'){
 
           var paint = {
@@ -579,6 +586,14 @@ for (layer of _layers){
             'circle-color' : map.getPaintProperty(layer,'circle-color')
             //'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
           };
+        } else if (type == 'heatmap'){
+          var paint = {
+            'heatmap-color' : map.getPaintProperty(layer,'heatmap-color')
+          }
+
+          paint = [[],[],[],[],[0,paint['heatmap-color'][4]],[],[1,paint['heatmap-color'][paint['heatmap-color'].length-1]]];
+          type = 'fill';
+
         } else {
           return;
         }
@@ -829,7 +844,7 @@ for (layer of _layers){
   function structureData(_dataType,_dataPaint){
 
     if (_dataType == 'fill'){
-      if (_dataPaint.length > 1){//Array.isArray(_dataPaint)
+      if (Array.isArray(_dataPaint)){
 
         var step = 20,
             color1 = _dataPaint[4][1],
@@ -850,7 +865,7 @@ for (layer of _layers){
           }
         }
 
-      } else if (_dataPaint.length == 1){//!Array.isArray(_dataPaint)
+      } else {
         //////////////////////////// Data /////////////////////////////////////
         var color = interpolateColors(_dataPaint[0],_dataPaint[0],1);
         var data = [{'id':0,'value':'fill'}];//_title
@@ -867,7 +882,7 @@ for (layer of _layers){
           data.push(_dataPaint['circle-color'][i-1])
         }
         color.push('#cfd9df')
-        data.push('other')
+        data.push('Other')
       } else {
 
         var color = [_dataPaint['circle-color']]
@@ -884,7 +899,7 @@ for (layer of _layers){
           sizedata.push(_dataPaint['circle-radius'][i-1])
         }
         size.push(5)
-        sizedata.push('other')
+        sizedata.push('Other')
 
         var setSize = true;
       }
