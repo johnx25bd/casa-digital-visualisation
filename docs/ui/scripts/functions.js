@@ -364,7 +364,7 @@ function createPieChart(_params, _parentEl) {
     _title = _params.title;
 
   var data = _params.data;
-
+  console.log(id+': '+ data)
   // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
   var radius = Math.min(width, height) / 2 - margin;
 
@@ -410,24 +410,32 @@ function createPieChart(_params, _parentEl) {
     .attr('fill', function(d) {
       return color(d.data.key);
     })
-    .on("mouseenter", function(d) {
+    .attr('class',function(d,i){
+      return 'piearc ' + dataDomain[i];
+    })
+    .on("mouseenter", function(d,i) {
         //console.log("mousein")
         text = svg.append("text")
             .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
-            //.attr("transform", arc.centroid(d))
             .attr("dy", ".5em")
             .style("text-anchor", "middle")
-            //.style("fill", "blue")
             .attr("class", "on")
             .text(d.data.value);
+
+        d3.selectAll('.' + dataDomain[i])
+            .classed('active', true)
+            .style('font-weight','bold');
       })
 
     .on("mouseout", function(d) {
            text.remove();
+           d3.selectAll('.textLegend')
+               .classed('active', false)
+               .style('font-weight','normal');
     })
     .attr("stroke", "white")
     .style("stroke-width", "2px")
-    .style("opacity", 0.90);
+    .style("opacity", 0.70);
 
   // Adding a title
   svg
@@ -469,8 +477,36 @@ function createPieChart(_params, _parentEl) {
     .attr('fill', function(d) {
       return color(d.data.key);
     })
+    .attr('class',function(d,i){
+      return 'textLegend '+dataDomain[i];
+    })
     .attr('x', 25)
     .attr('y', 15)
+    .on("mouseenter", function(d,i) {
+
+        text = svg.append("text")
+            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            .attr("dy", ".5em")
+            .style("text-anchor", "middle")
+            .attr("class", "on")
+            .text(d.data.value);
+
+        d3.selectAll('.' + dataDomain[i])
+            .classed('active', true)
+            .style('opacity','2')
+            .style('font-weight','bold');
+      })
+
+    .on("mouseout", function(d) {
+           text.remove();
+           d3.selectAll('.piearc')
+               .classed('active', false)
+               .style('opacity','0.7');
+
+          d3.selectAll('.textLegend')
+              .classed('active',false)
+              .style('font-weight','normal');
+    })
 
 }
 
@@ -716,9 +752,6 @@ for (layer of _layers){
               .attr('cx',_elementWidth)
               .attr('cy',_elementWidth)
               .attr('r',_elementWidth/2)
-              // .attr("class",function(d,i){
-              //   return data[i];
-              // })
               .style('fill',function(d,i){return color[i];});
 
         legend

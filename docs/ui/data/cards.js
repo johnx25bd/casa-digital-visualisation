@@ -565,7 +565,7 @@ var cardData = [
               data: pieData
             };
 
-            // console.log('PieData', pieData);
+            console.log('PieData', pieData);
 
             createPieChart(pieParams, '#uk-airports-pie-chart');
 
