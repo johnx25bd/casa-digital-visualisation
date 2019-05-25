@@ -40,7 +40,7 @@ Branch: UpdatedBarChartFunction
 
 * Consider if the code can be written more elegantly - Done
 
-  * Next step: Make the code dynamic with respect to the number of sources. *
+  * Next step: Make the code dynamic with respect to the number of sources. * - Done
 #############################################
 
 [] Add some realtime data layer - fetch JSON from API.

@@ -107,8 +107,7 @@ function loadCards(_cards) {
     }
     console.log(card.layers);
     /// Loading legends /////
-    updateLegend(card.layers,i);
-    //console.log("Layers", card.layers);
+    createLegends(i,card.layers);
   }
 }
 
@@ -125,46 +124,6 @@ function showCardLayers(_cardNum) {
       map.setLayoutProperty(layer, 'visibility', 'none');
     }
   });
-}
-
-
-function updateLegend(_layers,_cardNum) {
-
-  _legendSelector = getCardId(_cardNum) + ' .legend-content'
-
-  for (layer of _layers){
-    // console.log("Layer",layer);
-    if (!layer.includes('highlighted')){
-      var layerOfInterest = layersData.find(function (l) {
-        return l.name == layer;
-      });
-
-      var layerType = layerOfInterest.addLayerParams.default ?
-        layerOfInterest.addLayerParams.default.type :
-        layerOfInterest.addLayerParams.type;
-
-      // To access the source
-      //layerOfInterest.source
-
-      if (layerType == 'fill'){
-
-        var layerPaint = map.getPaintProperty(layer,'fill-color');// All where changed from layer to layerOfInterest
-
-      } else if (layerType == 'circle'){
-
-        var layerPaint = {
-          'circle-radius': map.getPaintProperty(layer,'circle-radius'),
-          'circle-color' : map.getPaintProperty(layer,'circle-color'),
-          'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
-        };
-      } else {
-        return;
-      }
-      // console.log("LayerOfInterst", layerOfInterst);
-      // console.log("Title",titleCase())
-      createLegends(_legendSelector,'#'+layer,titleCase(layer,'-'),layerType,layerPaint);
-    }
-  }
 }
 
 function titleCase(_str,_separator=' ') {
@@ -375,7 +334,7 @@ function createBarChart(_params, _parentEl) {
               .text("Bar value: "+d.value);
 
         //map.setPaintProperty(layerOfInterst, ['==', 'iso3', d.iso3]);
-        console.log(layerOfInterst);
+        //console.log(layerOfInterst);
         map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
       })
       .on("mouseout", function(d) {
@@ -515,295 +474,449 @@ function createPieChart(_params, _parentEl) {
 
 }
 
-function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
+//############################ New implementation of legends ##########################
 
-  ////////////////////// Defining parameters ////////////////////////////
-  var id = _div_id
-  // Defining the variables based on the type of the data loaded in.
-  if (_dataType == 'fill'){
-    ///////////////////////// FILL ////////////////////////////////////////////
-    var width = 150//300
-        height = 75//150
+function createLegends(_cardNum,_layers){
 
-    if (Array.isArray(_dataPaint) && _dataPaint.length > 3){
-      // If you are a fill taking on many colors!
-      _step = 20;
-      _min = _dataPaint[3];
-      _max = _dataPaint[5];
-      _color1 = _dataPaint[4][1];
-      _color2 = _dataPaint[6][1];
-      var _offSet = (width*2/_step);
-      var _elementWidth = (width*2/_step);
-    } else {
-      // If you are a fill taking only one color
-      _step = 1;
-      _min = 1
-      _max = 2;
-      _color1 = _dataPaint[0];
-      _color2 = _dataPaint[0];
-      var _offSet = 15;//(width*2/_step);
-      var _elementWidth = 50;
+  var _id = getCardId(_cardNum) + ' .legend-content';
+
+  var titleOffset = 25,
+      elementOffset = 50,
+      sourceSpace = 20,
+      sourceTitleOffset = 125,
+      sourceTitleToSourcesOffset = 30,
+      prevType = null,
+      prevSetSize = null,
+      prevSize = null,
+      prevURLS = null,
+      howLong = 0,
+      maxWidth = 0;
+// Determining the length of the div dynamically.
+for (layer of _layers){
+  if (!layer.includes('highlighted')){
+    var layerOfInterest = layersData.find(function (l) {
+      return l.name == layer;
+    });
+    var type = layerOfInterest.addLayerParams.default ?
+      layerOfInterest.addLayerParams.default.type :
+      layerOfInterest.addLayerParams.type;
+    var layerName = layer;
+    if (type == 'fill'){
+
+      howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
+
+    } else if (type == 'circle'){
+
+      var paint = {
+        'circle-radius': map.getPaintProperty(layer,'circle-radius'),
+        'circle-color' : map.getPaintProperty(layer,'circle-color')
+      };
+
+      if (paint['circle-color'] || paint['circle-radius']){
+        if (paint['circle-color'].length >= paint['circle-radius'].length){
+          howLong += ((((paint['circle-color'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*layerOfInterest.source.url.length));
+        } else {
+          howLong += ((((paint['circle-radius'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*(layerOfInterest.source.url.length + 1)));
+        }
+      } else {
+        howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
+      }
+    }
+    if (layerOfInterest.source.content[0].length>maxWidth){
+      maxWidth = layerOfInterest.source.content[0].length;
     }
 
-  } else if (_dataType == 'circle') {
-    // If you are circle layer, we need a lot more information.
-
-    // var width = 300
-    //     height = 300
-
-    var _offSet = 50;
-    var _elementWidth = 15;
-    _step = null;
   }
-  ////////////////////// Done defining parameters - Let's build! ////////////////////////////
-  if (_dataType == 'fill'){
-    if (Array.isArray(_dataPaint)){//.length > 1
-      // var generateRange = d3.scaleLinear()
-      //   .domain([0,_step])
-      //   .range([_min,_max])
-      //////////////////////////// Data /////////////////////////////////////
-      var color = d3.scaleLinear()
-          .domain([0, _step])//.domain([_min, _max])
-          .range([_color1, _color2])
-          .interpolate(d3.interpolateHcl); //interpolateHsl interpolateHcl interpolateRgb
+}
+//################################ END OF NEW ##############################################
+  var width = 300,
+      widthExtent = width + 5*maxWidth
+      //height = 125;
+  console.log('How Long?: '+howLong);
+  console.log('How wide?: '+ maxWidth);
+  var svg = d3.select(_id)
+    .append('svg')
+    .attr('id','hej')
+      // Adjust the factor below to allows for more space for the legends
+      .attr('width',widthExtent)
+      .attr("height", howLong)//50*howLong
+      // .attr('width','100%;')
+      // .attr("height", 'auto;')
 
-      var data = [];
+    var iter = 0;
+    for (layer of _layers){
+// Getting parameters for the legends.
+      if (!layer.includes('highlighted')){
+        var layerOfInterest = layersData.find(function (l) {
+          return l.name == layer;
+        });
 
-      for (var ele = 0; ele < _step; ele++){
+        var type = layerOfInterest.addLayerParams.default ?
+          layerOfInterest.addLayerParams.default.type :
+          layerOfInterest.addLayerParams.type;
 
-        if (ele === 0){
-            data.push({'id':ele, 'value':'Low'});
-        } else if (ele === (_step - 1)){
-            data.push({'id':ele, 'value':'High'});
+        var title = layerOfInterest.source.content,
+            sourceNames = layerOfInterest.source.name,
+            sourceTypes = layerOfInterest.source.type,
+            sourceURL = layerOfInterest.source.url;
+
+        sourceData = []
+
+        for (var ele = 0; ele < sourceURL.length;ele ++){
+          sourceData.push({'name':sourceNames[ele],
+                           'type':sourceTypes[ele],
+                           'url':sourceURL[ele]})
+        }
+
+        if (type == 'fill'){
+
+          var paint = map.getPaintProperty(layer,'fill-color');// All where changed from layer to layerOfInterest
+
+        } else if (type == 'circle'){
+
+          var paint = {
+            'circle-radius': map.getPaintProperty(layer,'circle-radius'),
+            'circle-color' : map.getPaintProperty(layer,'circle-color')
+            //'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
+          };
         } else {
-          data.push({'id': ele, 'value':''})
+          return;
+        }
+      } else {
+        return;
+      }
+
+    ///////// Defining the data ///////////////////////////
+      if (typeof paint.length == 'undefined'){
+
+        if (typeof paint['circle-radius'].length == 'undefined'){
+
+          var [color,data] = structureData(type,paint);
+          var setSize = false;
+
+        } else {
+
+          var [color,data,size,sizedata] = structureData(type,paint);
+          var setSize = true;
+
+        }
+
+        var _offSet = 50;
+        var _elementWidth = 15;
+
+      } else {
+
+        var [color,data] = structureData(type,paint);
+
+        if (paint.length > 1) {
+
+          var step = 20;
+          var _offSet = (width/step);
+          var _elementWidth = (width*2/step);
+
+        } else {
+
+          var _offSet = 15;
+          var _elementWidth = 50;
+
         }
       }
-      //////////////////////////// Creating the legend /////////////////////////////////////
-      var svg = d3.select(id)
-        .append('svg')
-        .attr('id',_svg_id)
-          // Adjust the factor below to allows for more space for the legends
-          .attr("width", '100%;')
-          .attr("height", 'auto;')
-        .append("g")
-          .attr("transform", "translate(" + width*1.25 + "," + height*0.7 + ")");//" + width / 2 + "
+    ///////////////////////////////////////////////////////
+      if (prevType == 'fill'){
 
-      svg
-        .append('text')
-        .attr('x',0)//
-        .attr('y',-30)
-        .attr('text-anchor','end')
-        .classed('title',true)
-        .text(_title);
+        titleOffset += (125 + (75*0.4+0.2*75*(prevURLS)))
+        elementOffset += (125 + (75*0.4+0.2*75*(prevURLS)))
 
-      var legends = svg
-            .append('g')
-            .attr('transform','translate(-200,-100)')
-            .selectAll('.legends')
-            .data(data);
+      } else if (prevType == 'circle') {
 
-      var legend = legends
-            .enter()
-            .append('g')
-            .classed('legends',true)
-            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
-
-      legend
-        .append('rect')
-        // Adjust these for the size of the colored boxes.
-        .attr('width',_elementWidth)
-        .attr('height',15)
-        .attr(_dataType,function(d){return color(d.id);});
-
-      legend
-        .append('text')
-        .text(function(d,i){ return d.value;})
-        .attr('x',5)
-        .attr('y',35)
-
-    } else if (!Array.isArray(_dataPaint)){
-      //////////////////////////// Data /////////////////////////////////////
-      var color = [_dataPaint];
-      var data = [_title];
-      var height = 100;
-      //////////////////////////// Creating the legend /////////////////////////////////////
-      var svg = d3.select(id)
-        .append('svg')
-        .attr('id',_svg_id)
-          // Adjust the factor below to allows for more space for the legends
-          //.attr("width", '100%;')
-          //.attr("height", 'auto;')
-          .attr("height", height)//height
-          .attr(
-            'viewBox',//'0 0 100 100')
-            '0 0 ' +
-            height + //(width + margin + margin) * 1.3
-            ' ' +
-            height//(height + margin + margin)
-          )
-        .append("g")
-          .attr("transform", "translate(" + width*1.25 + "," + height + ")");//" + width / 2 + "
-
-      svg
-        .append('text')
-        .attr('x',0)//
-        .attr('y',-30)
-        .attr('text-anchor','end')
-        .classed('title',true)
-        .text(_title);
-
-      var legends = svg
-            .append('g')
-            .attr('transform','translate(-175,-100)')
-            .selectAll('.legends')
-            .data(data);
-
-      var legend = legends
-            .enter()
-            .append('g')
-            .classed('legends',true)
-            .attr('transform',function(d,i) {return "translate(" + (i+1)*_offSet + ",100)";});//*(width/_step)
-
-      legend
-        .append('rect')
-        // Adjust these for the size of the colored boxes.
-        .attr('width',_elementWidth)
-        .attr('height',15)
-        .attr(_dataType,color[0]);//function(d){return color(d.id);});
-
-      legend
-        .append('text')
-        .text(data[0])
-        .attr('x',65)
-        .attr('y',12)
-
+          console.log((75*0.4+0.2*75*prevURLS))
+          titleOffset += ((prevSize + 1)*50 + (75*0.4+0.2*75*(prevURLS))),
+          elementOffset += ((prevSize + 1)*50 + (75*0.4+0.2*75*(prevURLS)));
+      }
+    // It is assmued that the first legend is a fill, but if not, we correct that assumption
+    if ((iter == 0) && (type =='circle')){
+      if (setSize){
+        if (data.length >= sizedata.length){
+          sourceTitleOffset = (data.length + 1)*50;
+        } else {
+          sourceTitleOffset = (sizedata.length + 1)*50;
+        }
+      }
+      else {
+        sourceTitleOffset = (data.length + 1)*50;
+      }
     }
-  } else if (_dataType == 'circle'){
-    ////////////////////////// CIRCLES /////////////////////////////////////////
-    //////////////////////////// Data /////////////////////////////////////
-    //console.log(_svg_id,' ',_dataPaint['circle-color'])
-    if (Array.isArray(_dataPaint['circle-color']) && _dataPaint['circle-color'].length > 3){
-      var color = [];
-      var data = [];
+    /////////////////////////// Generic /////////////////////////////////////////////////////////
+      svg
+        .append('g')
+        .append('text')
+        .attr('x',0)//
+        .attr('y',titleOffset)
+        .attr('text-anchor','start')
+        .classed('title',true)
+        .text(title);
+    ///////////////////////////////////////////////////////////////////////////////////////////
+      if (type == 'fill'){
 
-      for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
-        color.push(_dataPaint['circle-color'][i]);
-        data.push(_dataPaint['circle-color'][i-1])
+        var legends = svg
+              .append('g')
+              .selectAll('.legends')
+              .data(data);
+
+        var legend = legends
+              .enter()
+              .append('g')
+              .classed('legends',true)
+              .attr('transform',function(d,i) {return "translate(" + (i)*_offSet + ","+elementOffset+")";});//*(width/_step)
+
+        legend
+          .append('rect')
+          // Adjust these for the size of the colored boxes.
+          .attr('width',_elementWidth)
+          .attr('height',15)
+          .attr('fill',function(d,i){return color(i);});
+
+        legend
+          .append('text')
+          .text(function(d,i){ return d.value;})
+          .attr('x',5)
+          .attr('y',35)
+
+      } else if (type == 'circle'){
+
+        var legends = svg
+              .append('g')
+              .selectAll('.legends')
+              .data(data);
+
+        var legend = legends
+              .enter()
+              .append('g')
+              .classed('legends',true)
+              .attr('transform',function(d,i) {return "translate(0,"+ (elementOffset+(i)*_offSet) + ")";});//*(width/_step)
+
+        legend
+              .append('circle')
+              // Adjust these for the size of the colored boxes.
+              .attr('cx',_elementWidth)
+              .attr('cy',_elementWidth)
+              .attr('r',_elementWidth/2)
+              // .attr("class",function(d,i){
+              //   return data[i];
+              // })
+              .style('fill',function(d,i){return color[i];});
+
+        legend
+              .append('text')
+              .attr("class",function(d,i){
+                return 'textLegend ' + data[i];
+              })
+              .text(function(d,i){ return data[i];})
+              .attr('x',50)
+              .attr('y',20)
+              .on('mouseenter', function(d,i) {
+                map.setFilter(layerName +'-highlighted', ['==', 'type', data[i]]);
+              })
+              .on("mouseout", function(d,i) {
+                     map.setFilter(layerName +'-highlighted', ['==', 'type', '']);
+              });
+        }
+        // To avoid legacy
+        prevSetSize = false;
+
+        if ((setSize==true) && (typeof size != 'undefined')) {
+
+          var legends = svg
+                .append('g')
+                .selectAll('.legends')
+                .data(sizedata);
+
+          var legend = legends
+                .enter()
+                .append('g')
+                .classed('legends',true)
+                .attr('transform',function(d,i) {return "translate(175," + (elementOffset + (i)*_offSet) + ")";});//*(width/_step)
+
+          legend
+                .append('circle')
+                // Adjust these for the size of the colored boxes.
+                .attr('cx',_elementWidth)
+                .attr('cy',_elementWidth)
+                // .attr("class",function(d,i){
+                //   return 'textLegend '+sizedata[i];
+                // })
+                .attr('r',function(d,i) {return size[i]*1;})//
+                .style('fill','white')
+                .style('stroke','black');
+
+          legend
+                .append('text')
+                .attr("class",function(d,i){
+                  return 'textLegend ' + sizedata[i];
+                })
+                .text(function(d,i){ return sizedata[i];})
+                .attr('x',50)
+                .attr('y',20)
+                .on('mouseenter', function(d,i) {
+                  map.setFilter(layerName +'-highlighted', ['==', 'size', sizedata[i]]);
+                })
+                .on("mouseout", function(d,i) {
+                       map.setFilter(layerName +'-highlighted', ['==', 'size', '']);
+                });
+        }
+
+        if (setSize==true){
+          if (data.length >= sizedata.length){
+            prevSize = data.length;
+          } else {
+            prevSize = sizedata.length;
+            prevSetSize = true;
+            setSize = false;
+          }
+        } else {
+            prevSize = data.length;
+        }
+
+      if ((iter > 0) && (type == 'fill')){
+
+        sourceTitleOffset += (125 + (75*0.4+0.2*75*sourceURL.length))//(140 + 20*sourceURL.length);
+
+      } else if ((iter > 0) && (type == 'circle')) {
+
+        if (prevSetSize==true){
+
+          sourceTitleOffset += (sizedata.length + 1)*50 + (75*0.4+0.2*75*sourceURL.length);//75;
+
+        } else {
+
+          sourceTitleOffset += (data.length + 1)*50 + (75*0.4+0.2*75*sourceURL.length);//75;
+
+        }
       }
-      color.push('#cfd9df')
-      data.push('other')
 
-      var size = [];
-      var sizedata = [];
+      svg
+        .append('text')
+        .attr('x',0)//
+        .attr('y',sourceTitleOffset)
+        .attr('text-anchor','start')
+        .classed('title',true)
+        .text('Sources');
 
-      for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
-        size.push(_dataPaint['circle-radius'][i]);
-        sizedata.push(_dataPaint['circle-radius'][i-1])
+      var sources = svg
+            .append('g')
+            .selectAll('.sources')
+            .data(sourceData)
+
+      var source = sources
+            .enter()
+            .append('g')
+            .classed('sources',true)
+
+      source
+        .append("a")
+        .attr("xlink:href", function(d){ return d.url})
+        .append('text')
+        .text(function(d,i){ return (d.name+', '+d.type+': Source');})
+        .attr('x',0)
+        .attr('y',function(d,i){ return ((sourceTitleOffset+sourceTitleToSourcesOffset)+(i*sourceSpace));})
+
+    iter += 1;
+    prevType = type;
+    prevURLS = sourceURL.length;
+    }
+}
+
+  function structureData(_dataType,_dataPaint){
+
+    if (_dataType == 'fill'){
+      if (_dataPaint.length > 1){//Array.isArray(_dataPaint)
+
+        var step = 20,
+            color1 = _dataPaint[4][1],
+            color2 = _dataPaint[6][1];
+
+        var color = interpolateColors(color1,color2,step);
+
+        var data = [];
+
+        for (var ele = 0; ele < step; ele++){
+
+          if (ele === 0){
+              data.push({'id':ele, 'value':'Low'});
+          } else if (ele === (step - 1)){
+              data.push({'id':ele, 'value':'High'});
+          } else {
+            data.push({'id': ele, 'value':''})
+          }
+        }
+
+      } else if (_dataPaint.length == 1){//!Array.isArray(_dataPaint)
+        //////////////////////////// Data /////////////////////////////////////
+        var color = interpolateColors(_dataPaint[0],_dataPaint[0],1);
+        var data = [{'id':0,'value':'fill'}];//_title
+        //var height = 100;
       }
-      size.push(5)
-      sizedata.push('other')
+    } else if (_dataType == 'circle'){
+      ////////////////////////// CIRCLES /////////////////////////////////////////
+      if (Array.isArray(_dataPaint['circle-color'])){
+        var color = [];
+        var data = [];
 
-      if (data.length >= sizedata.length){
-        var height = (data.length + 1)*50
+        for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
+          color.push(_dataPaint['circle-color'][i]);
+          data.push(_dataPaint['circle-color'][i-1])
+        }
+        color.push('#cfd9df')
+        data.push('other')
       } else {
-        var height = (sizedata.length + 1)*50
+
+        var color = [_dataPaint['circle-color']]
+        var data = ['point']
+
       }
-      var setSize = true;
+      // Checking if the size should be included in the legend.
+      if (Array.isArray(_dataPaint['circle-radius'])){
+        var size = [];
+        var sizedata = [];
+
+        for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
+          size.push(_dataPaint['circle-radius'][i]);
+          sizedata.push(_dataPaint['circle-radius'][i-1])
+        }
+        size.push(5)
+        sizedata.push('other')
+
+        var setSize = true;
+      }
+
     } else {
-      console.log(_svg_id,' ',_dataPaint['circle-color'].length)
-      var color = [_dataPaint['circle-color']]
-      var data = [_title]
-      var height = 100;
+      console.log(_dataType,': ERROR:  I dont know this datatype!')
+      return;
     }
-
-    //////////////////////////// Creating the legend /////////////////////////////////////
-    var svg = d3.select(id)
-      .append('svg')
-      .attr('id',_svg_id)
-        // Adjust the factor below to allows for more space for the legends
-        //.attr("width", height)
-        .attr("height", height)//height
-        .attr(
-          'viewBox',//'0 0 100 100')
-          '0 0 ' +
-          height + //(width + margin + margin) * 1.3
-          ' ' +
-          height//(height + margin + margin)
-        )
-      .append("g")
-        .attr("transform", "translate(" + height*0.6 + "," + 50 + ")");//" + width / 2 + "
-
-    svg
-      .append('text')
-      .attr('x',-75)//
-      .attr('y',-30)
-      .attr('text-anchor','end')
-      .classed('title',true)
-      .text(_title);
-    // Categories
-    var legends = svg
-          .append('g')
-          .attr('transform','translate(-175,-150)')
-          .selectAll('.legends')
-          .data(data);
-
-    var legend = legends
-          .enter()
-          .append('g')
-          .classed('legends',true)
-          .attr('transform',function(d,i) {return "translate(0,"+ + (i+3)*_offSet + ")";});//*(width/_step)
-
-    legend
-      .append('circle')
-      // Adjust these for the size of the colored boxes.
-      .attr('cx',_elementWidth)
-      .attr('cy',_elementWidth)
-      .attr('r',_elementWidth)
-      .style('fill',function(d,i){return color[i];});
-
-    legend
-      .append('text')
-      .text(function(d,i){ return data[i];})
-      .attr('x',50)
-      .attr('y',20)
 
     if (setSize){
 
-      // Size ///
-      var legends = svg
-            .append('g')
-            .attr('transform','translate(-150,-150)')
-            .selectAll('.legends')
-            .data(sizedata);
+      return [color,data,size,sizedata];
 
-      var legend = legends
-            .enter()
-            .append('g')
-            .classed('legends',true)
-            .attr('transform',function(d,i) {return "translate(150,"+ + (i+3)*_offSet + ")";});//*(width/_step)
+    } else {
 
-      legend
-        .append('circle')
-        // Adjust these for the size of the colored boxes.
-        .attr('cx',_elementWidth)
-        .attr('cy',_elementWidth)//function(d,i) {return size[i]*2;}
-        .attr('r',function(d,i) {return size[i]*2;})
-        .style('fill','white')
-        .style('stroke','black');
-      legend
-        .append('text')
-        .text(function(d,i){ return sizedata[i];})
-        .attr('x',50)
-        .attr('y',20)
+      return [color,data];
 
     }
 
-  } else {
-    console.log(_dataType,': ERROR:  I dont know this datatype!')
-    return;
   }
-}
+
+  function interpolateColors(_color1,_color2,_step = 1){
+
+    var color = d3.scaleLinear()
+        .domain([0, _step])
+        .range([_color1, _color2])
+        .interpolate(d3.interpolateHcl);
+
+    return color;
+
+  }
+
 
 // fitText jQuery plugin, for airport codes
 // from https://github.com/davatron5000/FitText.js
