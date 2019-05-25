@@ -4,6 +4,11 @@ var layersData = [{
     "name": "export-countries-volumes",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Export Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
     "addLayerParams": {
       //"id": "export-countries-volumes",
       "type": "fill",
@@ -42,6 +47,11 @@ var layersData = [{
     "name": "export-countries-volumes-highlighted",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Export Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
     "addLayerParams": {
       "type": "fill",
       "source": {
@@ -77,6 +87,11 @@ var layersData = [{
     "name": "import-countries-volumes",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Import Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
     "addLayerParams": {
       "type": "fill",
       "source": {
@@ -115,6 +130,11 @@ var layersData = [{
     "name": "import-countries-volumes-highlighted",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Import Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
     "addLayerParams": {
       "type": "fill",
       "source": {
@@ -150,6 +170,10 @@ var layersData = [{
     "name": "heathrow-center",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Heathrow Center'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-point",
@@ -170,6 +194,12 @@ var layersData = [{
     "name": "uK-airports",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['UK airports: Usages and Size'],
+                'name':['Civial Aviation Authority','Natural Earth'],
+                'type':['Non-spatial data','Geometry'],
+                'url': ['https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/',
+                'https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/'
+              ]},
     "addLayerParams": {
       "default": {
         // "id": "UKairports-mapbox-data",
@@ -185,29 +215,29 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 2,
-            'mid', 4,
-            'major', 6,
+            'Small', 2,
+            'Medium', 4,
+            'Major', 6,
             /* other */
             4
           ],
           'circle-color': [
             'match',
-            ['get', 'usage'],
-            'civilian', '#5769D3',
-            'military/civilian', '#38f9d7',
-            'military', '#6f86d6',
-            'spaceport', '#48c6ef',
+            ['get', 'type'],
+            'Civilian', '#5769D3',
+            'Military/Civilian', '#38f9d7',
+            'Military', '#6f86d6',
+            'Spaceport', '#48c6ef',
             /* other */
             '#ccc'
           ],
           'circle-stroke-color': [
             'match',
-            ['get', 'usage'],
-            'civilian', '#ccc',
-            'military/civilian', '#ccc',
-            'military', '#ccc',
-            'spaceport', '#ccc',
+            ['get', 'type'],
+            'Civilian', '#ccc',
+            'Military/Civilian', '#ccc',
+            'Military', '#ccc',
+            'Spaceport', '#ccc',
             /* other */
             '#ccc'
           ],
@@ -224,12 +254,24 @@ var layersData = [{
     },
     highlight: function() {
       return;
+    },
+    highlight_size: function() {
+      return;// "yes";
+    },
+    highlight_type: function() {
+      return;// "yes";
     }
   },
   {
     "name": "uK-airports-highlighted",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['UK airports: Usages and Size'],
+                'name':['Civial Aviation Authority','Natural Earth'],
+                'type':['Non-spatial data','Geometry'],
+                'url': ['https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/',
+                'https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/'
+              ]},
     "addLayerParams": {
       "default": {
         "type": "circle",
@@ -244,9 +286,9 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 2,
-            'mid', 4,
-            'major', 6,
+            'Small', 2,
+            'Medium', 4,
+            'Major', 6,
             /* other */
             4
           ],
@@ -255,7 +297,9 @@ var layersData = [{
           ,
           'circle-stroke-color': 'black'
         },
-        "filter": ["==", "code", ""]
+        "filter": ["==", "code", ""],
+        "filter": ["==", "size", ""],
+        "filter": ["==", "type", ""]
 
       }
     },
@@ -268,6 +312,11 @@ var layersData = [{
     "name": "uk-ais-points",
     "type": 'mapbox',
     "path": 'none',
+    'source': { 'content': ['Global Import Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
     "addLayerParams": {
       "default": {
         "type": "heatmap",
@@ -332,9 +381,15 @@ var layersData = [{
     "name": "global-airports",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Airports: Usages and Sizes'],
+                'name':['Civil Aviation Authority','Civil Council International','Natural Earth'],
+                'type':['Non-spatial data','Non-spatial data','Geometry'],
+                'url': ['https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/',
+                        'https://aci.aero/data-centre/annual-traffic-data/cargo/2017-cargo-summary-annual-traffic-data/',
+                        'https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/'
+                      ]},
     "addLayerParams": {
       "default": {
-        // "id": "airports-mapbox-data",
         "type": "circle",
         "source": {
           "type": "vector",
@@ -347,29 +402,29 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 2,
-            'mid', 4,
-            'major', 6,
+            'Small', 2,
+            'Medium', 4,
+            'Major', 6,
             /* other */
             4
           ],
           'circle-color': [
             'match',
-            ['get', 'usage'],
-            'civilian', '#5769D3',
-            'military/civilian', '#38f9d7',
-            'military', '#6f86d6',
-            'spaceport', '#48c6ef',
+            ['get', 'type'],
+            'Civilian', '#5769D3',
+            'Military/Civilian', '#38f9d7',
+            'Military', '#6f86d6',
+            'Spaceport', '#48c6ef',
             /* other */
             '#ccc'
           ],
           'circle-stroke-color': [
             'match',
-            ['get', 'usage'],
-            'civilian', '#ccc',
-            'military/civilian', '#ccc',
-            'military', '#ccc',
-            'spaceport', '#ccc',
+            ['get', 'type'],
+            'Civilian', '#ccc',
+            'Military/Civilian', '#ccc',
+            'Military', '#ccc',
+            'Spaceport', '#ccc',
             /* other */
             '#ccc'
           ],
@@ -383,13 +438,25 @@ var layersData = [{
     },
     highlight: function() {
       return;
+    },
+    highlight_size: function() {
+      return;// "yes";
+    },
+    highlight_type: function() {
+      return;// "yes";
     }
-
   },
   {
     "name": "global-airports-highlighted",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Global Airports: Usages and Sizes'],
+                'name':['Civil Aviation Authority','Civil Council International','Natural Earth'],
+                'type':['Non-spatial data','Non-spatial data','Geometry'],
+                'url': ['https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/',
+                        'https://aci.aero/data-centre/annual-traffic-data/cargo/2017-cargo-summary-annual-traffic-data/',
+                        'https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/'
+                      ]},
     "addLayerParams": {
       "default": {
         // "id": "airports-mapbox-data",
@@ -405,28 +472,33 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'small', 2,
-            'mid', 4,
-            'major', 6,
+            'Small', 2,
+            'Medium', 4,
+            'Major', 6,
             /* other */
             4
           ],
           'circle-color': 'black',
           'circle-stroke-color': 'black'
         },
-        "filter": ["==", "code", ""]
+        "filter": ["==", "code", ""],
+        "filter": ["==", "size", ""],
+        "filter": ["==", "type", ""]
       },
       "dim_a": {}
     },
     tooltip: function(_data) {
       return "<h5 class='mb-0'>" + _data.properties.abbrev + "</h5>";
     }
-
   },
   {
     "name": "heathrow-stations",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Train Stations'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         "id": "heathrow-stations",
@@ -453,6 +525,10 @@ var layersData = [{
     "name": "heathrow-hotels",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Hotels'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-hotels",
@@ -477,6 +553,10 @@ var layersData = [{
     "name": "heathrow-restaurants",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Restaurants'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-restaurants",
@@ -501,6 +581,10 @@ var layersData = [{
     "name": "heathrow-buffer",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['10 km buffer'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-buffer",
@@ -525,6 +609,10 @@ var layersData = [{
     "name": "tilbury-center",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['London Port Center'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-point",
@@ -549,6 +637,10 @@ var layersData = [{
     "name": "tilbury-stations",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Train Stations'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-stations",
@@ -573,6 +665,10 @@ var layersData = [{
     "name": "tilbury-schools",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Schools'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-schools",
@@ -597,6 +693,10 @@ var layersData = [{
     "name": "tilbury-restaurants",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['Restaurants'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-restaurants",
@@ -621,6 +721,10 @@ var layersData = [{
     "name": "tilbury-buffer",
     "type": "mapbox",
     "path": "none",
+    'source': { 'content': ['10 km buffer'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-buffer",
@@ -644,6 +748,13 @@ var layersData = [{
   {
     "name": "uK-ports",
     "path": "./data/uk-ports.json",
+    'source': { 'content': ['UK ports: Types and sizes'],
+                'name':['UK GOV','UK GOV','US NGA'],
+                'type':['Non-spatial data','Spatial Data','Geometry'],
+                'url': ['https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures',
+                        'https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015',
+                'https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015'
+              ]},
     "type": "geojson",
     "addLayerParams": {
       "default": {
@@ -652,20 +763,20 @@ var layersData = [{
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': [
             'match',
-            ['get', 'harborsize'],
-            'V', 2,
-            'S', 4,
-            'M', 6,
-            'L', 8,
+            ['get', 'size'],
+            'Minor', 2,
+            'Small', 4,
+            'Medium', 6,
+            'Major', 8,
             /* other */
             5
           ],
           'circle-color': [
             'match',
-            ['get', 'harbortype'],
-            'coastal', '#f83600',
-            'lake', '#ff5858',
-            'river', '#fee140',
+            ['get', 'type'],
+            'Coastal', '#f83600',
+            'Lake', '#ff5858',
+            'River', '#fee140',
 
 
             /* other */
@@ -674,9 +785,9 @@ var layersData = [{
           'circle-stroke-color': [
             'match',
             ['get', 'harbortype'],
-            'coastal', '#ccc',
-            'lake', '#ccc',
-            'river', '#ccc',
+            'Coastal', '#ccc',
+            'Lake', '#ccc',
+            'River', '#ccc',
 
             /* other */
             '#ccc'
@@ -700,11 +811,24 @@ var layersData = [{
     },
     highlight: function() {
       return;
+    },
+    highlight_size: function() {
+      return;// "yes";
+    },
+    highlight_type: function() {
+      return;// "yes";
     }
   },
   {
     "name": "uK-ports-highlighted",
     "path": "./data/uk-ports.json",
+    'source': { 'content': ['UK ports: Types and sizes'],
+                'name':['UK GOV','UK GOV','US NGA'],
+                'type':['Non-spatial data','Spatial Data','Geometry'],
+                'url': ['https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures',
+                        'https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015',
+                'https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015'
+              ]},
     "type": "geojson",
     "addLayerParams": {
       "default": {
@@ -713,11 +837,11 @@ var layersData = [{
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': [
             'match',
-            ['get', 'harborsize'],
-            'V', 2,
-            'S', 4,
-            'M', 6,
-            'L', 8,
+            ['get', 'size'],
+            'minor', 2,
+            'small', 4,
+            'mid', 6,
+            'major', 8,
             /* other */
             5
           ],
@@ -725,7 +849,9 @@ var layersData = [{
           ,
           'circle-stroke-color': 'black'
         },
-        "filter": ["==", "code", ""]
+        "filter": ["==", "code", ""],
+        "filter": ["==", "size", ""],
+        "filter": ["==", "type", ""]
       }
     },
     tooltip: function(_data) {
@@ -743,6 +869,11 @@ var layersData = [{
   {
     "name": "global-ports",
     "path": "./data/ports.json",
+    'source': { 'content': ['Global ports: Types and sizes'],
+                'name':['US NGA','Wikipedia'],
+                'type':['Geometry','Non-spatial data'],
+                'url': ['https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015',
+                        'https://en.wikipedia.org/wiki/List_of_busiest_container_ports']},
     "type": "geojson",
     "addLayerParams": {
       "default": {
@@ -751,20 +882,20 @@ var layersData = [{
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': [
             'match',
-            ['get', 'harborsize'],
-            'V', 2,
-            'S', 4,
-            'M', 6,
-            'L', 8,
+            ['get', 'size'],
+            'Minor', 2,
+            'Small', 4,
+            'Medium', 6,
+            'Major', 8,
             /* other */
             5
           ],
           'circle-color': [
             'match',
-            ['get', 'harbortype'],
-            'coastal', '#f83600',
-            'lake', '#ff5858',
-            'river', '#fee140',
+            ['get', 'type'],
+            'Coastal', '#f83600',
+            'Lake', '#ff5858',
+            'River', '#fee140',
 
 
             /* other */
@@ -773,9 +904,9 @@ var layersData = [{
           'circle-stroke-color': [
             'match',
             ['get', 'harbortype'],
-            'coastal', '#ccc',
-            'lake', '#ccc',
-            'river', '#ccc',
+            'Coastal', '#ccc',
+            'Lake', '#ccc',
+            'River', '#ccc',
 
             /* other */
             '#ccc'
@@ -800,11 +931,22 @@ var layersData = [{
     },
     highlight: function() {
       return;
+    },
+    highlight_size: function() {
+      return;// "yes";
+    },
+    highlight_type: function() {
+      return;// "yes";
     }
   },
   {
     "name": "global-ports-highlighted",
     "path": "./data/ports.json",
+    'source': { 'content': ['Global ports: Types and sizes'],
+                'name':['US NGA','Wikipedia'],
+                'type':['Geometry','Non-spatial data'],
+                'url': ['https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015',
+                        'https://en.wikipedia.org/wiki/List_of_busiest_container_ports']},
     "type": "geojson",
     "addLayerParams": {
       "default": {
@@ -813,19 +955,20 @@ var layersData = [{
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': [
             'match',
-            ['get', 'harborsize'],
-            'V', 2,
-            'S', 4,
-            'M', 6,
-            'L', 8,
+            ['get', 'size'],
+            'Minor', 2,
+            'Small', 4,
+            'Medium', 6,
+            'Major', 8,
             /* other */
             5
           ],
           'circle-color': 'black',
           'circle-stroke-color': 'black'
         },
-        "filter": ["==", "code", ""]
-
+        "filter": ["==", "code", ""],
+        "filter": ["==", "size", ""],
+        "filter": ["==", "type", ""]
       }
     },
     tooltip: function(_data) {
@@ -845,6 +988,10 @@ var layersData = [{
   {
     "name": "3d-buildings",
     "path": "none",
+    'source': { 'content': ['Buildings'],
+                'name':['OpenStreetMap'],
+                'type':['Geometry'],
+                'url': ['https://studio.mapbox.com/']},
     "type": "mapbox",
     "addLayerParams": {
       // 'id': '3d-buildings',

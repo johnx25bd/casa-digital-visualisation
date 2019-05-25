@@ -173,7 +173,10 @@ h3 span.light {
 #app-cards svg {
   width: 100%;
 }
-
+.title{
+  font-size: 15px;
+  font-weight: bold;
+}
 .bar {
   fill: #537895;
 }

@@ -18,11 +18,30 @@ Branch: UpdatedBarChartFunction
 
 [] Some time series visualization? How could we get this in there? Do we have any time series data? Maybe of export volumes? Even just adding a slider to the card and updating the choropleth would mean this is a 'temporal' visualization as well as spatial.
 
+## Legends
+
 [] place link to source in legend entry. accessed by `layerData[i].source`
 
 [] Pie legends - highlight category on segment hover; highlight segment on category hover.
 
 [] Clean up legends. Make symbols smaller, make them more compact altogether.
+
+## To-do:
+
+*  Fix size categories in data
+
+* Shrink symbols - Done
+
+* adjust whitespace of fill-based legends - Done
+
+* Add sources - Done
+
+* Add highlight feature
+
+* Consider if the code can be written more elegantly - Done
+
+  * Next step: Make the code dynamic with respect to the number of sources. * - Done
+#############################################
 
 [] Add some realtime data layer - fetch JSON from API.
 

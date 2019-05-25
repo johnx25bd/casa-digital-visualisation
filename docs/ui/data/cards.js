@@ -14,12 +14,6 @@ var cardData = [
         <li>They both mainly export products in secondary sector. </li>
         <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
       </ul>
-      <h5 class='display-5'>Sources</h5>
-      <ul>
-        <li><p class="lead mb-0">UN ComTrade, Data: <a href="https://comtrade.un.org/">Source</a></p></li>
-        <li><p class="lead mb-0">UN ComTrade, API: <a href="https://github.com/danieljschmidt/UN-Comtrade-Download">Source</a></p></li>
-        <li><p class="lead mb-0">Natural Earth, Country geometries: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
-      </ul>
     `,
     "layers": ['export-countries-volumes', 'export-countries-volumes-highlighted'],
     "flyTo": {
@@ -115,13 +109,6 @@ var cardData = [
         <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
         </ul>
         <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/553784094&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-
-        <h5 class='display-5'>Sources</h5>
-        <ul>
-          <li><p class="lead mb-0">UN ComTrade, Data: <a href="https://comtrade.un.org/">Source</a></p></li>
-          <li><p class="lead mb-0">UN ComTrade, API: <a href="https://github.com/danieljschmidt/UN-Comtrade-Download">Source</a></p></li>
-          <li><p class="lead mb-0">Natural Earth, Country geometries: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
-        </ul>
     `,
 
     "layers": ['import-countries-volumes','import-countries-volumes-highlighted'],
@@ -216,12 +203,6 @@ var cardData = [
         <li>Most airports are concentrated in the middle of Americas.</li>
         <li>The top five ranking based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that three out of the five airports are located in Asia, six in Americas and four in Europe.</li>
         <li>Hong Kong has become the busiest cargo hub in the world, the passed- through amounts has reaches up to 5,000,000 tonnes.</li>
-      </ul>
-      <h5 class='display-5'>Sources</h5>
-      <ul>
-        <li><p class="lead mb-0">Civil Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
-        <li><p class="lead mb-0">Civil Council International, Data: <a href="https://aci.aero/data-centre/annual-traffic-data/cargo/2017-cargo-summary-annual-traffic-data/">Source</a></p></li>
-        <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
       </ul>
     `,
     "layers": ["global-airports",'global-airports-highlighted'],
@@ -381,12 +362,6 @@ var cardData = [
       <figcaption class="figure-caption mb-4">
         A container terminal in Malaysia. <a href="https://www.youtube.com/embed/LHRfRfBqPL0" target="_blank">Source</a>
       </figcaption>
-      <h5 class='display-5'>Sources</h5>
-      <ul>
-      <li><p class="lead mb-0">US National Geospatial Intelligence</p>
-      <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
-        <li><p class="lead mb-0">Wikipedia, Data: <a href="https://en.wikipedia.org/wiki/List_of_busiest_container_ports">Source</a></p></li>
-      </ul>
     `,
     "layers": ["global-ports","global-ports-highlighted"],
     "flyTo": {
@@ -530,14 +505,6 @@ var cardData = [
           <div id="uk-airports-pie-chart" class='pie-chart-holder'></div>
 
           <!--<div class='card border-secondary mb-3'> -->
-          <h5 class='display-5'>Sources</h5>
-          <ul>
-            <li><p class="lead mb-0">UK GOV, Data: <a href="https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures">Source</a></p></li>
-            <li><p class="lead mb-0">Civial Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
-            <li><p class="lead mb-0">US National Geospatial Intelligence</p>
-            <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
-            <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
-          </ul>
       <!--<div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">Click on the circle the airport or the port is located to show its rank in the global busiest airports ranking.
@@ -617,11 +584,6 @@ var cardData = [
       </figcaption>
      <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
 </p>
-<h5 class='display-5'>Sources</h5>
-<ul>
-  <li><p class="lead mb-0">Civial Aviation Authority, Data: <a href="https://www.caa.co.uk/Data-and-analysis/UK-aviation-market/Airports/Datasets/UK-Airport-data/Airport-data-2017/">Source</a></p></li>
-  <li><p class="lead mb-0">Natural Earth, Airport locations: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">Source</a></p></li>
-</ul>
     `,
     "layers": ["uK-airports",'uK-airports-highlighted'],
     "flyTo": {
@@ -668,13 +630,6 @@ var cardData = [
         The bar chart for The United Kingdom's ports.
       </figcaption>
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
-     <h5 class='display-5'>Sources</h5>
-     <ul>
-       <li><p class="lead mb-0">UK GOV, Data: <a href="https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures">Source</a></p></li>
-       <li><p class="lead mb-0">UK GOV, AIS Data: <a href="https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015">Source</a></p></li>
-       <li><p class="lead mb-0">US National Geospatial Intelligence</p>
-       <p class ="lead mb-0">Agency, Port locations: <a href="https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015">Source</a></p></li>
-     </ul>
  `,
     "layers": ["uK-ports", "uK-ports-highlighted",'uk-ais-points'],
     "flyTo": {
@@ -725,10 +680,6 @@ var cardData = [
       <div id="heathrow-pie-chart" class='pie-chart-holder'></div>
 
     <p>The pie chart shows that the international goods transtation in Heathrow is more than it for domestic goods transportation. </p>
-    <h5 class='display-5'>Sources</h5>
-    <ul>
-      <li><p class="lead mb-0">Open Street Map, Locations: <a href="https://studio.mapbox.com/">Source</a></p></li>
-    </ul>
     `,
     "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
@@ -853,10 +804,6 @@ var cardData = [
 
 
     <figcaption class="figure-caption mb-4">The pie chart shows the inwards and outwards for domestic and international transportation.</figcaption>
-    <h5 class='display-5'>Sources</h5>
-    <ul>
-      <li><p class="lead mb-0">Open Street Map, Locations: <a href="https://studio.mapbox.com/">Source</a></p></li>
-    </ul>
     <div class="card legend-fakeout">
       <div class="card-body">
         <h3 class="card-title">Legend</h3>
