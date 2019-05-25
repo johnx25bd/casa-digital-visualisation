@@ -20,11 +20,11 @@ Branch: UpdatedBarChartFunction
 
 ## Legends
 
-[] place link to source in legend entry. accessed by `layerData[i].source`
+[x] place link to source in legend entry. accessed by `layerData[i].source`
 
 [] Pie legends - highlight category on segment hover; highlight segment on category hover.
 
-[] Clean up legends. Make symbols smaller, make them more compact altogether.
+[x] Clean up legends. Make symbols smaller, make them more compact altogether.
 
 ## To-do:
 
@@ -36,7 +36,7 @@ Branch: UpdatedBarChartFunction
 
 * Add sources - Done
 
-* Add highlight feature
+* Add highlight feature - Done
 
 * Consider if the code can be written more elegantly - Done
 
