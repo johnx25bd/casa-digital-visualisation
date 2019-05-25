@@ -312,11 +312,11 @@ var layersData = [{
     "name": "uk-ais-points",
     "type": 'mapbox',
     "path": 'none',
-    'source': { 'content': ['Global Import Volumes'],
-                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
-                'type':['Non-spatial data','API','Geometry'],
-                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
-                'www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']},
+    'source': { 'content': ['Global Shipping Traffic Volumes'],
+                'name':['UN ComTrade'],
+                'type':['Spatial data'],
+                'url': ['https://comtrade.un.org/']
+              },
     "addLayerParams": {
       "default": {
         "type": "heatmap",
@@ -581,7 +581,7 @@ var layersData = [{
     "name": "heathrow-buffer",
     "type": "mapbox",
     "path": "none",
-    'source': { 'content': ['10 km buffer'],
+    'source': { 'content': ['5 km buffer'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
                 'url': ['https://studio.mapbox.com/']},
@@ -595,7 +595,7 @@ var layersData = [{
         },
         "source-layer": "Heathrow-7fyjdj",
         "paint": {
-          "fill-color": "#9795f0",
+          "fill-color": "#a3bded",
           "fill-opacity": 0.2
         }
       }
@@ -721,7 +721,7 @@ var layersData = [{
     "name": "tilbury-buffer",
     "type": "mapbox",
     "path": "none",
-    'source': { 'content': ['10 km buffer'],
+    'source': { 'content': ['5 km buffer'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
                 'url': ['https://studio.mapbox.com/']},

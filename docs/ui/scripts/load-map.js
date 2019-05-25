@@ -177,13 +177,13 @@ var loadedData = {};
                   //var currentISO3 = features[0].properties.iso3;
 
                   map.setFilter(layerData.name +'-highlighted', ['==', 'code', '']);
-                  d3.selectAll('.bar')// + currentISO3)
+                  d3.selectAll('.bar')
                       .classed('active', false)
                       .style('fill-opacity','0.7');
               });
             }
             if (layerData.highlight_size) {
-              //console.log(layerData.highlight);
+
               map.on("mousemove", layerData.name, function(e) {
 
                   var features = map.queryRenderedFeatures(e.point);
@@ -194,64 +194,41 @@ var loadedData = {};
                   } else {
                     var feature = features[0];
 
-                    // if (e.features.length > 0) {
-                    //   map.setFilter(layerData.name+'-highlighted', ['==', 'size', currentSize]);// +'-highlighted'
-                    // }
-
                     d3.selectAll('.' + currentSize)
                         .classed('active', true)
                         .style('font-weight','bold');
-
                   }
               });
                       // When the mouse leaves the state-fill layer, update the feature state of the
                       // previously hovered feature.
               map.on("mouseleave", layerData.name, function(e) {
 
-                  var features = map.queryRenderedFeatures(e.point);
-
-                  var currentSize = features[0].properties.size;
-
-                  // map.setFilter(layerData.name+'-highlighted', ['==', 'size', '']);//+'-highlighted'
-                  d3.selectAll('.textLegend')// + currentISO3)
+                  d3.selectAll('.textLegend')
                       .style('font-weight','normal')
                       .classed('active', false);
-
-
               });
             }
             if (layerData.highlight_type) {
-              //console.log(layerData.highlight);
+
               map.on("mousemove", layerData.name, function(e) {
 
                   var features = map.queryRenderedFeatures(e.point);
-
                   var currentType = features[0].properties.type;
+
                   if (typeof currentType === 'undefined'){
                     return;
                   } else {
                     var feature = features[0];
 
-                    // if (e.features.length > 0) {
-                    //   map.setFilter(layerData.name +'-highlighted', ['==', 'code', currentISO3]);
-                    // }
-
                     d3.selectAll('.' + currentType)
                         .style('font-weight','bold')
                         .classed('active', true);
-
-
                   }
               });
                       // When the mouse leaves the state-fill layer, update the feature state of the
                       // previously hovered feature.
               map.on("mouseleave", layerData.name, function(e) {
 
-                  //var features = map.queryRenderedFeatures(e.point);
-
-                  //var currentISO3 = features[0].properties.iso3;
-
-                  //map.setFilter(layerData.name +'-highlighted', ['==', 'code', '']);
                   d3.selectAll('.textLegend')// + currentISO3)
                       .classed('active', false)
                       .style('font-weight','normal');

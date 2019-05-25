@@ -512,7 +512,7 @@ var cardData = [
         </div>
       </div>-->
     `,
-    "layers": ["uK-airports", 'uK-ports'],
+    "layers": ["uK-airports", 'uK-ports',"uK-airports-highlighted", 'uK-ports-highlighted'],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -631,7 +631,7 @@ var cardData = [
       </figcaption>
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
-    "layers": ["uK-ports", "uK-ports-highlighted",'uk-ais-points'],
+    "layers": ["uK-ports",'uk-ais-points', "uK-ports-highlighted"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},
@@ -768,21 +768,6 @@ var cardData = [
 
         });
 
-        var legendHtml = `
-        <div class="card legend-fakeout">
-          <div class="card-body">
-            <h3 class="card-title">Legend</h3>
-              <img src='./assets/images/local-legends.png' class='img-fluid' alt='Port of London'>
-
-          </div>
-        </div>
-        `
-
-        d3.select(legendSelector)
-          .html(legendHtml);
-          // .classed('d-none', true);
-      // set up Feature Content with tour ...
-
     }
   },
   {
@@ -807,8 +792,6 @@ var cardData = [
     <div class="card legend-fakeout">
       <div class="card-body">
         <h3 class="card-title">Legend</h3>
-          <img src='./assets/images/local-legends.png' class='img-fluid' alt='Port of London'>
-
       </div>
     </div>
 
