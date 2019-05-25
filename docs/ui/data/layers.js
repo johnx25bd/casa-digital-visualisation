@@ -313,9 +313,9 @@ var layersData = [{
     "type": 'mapbox',
     "path": 'none',
     'source': { 'content': ['Global Shipping Traffic Volumes'],
-                'name':['UN ComTrade'],
+                'name':['UK GOV'],
                 'type':['Spatial data'],
-                'url': ['https://comtrade.un.org/']
+                'url': ['https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015']
               },
     "addLayerParams": {
       "default": {
