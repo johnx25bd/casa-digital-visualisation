@@ -607,7 +607,6 @@ var layersData = [{
                 'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
-        // "id": "heathrow-buffer",
         "type": "fill",
         "source": {
           "type": "vector",
@@ -635,7 +634,6 @@ var layersData = [{
                 'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
-        // "id": "tilbury-point",
         "type": "circle",
         "source": {
           "type": "vector",
@@ -663,7 +661,6 @@ var layersData = [{
                 'url': ['https://studio.mapbox.com/']},
     "addLayerParams": {
       "default": {
-        // "id": "tilbury-stations",
         "type": "circle",
         "source": {
           "type": "vector",
@@ -769,9 +766,10 @@ var layersData = [{
     "name": "uK-ports",
     "path": "./data/uk-ports.json",
     'source': { 'content': ['UK ports: Types and sizes'],
-                'name':['UK GOV','US NGA'],
+                'name':['UK GOV','UK GOV','US NGA'],
                 'type':['Non-spatial data','Spatial Data','Geometry'],
                 'url': ['https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures',
+                        'https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015',
                 'https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015'
               ]},
     "type": "geojson",
@@ -842,9 +840,10 @@ var layersData = [{
     "name": "uK-ports-highlighted",
     "path": "./data/uk-ports.json",
     'source': { 'content': ['UK ports: Types and sizes'],
-                'name':['UK GOV','US NGA'],
-                'type':['Non-spatial data','Geometry'],
+                'name':['UK GOV','UK GOV','US NGA'],
+                'type':['Non-spatial data','Spatial Data','Geometry'],
                 'url': ['https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures',
+                        'https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015',
                 'https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015'
               ]},
     "type": "geojson",
@@ -856,10 +855,10 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'minor', 2,
-            'small', 4,
-            'mid', 6,
-            'major', 8,
+            'Minor', 2,
+            'Small', 4,
+            'Medium', 6,
+            'Major', 8,
             /* other */
             5
           ],

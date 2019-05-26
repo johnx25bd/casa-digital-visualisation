@@ -102,7 +102,7 @@ var loadedData = {};
 
             fetch('https://raw.githubusercontent.com/uber/deck.gl/master/examples/layer-browser/data/sfmta.routes.json')
             .then(function(response) {
-                const arclayer = new MapboxLayer({
+                var arclayer = new MapboxLayer({
                     id: 'my-arc',
                     type: ArcLayer,
                     data: response.json(),
