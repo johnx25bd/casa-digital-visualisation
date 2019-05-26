@@ -823,14 +823,9 @@ var cardData = [
             data: pieData
           };
 
-          // console.log('PieData', pieData);
-
           createPieChart(pieParams, '#london-port-pie-chart');
 
         });
-
-        d3.select(legendSelector)
-          .classed('d-none', true);
 
     }
   },

@@ -36,6 +36,8 @@ Branch: UpdatedBarChartFunction
 
 [] The buffer fill
 
+[] Legend text over the extent
+
 
 ## Legends - DONE
 

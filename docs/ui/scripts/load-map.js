@@ -10,7 +10,8 @@ var dims = {
 
 var activeCardNum = null,
   inAnimation = false,
-  firstMove = true;
+  firstMove = true,
+  numLoadedFiles = 0;
 
 // Instantiate map:
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA';
@@ -176,62 +177,10 @@ var loadedData = {};
 
                   //var currentISO3 = features[0].properties.iso3;
 
-                  map.setFilter(layerData.name +'-highlighted', ['==', 'code', '']);
-                  d3.selectAll('.bar')
+                  map.setFilter(layerData.name +'-highlighted', ['==', 'iso3', '']);
+                  d3.selectAll('.bar')// + currentISO3)
                       .classed('active', false)
                       .style('fill-opacity','0.7');
-              });
-            }
-            if (layerData.highlight_size) {
-
-              map.on("mousemove", layerData.name, function(e) {
-
-                  var features = map.queryRenderedFeatures(e.point);
-                  console.log(features[0].properties)
-                  var currentSize = features[0].properties.size;
-                  if (typeof currentSize === 'undefined'){
-                    return;
-                  } else {
-                    var feature = features[0];
-
-                    d3.selectAll('.' + currentSize)
-                        .classed('active', true)
-                        .style('font-weight','bold');
-                  }
-              });
-                      // When the mouse leaves the state-fill layer, update the feature state of the
-                      // previously hovered feature.
-              map.on("mouseleave", layerData.name, function(e) {
-
-                  d3.selectAll('.textLegend')
-                      .style('font-weight','normal')
-                      .classed('active', false);
-              });
-            }
-            if (layerData.highlight_type) {
-
-              map.on("mousemove", layerData.name, function(e) {
-
-                  var features = map.queryRenderedFeatures(e.point);
-                  var currentType = features[0].properties.type;
-
-                  if (typeof currentType === 'undefined'){
-                    return;
-                  } else {
-                    var feature = features[0];
-
-                    d3.selectAll('.' + currentType)
-                        .style('font-weight','bold')
-                        .classed('active', true);
-                  }
-              });
-                      // When the mouse leaves the state-fill layer, update the feature state of the
-                      // previously hovered feature.
-              map.on("mouseleave", layerData.name, function(e) {
-
-                  d3.selectAll('.textLegend')// + currentISO3)
-                      .classed('active', false)
-                      .style('font-weight','normal');
               });
             }
             map.on('click', layerData.name, function(e) {
@@ -276,7 +225,7 @@ window.onscroll = function() {
 
   if ( !$('body').hasClass('scrolling') ) {
     if (isNextCardOnScreen(activeCardNum + 1)) {
-      console.log("On screen!");
+      // console.log("On screen!");
       setActiveCard(activeCardNum + 1);
     } else if (isPriorCardOnScreen(activeCardNum - 1)) {
       setActiveCard(activeCardNum - 1);
@@ -296,6 +245,9 @@ $('#next-card').on('click', function(e) {
     $(el).removeClass('clicking');
   }, 100, t);
 
+  // $('#file-add').collapse('hide');
+
+
   if (activeCardNum < cardData.length) {
     scrollToCard(activeCardNum + 1)
     // setActiveCard(activeCardNum + 1);
@@ -308,9 +260,12 @@ $('#previous-card').on('click', function(e) {
   var t = this;
   $(this).addClass('clicking');
 
+
   setTimeout(function (el) {
     $(el).removeClass('clicking');
   }, 100, t)
+
+  // $('#file-add').collapse('hide');
 
   // console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {
@@ -323,7 +278,8 @@ $('#previous-card').on('click', function(e) {
 $('.jump-to-view').on('click', function(e) {
 
   $(this).addClass('clicking')
-    .delay(100).removeClass('clicking')
+    .delay(100).removeClass('clicking');
+
 
   e.preventDefault();
   var jumpToExtent = this.id.split('-')[0];
@@ -358,3 +314,107 @@ d3.selectAll('.modal-content')
     }
 
   })
+
+// File upload function call
+dropJSON(document.getElementById("drop-zone"),
+  function(_data, _files) {
+    // dropped - do something with data
+
+    console.log(_data);
+    console.log(_files);
+
+    var layerColor = d3.scaleOrdinal(d3.schemeSet2)
+      .domain(d3.range(8));
+      // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
+
+    var layerList = d3.select('#loaded-list');
+
+    for (i in _files) {
+      if (!isNaN(i)) {
+
+        if (numLoadedFiles == 0) {
+          d3.select('#add-layer-button')
+            .text('Manage layers');
+        }
+        console.log(numLoadedFiles);
+        var c = layerColor(numLoadedFiles);
+        console.log(numLoadedFiles, c)
+
+        var f = _files[i];
+
+        console.log(f.name);
+        var layerId = "loaded-points-" + f.name;
+
+        map.addLayer({
+          "id": layerId, // should be file name
+                            // Random code from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+          "type": "circle",
+          "source": {
+            "type": "geojson",
+            "data": _data
+          },
+          "paint": {
+            "circle-radius":  {
+              "stops": [[0, 2], [5,3], [8,5], [11, 6], [16, 40]]
+            },
+            "circle-color": c // make this
+          },
+          "filter": ["==", "$type", "Point"],
+        });
+
+        // Extend here tto add LineString and Polygon features ...
+
+        layerList.append('dt')
+          .classed('col-1', true)
+          .append('span')
+            .classed('loaded-layer-toggle', true)
+            .classed('point', true)
+            .classed('active', true)
+            .style('background-color', c)
+            .on('click', function () {
+
+              var visibility = map.getLayoutProperty(layerId, 'visibility');
+
+              if (visibility === 'visible') {
+                map.setLayoutProperty(layerId, 'visibility', 'none');
+                d3.select(this).classed('active', false);
+              } else {
+                d3.select(this).classed('active', true);
+                map.setLayoutProperty(layerId, 'visibility', 'visible');
+              }
+            })
+
+          var dd = layerList.append('dd')
+            .classed('col-5', true);
+          dd.text(f.name);
+
+          layerList.append('dd')
+            .classed('col-6', true)
+            .append('button')
+            .classed('btn btn-outline-secondary ml-4', true)
+            .text('Zoom to layer')
+          .on('click', function () {
+
+            // from https://stackoverflow.com/questions/35586360/mapbox-gl-js-getbounds-fitbounds
+            var bounds = turf.bbox(_data);
+
+            map.fitBounds(bounds, {padding: 200});
+          });
+
+        numLoadedFiles += 1;
+
+      }
+
+    }
+
+
+
+    // Add to list of loaded files
+    // including color of points
+    // Include visibility toggle ... ...
+
+
+
+
+  }
+);
