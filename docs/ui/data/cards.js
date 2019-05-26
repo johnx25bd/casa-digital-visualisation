@@ -800,14 +800,8 @@ var cardData = [
 
 
     <figcaption class="figure-caption mb-4">The pie chart shows the inwards and outwards for domestic and international transportation.</figcaption>
-    <div class="card legend-fakeout">
-      <div class="card-body">
-        <h3 class="card-title">Legend</h3>
-      </div>
-    </div>
-
     `,
-    "layers": ["tilbury-buffer", "3d-buildings", "tilbury-center", "tilbury-stations", "tilbury-schools", "tilbury-restaurants"],
+    "layers": ["tilbury-buffer", "tilbury-center", "tilbury-stations", "tilbury-schools", "tilbury-restaurants", "3d-buildings",],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":0.34804926378694745,"lat":51.46306234902639},
@@ -840,8 +834,8 @@ var cardData = [
 
         });
 
-        d3.select(legendSelector)
-          .classed('d-none', true);
+        // d3.select(legendSelector)
+        //   .classed('d-none', true);
 
     }
   },

@@ -30,19 +30,19 @@ Branch: UpdatedBarChartFunction
 
 [x] links on only sources
 
-[] Bold the category which is highlighted in airport/port
+[x] Bold the category which is highlighted in airport/port
 
-[] Look into National piechart-missing highlight
+[x] Look into National piechart-missing highlight
 
 [x] only outline the circle stroke
 
 [x] Ensure all barchart highlights when hover - done
 
-[] Increase title font size to 18
+[x] Increase title font size to 18
 
 [] Heatmap legend - include more colors
 
-[] The buffer fill
+[x] The buffer fill
 
 [] Legend text over the extent
 
