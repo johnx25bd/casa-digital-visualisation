@@ -292,10 +292,19 @@ var layersData = [{
             /* other */
             4
           ],
-          'circle-color': 'black'
-
-          ,
-          'circle-stroke-color': 'black'
+          'circle-color': [
+            'match',
+            ['get', 'type'],
+            'Civilian', '#5769D3',
+            'Military/Civilian', '#38f9d7',
+            'Military', '#6f86d6',
+            'Spaceport', '#48c6ef',
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-color': 'black',
+          'circle-stroke-width': 2,
+          'circle-opacity': 0.8
         },
         "filter": ["==", "code", ""],
         "filter": ["==", "size", ""],
@@ -478,8 +487,18 @@ var layersData = [{
             /* other */
             4
           ],
-          'circle-color': 'black',
-          'circle-stroke-color': 'black'
+          'circle-color': [
+            'match',
+            ['get', 'type'],
+            'Civilian', '#5769D3',
+            'Military/Civilian', '#38f9d7',
+            'Military', '#6f86d6',
+            'Spaceport', '#48c6ef',
+            /* other */
+            '#ccc'
+          ],
+          'circle-stroke-color': 'black',
+          'circle-stroke-width': 2
         },
         "filter": ["==", "code", ""],
         "filter": ["==", "size", ""],
@@ -838,16 +857,27 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'minor', 2,
-            'small', 4,
-            'mid', 6,
-            'major', 8,
+            'Minor', 2,
+            'Small', 4,
+            'Medium', 6,
+            'Major', 8,
             /* other */
             5
           ],
-          'circle-color': 'black'
-          ,
-          'circle-stroke-color': 'black'
+          'circle-color': [
+            'match',
+            ['get', 'type'],
+            'Coastal', '#f83600',
+            'Lake', '#ff5858',
+            'River', '#fee140',
+
+
+            /* other */
+            '#cfd9df'
+          ],
+          'circle-stroke-color': 'black',
+          'circle-stroke-width': 2,
+          'circle-opacity':0.5
         },
         "filter": ["==", "code", ""],
         "filter": ["==", "size", ""],
@@ -963,8 +993,19 @@ var layersData = [{
             /* other */
             5
           ],
-          'circle-color': 'black',
-          'circle-stroke-color': 'black'
+          'circle-color': [
+            'match',
+            ['get', 'type'],
+            'Coastal', '#f83600',
+            'Lake', '#ff5858',
+            'River', '#fee140',
+
+
+            /* other */
+            '#808080'
+          ],
+          'circle-stroke-color': 'black',
+          'circle-stroke-width': 2
         },
         "filter": ["==", "code", ""],
         "filter": ["==", "size", ""],

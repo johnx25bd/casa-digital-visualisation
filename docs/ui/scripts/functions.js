@@ -333,6 +333,9 @@ function createBarChart(_params, _parentEl) {
               .attr("class", "on")
               .text("Bar value: "+d.value);
 
+        d3.selectAll('.' + d.code)
+            .classed('active', true)
+            .style('fill-opacity','1');
         //map.setPaintProperty(layerOfInterst, ['==', 'iso3', d.iso3]);
         //console.log(layerOfInterst);
         map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
@@ -340,6 +343,10 @@ function createBarChart(_params, _parentEl) {
       .on("mouseout", function(d) {
              text.remove();
              map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', '']);
+
+             d3.selectAll('.bar')
+                 .classed('active', false)
+                 .style('fill-opacity','0.7');
       });
 
   });
@@ -863,8 +870,9 @@ for (layer of _layers){
       source
         .append("a")
         .attr("xlink:href", function(d){ return d.url})
+        .attr('target', '_blank')
         .append('text')
-        .text(function(d,i){ return (d.name+', '+d.type+': Source');})
+        .text(function(d,i){ return (d.name+', '+d.type);})
         .attr('x',0)
         .attr('y',function(d,i){ return ((sourceTitleOffset+sourceTitleToSourcesOffset)+(i*sourceSpace));})
 
