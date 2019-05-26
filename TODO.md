@@ -18,32 +18,11 @@ Branch: UpdatedBarChartFunction
 
 [] Some time series visualization? How could we get this in there? Do we have any time series data? Maybe of export volumes? Even just adding a slider to the card and updating the choropleth would mean this is a 'temporal' visualization as well as spatial.
 
-## Legends - DONE
+[] place link to source in legend entry. accessed by `layerData[i].source`
 
-Branch: FixingLegends
+[] Pie legends - highlight category on segment hover; highlight segment on category hover.
 
-[x] place link to source in legend entry. accessed by `layerData[i].source`
-
-[x] Pie legends - highlight category on segment hover; highlight segment on category hover.
-
-[x] Clean up legends. Make symbols smaller, make them more compact altogether.
-
-## To-do:
-
-*  Fix size categories in data
-
-* Shrink symbols - Done
-
-* adjust whitespace of fill-based legends - Done
-
-* Add sources - Done
-
-* Add highlight feature - Done
-
-* Consider if the code can be written more elegantly - Done
-
-  * Next step: Make the code dynamic with respect to the number of sources. * - Done
-#############################################
+[] Clean up legends. Make symbols smaller, make them more compact altogether.
 
 [] Add some realtime data layer - fetch JSON from API.
 
@@ -79,6 +58,8 @@ Branch: FixingLegends
 
 [x] Add landing page
 
+[x] Add load custom layer
+
 
 [] Can we quickly convert this to mobile? :eeee
   [] At breakpoint, convert to two stacked divs - map and content.
@@ -91,6 +72,8 @@ Branch: FixingLegends
   [] place above card;
   [] Fix fact that it doesn't pop up sometimes
   [] Smooth on mousemove.
+
+[] Look at mapbox jerky transition even when no change in flyto.  
 
 [] Put feature content pie charts for British Air Traffic and British Port Traffic cards. (+ Shuke)
 
