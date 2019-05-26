@@ -8,9 +8,9 @@ var cardData = [
       <!-- <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
       <h4 class='display-4'>Facts</h4>
       <ul>
-        <li>United States and China are magnate of exporting countries, followed by Germany, Japan and South Korea. </li>
+        <li>United States and China are magnates of exporting countries, followed by Germany, Japan and South Korea. </li>
         <li>In the barchart related to 2017 total export volumes, China is the largest exporting country in 2017, which leads the world with its exporting worth 2,200 billion US dollars. </li>
-        <li>From the main eight categories, it can be seen that technical has become the major country’s exports for China and U.S. which have 627,454 units and 705,700 units respectively. </li>
+        <li>From the main eight categories, it can be seen that technical has become the major country’s exports for China and U.S. which have 981.57 billion dollars units and 376.46 billion dollars respectively. </li>
         <li>They both mainly export products in secondary sector. </li>
         <li>Organic products occupies the least shares of China’s total exports. Clothing occupies the least for U.S. </li>
       </ul>
@@ -103,10 +103,11 @@ var cardData = [
       <!-- <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
       <h4 class='display-4'>Facts</h4>
       <ul>
-        <li>United States and China are still magnate of importing countries, followed by Germany, Japan. But the United Kingdom ranked the fifth with nearly 600 biliion US dollars. </li>
+        <li>United States and China are magnates of importing countries, followed by Germany, Japan. </li>
+        <li>The United Kingdom ranked the fifth with 627 billion US dollars. </li>
         <li>Compare with the export, Non-Asia countries have taken quite a large share in the import trade. </li>
-        <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
-        <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
+        <li>Technical and materials are both major import goods for all countries.</li>
+        <li>In 2017, the import volumes of technical in US and China are up to 705.5 million US dollars and 627.45 million US dollars respectively.  </li>
         </ul>
         <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/553784094&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
     `,
@@ -198,11 +199,10 @@ var cardData = [
       </figcaption>
       <h4 class='display-4'>Facts</h4>
       <ul>
-        <li>When looking at the air transport mode, airports are concentrated in the Asia, Europe and Americas.</li>
-        <li>In fact, most airports in Asia are located around southeast, south and China’s coastal region.</li>
-        <li>Most airports are concentrated in the middle of Americas.</li>
-        <li>The top five ranking based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that three out of the five airports are located in Asia, six in Americas and four in Europe.</li>
-        <li>Hong Kong has become the busiest cargo hub in the world, the passed- through amounts has reaches up to 5,000,000 tonnes.</li>
+        <li>when looking at the air transport mode, most airports in Asia are located around southeast, south and China’s coastal region.</li>
+        <li>Most airports are concentrated in the Mediterranean and Latin America.</li>
+        <li>The top five ranking based on the 2017 passed-through amounts will be displayed in the bar chart, and it is worth mentioning that three out of the five airports are located in Asia, the rest in America.</li>
+        <li>Hong Kong has become the busiest cargo hub in the world, the passed- through amounts has reaches up to 5049.90 thousand tonnes.</li>
       </ul>
     `,
     "layers": ["global-airports",'global-airports-highlighted'],
@@ -351,10 +351,11 @@ var cardData = [
 
       <h4 class='display-4'>Facts</h4>
       <ul>
-        <li>The number of ports decreases with increasing latitude. Obviously, there is very few ports located in latitude above 72.15 degree. For example, there are three ports in Svalbard, but 23 ports in Greenland.</li>
-        <li>Most ports are also located in Asia. Most ports are concentrated near the equator. We can mention that there are less than 30 ports in Russian, but Indonesia has more than 100 ports.</li>
-        <li>However, more ports are concentrated in Mediterranean compared with North Africa. In continent, there are ports only locate in the countries near coast. And Inland countries does not need ports. In Mediterranean, there are 60 Basin countries. But most countries in North Africa are inland.</li>
-        <li>In a similar way, Indonesia is made of hundreds of islands. The simplest transportation for these island countries is by sea. So it makes sense there are many ports appears in Indonesia.</li>
+        <li>The number of ports decreases with increasing latitude.</li> 
+        <li>Most ports in Asia are concentrated near the equator.</li>
+        <li>More ports are concentrated in Mediterranean compared with North Africa. </li>
+        <li> In continent, there are ports only locate in the countries near coast.</li> 
+    
       </ul>
       <div class="embed-responsive embed-responsive-16by9">
         <iframe  class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/LHRfRfBqPL0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -498,7 +499,7 @@ var cardData = [
     "extent": "national",
     // "cardNum": 3,
     "title": "The UK in the World",
-    "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude.</p>
+    "content": `<p>This page shows the UK airports and ports. From the map, the number of airports and ports decrease with increasing latitude. Two pie charts show the destination and provenance of the trades by both air and sea in 2017. </p>
           <h4>UK Port Traffic By Origin</h4>
           <div id="uk-ports-pie-chart" class='pie-chart-holder'></div>
           <h4>UK Airport Traffic By Origin</h4>
@@ -575,14 +576,14 @@ var cardData = [
     "extent": "national",
     // "cardNum": 3,
     "title": "British Air Transport",
-    "content": `<p>This page shows the freight airports of UK by using the data from Civil Aviation Authority. The map will show the name and size of the airports, and also the values (1000 tonnes) of pick up and set down freight for both domestics and international trade by clicking the icons.</p>
+    "content": `<p>This page shows the freight airports in the United Kingdom.</p>
 
       <div id='top-five-uk-airports-bar-chart' class='col-12'></div>
 
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's airports.
       </figcaption>
-     <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1700 thousand tonne), which is ten times more than the second (Manchester airport).
+     <p>The bar chart shows the top five busiest airports in the UK. It is clear that the value of the goods transported by Heathrow airport is much higher than any other airports (around 1.7 million tons), which is ten times more than the second (Manchester airport).
 </p>
     `,
     "layers": ["uK-airports",'uK-airports-highlighted'],
@@ -618,7 +619,7 @@ var cardData = [
   {
     "extent": "national",
     "title": "British Maritime Transport",
-    "content":  `<p>This page shows the freight ports of UK by using the data from the UK government. The map will show the name, size, type and railway information of the ports, and also the values (1000 tonnes)  of inward and outward for both domestics and international trade by clicking the icons.</p>
+    "content":  `<p>This page shows the freight ports in the United Kingdom.</p>
       <div class='card border-secondary mb-3'>
         <div class='card-body'>
           <p class="lead mb-0">The heatmap display shipping traffic volumes based on AIS pings.
@@ -629,7 +630,7 @@ var cardData = [
 <figcaption class="figure-caption mb-4">
         The bar chart for The United Kingdom's ports.
       </figcaption>
-     <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
+     <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50 million teus of goods in 2017, almost 20 million teus higher than the second.</p>
  `,
     "layers": ['uk-ais-points',"uK-ports", "uK-ports-highlighted"],
     "flyTo": {
@@ -681,7 +682,7 @@ var cardData = [
 
     <p>The pie chart shows that the international goods transtation in Heathrow is more than it for domestic goods transportation. </p>
     `,
-    "layers": ["heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
+    "layers": ["heathrow-stations", "heathrow-center", "heathrow-hotels", "heathrow-restaurants", "heathrow-buffer", '3d-buildings'],//"heathrow-stations",
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-0.4570810632882285,"lat":51.46984899553564},

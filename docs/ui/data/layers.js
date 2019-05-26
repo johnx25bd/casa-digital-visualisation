@@ -224,10 +224,10 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'type'],
-            'Civilian', '#5769D3',
-            'Military/Civilian', '#38f9d7',
-            'Military', '#6f86d6',
-            'Spaceport', '#48c6ef',
+            'Civilian', '#377eb8',
+            'Military/Civilian', '#ff7f00',
+            'Military', '#a65628',
+            'Spaceport', '#984ea3',
             /* other */
             '#ccc'
           ],
@@ -242,7 +242,7 @@ var layersData = [{
             '#ccc'
           ],
           'circle-stroke-width': 1,
-          'circle-opacity': 0.8
+          'circle-opacity': 1
         }
 
       }
@@ -411,10 +411,10 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'type'],
-            'Civilian', '#5769D3',
-            'Military/Civilian', '#38f9d7',
-            'Military', '#6f86d6',
-            'Spaceport', '#48c6ef',
+            'Civilian', '#377eb8',
+            'Military/Civilian', '#ff7f00',
+            'Military', '#a65628',
+            'Spaceport', '#984ea3',
             /* other */
             '#ccc'
           ],
@@ -428,7 +428,7 @@ var layersData = [{
             /* other */
             '#ccc'
           ],
-          'circle-stroke-width': 0.5
+          'circle-stroke-width': 1
         }
       },
       "dim_a": {}
@@ -509,7 +509,7 @@ var layersData = [{
         },
         "source-layer": "Heathrow_Station-20t8o9",
         "paint": {
-          "circle-radius": 4,
+          "circle-radius": 5,
           "circle-color": "red"
         }
       }
@@ -539,8 +539,8 @@ var layersData = [{
         },
         "source-layer": "Heathrow_Hotel-10lk8m",
         "paint": {
-          "circle-radius": 4,
-          "circle-color": "grey"
+          "circle-radius": 5,
+          "circle-color": "green"
         }
       }
     },
@@ -567,8 +567,8 @@ var layersData = [{
         },
         "source-layer": "Heathrow_restaurant-drs6o5",
         "paint": {
-          "circle-radius": 4,
-          "circle-color": "brown"
+          "circle-radius": 5,
+          "circle-color": "yellow"
         }
       }
     },
@@ -595,8 +595,8 @@ var layersData = [{
         },
         "source-layer": "Heathrow-7fyjdj",
         "paint": {
-          "fill-color": "#a3bded",
-          "fill-opacity": 0.2
+          "fill-color": "blue",
+          "fill-opacity": 0.1
         }
       }
     },
@@ -651,7 +651,7 @@ var layersData = [{
         },
         "source-layer": "Tilbury_Station-0r7h8t",
         "paint": {
-          "circle-radius": 4,
+          "circle-radius": 5,
           "circle-color": "red"
         }
       }
@@ -679,8 +679,8 @@ var layersData = [{
         },
         "source-layer": "Tilbury_School-1s7kw8",
         "paint": {
-          "circle-radius": 4,
-          "circle-color": "grey"
+          "circle-radius": 5,
+          "circle-color": "green"
         }
       }
     },
@@ -707,8 +707,8 @@ var layersData = [{
         },
         "source-layer": "Tilbury_Restaurant-9m8bys",
         "paint": {
-          "circle-radius": 4,
-          "circle-color": "brown"
+          "circle-radius": 5,
+          "circle-color": "yellow"
         }
       }
     },
@@ -735,8 +735,8 @@ var layersData = [{
         },
         "source-layer": "port-a1biar",
         "paint": {
-          "fill-color": "#a3bded",
-          "fill-opacity": 0.2
+          "fill-color": "blue",
+          "fill-opacity": 0.1
         }
       }
     },
@@ -774,9 +774,9 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'type'],
-            'Coastal', '#f83600',
-            'Lake', '#ff5858',
-            'River', '#fee140',
+            'Coastal', '#e41a1c',
+            'Lake', '#4daf4a',
+            'River', '#ffff33',
 
 
             /* other */
@@ -792,8 +792,8 @@ var layersData = [{
             /* other */
             '#ccc'
           ],
-          'circle-stroke-width': 0.5,
-          'circle-opacity':0.5
+          'circle-stroke-width': 1,
+          'circle-opacity':1
         }
 
       }
@@ -893,13 +893,13 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'type'],
-            'Coastal', '#f83600',
-            'Lake', '#ff5858',
-            'River', '#fee140',
+            'Coastal', '#e41a1c',
+            'Lake', '#4daf4a',
+            'River', '#ffff33',
 
 
             /* other */
-            '#808080'
+            '#ccc'
           ],
           'circle-stroke-color': [
             'match',
@@ -911,7 +911,7 @@ var layersData = [{
             /* other */
             '#ccc'
           ],
-          'circle-stroke-width': 0.5
+          'circle-stroke-width': 1
         }
 
       }
