@@ -631,7 +631,7 @@ var cardData = [
       </figcaption>
      <p>The bar chart shows that the port of London is the busiest port in the UK, which transported about 50000 thousand tonne of goods in 2017, almost 20000 thousand tonne higher than the second.</p>
  `,
-    "layers": ["uK-ports",'uk-ais-points', "uK-ports-highlighted"],
+    "layers": ['uk-ais-points',"uK-ports", "uK-ports-highlighted"],
     "flyTo": {
       "bearing": 0,
       "center": {"lng":-4.06477115607197,"lat":54.7898644198018},

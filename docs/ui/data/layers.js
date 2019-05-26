@@ -838,10 +838,10 @@ var layersData = [{
           'circle-radius': [
             'match',
             ['get', 'size'],
-            'minor', 2,
-            'small', 4,
-            'mid', 6,
-            'major', 8,
+            'Minor', 2,
+            'Small', 4,
+            'Medium', 6,
+            'Major', 8,
             /* other */
             5
           ],
