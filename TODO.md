@@ -18,6 +18,25 @@ Branch: UpdatedBarChartFunction
 
 [] Some time series visualization? How could we get this in there? Do we have any time series data? Maybe of export volumes? Even just adding a slider to the card and updating the choropleth would mean this is a 'temporal' visualization as well as spatial.
 
+## Bug Legends ##
+
+[] links on only sources
+
+[] Bold the category which is highlighted in airport/port
+
+[] Look into National piechart-missing highlight
+
+[] only outline the circle stroke
+
+[] Ensure all barchart highlights when hover
+
+[] Increase title font size to 18
+
+[] Heatmap legend - include more colors
+
+[] The buffer fill
+
+
 ## Legends - DONE
 
 Branch: FixingLegends
@@ -30,7 +49,7 @@ Branch: FixingLegends
 
 ## To-do:
 
-*  Fix size categories in data
+*  Fix size categories in data - Done
 
 * Shrink symbols - Done
 
