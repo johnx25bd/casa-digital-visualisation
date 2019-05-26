@@ -167,6 +167,26 @@ var layersData = [{
     }
   },
   {
+    "name": "arcTestLayer",
+    "type": "geojson",
+    "path": "./data/sfmta-routes.json",
+    'source': { 'content': ['Global Import Volumes'],
+                'name':['UN ComTrade','UN ComTrade','Natural Earth'],
+                'type':['Non-spatial data','API','Geometry'],
+                'url': ['https://comtrade.un.org/','https://github.com/danieljschmidt/UN-Comtrade-Download',
+                'https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/']}
+    ,
+    tooltip: function(_data) {
+      // pop tooltip with data.
+      return '<h5 class="text-center mb-0">' + _data.properties.name +
+        '</h5><p class="text-center mb-0">Total Imports (Billion USD):<br />' +
+        _data.properties.all_commodities_import + '</p>';
+    },
+    highlight: function() {
+      return;
+    }
+  },
+  {
     "name": "heathrow-center",
     "type": "mapbox",
     "path": "none",

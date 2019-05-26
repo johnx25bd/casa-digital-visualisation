@@ -185,6 +185,96 @@ var cardData = [
   },
   {
     "extent": "global",
+    "title": "World Trade: Top Five Trading Partners",
+    "content": `<p>This map displays the 2017 imports of eight categories of products by country are related respectively. The colour of polygons shows the total import volume.</p>
+      <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
+      <div id='imports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
+      <!-- <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
+      <h4 class='display-4'>Facts</h4>
+      <ul>
+        <li>United States and China are still magnate of importing countries, followed by Germany, Japan. But the United Kingdom ranked the fifth with nearly 600 biliion US dollars. </li>
+        <li>Compare with the export, Non-Asia countries have taken quite a large share in the import trade. </li>
+        <li>Similarly, for US and China, Technical is not only the main export goods, but also a major import goods.</li>
+        <li>In 2017, the import volumes of technical in US and China are up to 705,700 units and 627,454 units respectively.  </li>
+        </ul>
+        <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/553784094&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    `,
+
+    "layers": ['arcTestLayer'],//'arcTestLayer'
+    "flyTo": {
+      "bearing": 0,
+      "center": {"lng":-0.7973131555806958,"lat":34.84825706688895},
+      "zoom": 1.2183705438114467,
+      "pitch": 0
+    },
+    "featureContent": {
+
+    }
+    // ,
+    // loadCard: function(_i, _params) {
+    //   // // Set countries layer style to Imports choropleth colors
+    //   // var importersBarChartParams = {
+    //   //   "chartType": "bar",
+    //   //   "valueType": "value", // or "amount"
+    //   //   "title": "Top Five Importing Countries",
+    //   //   "dataPath": "./data/top_five_importers.csv",
+    //   //   "yAxisLabel": "Billions (USD)",
+    //   //   'layerName': 'import-countries-volumes',
+    //   //
+    //   // };
+    //   //
+    //   //
+    //   // createBarChart(importersBarChartParams, "#imports-bar-chart");
+    //   // // loadFeatureContent(_params.)
+    //   //
+    //   // setFeatureContentText(_i, "country")
+    //   //
+    //   //
+    //   //
+    // },
+    // updateFeature: function(_featureMetadata, _lngLat) {
+    //   // console.log(_featureMetadata);
+    //   //
+    //   // var featureSelector = currentCardId() + ' .feature';
+    //   //
+    //   // var featureDiv = d3.select(featureSelector)
+    //   //   .select('.card-body').html('');
+    //   //
+    //   // var headerSpan = featureDiv.append('h3')
+    //   //   .classed('display-3 mb-0', true)
+    //   //   .text(_featureMetadata.properties.name);
+    //   //
+    //   // featureDiv.append('p')
+    //   //   .classed('header-span', true)
+    //   //   .text('Imports by category (billion USD)')
+    //   //
+    //   // var featureContent = featureDiv
+    //   //   .append('div')
+    //   //   .classed('col-12', true)
+    //   //   .append('div')
+    //   //   .classed('row', true);
+    //   //
+    //   // featureContent.append('div')
+    //   //   .classed('col-12 pie-chart-holder', true);
+    //   //
+    //   // var pieData = {
+    //   //   data: {
+    //   //     'Organic Products': _featureMetadata.properties.organic_products_import,
+    //   //     'Chemicals': _featureMetadata.properties.chemicals_import,
+    //   //     'Materials': _featureMetadata.properties.material_import,
+    //   //     'Clothing': _featureMetadata.properties.clothing_import,
+    //   //     'Metals': _featureMetadata.properties.metals_import,
+    //   //     'Technicals': _featureMetadata.properties.technical_import,
+    //   //     'Transportation': _featureMetadata.properties.transportation_import,
+    //   //     'Miscellaneous goods': _featureMetadata.properties.miscellaneous_goods_import
+    //   //   }
+    //   // };
+    //   //
+    //   // createPieChart(pieData, featureSelector + ' .pie-chart-holder');
+    // }
+  },
+  {
+    "extent": "global",
     "title": "Global Air Transport",
     "content": `<p>The map displays globally distributed airports across different geographical areas, as well as their passed-through amounts in the year of 2017 (thousand tons).</p>
 

@@ -129,7 +129,10 @@ function loadCards(_cards) {
     }
     console.log(card.layers);
     /// Loading legends /////
-    createLegends(i,card.layers);
+    if (card.layers[0] != 'arcTestLayer'){
+      createLegends(i,card.layers);
+    }
+
   }
 }
 
@@ -138,13 +141,16 @@ function showCardLayers(_cardNum) {
   var layers = cardData[_cardNum].layers;
 
   Object.keys(loadedData).forEach(function(layer) {
-
-    if (layers.includes(layer)) {
-      console.log("Setting", layer, 'to visible!')
-      map.setLayoutProperty(layer, 'visibility', 'visible');
-    } else {
-      map.setLayoutProperty(layer, 'visibility', 'none');
+    console.log('Layer: '+layer)
+    if ((layer != 'arcTestLayer')){
+      if ((layers.includes(layer))) {// Added  &&(layer != 'arcTestLayer')
+        console.log("Setting", layer, 'to visible!')
+        map.setLayoutProperty(layer, 'visibility', 'visible');
+      } else {
+        map.setLayoutProperty(layer, 'visibility', 'none');
+      }
     }
+
   });
 }
 
@@ -698,7 +704,6 @@ for (layer of _layers){
 
       } else if (prevType == 'circle') {
 
-          console.log((75*0.4+0.2*75*prevURLS))
           titleOffset += ((prevSize + 1)*50 + (75*0.4+0.2*75*(prevURLS))),
           elementOffset += ((prevSize + 1)*50 + (75*0.4+0.2*75*(prevURLS)));
       }
@@ -771,8 +776,10 @@ for (layer of _layers){
               .attr('cy',_elementWidth)
               .attr('r',_elementWidth/2)
               .style('fill',function(d,i){return color[i];});
-
+        //console.log(layerOfInterest.name + ': ' + layerOfInterest.highlight_type)
         if (layerOfInterest.highlight_type){
+          var highlightTypeName = layerOfInterest.name;
+          //console.log(data);
           legend
               .append('text')
               .attr("class",function(d,i){
@@ -782,38 +789,20 @@ for (layer of _layers){
               .attr('x',50)
               .attr('y',20)
               .on('mouseenter', function(d,i) {
-                map.setFilter(layerName +'-highlighted', ['==', 'type', data[i]]);
+                map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', data[i]]);
               })
               .on("mouseout", function(d,i) {
-                     map.setFilter(layerName +'-highlighted', ['==', 'type', '']);
+                     map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', '']);//layerName
               });
 
         } else {
           legend
               .append('text')
-              .attr("class",function(d,i){
-                return 'textLegend ' + data[i];
-              })
               .text(function(d,i){ return data[i];})
               .attr('x',50)
               .attr('y',20)
         }
-        //console.log('The layer is: 'layer)
-        // legend
-        //       .append('text')
-        //       .attr("class",function(d,i){
-        //         return 'textLegend ' + data[i];
-        //       })
-        //       .text(function(d,i){ return data[i];})
-        //       .attr('x',50)
-        //       .attr('y',20)
-        //       .on('mouseenter', function(d,i) {
-        //
-        //         map.setFilter(layerName +'-highlighted', ['==', 'type', data[i]]);
-        //       })
-        //       .on("mouseout", function(d,i) {
-        //              map.setFilter(layerName +'-highlighted', ['==', 'type', '']);
-        //       });
+
         }
         // To avoid legacy
         prevSetSize = false;
@@ -841,7 +830,9 @@ for (layer of _layers){
                 .style('fill','white')
                 .style('stroke','black');
 
-          legend
+          if (layerOfInterest.highlight_size){
+            var highlightSizeName = layerOfInterest.name;
+            legend
                 .append('text')
                 .attr("class",function(d,i){
                   return 'textLegend ' + sizedata[i];
@@ -850,11 +841,19 @@ for (layer of _layers){
                 .attr('x',50)
                 .attr('y',20)
                 .on('mouseenter', function(d,i) {
-                  map.setFilter(layerName +'-highlighted', ['==', 'size', sizedata[i]]);
+                  map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', sizedata[i]]);
                 })
                 .on("mouseout", function(d,i) {
-                       map.setFilter(layerName +'-highlighted', ['==', 'size', '']);
+                       map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', '']);
                 });
+
+          } else {
+            legend
+                .append('text')
+                .text(function(d,i){ return sizedata[i];})
+                .attr('x',50)
+                .attr('y',20)
+          }
         }
 
         if (setSize==true){

@@ -97,17 +97,39 @@ var loadedData = {};
       map.on('load', function() {
         layersData.forEach(function(layerData) {
           // console.log(layerData);
-          if (layerData.name != "cards") {
-            var dataKey = layerData.name;
-            if (layerData.type == "geojson") {
+          console.log(layerData.name)
+          if (layerData.name == 'arcTestLayer'){
 
-              map.addSource(dataKey + '-source', {
-                "type": "geojson",
-                "data": loadedData[dataKey].data
-              });
-            }
+            fetch('https://raw.githubusercontent.com/uber/deck.gl/master/examples/layer-browser/data/sfmta.routes.json')
+            .then(function(response) {
+                const arclayer = new MapboxLayer({
+                    id: 'my-arc',
+                    type: ArcLayer,
+                    data: response.json(),
+                    getSourcePosition: d => d.START,
+                    getTargetPosition: d => d.END,
+                    getSourceColor: d => [64, 255, 0],
+                    getTargetColor: d => [0, 128, 200]
+                });
 
-            map.addLayer(buildAddLayerParams(layerData), "country-label");
+                //Add the deck.gl arc layer to the map
+                map.addLayer(arclayer, 'waterway-label');
+
+            });
+          } else {
+            if (layerData.name != "cards") {
+              var dataKey = layerData.name;
+              if (layerData.type == "geojson") {
+
+                map.addSource(dataKey + '-source', {
+                  "type": "geojson",
+                  "data": loadedData[dataKey].data
+                });
+              }
+
+              map.addLayer(buildAddLayerParams(layerData), "country-label");
+          }
+
 
             //var prevCoordinates = null;
 
