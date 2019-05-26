@@ -1,6 +1,6 @@
 // SOURCES
 // https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
-
+//import {MapboxLayer} from '@deck.gl/mapbox';
 // Globals
 
 var dims = {

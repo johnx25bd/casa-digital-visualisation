@@ -555,8 +555,6 @@ for (layer of _layers){
       layerOfInterest.addLayerParams.default.type :
       layerOfInterest.addLayerParams.type;
 
-    var layerName = layer;
-
     if (type == 'fill'){
 
       howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
@@ -611,6 +609,8 @@ for (layer of _layers){
         var layerOfInterest = layersData.find(function (l) {
           return l.name == layer;
         });
+
+        var layerName = layer;
 
         var type = layerOfInterest.addLayerParams.default ?
           layerOfInterest.addLayerParams.default.type :
@@ -772,7 +772,8 @@ for (layer of _layers){
               .attr('r',_elementWidth/2)
               .style('fill',function(d,i){return color[i];});
 
-        legend
+        if (layerOfInterest.highlight_type){
+          legend
               .append('text')
               .attr("class",function(d,i){
                 return 'textLegend ' + data[i];
@@ -786,6 +787,33 @@ for (layer of _layers){
               .on("mouseout", function(d,i) {
                      map.setFilter(layerName +'-highlighted', ['==', 'type', '']);
               });
+
+        } else {
+          legend
+              .append('text')
+              .attr("class",function(d,i){
+                return 'textLegend ' + data[i];
+              })
+              .text(function(d,i){ return data[i];})
+              .attr('x',50)
+              .attr('y',20)
+        }
+        //console.log('The layer is: 'layer)
+        // legend
+        //       .append('text')
+        //       .attr("class",function(d,i){
+        //         return 'textLegend ' + data[i];
+        //       })
+        //       .text(function(d,i){ return data[i];})
+        //       .attr('x',50)
+        //       .attr('y',20)
+        //       .on('mouseenter', function(d,i) {
+        //
+        //         map.setFilter(layerName +'-highlighted', ['==', 'type', data[i]]);
+        //       })
+        //       .on("mouseout", function(d,i) {
+        //              map.setFilter(layerName +'-highlighted', ['==', 'type', '']);
+        //       });
         }
         // To avoid legacy
         prevSetSize = false;
@@ -808,9 +836,7 @@ for (layer of _layers){
                 // Adjust these for the size of the colored boxes.
                 .attr('cx',_elementWidth)
                 .attr('cy',_elementWidth)
-                // .attr("class",function(d,i){
-                //   return 'textLegend '+sizedata[i];
-                // })
+
                 .attr('r',function(d,i) {return size[i]*1;})//
                 .style('fill','white')
                 .style('stroke','black');
@@ -844,7 +870,7 @@ for (layer of _layers){
         }
 
       if ((iter > 0) && (type == 'fill')){
-
+        console.log(layer+'s type is '+type)
         sourceTitleOffset += (125 + (75*0.4+0.2*75*sourceURL.length))//(140 + 20*sourceURL.length);
 
       } else if ((iter > 0) && (type == 'circle')) {
