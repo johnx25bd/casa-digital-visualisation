@@ -21,6 +21,9 @@ function buildAddLayerParams(_layerData) {
     }
 
 }
+/*
+
+*/
 function currentCardId() {
   return '#' + cardData[activeCardNum].extent
     + '-card-' + activeCardNum;
@@ -38,7 +41,7 @@ function isNextCardOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
   var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
   var bounds = element.getBoundingClientRect();
-  console.log(bounds);
+  // console.log(bounds);
 
   return bounds.top < window.innerHeight / 2;
 }
@@ -47,7 +50,7 @@ function isPriorCardOnScreen(_cardNum) {
   // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
   var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
   var bounds = element.getBoundingClientRect();
-  console.log(bounds);
+  // console.log(bounds);
 
   return bounds.bottom > window.innerHeight / 2;
 }
@@ -109,7 +112,6 @@ function loadCards(_cards) {
 
   // Additional facts area:
   var additionalContent = cardEls.append('div')
-    // .classed('card', true);
 
   additionalContent.append('div')
     .classed('col-12', true)
@@ -217,10 +219,10 @@ function setActiveCard(_cardNum) {
 
 }
 
-// DEPRECATED FOR NOW : erratic animation behavior
 function scrollToCard(_cardNum) {
   // adapted from https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
   if (!$('body').hasClass('scrolling')) {
+
 
 
     $('body').addClass('scrolling');
@@ -228,6 +230,7 @@ function scrollToCard(_cardNum) {
     setTimeout(function () {
       $('body').removeClass('scrolling');
     }, 1200)
+
 
     setActiveCard(_cardNum);
 
@@ -237,8 +240,20 @@ function scrollToCard(_cardNum) {
     // console.log(id);
     // setActiveCard(cardNum);
 
+    if ($('#file-add').hasClass('show')) {
+
+      var scrollTopVal = $(id).offset().top  - $('#file-add').height() - (70 + 63);
+    } else  {
+      // WORKS
+      var scrollTopVal = $(id).offset().top - (70 + 63);// - $('#file-add').height();
+
+    }
+
+    $('#file-add').collapse('hide');
+
     $([document.documentElement, document.body]).animate({
-      scrollTop: $(id).offset().top - (56 + 70)
+      scrollTop: scrollTopVal
+
     }, 1000, function() {
       inAnimation = false;
     });
@@ -819,6 +834,37 @@ function createLegends(_div_id,_svg_id,_title,_dataType,_dataPaint){
     return;
   }
 }
+
+// JSON upload function ...
+// From https://stackoverflow.com/questions/8869403/drag-drop-json-into-chrome :D :D :D
+function dropJSON(targetEl, callback) {
+  // disable default drag & drop functionality
+  targetEl.addEventListener('dragenter', function(e) {
+    e.preventDefault();
+  });
+  targetEl.addEventListener('dragover', function(e) {
+    e.preventDefault();
+  });
+
+  targetEl.addEventListener('drop', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    var file = event.dataTransfer.files;
+    console.log(file);
+
+    var reader = new FileReader();
+    reader.onloadend = function(e) {
+      var data = JSON.parse(this.result);
+      callback(data, file);
+    };
+
+    console.log(reader.readAsText(event.dataTransfer.files[0]));
+    event.preventDefault();
+  });
+}
+
+
 
 
 // fitText jQuery plugin, for airport codes
