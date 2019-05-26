@@ -366,6 +366,9 @@ function createBarChart(_params, _parentEl) {
               .attr("class", "on")
               .text("Bar value: "+d.value);
 
+        d3.selectAll('.' + d.code)
+            .classed('active', true)
+            .style('fill-opacity','1');
         //map.setPaintProperty(layerOfInterst, ['==', 'iso3', d.iso3]);
         //console.log(layerOfInterst);
         map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
@@ -373,6 +376,10 @@ function createBarChart(_params, _parentEl) {
       .on("mouseout", function(d) {
              text.remove();
              map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', '']);
+
+             d3.selectAll('.bar')
+                 .classed('active', false)
+                 .style('fill-opacity','0.7');
       });
 
   });
@@ -447,9 +454,9 @@ function createPieChart(_params, _parentEl) {
       return 'piearc ' + dataDomain[i];
     })
     .on("mouseenter", function(d,i) {
-        //console.log("mousein")
+        //console.log("Arc: "+arc)
         text = svg.append("text")
-            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            .attr("transform", function(d, i) {return "translate(0,0)";})//return "translate(" + arc.centroid(d, i) + ")"
             .attr("dy", ".5em")
             .style("text-anchor", "middle")
             .attr("class", "on")
@@ -562,7 +569,7 @@ function createLegends(_cardNum,_layers){
       maxWidth = 0;
 // Determining the length of the div dynamically.
 for (layer of _layers){
-  if (!layer.includes('highlighted')){
+  if ((!layer.includes('highlighted')) || (!layer.includes('3d-buildings'))){
     var layerOfInterest = layersData.find(function (l) {
       return l.name == layer;
     });
@@ -622,7 +629,7 @@ for (layer of _layers){
     var iter = 0;
     for (layer of _layers){
 // Getting parameters for the legends.
-      if (!layer.includes('highlighted')){
+      if ((!layer.includes('highlighted')) || (!layer.includes('3d-buildings'))){
         var layerOfInterest = layersData.find(function (l) {
           return l.name == layer;
         });
@@ -660,8 +667,13 @@ for (layer of _layers){
             'heatmap-color' : map.getPaintProperty(layer,'heatmap-color')
           }
 
-          paint = [[],[],[],[],[0,paint['heatmap-color'][4]],[],[1,paint['heatmap-color'][paint['heatmap-color'].length-1]]];
-          type = 'fill';
+          var heatmapColors = []
+          for (var i = 4; i < paint['heatmap-color'].length;i += 2){
+            heatmapColors.push(paint['heatmap-color'][i])
+          }
+          paint = heatmapColors;
+          //paint = [[],[],[],[],[0,paint['heatmap-color'][4]],[],[1,paint['heatmap-color'][paint['heatmap-color'].length-1]]];
+          //type = 'fill';
 
         } else {
           return;
@@ -691,7 +703,9 @@ for (layer of _layers){
       } else {
 
         var [color,data] = structureData(type,paint);
-
+        if (type == 'heatmap'){
+          type = 'fill';
+        }
         if (paint.length > 1) {
 
           var step = 20;
@@ -853,6 +867,7 @@ for (layer of _layers){
                   map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', sizedata[i]]);
                 })
                 .on("mouseout", function(d,i) {
+
                   map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', '']);
                 });
 
@@ -916,8 +931,9 @@ for (layer of _layers){
       source
         .append("a")
         .attr("xlink:href", function(d){ return d.url})
+        .attr('target', '_blank')
         .append('text')
-        .text(function(d,i){ return (d.name+', '+d.type+': Source');})
+        .text(function(d,i){ return (d.name+', '+d.type);})
         .attr('x',0)
         .attr('y',function(d,i){ return ((sourceTitleOffset+sourceTitleToSourcesOffset)+(i*sourceSpace));})
 
@@ -927,24 +943,24 @@ for (layer of _layers){
     }
 }
 
-  function structureData(_dataType,_dataPaint){
+  function structureData(_dataType,_dataPaint,_step = 20){
 
     if (_dataType == 'fill'){
       if (Array.isArray(_dataPaint)){
 
-        var step = 20,
-            color1 = _dataPaint[4][1],
+        var color1 = _dataPaint[4][1],
             color2 = _dataPaint[6][1];
+            //step = 20;
 
-        var color = interpolateColors(color1,color2,step);
+        var color = interpolateColors([color1,color2],_step);
 
         var data = [];
 
-        for (var ele = 0; ele < step; ele++){
+        for (var ele = 0; ele < _step; ele++){
 
           if (ele === 0){
               data.push({'id':ele, 'value':'Low'});
-          } else if (ele === (step - 1)){
+          } else if (ele === (_step - 1)){
               data.push({'id':ele, 'value':'High'});
           } else {
             data.push({'id': ele, 'value':''})
@@ -953,8 +969,9 @@ for (layer of _layers){
 
       } else {
         //////////////////////////// Data /////////////////////////////////////
-        var color = interpolateColors(_dataPaint[0],_dataPaint[0],1);
-        var data = [{'id':0,'value':'fill'}];//_title
+
+        var color = interpolateColors(_dataPaint,1);
+        var data = [{'id':1,'value':'fill'}];//_title
         //var height = 100;
       }
     } else if (_dataType == 'circle'){
@@ -990,6 +1007,31 @@ for (layer of _layers){
         var setSize = true;
       }
 
+    } else if (_dataType == 'heatmap'){
+
+      //var step = 20;
+      var substep = [],
+          normSubStep = [];
+      for (var i = 0; i < _step; i += _dataPaint.length){
+        substep.push(i);
+        normSubStep.push(i/_step);
+      }
+      console.log('Substps: '+substep);
+      console.log('Normalised substeps: '+normSubStep)
+      var color = interpolateColors(_dataPaint,substep);
+
+      var data = [];
+
+      for (var ele = 0; ele < _step; ele++){
+
+        if (ele === 0){
+            data.push({'id':ele, 'value':'Low'});
+        } else if (ele === (_step - 1)){
+            data.push({'id':ele, 'value':'High'});
+        } else {
+          data.push({'id': ele, 'value':''})
+        }
+      }
     } else {
       console.log(_dataType,': ERROR:  I dont know this datatype!')
       return;
@@ -1007,11 +1049,20 @@ for (layer of _layers){
 
   }
 
-  function interpolateColors(_color1,_color2,_step = 1){
-
+  function interpolateColors(_colors,_step = 1){
+    if (!Array.isArray(_step)){
+      var steps = [0,_step];
+    } else {
+      var steps = _step;
+    }
+    if (!Array.isArray(_colors)){
+      var colors = [_colors];
+    } else {
+      var colors = _colors;
+    }
     var color = d3.scaleLinear()
-        .domain([0, _step])
-        .range([_color1, _color2])
+        .domain(steps)//[0, _step]
+        .range(colors)//[_color1, _color2]
         .interpolate(d3.interpolateHcl);
 
     return color;
