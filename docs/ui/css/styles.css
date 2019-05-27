@@ -84,6 +84,10 @@ h3 span.light {
   background-color:  #83acd8;
 }
 
+#landing-text.visible {
+  opacity: 1 !important;
+}
+
 #ucl-logo {
   left: none !important;
   right: none !important;

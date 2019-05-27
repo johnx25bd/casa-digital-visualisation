@@ -1,8 +1,10 @@
-// SOURCES
-// https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
+/*
 
-// Globals
+This code was written for a UCL masters project in 2019.
 
+*/
+
+// Set global variables
 var dims = {
   h: window.innerHeight,
   w: window.innerWidth
@@ -10,28 +12,31 @@ var dims = {
 
 var activeCardNum = null,
   inAnimation = false,
-  firstMove = true,
+  firstMove = null,
   numLoadedFiles = 0;
 
-// Instantiate map:
+// Instantiate mapbox map:
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iaXNvbml2IiwiYSI6ImNqbjM5eXEwdjAyMnozcW9jMzdpbGk5emoifQ.Q_S2qL8UW-UyVLikG_KqQA';
 
 var map = new mapboxgl.Map({
-  container: 'main-map', // container id
-  style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
-  center: [50, 10], // starting position [lng, lat]
+  container: 'main-map',
+  style: 'mapbox://styles/mapbox/light-v10',
+  center: [50, 10],
   zoom: 1
-  // maxBounds: [[-180,-90], [180,90]]
 });
 
-map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-// map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
-var scale = new mapboxgl.ScaleControl({
-  maxWidth: 80,
-  unit: 'imperial'
-});
-map.addControl(scale, 'bottom-left');
+map.addControl(
+  new mapboxgl.NavigationControl(),
+  'top-left'
+);
 
+map.addControl(
+  new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+  }),
+  'bottom-left'
+);
 
 var popup = new mapboxgl.Popup({
   closeButton: false,
@@ -39,16 +44,26 @@ var popup = new mapboxgl.Popup({
   anchor: 'left'
 });
 
-var loadedData = {};
 
 // LOAD LAYERS
 // Load and organize all data
-(function(_layersData) { // IIFE
 
+// A holder variable for data loaded via promises
+var loadedData = {};
+
+// Immediately-invoked function expression that
+// accepts array of objects containing information
+// about each layer to load
+(function(_layersData) {
+
+  // An empty array to hold promises in the order
+  // that they are created
   var dataPromises = [];
 
   layersData.forEach(function(layerData) {
 
+    // Create promises for our two supported non-mapbox
+    // file types, `csv` and `json`.
     if (layerData.type != "mapbox") {
       var filename = layerData.path;
       var filetype = filename.split('.'),
@@ -58,20 +73,31 @@ var loadedData = {};
       } else if (filetype == "json") {
         dataPromises.push(d3.json(filename));
       } else {
-        console.log("Error with file", filename,
+        console.log("Error with file", filename +
           ". Please pass a valid file to load.");
       }
     } else {
+      // A custom promise simply to make mapbox layers interoperable
+      // with csv and json promises created above.
       var mapboxPromise = new Promise(function(resolve, reject) {
         resolve(layerData);
       })
+
       dataPromises.push(mapboxPromise)
     }
   });
 
+  // This method was employed to ensure that different load times did
+  // not cause problems in page load. The `values` array passed into
+  // .then() contains data returned from each promise in the original
+  // order found in dataPromises.
   Promise.all(dataPromises)
     .then(function(values) {
 
+      // Loop through values to build loadedData object, which
+      // contains information about each layer including parsed JSON,
+      // referenced by layersData[i].name - which is also used as the
+      // layer id when loaded into the mapbox map.
       for (var i = 0; i < values.length; i++) {
         if (values[i].type === 'mapbox') {
           loadedData[values[i].name] = {
@@ -84,7 +110,6 @@ var loadedData = {};
           var filetype = layersData[i].path.split('.'),
             filekey = layersData[i].name;
 
-          // filekey = filekey[filekey.length - 1]; // should be file name ...
           filetype = filetype[filetype.length - 1];
 
           loadedData[filekey] = {
@@ -94,34 +119,44 @@ var loadedData = {};
         }
       }
 
-      // Once all data is loaded, add to map
+      // Load layers onto map and set event listeners.
+      // This will only execute once the map is loaded
       map.on('load', function() {
         layersData.forEach(function(layerData) {
-          // console.log(layerData);
-          if (layerData.name != "cards") {
+
             var dataKey = layerData.name;
             if (layerData.type == "geojson") {
-
+              // addSource with unique identifier string,
+              // to be referenced later on addLayer.
               map.addSource(dataKey + '-source', {
                 "type": "geojson",
                 "data": loadedData[dataKey].data
               });
             }
 
+            // buildAddLayerParams returns a mapbox-compliant object
+            // defining layer parameters
             map.addLayer(buildAddLayerParams(layerData), "country-label");
-
-            //var prevCoordinates = null;
+                                                        // ^^ place added layer
+                                                        // underneath country labels.
 
             if (layerData.tooltip) {
-              //console.log('Layer have tooltip',layerData.name);
+
+              // Set listeners on map to display and remove tooltip, as defined in
+              // layersData[i].tooltip() method, which returns tooltip contents.
               map.on('mouseenter', layerData.name, function(e) {
-                //console.log(e.features[0]);
                 var tooltipContent = layerData.tooltip(e.features[0]);
+                                                      // Opportunity for bug by assuming the first
+                                                      // feature will be the appropriate one ... 😬
                 if (tooltipContent != undefined) {
+
+                  // This code and comments from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-hover/
+                  // - thanks Mapbox! 🙏
 
                   // Change the cursor style as a UI indicator.
                   map.getCanvas().style.cursor = 'pointer';
-                  // console.log(e);
+
+                  // Accesssible from mouseenter event.
                   var coordinates = e.lngLat;
                   var description = e.features[0].properties.description;
 
@@ -137,8 +172,6 @@ var loadedData = {};
                   popup.setLngLat(coordinates)
                     .setHTML(tooltipContent)
                     .addTo(map);
-                  // show tooltipcontent
-
                 }
               });
 
@@ -148,9 +181,9 @@ var loadedData = {};
               })
             }
 
-
+            // Similarly, display highlight layer on feature mouseenter,
+            // and remove highlighted feature on mouseleave.
             if (layerData.highlight) {
-              //console.log(layerData.highlight);
               map.on("mousemove", layerData.name, function(e) {
 
                 var features = map.queryRenderedFeatures(e.point);
@@ -175,12 +208,8 @@ var loadedData = {};
               // previously hovered feature.
               map.on("mouseleave", layerData.name, function(e) {
 
-                //var features = map.queryRenderedFeatures(e.point);
-
-                //var currentISO3 = features[0].properties.iso3;
-
                 map.setFilter(layerData.name + '-highlighted', ['==', 'iso3', '']);
-                d3.selectAll('.bar') // + currentISO3)
+                d3.selectAll('.bar')
                   .classed('active', false)
                   .style('fill-opacity', '0.7');
               });
@@ -190,35 +219,40 @@ var loadedData = {};
               if (cardData[activeCardNum].updateFeature) {
 
                 var targetLayers = cardData[activeCardNum].layers;
-
                 var renderedFeatures = map.queryRenderedFeatures(e.point);
 
+                // This is a more reliable pattern than pulling the first feature
+                // from what is returned from .queryRenderedFeatures() vvv
                 var featureOfInterest = renderedFeatures.find(function(feature) {
                   return targetLayers.includes(feature.layer.id);
                 })
 
+                // A custom method call to update the  feature content area
+                // of the card - see additional airport info on the
+                // Global Air Transport card
                 cardData[activeCardNum]
                   .updateFeature(featureOfInterest, e.lngLat);
-
               }
             });
-
-          }
         });
 
-        // LOAD CARDS
+        // LOAD CARDS, and switch to card 0.
         loadCards(cardData);
         setActiveCard(0);
 
         $('#landing-page').modal('show');
 
-        d3.selectAll('#landing-text')
-          .transition()
-          .duration(2000)
-          .style('opacity', 0.2)
-          .on('end', function() {
-            firstMove = false;
-          });
+        d3.selectAll('#landing-header')
+          .on('mouseenter', function () {
+            if (firstMove == null) {
+              firstMove = d3.mouse(this)[1];
+            }
+          })
+          .on('click', function () {
+            d3.select('#landing-text')
+              .classed('visible', true);
+          })
+
 
       });
     }).catch(function(error) {
@@ -315,23 +349,15 @@ $('.jump-to-view').on('click', function(e) {
 //
 //   })
 
-d3.selectAll('.modal-content')
+d3.select('.modal-content')
   .on('mousemove', function() {
-    console.log('mouse moving');
-    var visibility = (d3.mouse(this)[1] / window.innerHeight);
     if (firstMove) {
-      d3.select('#landing-text')
-        .transition()
-        .duration(visibility * 1000)
-        .style('opacity', visibility)
-        .on('end', function() {
-          firstMove = false;
-        });
-    } else {
+      console.log(d3.mouse(this)[1], firstMove, window.innerHeight);
+      var visibility = ((d3.mouse(this)[1] - firstMove) / (window.innerHeight));
+      console.log(visibility);
       d3.select('#landing-text')
         .style('opacity', visibility);
     }
-
   })
 
 // File upload function call
@@ -342,18 +368,10 @@ dropJSON(document.getElementById("drop-zone"),
       alert('Please only upload one geojson file at a time.\nWe will load the first file you dropped 😉');
       // ^^ Opportunity for extension - multi-file and zip uploads.
     }
-    // dropped - do something with data
-
-    console.log(_data);
-    console.log(_files);
 
     var layerColor = d3.scaleOrdinal(d3.schemeSet2)
       .domain(d3.range(8));
     // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
-
-
-    // for (i in _files) { // this multifileload doesn't work - needs to be fixed upstream, prior to dropJSON() call ...
-    //   if (!isNaN(i)) {
 
         if (numLoadedFiles == 0) {
           d3.select('#add-layer-button')
