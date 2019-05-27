@@ -235,7 +235,9 @@ h3 span.light {
 #top-five-ports-bar-chart .bar {
   fill: #d95f0e;
 }
-
+.sources:hover{
+  font-weight: bold;
+}
 .story-nav-btns {
 
 }

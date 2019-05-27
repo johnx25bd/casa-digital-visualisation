@@ -369,8 +369,7 @@ function createBarChart(_params, _parentEl) {
         d3.selectAll('.' + d.code)
             .classed('active', true)
             .style('fill-opacity','1');
-        //map.setPaintProperty(layerOfInterst, ['==', 'iso3', d.iso3]);
-        //console.log(layerOfInterst);
+      
         map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
       })
       .on("mouseout", function(d) {
@@ -525,7 +524,7 @@ function createPieChart(_params, _parentEl) {
     .on("mouseenter", function(d,i) {
 
         text = svg.append("text")
-            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            .attr("transform",'translate(0,0)')// function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; }
             .attr("dy", ".5em")
             .style("text-anchor", "middle")
             .attr("class", "on")
@@ -533,8 +532,8 @@ function createPieChart(_params, _parentEl) {
 
         d3.selectAll('.' + dataDomain[i])
             .classed('active', true)
-            .style('opacity','2')
-            .style('font-weight','bold');
+            .style('opacity','2');
+            // .style('font-weight','bold');
       })
 
     .on("mouseout", function(d) {
@@ -543,9 +542,9 @@ function createPieChart(_params, _parentEl) {
                .classed('active', false)
                .style('opacity','0.7');
 
-          d3.selectAll('.textLegend')
-              .classed('active',false)
-              .style('font-weight','normal');
+          // d3.selectAll('.textLegend')
+          //     .classed('active',false)
+          //     .style('font-weight','normal');
     })
 
 }
