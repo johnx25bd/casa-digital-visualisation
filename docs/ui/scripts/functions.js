@@ -385,14 +385,6 @@ function createBarChart(_params, _parentEl) {
   });
 }
 
-function highlightCountry (_layerName, _iso3) {
-  map.setFilter(_layerName +'-highlighted', ['==', 'iso3', _iso3]);
-}
-
-function unhighlightCountry (_layerName) {
-  map.setFilter(_layerName +'-highlighted', ['==', 'iso3', '']);
-}
-
 function createPieChart(_params, _parentEl) {
 
 
@@ -404,7 +396,7 @@ function createPieChart(_params, _parentEl) {
     _title = _params.title;
 
   var data = _params.data;
-  console.log(id+': '+ data)
+  //console.log(id+': '+ data)
   // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
   var radius = Math.min(width, height) / 2 - margin;
 
@@ -526,7 +518,7 @@ function createPieChart(_params, _parentEl) {
     .on("mouseenter", function(d,i) {
 
         text = svg.append("text")
-            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            .attr("transform",'translate(0,0)')//, function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; }
             .attr("dy", ".5em")
             .style("text-anchor", "middle")
             .attr("class", "on")
@@ -569,8 +561,14 @@ function createLegends(_cardNum,_layers){
       howLong = 0,
       maxWidth = 0;
 // Determining the length of the div dynamically.
+// if (layer.includes('highlighted')){
+//   console.log('The layer: '+layer+' - NO GOOD')
+// } else if (layer.includes('3d')) {
+//   console.log('The layer: '+layer+' - NO GOOD')
+// } else {//|| (!layer.includes('3d-buildings'))
 for (layer of _layers){
-  if ((!layer.includes('highlighted')) || (!layer.includes('3d-buildings'))){
+
+  if (!layer.includes('highlighted')){//|| (!layer.includes('3d-buildings'))
     var layerOfInterest = layersData.find(function (l) {
       return l.name == layer;
     });
@@ -612,8 +610,10 @@ for (layer of _layers){
     if (layerOfInterest.source.content[0].length>maxWidth){
       maxWidth = layerOfInterest.source.content[0].length;
     }
-  }
+  } 
 }
+// console.log('Height: '+howLong)
+// console.log('Width: '+)
 //################################ END OF NEW ##############################################
   var width = 300,
       widthExtent = width + 5*maxWidth
@@ -628,9 +628,11 @@ for (layer of _layers){
       // .attr("height", 'auto;')
 
     var iter = 0;
+
     for (layer of _layers){
+
 // Getting parameters for the legends.
-      if ((!layer.includes('highlighted')) || (!layer.includes('3d-buildings'))){
+      if (!layer.includes('highlighted')){// || (!layer.includes('3d-buildings'))
         var layerOfInterest = layersData.find(function (l) {
           return l.name == layer;
         });
@@ -679,7 +681,8 @@ for (layer of _layers){
         } else {
           return;
         }
-      } else {
+      }
+      else {
         return;
       }
 
@@ -932,7 +935,7 @@ for (layer of _layers){
       source
         .append("a")
         .attr("xlink:href", function(d){ return d.url})
-        .attr('target', '_blank')
+        .attr('target', 'blank')
         .append('text')
         .text(function(d,i){ return (d.name+', '+d.type);})
         .attr('x',0)

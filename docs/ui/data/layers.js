@@ -173,7 +173,7 @@ var layersData = [{
     'source': { 'content': ['Heathrow Center'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-point",
@@ -517,7 +517,7 @@ var layersData = [{
     'source': { 'content': ['Train Stations'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         "id": "heathrow-stations",
@@ -547,7 +547,7 @@ var layersData = [{
     'source': { 'content': ['Hotels'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-hotels",
@@ -575,7 +575,7 @@ var layersData = [{
     'source': { 'content': ['Restaurants'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-restaurants",
@@ -603,7 +603,7 @@ var layersData = [{
     'source': { 'content': ['5 km buffer'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-buffer",
@@ -631,7 +631,7 @@ var layersData = [{
     'source': { 'content': ['London Port Center'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-point",
@@ -659,7 +659,7 @@ var layersData = [{
     'source': { 'content': ['Train Stations'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-stations",
@@ -687,7 +687,7 @@ var layersData = [{
     'source': { 'content': ['Schools'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-schools",
@@ -715,7 +715,7 @@ var layersData = [{
     'source': { 'content': ['Restaurants'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-restaurants",
@@ -743,7 +743,7 @@ var layersData = [{
     'source': { 'content': ['5 km buffer'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-buffer",
@@ -768,10 +768,9 @@ var layersData = [{
     "name": "uK-ports",
     "path": "./data/uk-ports.json",
     'source': { 'content': ['UK ports: Types and sizes'],
-                'name':['UK GOV','UK GOV','US NGA'],
-                'type':['Non-spatial data','Spatial Data','Geometry'],
+                'name':['UK GOV','US NGA'],
+                'type':['Non-spatial data','Geometry'],
                 'url': ['https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures',
-                        'https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015',
                 'https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015'
               ]},
     "type": "geojson",
@@ -842,10 +841,9 @@ var layersData = [{
     "name": "uK-ports-highlighted",
     "path": "./data/uk-ports.json",
     'source': { 'content': ['UK ports: Types and sizes'],
-                'name':['UK GOV','UK GOV','US NGA'],
-                'type':['Non-spatial data','Spatial Data','Geometry'],
+                'name':['UK GOV','US NGA'],
+                'type':['Non-spatial data','Geometry'],
                 'url': ['https://www.gov.uk/government/statistics/port-freight-statistics-2017-final-figures',
-                        'https://data.gov.uk/dataset/963c1a7b-5b72-4cce-93f5-3f1e223fd575/anonymised-ais-derived-track-lines-2015',
                 'https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015'
               ]},
     "type": "geojson",
@@ -1032,7 +1030,7 @@ var layersData = [{
     'source': { 'content': ['Buildings'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "type": "mapbox",
     "addLayerParams": {
       // 'id': '3d-buildings',
