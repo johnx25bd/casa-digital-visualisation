@@ -217,7 +217,7 @@ h3 span.light {
   width: 100%;
 }
 .title{
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
 }
 .bar {
@@ -239,7 +239,9 @@ h3 span.light {
 .story-nav-btns {
 
 }
-
+.textLegend:hover {
+  font-weight: bold;
+}
 .mapbox-popup p {
   margin-bottom: 0rem !important;
 }

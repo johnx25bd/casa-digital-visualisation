@@ -20,34 +20,31 @@ Branch: UpdatedBarChartFunction
 
 ## Bug Legends ##
 
-[] links on only sources
-
-[] Bold the category which is highlighted in airport/port
-
-[] Look into National piechart-missing highlight
-
-[] only outline the circle stroke
-
-[] Ensure all barchart highlights when hover
-
-[] Increase title font size to 18
-
-[] Heatmap legend - include more colors
-
-[] The buffer fill
-
-[] Legend text over the extent
-
-
-## Legends - DONE
-
-Branch: FixingLegends
-
 [x] place link to source in legend entry. accessed by `layerData[i].source`
 
 [x] Pie legends - highlight category on segment hover; highlight segment on category hover.
 
 [x] Clean up legends. Make symbols smaller, make them more compact altogether.
+
+## Bug Legends ##
+
+[x] links on only sources
+
+[x] Bold the category which is highlighted in airport/port
+
+[x] Look into National piechart-missing highlight
+
+[x] only outline the circle stroke
+
+[x] Ensure all barchart highlights when hover - done
+
+[x] Increase title font size to 18
+
+[] Heatmap legend - include more colors
+
+[x] The buffer fill
+
+[] Legend text over the extent
 
 ## To-do:
 
