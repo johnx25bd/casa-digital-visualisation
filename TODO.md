@@ -6,6 +6,29 @@ _prior to presentation_
 
 ## Kristian
 
+######################## To-do - #######################
+
+# Writing:
+
+[] Write SVG - Chart/Legend Section
+
+[] Merge all support scripts into a single function library
+  [] Update function loading based on the new function library
+
+[] Create "table 3", giving a overview of the used libraries in python.
+
+[] Round off the data section
+
+# Coding:
+
+[] Fix the coloring of the heatmap legend
+
+[] More sophisticated flow map - probably of UK with trading partners? This could go on National view card 1 or the last card on the Global view
+
+[] Some time series visualization? How could we get this in there? Do we have any time series data? Maybe of export volumes? Even just adding a slider to the card and updating the choropleth would mean this is a 'temporal' visualization as well as spatial.
+
+########################################################
+
 [x] Refactor bar chart to accept `_highlightId` (column in csv) and `_highlightLayer` (layer id from map), and apply filter to highlight layer. See `createCustomBarChart()` defined in `cardData[0].loadCard()`.
   [x] Bonus - can we get it so the bar highlights when you hover on the country? Probably by classing the `<rect>` element with ISO3 code, then on mouseenter `d3.selectAll('.' + feature.iso3).classed('active', true);`, and removing the class on mouseleave.
 
@@ -34,9 +57,6 @@ Branch: UpdatedBarChartFunction
 
 [x] Look into National piechart-missing highlight
 
-[x] only outline the circle stroke
-
-[x] Ensure all barchart highlights when hover - done
 
 [x] Increase title font size to 18
 
@@ -44,7 +64,7 @@ Branch: UpdatedBarChartFunction
 
 [x] The buffer fill
 
-[] Legend text over the extent
+[x] Legend text over the extent
 
 ## To-do:
 
@@ -65,9 +85,9 @@ Branch: UpdatedBarChartFunction
 
 [] Add some realtime data layer - fetch JSON from API.
 
-[] Add heatmap legend entry ...
+[x] Add heatmap legend entry ...
 
-[] Integrate sources into layers objects
+[x] Integrate sources into layers objects
 
 ## Shuke
 
