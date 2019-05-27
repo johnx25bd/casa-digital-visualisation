@@ -278,7 +278,15 @@ h3 span.light {
   /* height: 100px; */
   margin-bottom: 40px;
   background-color: none;
+}
 
+.sources text {
+  fill: #83acd8;
+
+}
+
+.sources text:hover {
+  text-decoration: underline;
 }
 
 .legend-content {

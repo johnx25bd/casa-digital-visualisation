@@ -449,12 +449,16 @@ function createPieChart(_params, _parentEl) {
     .on("mouseenter", function(d,i) {
         //console.log("mousein")
         text = svg.append("text")
-            .attr("transform", function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; })
+            .attr("transform", function(d, i) {
+              console.log(d, i)
+              console.log(arc.centroid(d,i ))
+              return "translate(" + arc.centroid(d, i) + ")"; })
             .attr("dy", ".5em")
             .style("text-anchor", "middle")
             .attr("class", "on")
             .text(d.data.value);
 
+          console.log(dataDomain[i]);
         d3.selectAll('.' + dataDomain[i])
             .classed('active', true)
             .style('font-weight','bold');
