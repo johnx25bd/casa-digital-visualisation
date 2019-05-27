@@ -173,7 +173,7 @@ var layersData = [{
     'source': { 'content': ['Heathrow Center'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-point",
@@ -517,7 +517,7 @@ var layersData = [{
     'source': { 'content': ['Train Stations'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         "id": "heathrow-stations",
@@ -547,7 +547,7 @@ var layersData = [{
     'source': { 'content': ['Hotels'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-hotels",
@@ -575,7 +575,7 @@ var layersData = [{
     'source': { 'content': ['Restaurants'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-restaurants",
@@ -603,7 +603,7 @@ var layersData = [{
     'source': { 'content': ['5 km buffer'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "heathrow-buffer",
@@ -631,7 +631,7 @@ var layersData = [{
     'source': { 'content': ['London Port Center'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-point",
@@ -659,7 +659,7 @@ var layersData = [{
     'source': { 'content': ['Train Stations'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-stations",
@@ -687,7 +687,7 @@ var layersData = [{
     'source': { 'content': ['Schools'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-schools",
@@ -715,7 +715,7 @@ var layersData = [{
     'source': { 'content': ['Restaurants'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-restaurants",
@@ -743,7 +743,7 @@ var layersData = [{
     'source': { 'content': ['5 km buffer'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "addLayerParams": {
       "default": {
         // "id": "tilbury-buffer",
@@ -1030,7 +1030,7 @@ var layersData = [{
     'source': { 'content': ['Buildings'],
                 'name':['OpenStreetMap'],
                 'type':['Geometry'],
-                'url': ['https://studio.mapbox.com/']},
+                'url': ['https://www.openstreetmap.org/about']},
     "type": "mapbox",
     "addLayerParams": {
       // 'id': '3d-buildings',
