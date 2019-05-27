@@ -10,10 +10,10 @@ _prior to presentation_
 
 # Writing:
 
-[] Write SVG - Chart/Legend Section
+[x] Write SVG - Chart/Legend Section
 
-[] Merge all support scripts into a single function library
-  [] Update function loading based on the new function library
+[x] Merge all support scripts into a single function library
+  [x] Update function loading based on the new function library
 
 [] Create "table 3", giving a overview of the used libraries in python.
 
