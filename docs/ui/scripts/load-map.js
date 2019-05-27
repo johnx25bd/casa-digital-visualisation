@@ -11,7 +11,6 @@ var dims = {
 }
 
 var activeCardNum = null,
-  inAnimation = false,
   firstMove = null,
   numLoadedFiles = 0;
 
@@ -282,13 +281,11 @@ var loadedData = {};
 })(layersData)
 
 
-
-
 // EVENT LISTENERS
 // Adapted from from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
 window.onscroll = function() {
   if (!$('body').hasClass('scrolling')) {
-    if (isNextCardOnScreen(activeCardNum + 1)) {
+    if (isNextCardOnScreen()) {
       setActiveCard(activeCardNum + 1);
     } else if (isPriorCardOnScreen(activeCardNum - 1)) {
       setActiveCard(activeCardNum - 1);

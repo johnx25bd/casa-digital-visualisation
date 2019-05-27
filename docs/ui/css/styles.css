@@ -111,6 +111,7 @@ h3 span.light {
 }
 
 #navbar-title {
+  cursor: pointer;
   font-size: 25px;
   background: -webkit-linear-gradient(45deg, #eee,#d7d8d8, #717171);
   -webkit-background-clip: text;
