@@ -209,6 +209,15 @@ var loadedData = {};
 
         $('#landing-page').modal('show');
 
+        d3.selectAll('#landing-text')
+          .transition()
+          .duration(2000)
+          .style('opacity', 0.2)
+          .on('end', function () {
+            firstMove = false;
+          });
+
+
 
       });
     }).catch(function(error) {
@@ -291,24 +300,33 @@ $('.jump-to-view').on('click', function(e) {
 
 })
 
-d3.select('#landing-content h1')
-  .on('mouseenter', function () {
-    if (firstMove) {
-      d3.select('#landing-text')
-        .transition()
-        .duration(1000)
-        .style('opacity', 0.2);
-      setTimeout(function () {
-        firstMove = false;
-      }, 1000);
-    }
-
-  })
+// d3.select('#landing-content h1')
+//   .on('mouseenter', function () {
+//     if (firstMove) {
+//       d3.select('#landing-text')
+//         .transition()
+//         .duration(1000)
+//         .style('opacity', 0.2);
+//       setTimeout(function () {
+//         firstMove = false;
+//       }, 1000);
+//     }
+//
+//   })
 
 d3.selectAll('.modal-content')
   .on('mousemove', function () {
+    console.log('mouse moving');
     var visibility = (d3.mouse(this)[1] / window.innerHeight) ;
-    if (!firstMove) {
+    if (firstMove) {
+      d3.select('#landing-text')
+        .transition()
+        .duration(visibility * 1000)
+        .style('opacity', visibility)
+        .on('end', function () {
+          firstMove = false;
+        });
+    } else {
       d3.select('#landing-text')
         .style('opacity', visibility);
     }
