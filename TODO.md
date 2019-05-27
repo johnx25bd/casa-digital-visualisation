@@ -118,6 +118,8 @@ Branch: UpdatedBarChartFunction
 [x] Add landing page
 
 
+[] Fix landing page animation 
+
 [] Can we quickly convert this to mobile? :eeee
   [] At breakpoint, convert to two stacked divs - map and content.
   [] Content scrolls "under" map (sort of ....)

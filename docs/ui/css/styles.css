@@ -175,6 +175,7 @@ h3 span.light {
   width: 15px;
   height: 15px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .loaded-layer-toggle:hover {
@@ -185,8 +186,22 @@ h3 span.light {
   border-radius: 50%;
 }
 
+.loaded-layer-toggle.line {
+  border: none !important;
+
+}
+
+
 .loaded-layer-toggle:not(.active) {
   background-color: lightgrey !important;
+}
+
+.loaded-layer-toggle.line:not(.active) {
+  background: linear-gradient(to bottom right, white 40%, lightgrey 40%, lightgrey 60%, white 60%) !important;
+}
+
+#loaded-list p {
+  cursor: default;
 }
 
 #app-nav div {
@@ -278,7 +293,15 @@ h3 span.light {
   /* height: 100px; */
   margin-bottom: 40px;
   background-color: none;
+}
 
+.sources text {
+  fill: #83acd8;
+
+}
+
+.sources text:hover {
+  text-decoration: underline;
 }
 
 .legend-content {

@@ -475,6 +475,7 @@ function createPieChart(_params, _parentEl) {
             .attr("class", "on")
             .text(d.data.value);
 
+          console.log(dataDomain[i]);
         d3.selectAll('.' + dataDomain[i])
             .classed('active', true)
             .style('font-weight','bold');
@@ -1106,19 +1107,21 @@ function dropJSON(targetEl, callback) {
   });
 
   targetEl.addEventListener('drop', function(event) {
-    event.stopPropagation();
-    event.preventDefault();
+    // event.stopPropagation();
+    // event.preventDefault();
 
     var file = event.dataTransfer.files;
     console.log(file);
 
     var reader = new FileReader();
-    reader.onloadend = function(e) {
+
+    reader.onloadend = function() {
       var data = JSON.parse(this.result);
+      console.log(data);
       callback(data, file);
     };
 
-    console.log(reader.readAsText(event.dataTransfer.files[0]));
+    reader.readAsText(event.dataTransfer.files[0]);    
     event.preventDefault();
   });
 }
