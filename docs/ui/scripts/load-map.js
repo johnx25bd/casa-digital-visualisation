@@ -124,116 +124,116 @@ var loadedData = {};
       map.on('load', function() {
         layersData.forEach(function(layerData) {
 
-            var dataKey = layerData.name;
-            if (layerData.type == "geojson") {
-              // addSource with unique identifier string,
-              // to be referenced later on addLayer.
-              map.addSource(dataKey + '-source', {
-                "type": "geojson",
-                "data": loadedData[dataKey].data
-              });
-            }
+          var dataKey = layerData.name;
+          if (layerData.type == "geojson") {
+            // addSource with unique identifier string,
+            // to be referenced later on addLayer.
+            map.addSource(dataKey + '-source', {
+              "type": "geojson",
+              "data": loadedData[dataKey].data
+            });
+          }
 
-            // buildAddLayerParams returns a mapbox-compliant object
-            // defining layer parameters
-            map.addLayer(buildAddLayerParams(layerData), "country-label");
-                                                        // ^^ place added layer
-                                                        // underneath country labels.
+          // buildAddLayerParams returns a mapbox-compliant object
+          // defining layer parameters
+          map.addLayer(buildAddLayerParams(layerData), "country-label");
+          // ^^ place added layer
+          // underneath country labels.
 
-            if (layerData.tooltip) {
+          if (layerData.tooltip) {
 
-              // Set listeners on map to display and remove tooltip, as defined in
-              // layersData[i].tooltip() method, which returns tooltip contents.
-              map.on('mouseenter', layerData.name, function(e) {
-                var tooltipContent = layerData.tooltip(e.features[0]);
-                                                      // Opportunity for bug by assuming the first
-                                                      // feature will be the appropriate one ... 😬
-                if (tooltipContent != undefined) {
+            // Set listeners on map to display and remove tooltip, as defined in
+            // layersData[i].tooltip() method, which returns tooltip contents.
+            map.on('mouseenter', layerData.name, function(e) {
+              var tooltipContent = layerData.tooltip(e.features[0]);
+              // Opportunity for bug by assuming the first
+              // feature will be the appropriate one ... 😬
+              if (tooltipContent != undefined) {
 
-                  // This code and comments from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-hover/
-                  // - thanks Mapbox! 🙏
+                // This code and comments from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-hover/
+                // - thanks Mapbox! 🙏
 
-                  // Change the cursor style as a UI indicator.
-                  map.getCanvas().style.cursor = 'pointer';
+                // Change the cursor style as a UI indicator.
+                map.getCanvas().style.cursor = 'pointer';
 
-                  // Accesssible from mouseenter event.
-                  var coordinates = e.lngLat;
-                  var description = e.features[0].properties.description;
+                // Accesssible from mouseenter event.
+                var coordinates = e.lngLat;
+                var description = e.features[0].properties.description;
 
-                  // Ensure that if the map is zoomed out such that multiple
-                  // copies of the feature are visible, the popup appears
-                  // over the copy being pointed to.
-                  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                  }
-
-                  // Populate the popup and set its coordinates
-                  // based on the feature found.
-                  popup.setLngLat(coordinates)
-                    .setHTML(tooltipContent)
-                    .addTo(map);
+                // Ensure that if the map is zoomed out such that multiple
+                // copies of the feature are visible, the popup appears
+                // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                 }
-              });
 
-              map.on('mouseleave', layerData.name, function(e) {
-                map.getCanvas().style.cursor = '';
-                popup.remove();
-              })
-            }
-
-            // Similarly, display highlight layer on feature mouseenter,
-            // and remove highlighted feature on mouseleave.
-            if (layerData.highlight) {
-              map.on("mousemove", layerData.name, function(e) {
-
-                var features = map.queryRenderedFeatures(e.point);
-
-                var currentISO3 = features[0].properties.code;
-                if (typeof currentISO3 === 'undefined') {
-                  return;
-                } else {
-                  var feature = features[0];
-
-                  if (e.features.length > 0) {
-                    map.setFilter(layerData.name + '-highlighted', ['==', 'code', currentISO3]);
-                  }
-
-                  d3.selectAll('.' + currentISO3)
-                    .classed('active', true)
-                    .style('fill-opacity', '1');
-
-                }
-              });
-              // When the mouse leaves the state-fill layer, update the feature state of the
-              // previously hovered feature.
-              map.on("mouseleave", layerData.name, function(e) {
-
-                map.setFilter(layerData.name + '-highlighted', ['==', 'iso3', '']);
-                d3.selectAll('.bar')
-                  .classed('active', false)
-                  .style('fill-opacity', '0.7');
-              });
-            }
-
-            map.on('click', layerData.name, function(e) {
-              if (cardData[activeCardNum].updateFeature) {
-
-                var targetLayers = cardData[activeCardNum].layers;
-                var renderedFeatures = map.queryRenderedFeatures(e.point);
-
-                // This is a more reliable pattern than pulling the first feature
-                // from what is returned from .queryRenderedFeatures() vvv
-                var featureOfInterest = renderedFeatures.find(function(feature) {
-                  return targetLayers.includes(feature.layer.id);
-                })
-
-                // A custom method call to update the  feature content area
-                // of the card - see additional airport info on the
-                // Global Air Transport card
-                cardData[activeCardNum]
-                  .updateFeature(featureOfInterest, e.lngLat);
+                // Populate the popup and set its coordinates
+                // based on the feature found.
+                popup.setLngLat(coordinates)
+                  .setHTML(tooltipContent)
+                  .addTo(map);
               }
             });
+
+            map.on('mouseleave', layerData.name, function(e) {
+              map.getCanvas().style.cursor = '';
+              popup.remove();
+            })
+          }
+
+          // Similarly, display highlight layer on feature mouseenter,
+          // and remove highlighted feature on mouseleave.
+          if (layerData.highlight) {
+            map.on("mousemove", layerData.name, function(e) {
+
+              var features = map.queryRenderedFeatures(e.point);
+
+              var currentISO3 = features[0].properties.code;
+              if (typeof currentISO3 === 'undefined') {
+                return;
+              } else {
+                var feature = features[0];
+
+                if (e.features.length > 0) {
+                  map.setFilter(layerData.name + '-highlighted', ['==', 'code', currentISO3]);
+                }
+
+                d3.selectAll('.' + currentISO3)
+                  .classed('active', true)
+                  .style('fill-opacity', '1');
+
+              }
+            });
+            // When the mouse leaves the state-fill layer, update the feature state of the
+            // previously hovered feature.
+            map.on("mouseleave", layerData.name, function(e) {
+
+              map.setFilter(layerData.name + '-highlighted', ['==', 'iso3', '']);
+              d3.selectAll('.bar')
+                .classed('active', false)
+                .style('fill-opacity', '0.7');
+            });
+          }
+
+          map.on('click', layerData.name, function(e) {
+            if (cardData[activeCardNum].updateFeature) {
+
+              var targetLayers = cardData[activeCardNum].layers;
+              var renderedFeatures = map.queryRenderedFeatures(e.point);
+
+              // This is a more reliable pattern than pulling the first feature
+              // from what is returned from .queryRenderedFeatures() vvv
+              var featureOfInterest = renderedFeatures.find(function(feature) {
+                return targetLayers.includes(feature.layer.id);
+              })
+
+              // A custom method call to update the  feature content area
+              // of the card - see additional airport info on the
+              // Global Air Transport card
+              cardData[activeCardNum]
+                .updateFeature(featureOfInterest, e.lngLat);
+            }
+          });
         });
 
         // LOAD CARDS, and switch to card 0.
@@ -244,23 +244,22 @@ var loadedData = {};
         // two clicks to close ...
         $('#landing-page').modal('show');
 
-
         // In the next two statements we create a cheeky
         // landing page interactive effect 😏
         d3.selectAll('#landing-header')
-          .on('mouseenter', function () {
+          .on('mouseenter', function() {
             if (firstMove == null) {
               firstMove = d3.mouse(this)[1];
             }
           })
           // But with a fallback ... almost every user, if confused,
           // will click on the only element on the screen ...
-          .on('click', function () {
+          .on('click', function() {
             d3.select('#landing-text')
               .transition()
               .duration(500)
               .style('opacity', 1)
-              .on('end', function () {
+              .on('end', function() {
                 firstMove = false; // to deactivate mousemove opacity effect
               });
           })
@@ -268,9 +267,9 @@ var loadedData = {};
         d3.select('.modal-content')
           .on('mousemove', function() {
             if (firstMove) {
-              console.log(d3.mouse(this)[1], firstMove, window.innerHeight);
-              var visibility = ((d3.mouse(this)[1] - firstMove) / (window.innerHeight));
-              console.log(visibility);
+              var visibility = ((d3.mouse(this)[1] - firstMove)
+                / (window.innerHeight));
+
               d3.select('#landing-text')
                 .style('opacity', visibility);
             }
@@ -311,7 +310,8 @@ $('#next-card').on('click', function(e) {
   }, 100, t);
 
   if (activeCardNum < cardData.length) {
-    scrollToCard(activeCardNum + 1) // setActiveCard() is called within scrollToCard()
+    scrollToCard(activeCardNum + 1) // setActiveCard() is called
+                                    // within scrollToCard()
   }
 });
 
@@ -359,176 +359,158 @@ dropJSON(document.getElementById("drop-zone"),
 
     var layerColor = d3.scaleOrdinal(d3.schemeSet2)
       .domain(d3.range(8));
-      // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
+    // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
 
-        if (numLoadedFiles == 0) {
-          d3.select('#add-layer-button')
-            .text('Manage layers');
-        }
+    if (numLoadedFiles == 0) {
+      d3.select('#add-layer-button')
+        .text('Manage layers');
+    }
 
-        // Get hex color specific to features in this file
-        // Will restart cycle after 8 files are loaded.
-        var c = layerColor(numLoadedFiles);
+    // Get hex color specific to features in this file
+    // Will restart cycle after 8 files are loaded.
+    var c = layerColor(numLoadedFiles);
 
-        var f = _files[0];
+    var f = _files[0];
 
-        // Get arrays of Point, Linestring and Polygon features
-        var points = _data.features.filter(function(feature) {
-            return feature.geometry.type == "Point";
-          }),
-          lines = _data.features.filter(function(feature) {
-            return feature.geometry.type == "LineString";
-          }),
-          polygons = _data.features.filter(function(feature) {
-            return feature.geometry.type == "Polygon";
-          });
-
-        if (points.length > 0) {
-
-          console.log('Adding points from', f.name);
-
-          // Now it is GeoJSON!
-          var pointData = {
-            type: "FeatureCollection",
-            features: points
-          }
-
-          var layerId = "loaded-points-" + f.name.split('.')[0]
-            + '-' + Math.random().toString(36).substring(7);;
-            // ^^ Prevent bug from occurring if two files of the
-            // same name are loaded. From  https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-
-          map.addLayer({
-            "id": layerId, // should be file name
-            "type": "circle",
-            "source": {
-              "type": "geojson",
-              "data": pointData
-            },
-            "paint": {
-              "circle-radius": {
-                "stops": [
-                  [0, 5],
-                  [5, 6],
-                  [8, 7],
-                  [11, 9],
-                  [16, 15]
-                ]
-              },
-              "circle-color": c,
-              "circle-stroke-width": 1,
-              "circle-stroke-color": "black"
-            },
-            "filter": ["==", "$type", "Point"],
-          });
-
-          addLayerToLayerList(pointData, 'point', layerId, c);
+    // Get arrays of Point, Linestring and Polygon features
+    var points = _data.features.filter(function(feature) {
+        return feature.geometry.type == "Point";
+      }),
+      lines = _data.features.filter(function(feature) {
+        return feature.geometry.type == "LineString";
+      }),
+      polygons = _data.features.filter(function(feature) {
+        return feature.geometry.type == "Polygon";
+      });
 
 
-        }
+    // The next blocks add the filtered layers to the list, coloring
+    // them similarly and adding elements to enable users to toggle
+    // layers on and off and zoom to layer extent.
 
-        if (lines.length > 0) {
-          console.log('Adding lines from', f.name);
+    if (points.length > 0) {
 
-          console.log(lines);
+      // Now it is GeoJSON!
+      var pointData = {
+        type: "FeatureCollection",
+        features: points
+      }
 
-          var lineData = {
-            type: "FeatureCollection",
-            features: lines
-          }
+      var layerId = "loaded-points-" + f.name.split('.')[0] +
+        '-' + Math.random().toString(36).substring(7);
+      // ^^ Random bit added to prevent bugs from occurring if two files of the
+      // same name are loaded. From  https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
 
-          var layerId = "loaded-lines-" + f.name.split('.')[0];
+      // Note that no extra styling based on layer attributes is included here.
+      // Would love to extend to that, but UX might get very complicated very quickly ...
+      map.addLayer({
+        "id": layerId,
+        "type": "circle",
+        "source": {
+          "type": "geojson",
+          "data": pointData
+        },
+        "paint": {
+          "circle-radius": {
+            "stops": [
+              [0, 5],
+              [5, 6],
+              [8, 7],
+              [11, 9],
+              [16, 15]
+            ]
+          },
+          "circle-color": c,
+          "circle-stroke-width": 1,
+          "circle-stroke-color": "black"
+        },
+      });
+      addLayerToLayerList(pointData, 'point', layerId, c);
+    }
 
-          map.addLayer({
+    if (lines.length > 0) {
 
-            "id": layerId, // should be file name
-            // Random code from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-            "type": "line",
-            "source": {
-              "type": "geojson",
-              "data": _data // this is inefficient - should extract only point features.
-              // but we will just filter below :/
-            },
-            "layout": {
-              "line-join": "round",
-              "line-cap": "round"
-            },
-            "paint": {
-              "line-color": c,
-              "line-width": 5
-            },
+      var lineData = {
+        type: "FeatureCollection",
+        features: lines
+      }
 
-            "filter": ["==", "$type", "LineString"]
-          });
+      var layerId = "loaded-lines-" + f.name.split('.')[0] +
+        '-' + Math.random().toString(36).substring(7);
 
-          addLayerToLayerList(lineData, 'line', layerId, c);
+      map.addLayer({
+        "id": layerId,
+        "type": "line",
+        "source": {
+          "type": "geojson",
+          "data": lineData
+        },
+        "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        "paint": {
+          "line-color": c,
+          "line-width": 5
+        },
+      });
+      addLayerToLayerList(lineData, 'line', layerId, c);
+    }
 
-        }
+    if (polygons.length > 0) {
 
+      var polygonData = {
+        type: "FeatureCollection",
+        features: polygons
+      }
 
-        if (polygons.length > 0) {
-          console.log('Adding polygons from', f.name);
+      var layerId = "loaded-polygons-" + f.name.split('.')[0] +
+        '-' + Math.random().toString(36).substring(7);;
 
-          console.log(polygons);
+      map.addLayer({
+        "id": layerId,
+        "type": "fill",
+        "source": {
+          "type": "geojson",
+          "data": polygonData
+        },
+        "layout": {},
+        "paint": {
+          "fill-color": c,
+          "fill-opacity": 0.8,
+          'fill-outline-color': 'black'
+        },
+      });
 
-          var polygonData = {
-            type: "FeatureCollection",
-            features: polygons
-          }
+      addLayerToLayerList(polygonData, 'polygon', layerId, c);
+    }
 
-          var layerId = "loaded-polygons-" + f.name.split('.')[0];
-
-          map.addLayer({
-
-            "id": layerId, // should be file name
-            // Random code from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-            "type": "fill",
-            "source": {
-              "type": "geojson",
-              "data": polygonData // this is inefficient - should extract only point features.
-              // but we will just filter below :/
-            },
-            "layout": {},
-            "paint": {
-              "fill-color": c,
-              "fill-opacity": 0.8,
-              'fill-outline-color': 'black'
-            },
-
-            "filter": ["==", "$type", "Polygon"]
-          });
-
-          addLayerToLayerList(polygonData, 'polygon', layerId, c);        }
-
-        numLoadedFiles += 1;
-
-    //   }
-    // }
+    numLoadedFiles += 1;
 
 
-
-    // Add to list of loaded files
+    // A local function to add to list of loaded files
     // including color of points
     // Include visibility toggle ... ...
-
-
     function addLayerToLayerList(_layerData, _layerType, _layerId, _c) {
 
       var layerList = d3.select('#loaded-list');
 
+      // Add legend icons with toggle-able click events to switch
+      // layer visibility on and off.
       layerList.append('dt')
         .classed('col-2', true)
         .append('span')
         .classed('loaded-layer-toggle', true)
         .classed(_layerType, true)
         .classed('active', true)
-        .style('background', function () {
+        .style('background', function() {
           if (_layerType == 'line') {
             // From https://learn.shayhowe.com/html-css/setting-backgrounds-and-gradients/
-            return 'linear-gradient(to bottom right, white 40%, ' + c + ' 40%, ' + c + ' 60%, white 60%)';
+            return 'linear-gradient(to bottom right, white 40%, '
+              + c + ' 40%, ' + c + ' 60%, white 60%)';
           }
         })
-        .style('background-color', function () {
+        .style('background-color', function() {
           if (_layerType != 'line') {
             console.log(_c);
             return _c;
@@ -536,7 +518,6 @@ dropJSON(document.getElementById("drop-zone"),
             return null;
           }
         })
-
         .on('click', function() {
 
           var visibility = map.getLayoutProperty(_layerId, 'visibility');
@@ -548,24 +529,25 @@ dropJSON(document.getElementById("drop-zone"),
             d3.select(this).classed('active', true);
             map.setLayoutProperty(_layerId, 'visibility', 'visible');
           }
-        })
+        });
 
-
+      // Add layer and feature type name
       var dd = layerList.append('dd')
         .classed('col-6', true)
         .append('p');
 
-      dd.text(_layerId.split('-').slice(2).join('-') + ' (' + _layerType + ')')
-        .on('mouseenter', function () {
-          // highlight layer by _layerId
-          return;
-        })
-        .on('mouseleave', function () {
-          // unhighlight layer ...
-          return;
-        });
-        // Here we could add highlight on layer entry hover ...
+      dd.text(_layerId.split('-').slice(2).join('-') + ' (' + _layerType + ')');
+      // // Hooks for future extensions - commented for efficiency's sake
+      // .on('mouseenter', function () {
+      //   // highlight layer by _layerId
+      //   return;
+      // })
+      // .on('mouseleave', function () {
+      //   // unhighlight layer ...
+      //   return;
+      // });
 
+      // Zoom to button ...
       layerList.append('dd')
         .classed('col-4', true)
         .append('button')
@@ -574,6 +556,7 @@ dropJSON(document.getElementById("drop-zone"),
         .on('click', function() {
 
           // from https://stackoverflow.com/questions/35586360/mapbox-gl-js-getbounds-fitbounds
+          // Sadly, our only use of turf.js in this project ...
           var bounds = turf.bbox(_layerData);
 
           map.fitBounds(bounds, {
@@ -581,6 +564,5 @@ dropJSON(document.getElementById("drop-zone"),
           });
         });
     }
-
   }
 );
