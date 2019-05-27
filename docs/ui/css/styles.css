@@ -187,8 +187,18 @@ h3 span.light {
   border-radius: 50%;
 }
 
+.loaded-layer-toggle.line {
+  border: none !important;
+  
+}
+
+
 .loaded-layer-toggle:not(.active) {
   background-color: lightgrey !important;
+}
+
+.loaded-layer-toggle.line:not(.active) {
+  background: linear-gradient(to bottom right, white 40%, lightgrey 40%, lightgrey 60%, white 60%) !important;
 }
 
 #app-nav div {
