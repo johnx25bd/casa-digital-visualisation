@@ -137,9 +137,7 @@ var loadedData = {};
                   popup.setLngLat(coordinates)
                     .setHTML(tooltipContent)
                     .addTo(map);
-                  // show tooltipcontent
-
-                }
+                  }
               });
 
               map.on('mouseleave', layerData.name, function(e) {

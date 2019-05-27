@@ -232,19 +232,18 @@ function setFeatureContentText (_cardNum, _layer) {
 
 // D3 Chart Functions
 function createBarChart(_params, _parentEl) {
-
+  // Organizing the input data
   var file = _params.dataPath,
     y_legend = _params.yAxisLabel,
     title = _params.title,
     type = _params.valueType,
     layerOfInterst = _params.layerName;
 
+  // Inherit the width from the parent node.
   var width = d3.select(_parentEl).node().getBoundingClientRect().width,
     height = width * 0.3 ,
     margin = 0;
-
-    //console.log(height);
-
+  // Setting up the svg element for the bar chart to be contained in
   var svg = d3.select(_parentEl)
     .append("svg")
     .attr('height', height * 1.5)
@@ -258,25 +257,43 @@ function createBarChart(_params, _parentEl) {
       (height + margin + margin)
     );
 
-    // from https://eddyerburgh.me/create-responsive-bar-chart-d3-js
-
-    //
     var mouseover = function(d) {
-      Tooltip
-        .style("opacity", 1)
+
       d3.select(this)
-        .style("stroke", "black")
+        .style("stroke", "none")
         .style("opacity", 1)
+        // .html("The exact value of<br>this cell is: " + d.value)
+        // .style("left", (d3.mouse(this)[0]+70) + "px")
+        // .style("top", (d3.mouse(this)[1]) + "px")
+
+        div.style("display", "inline");
     }
-    var mousemove = function(d) {
-      Tooltip
-        .html("The exact value of<br>this cell is: " + d.value)
-        .style("left", (d3.mouse(this)[0]+70) + "px")
-        .style("top", (d3.mouse(this)[1]) + "px")
+
+    var div = d3.select(_parentEl).append("div")
+    .attr("class", "tooltip")
+    .style("display", "none");
+
+    function mousemove(d) {
+      div
+        //.html("The exact value of<br>this cell is: " + d.value)
+        .text('Value: '+d.value)
+        .style('display','block')
+        .style('opacity','1')
+        .style('font-weight','bold')
+        .style("left", (d3.mouse(this)[0]) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px");
+        // .style("left", (d3.event.pageX / 10) + "px")
+        // .style("top", (d3.event.pageY / 10) + "px");
     }
+
+    function mouseout() {
+      div.style("display", "none");
+    }
+
+
     var mouseleave = function(d) {
-      Tooltip
-        .style("opacity", 0)
+      //Tooltip
+      //  .style("opacity", 0)
       d3.select(this)
         .style("stroke", "none")
         .style("opacity", 0.8)
@@ -373,13 +390,17 @@ function createBarChart(_params, _parentEl) {
         //console.log(layerOfInterst);
         map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
       })
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+    //.on("mouseout", mouseout);
       .on("mouseout", function(d) {
              text.remove();
              map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', '']);
 
              d3.selectAll('.bar')
                  .classed('active', false)
-                 .style('fill-opacity','0.7');
+                 .style('fill-opacity','0.7')
+            mouseout;
       });
 
   });
@@ -609,7 +630,7 @@ for (layer of _layers){
     if (layerOfInterest.source.content[0].length>maxWidth){
       maxWidth = layerOfInterest.source.content[0].length;
     }
-  } 
+  }
 }
 // console.log('Height: '+howLong)
 // console.log('Width: '+)
