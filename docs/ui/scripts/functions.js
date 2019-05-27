@@ -230,14 +230,29 @@ function setFeatureContentText (_cardNum, _layer) {
     .text('Click on a ' + _layer + ' to learn more.')
 }
 
-// D3 Chart Functions
+/////////////////////// D3 Functions ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+/////////////////////// Charts /////////////////////////////////////////
+
+/*
+createBarChart create generic bar charts, using a set user-specified parameters
+_params is a dictionary containing the following:
+-------------------------------------------------
+_params.dataPath: The relative path to the data
+_params.yAxisLabel: The y-axis label
+_params.title: Title of the bar chart
+_params.valueType: The type of the data, determining the labelling of the y-ticks
+-params.layerName: The name of the layer, which the bar chart is intended to interact with.
+--------------------------------------------------
+A parent id is meant to be provided, to contain the bar chart, besides the dictionary.
+*/
 function createBarChart(_params, _parentEl) {
   // Organizing the input data
   var file = _params.dataPath,
     y_legend = _params.yAxisLabel,
     title = _params.title,
     type = _params.valueType,
-    layerOfInterst = _params.layerName;
+    layerOfInterest = _params.layerName;
 
   // Inherit the width from the parent node.
   var width = d3.select(_parentEl).node().getBoundingClientRect().width,
@@ -256,49 +271,11 @@ function createBarChart(_params, _parentEl) {
       ' ' +
       (height + margin + margin)
     );
-
-    var mouseover = function(d) {
-
-      d3.select(this)
-        .style("stroke", "none")
-        .style("opacity", 1)
-        // .html("The exact value of<br>this cell is: " + d.value)
-        // .style("left", (d3.mouse(this)[0]+70) + "px")
-        // .style("top", (d3.mouse(this)[1]) + "px")
-
-        div.style("display", "inline");
-    }
-
-    var div = d3.select(_parentEl).append("div")
+    // Defining the container for the tooltip.
+  var div = d3.select(_parentEl).append("div")
     .attr("class", "tooltip")
     .style("display", "none");
-
-    function mousemove(d) {
-      div
-        //.html("The exact value of<br>this cell is: " + d.value)
-        .text('Value: '+d.value)
-        .style('display','block')
-        .style('opacity','1')
-        .style('font-weight','bold')
-        .style("left", (d3.mouse(this)[0]) + "px")
-        .style("top", (d3.mouse(this)[1]) + "px");
-        // .style("left", (d3.event.pageX / 10) + "px")
-        // .style("top", (d3.event.pageY / 10) + "px");
-    }
-
-    function mouseout() {
-      div.style("display", "none");
-    }
-
-
-    var mouseleave = function(d) {
-      //Tooltip
-      //  .style("opacity", 0)
-      d3.select(this)
-        .style("stroke", "none")
-        .style("opacity", 0.8)
-    }
-
+  // Appending the title to svg.
   svg.append("text")
     .attr("transform", "translate(" + width * 0.1 + ",0)")
     .attr("x", width * 0.1)
@@ -306,25 +283,30 @@ function createBarChart(_params, _parentEl) {
     .attr("font-size", "24px")
     .text(title)
 
+  // Defining the the two axis
   var xScale = d3.scaleBand().range([0, width]).padding(0.4),
     yScale = d3.scaleLinear().range([height, 0]); //height
 
+  // Defining the g to contain the actual graph
   var g = svg.append("g")
     .classed('chart-body', true)
     .attr("transform", "translate(" + margin + 70 + "," + margin + 80 + ")");
 
+  // Reading in the data
   d3.csv(file).then(function(data) {
     data.forEach(function(d) {
       d.value = +d.value;
     });
 
+    // Placing the data on the axis
     xScale.domain(data.map(function(d) {
       return d.name;
     }));
     yScale.domain([0, d3.max(data, function(d) {
       return d.value;
-    })]); //
+    })]);
 
+    // Setting the axis title and the tick-marks the x-axis.
     g.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
@@ -335,18 +317,16 @@ function createBarChart(_params, _parentEl) {
       .attr("stroke", "black")
       .text("Name");
 
-
+    // Setting the axis title and the tick-marks the y-axis.
     g.append("g")
       .call(d3.axisLeft(yScale).tickFormat(function(d) {
-
           if (type == 'value') {
             return "$" + d;
           } else if (type == 'amount') {
             return d;
           }
         })
-
-        .ticks(10))
+      .ticks(10))
       .append("text")
       .attr("transform", "rotate(0)")
       .attr("y", 5)
@@ -355,10 +335,10 @@ function createBarChart(_params, _parentEl) {
       .attr("stroke", "black")
       .text(y_legend);
 
+    // Appending the actual bars using rect elements
     g.selectAll(".bar")
       .data(data)
       .enter().append("rect")
-      //.attr("class", "bar")
       .attr("class", function(d){
         return 'bar '+d.code;
       })
@@ -372,79 +352,83 @@ function createBarChart(_params, _parentEl) {
       .attr("height", function(d) {
         return height - yScale(d.value);
       })
-      //.style('fill','#537895')
       .style('fill-opacity','0.7')
+      // Enabling the interactivity when hovering
       .on('mouseenter', function(d) {
-
-        text = svg.append("text")
-              .attr("transform", function(d, i) { return "translate(100," + height * 1.8 + ")";})
-              .attr("dy", ".5em")
-              .style("text-anchor", "middle")
-              .attr("class", "on")
-              .text("Bar value: "+d.value);
 
         d3.selectAll('.' + d.code)
             .classed('active', true)
             .style('fill-opacity','1');
-        //map.setPaintProperty(layerOfInterst, ['==', 'iso3', d.iso3]);
-        //console.log(layerOfInterst);
-        map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', d.code]);
+
+        map.setFilter(layerOfInterest +'-highlighted', ['==', 'code', d.code]);
       })
-      .on("mouseover", mouseover)
-      .on("mousemove", mousemove)
-    //.on("mouseout", mouseout);
+      .on("mousemove", function(d){
+        div
+          .text('Value: '+d.value)
+          .style('display','block')
+          .style('opacity','1')
+          .style('font-weight','bold')
+          .style("left", (d3.mouse(this)[0]) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px");
+      })
       .on("mouseout", function(d) {
-             text.remove();
-             map.setFilter(layerOfInterst +'-highlighted', ['==', 'code', '']);
+             map.setFilter(layerOfInterest +'-highlighted', ['==', 'code', '']);
 
              d3.selectAll('.bar')
                  .classed('active', false)
                  .style('fill-opacity','0.7')
-            mouseout;
-      });
 
+            div.style('opacity','0')
+      });
   });
 }
-
+/*
+createPieChart create generic pie charts, using a set user-specified parameters
+_params is a dictionary containing the following:
+-------------------------------------------------
+_params.data: A dictionary containing the categories as keys and the values as values.
+_params.title: Title of the pie chart.
+--------------------------------------------------
+A parent id is meant to be provided, to contain the bar chart, besides the dictionary.
+*/
 function createPieChart(_params, _parentEl) {
 
-
+  // Adopting the width (and height) from the parent element.
   var width = d3.select(_parentEl).node().getBoundingClientRect().width,
-    height = width / 2,
-    margin = 0;
+    height = width / 2;
 
+  // Defining the parameters to be used based on the input.
   var id = _parentEl,
-    _title = _params.title;
+    _title = _params.title,
+      data = _params.data;
 
-  var data = _params.data;
-  //console.log(id+': '+ data)
-  // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
-  var radius = Math.min(width, height) / 2 - margin;
+  // The radius of the pieplot is half the width or half the height (smallest one).
+  var radius = Math.min(width, height) / 2;
 
-  // append the svg object to the div called 'my_dataviz'
+  // Append the svg object to pre-allocated div.
   var svg = d3.select(id)
     .append("svg")
-    // Adjust the factor below to allows for more space for the legends
     .attr("width", width * 1)
     .attr("height", height)
     .append("g")
     .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")"); //" + width / 2 + "
 
+  // Extracting the color domain for setting the colors right after
   var dataDomain = Object.keys(data)
 
-  // set the color scale
+  // Set the color scale
   var color = d3.scaleOrdinal()
-    // Alternated to allow for dynamically colouring.
     .domain(dataDomain)
     .range(d3.schemeDark2);
 
   // Compute the position of each group on the pie:
   var pie = d3.pie()
-    .sort(null) // Do not sort group by size
+    .sort(null) // Do not sort group by size, to ensure that the order is always the same
     .value(function(d) {
       return d.value;
     });
 
+  // Store the transformed data
   var data_ready = pie(d3.entries(data))
 
   // The arc generator
@@ -466,8 +450,8 @@ function createPieChart(_params, _parentEl) {
     .attr('class',function(d,i){
       return 'piearc ' + dataDomain[i];
     })
+    // Enable the interactivity.
     .on("mouseenter", function(d,i) {
-        //console.log("Arc: "+arc)
         text = svg.append("text")
             .attr("transform", function(d, i) {return "translate(0,0)";})//return "translate(" + arc.centroid(d, i) + ")"
             .attr("dy", ".5em")
@@ -475,12 +459,10 @@ function createPieChart(_params, _parentEl) {
             .attr("class", "on")
             .text(d.data.value);
 
-          console.log(dataDomain[i]);
         d3.selectAll('.' + dataDomain[i])
             .classed('active', true)
             .style('font-weight','bold');
       })
-
     .on("mouseout", function(d) {
            text.remove();
            d3.selectAll('.textLegend')
@@ -500,12 +482,14 @@ function createPieChart(_params, _parentEl) {
     .classed('title', true)
     .text(_title);
 
+  // Setting the g for the legends
   var legends = svg
     .append('g')
     .attr('transform', 'translate(' + width / 2 + ',' + height * -.5 + ')') // 300,-140
     .selectAll('.legends')
     .data(data_ready);
 
+  // Appending a g for each of the legends
   var legend = legends
     .enter()
     .append('g')
@@ -514,6 +498,7 @@ function createPieChart(_params, _parentEl) {
       return "translate(-80," + (i + 1) * 20 + ")";
     });
 
+  // Appending the colored boxes next to the legends, on the g just defined.
   legend
     .append('rect')
     // Adjust these for the size of the colored boxes.
@@ -522,7 +507,7 @@ function createPieChart(_params, _parentEl) {
     .attr('fill', function(d) {
       return color(d.data.key);
     });
-
+  // Appending the actual legend text.
   legend
     .append('text')
     .text(function(d, i) {
@@ -536,10 +521,11 @@ function createPieChart(_params, _parentEl) {
     })
     .attr('x', 25)
     .attr('y', 15)
+    // Enabling the interactivity
     .on("mouseenter", function(d,i) {
 
         text = svg.append("text")
-            .attr("transform",'translate(0,0)')//, function(d, i) { return "translate(" + arc.centroid(d, i) + ")"; }
+            .attr("transform",'translate(0,0)')
             .attr("dy", ".5em")
             .style("text-anchor", "middle")
             .attr("class", "on")
@@ -550,7 +536,6 @@ function createPieChart(_params, _parentEl) {
             .style('opacity','2')
             .style('font-weight','bold');
       })
-
     .on("mouseout", function(d) {
            text.remove();
            d3.selectAll('.piearc')
@@ -561,17 +546,25 @@ function createPieChart(_params, _parentEl) {
               .classed('active',false)
               .style('font-weight','normal');
     })
-
 }
-
-//############################ New implementation of legends ##########################
-
+/////////////////////// Legends /////////////////////////////////////////
+/*
+createLegends create generic legends for each layer, based on the specified layers in each card.
+The function takes two inputs, the card number and the layers in the card.
+The legends are built based on fixed sixes, depending of the data type.
+See below for more information.
+-------------------------------------------------
+_cardNum: The card number.
+_layers: A list of the names of the layers contained in the card.
+--------------------------------------------------
+*/
 function createLegends(_cardNum,_layers){
-
+  // Extracting parent id for the legends to be contained in.
   var _id = getCardId(_cardNum) + ' .legend-content';
-
+  // Defining some initial parameters, used to place the legends dynamically as the layers are processed.
   var titleOffset = 25,
       elementOffset = 50,
+      circleOffset = 30,
       sourceSpace = 20,
       sourceTitleOffset = 125,
       sourceTitleToSourcesOffset = 30,
@@ -581,24 +574,27 @@ function createLegends(_cardNum,_layers){
       prevURLS = null,
       howLong = 0,
       maxWidth = 0;
+
 // Determining the length of the div dynamically.
-// if (layer.includes('highlighted')){
-//   console.log('The layer: '+layer+' - NO GOOD')
-// } else if (layer.includes('3d')) {
-//   console.log('The layer: '+layer+' - NO GOOD')
-// } else {//|| (!layer.includes('3d-buildings'))
 for (layer of _layers){
 
-  if (!layer.includes('highlighted')){//|| (!layer.includes('3d-buildings'))
+  // The highlight layer should not be processed, to avoid double legends.
+  if (!layer.includes('highlighted')){
+
+    // Getting the actual layer from the layers.js file.
     var layerOfInterest = layersData.find(function (l) {
       return l.name == layer;
     });
+
+    // Extracting the data type of the layer.
     var type = layerOfInterest.addLayerParams.default ?
       layerOfInterest.addLayerParams.default.type :
       layerOfInterest.addLayerParams.type;
 
+    // Storing the name of the layer, to be used later in the filter process.
     var layerName = layer;
-
+    // A legend for a fill layer gets a size of 100px plus some additional spize depending on the number of
+    // of sources underlying the layer. The source title get 40 px and each source gets 20 px.
     if (type == 'fill'){
 
       howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
@@ -609,50 +605,53 @@ for (layer of _layers){
         'circle-radius': map.getPaintProperty(layer,'circle-radius'),
         'circle-color' : map.getPaintProperty(layer,'circle-color')
       };
-
+      // Each point gets 50 px and so does the title. For this type of layer, the sourec title gets a little less space, because
+      // perhaps is a little to much - that could always be perfected, the ability to generic and dynamically built the legends is an achievement in itself.
       if (paint['circle-color'] || paint['circle-radius']){
+        // The circle layers can either represent categories or a single point.
         if ((Array.isArray(paint['circle-color'])) && (Array.isArray(paint['circle-radius']))){
+          // It is either the number of types or the number of sizes that determines the length, depening on which is the longest.
           if (paint['circle-color'].length >= paint['circle-radius'].length){
-            howLong += ((((paint['circle-color'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*layerOfInterest.source.url.length));
+            howLong += ((((paint['circle-color'].length - 1) / 2))*40 + (100*0.4 + 0.2*100*(layerOfInterest.source.url.length+1)));
           } else {
-            howLong += ((((paint['circle-radius'].length - 1) / 2) + 1)*50 + (75*0.4 + 0.2*75*(layerOfInterest.source.url.length + 1)));
+            howLong += ((((paint['circle-radius'].length - 1) / 2))*40 + (100*0.4 + 0.2*100*(layerOfInterest.source.url.length + 1)));
           }
+        // if it is a single point circle layer, it get's the same size as the fill layer.
         } else {
-          howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
+          howLong += (2*40 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
         }
       } else {
         howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
       }
+    // This type is for the 3d-builds, which is meant to be mentioned in the legends.
     } else if (type == 'fill-extrusion'){
-      howLong += 0//(2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
+      howLong += 0
+    // The heatmap legend is similar to the fill legend.
     } else if (type == 'heatmap'){
       howLong += (2*50 + (100*0.4 + 0.2*100*layerOfInterest.source.url.length));
     }
+    // defining the width based on the longest source name.
     if (layerOfInterest.source.content[0].length>maxWidth){
       maxWidth = layerOfInterest.source.content[0].length;
     }
   }
 }
-// console.log('Height: '+howLong)
-// console.log('Width: '+)
-//################################ END OF NEW ##############################################
+  // Setting the final width based on the longest source name found above.
   var width = 300,
       widthExtent = width + 5*maxWidth
 
+  // Setting the svg element for the legends to be built on.
   var svg = d3.select(_id)
     .append('svg')
     .attr('id','hej')
-      // Adjust the factor below to allows for more space for the legends
+
       .attr('width',widthExtent)
-      .attr("height", howLong)//50*howLong
-      // .attr('width','100%;')
-      // .attr("height", 'auto;')
+      .attr("height", howLong)
 
     var iter = 0;
-
     for (layer of _layers){
 
-// Getting parameters for the legends.
+      // Getting parameters for the legends.
       if (!layer.includes('highlighted')){// || (!layer.includes('3d-buildings'))
         var layerOfInterest = layersData.find(function (l) {
           return l.name == layer;
@@ -661,7 +660,7 @@ for (layer of _layers){
         var type = layerOfInterest.addLayerParams.default ?
           layerOfInterest.addLayerParams.default.type :
           layerOfInterest.addLayerParams.type;
-        //console.log(layer+'s type is: '+type)
+
         var title = layerOfInterest.source.content,
             sourceNames = layerOfInterest.source.name,
             sourceTypes = layerOfInterest.source.type,
@@ -674,18 +673,19 @@ for (layer of _layers){
                            'type':sourceTypes[ele],
                            'url':sourceURL[ele]})
         }
-
+        // Extracting the paint to be used for constructing the legends,
+        // which depending on the type, comes in different format.
         if (type == 'fill'){
 
-          var paint = map.getPaintProperty(layer,'fill-color');// All where changed from layer to layerOfInterest
-          //console.log(layer+'s type is: ' + paint)
+          var paint = map.getPaintProperty(layer,'fill-color');
+
         } else if (type == 'circle'){
 
           var paint = {
             'circle-radius': map.getPaintProperty(layer,'circle-radius'),
             'circle-color' : map.getPaintProperty(layer,'circle-color')
-            //'circle-stroke-color': map.getPaintProperty(layer,'circle-stroke-color')
           };
+
         } else if (type == 'heatmap'){
           var paint = {
             'heatmap-color' : map.getPaintProperty(layer,'heatmap-color')
@@ -696,9 +696,6 @@ for (layer of _layers){
             heatmapColors.push(paint['heatmap-color'][i])
           }
           paint = heatmapColors;
-          //paint = [[],[],[],[],[0,paint['heatmap-color'][4]],[],[1,paint['heatmap-color'][paint['heatmap-color'].length-1]]];
-          //type = 'fill';
-
         } else {
           return;
         }
@@ -707,22 +704,22 @@ for (layer of _layers){
         return;
       }
 
-    ///////// Defining the data ///////////////////////////
+      ///////// Defining the data ///////////////////////////
+      // Setting up the data, based on the extracted paint property of the layer of interest.
+      // This is where the support functions are in use.
       if (typeof paint.length == 'undefined'){
-
+        // Circles - if the size is not included in the paint:
         if (typeof paint['circle-radius'].length == 'undefined'){
 
           var [color,data] = structureData(type,paint);
           var setSize = false;
-
         } else {
 
           var [color,data,size,sizedata] = structureData(type,paint);
           var setSize = true;
-
         }
 
-        var _offSet = 50;
+        var _offSet = 30;
         var _elementWidth = 15;
 
       } else {
@@ -750,23 +747,26 @@ for (layer of _layers){
         titleOffset += (125 + (75*0.4+0.2*75*(prevURLS)))
         elementOffset += (125 + (75*0.4+0.2*75*(prevURLS)))
 
-      } else if (prevType == 'circle') {
+      } else if (prevType == 'circle' && prevSize > 1) {
 
-          console.log((75*0.4+0.2*75*prevURLS))
-          titleOffset += ((prevSize + 1)*50 + (75*0.4+0.2*75*(prevURLS))),
-          elementOffset += ((prevSize + 1)*50 + (75*0.4+0.2*75*(prevURLS)));
+          titleOffset += ((prevSize + 1)*40+ + (75*0.4+0.2*75*(prevURLS))),
+          elementOffset += ((prevSize + 1)*40 + (75*0.4+0.2*75*(prevURLS)));
+
+      } else if (prevType == 'circle' && prevSize == 1) {
+        titleOffset += ((prevSize+1)*47+ + (75*0.4+0.2*75*(prevURLS))),
+        elementOffset += ((prevSize + 1)*46 + (75*0.4+0.2*75*(prevURLS)));
       }
     // It is assmued that the first legend is a fill, but if not, we correct that assumption
     if ((iter == 0) && (type =='circle')){
       if (setSize){
         if (data.length >= sizedata.length){
-          sourceTitleOffset = (data.length + 1)*50;
+          sourceTitleOffset = (data.length + 1)*40;
         } else {
-          sourceTitleOffset = (sizedata.length + 1)*50;
+          sourceTitleOffset = (sizedata.length + 1)*40;
         }
       }
       else {
-        sourceTitleOffset = (data.length + 1)*50;
+        sourceTitleOffset = (data.length + 1.5)*40;
       }
     }
     /////////////////////////// Generic /////////////////////////////////////////////////////////
@@ -920,18 +920,20 @@ for (layer of _layers){
 
       if ((iter > 0) && (type == 'fill')){
 
-        sourceTitleOffset += (125 + (75*0.4+0.2*75*sourceURL.length))//(140 + 20*sourceURL.length);
+        sourceTitleOffset += (100 + (75*0.4+0.2*75*sourceURL.length))
 
       } else if ((iter > 0) && (type == 'circle')) {
 
         if (prevSetSize==true){
 
-          sourceTitleOffset += (sizedata.length + 1)*50 + (75*0.4+0.2*75*sourceURL.length);//75;
+          sourceTitleOffset += (sizedata.length)*40 + (100*0.4+0.2*100*sourceURL.length);
 
-        } else {
+        } else if (prevSize > 1) {
 
-          sourceTitleOffset += (data.length + 1)*50 + (75*0.4+0.2*75*sourceURL.length);//75;
+          sourceTitleOffset += (data.length + 1)*40 + (75*0.4+0.2*75*sourceURL.length);
 
+        } else if ( prevSize == 1) {
+          sourceTitleOffset += (data.length + 1)*47 + (75*0.4+0.2*75*sourceURL.length);
         }
       }
 
@@ -1121,7 +1123,7 @@ function dropJSON(targetEl, callback) {
       callback(data, file);
     };
 
-    reader.readAsText(event.dataTransfer.files[0]);    
+    reader.readAsText(event.dataTransfer.files[0]);
     event.preventDefault();
   });
 }
