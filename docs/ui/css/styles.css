@@ -177,6 +177,7 @@ h3 span.light {
   width: 15px;
   height: 15px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .loaded-layer-toggle:hover {
@@ -189,7 +190,7 @@ h3 span.light {
 
 .loaded-layer-toggle.line {
   border: none !important;
-  
+
 }
 
 
@@ -199,6 +200,10 @@ h3 span.light {
 
 .loaded-layer-toggle.line:not(.active) {
   background: linear-gradient(to bottom right, white 40%, lightgrey 40%, lightgrey 60%, white 60%) !important;
+}
+
+#loaded-list p {
+  cursor: default;
 }
 
 #app-nav div {

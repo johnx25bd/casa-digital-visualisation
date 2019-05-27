@@ -147,6 +147,8 @@ var loadedData = {};
                 popup.remove();
               })
             }
+
+
             if (layerData.highlight) {
               //console.log(layerData.highlight);
               map.on("mousemove", layerData.name, function(e) {
@@ -183,6 +185,7 @@ var loadedData = {};
                   .style('fill-opacity', '0.7');
               });
             }
+
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
 
@@ -334,6 +337,11 @@ d3.selectAll('.modal-content')
 // File upload function call
 dropJSON(document.getElementById("drop-zone"),
   function(_data, _files) {
+
+    if (_files.length > 1) {
+      alert('Please only upload one geojson file at a time.\nWe will load the first file you dropped 😉');
+      // ^^ Opportunity for extension - multi-file and zip uploads.
+    }
     // dropped - do something with data
 
     console.log(_data);
@@ -344,8 +352,8 @@ dropJSON(document.getElementById("drop-zone"),
     // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
 
 
-    for (i in _files) {
-      if (!isNaN(i)) {
+    // for (i in _files) { // this multifileload doesn't work - needs to be fixed upstream, prior to dropJSON() call ...
+    //   if (!isNaN(i)) {
 
         if (numLoadedFiles == 0) {
           d3.select('#add-layer-button')
@@ -353,7 +361,7 @@ dropJSON(document.getElementById("drop-zone"),
         }
 
         var c = layerColor(numLoadedFiles);
-        var f = _files[i];
+        var f = _files[0];
 
         // if (_data)
         var points = _data.features.filter(function(feature) {
@@ -483,9 +491,8 @@ dropJSON(document.getElementById("drop-zone"),
 
         numLoadedFiles += 1;
 
-      }
-
-    }
+    //   }
+    // }
 
 
 
@@ -499,7 +506,7 @@ dropJSON(document.getElementById("drop-zone"),
       var layerList = d3.select('#loaded-list');
 
       layerList.append('dt')
-        .classed('col-1', true)
+        .classed('col-2', true)
         .append('span')
         .classed('loaded-layer-toggle', true)
         .classed(_layerType, true)
@@ -534,13 +541,22 @@ dropJSON(document.getElementById("drop-zone"),
 
 
       var dd = layerList.append('dd')
-        .classed('col-5', true);
+        .classed('col-6', true)
+        .append('p');
 
-      dd.text(_layerId.split('-').slice(2).join('-') + ' (' + _layerType + ')');
+      dd.text(_layerId.split('-').slice(2).join('-') + ' (' + _layerType + ')')
+        .on('mouseenter', function () {
+          // highlight layer by _layerId
+          return;
+        })
+        .on('mouseleave', function () {
+          // unhighlight layer ...
+          return;
+        });
         // Here we could add highlight on layer entry hover ...
 
       layerList.append('dd')
-        .classed('col-6', true)
+        .classed('col-4', true)
         .append('button')
         .classed('btn btn-outline-secondary ml-4', true)
         .text('Zoom to layer')
