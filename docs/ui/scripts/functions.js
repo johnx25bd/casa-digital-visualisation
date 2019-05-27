@@ -2,7 +2,7 @@ function buildAddLayerParams(_layerData) {
     if (_layerData.type == 'geojson') {
     var outputParams = {};
     outputParams.id = _layerData.name;
-    outputParams.source = _layerData.name + '-source';
+    outputParams.source = _layerData.name + '-source'; // as defined in map.addSource(), ./load-map.js#L131
     outputParams = { ...outputParams,
       ..._layerData.addLayerParams.default ?
       _layerData.addLayerParams.default :
@@ -19,7 +19,6 @@ function buildAddLayerParams(_layerData) {
     return outputParams;
 
     }
-
 }
 /*
 
@@ -118,10 +117,6 @@ function loadCards(_cards) {
     .html(function(d) {
       return d.content;
     });
-
-
-
-
 
   for (i in _cards) {
     var card = _cards[i];
@@ -610,7 +605,7 @@ for (layer of _layers){
     if (layerOfInterest.source.content[0].length>maxWidth){
       maxWidth = layerOfInterest.source.content[0].length;
     }
-  } 
+  }
 }
 // console.log('Height: '+howLong)
 // console.log('Width: '+)
@@ -1076,6 +1071,36 @@ for (layer of _layers){
 
 // JSON upload function ...
 // From https://stackoverflow.com/questions/8869403/drag-drop-json-into-chrome :D :D :D
+// function dropJSON(targetEl, callback) {
+//   // disable default drag & drop functionality
+//   targetEl.addEventListener('dragenter', function(e) {
+//     e.preventDefault();
+//   });
+//   targetEl.addEventListener('dragover', function(e) {
+//     e.preventDefault();
+//   });
+//
+//   targetEl.addEventListener('drop', function(event) {
+//     // event.preventDefault();
+//     var file = event.dataTransfer.files;
+//
+
+//
+//     var reader = new FileReader();
+//
+//     reader.onloadend = function() {
+//       var data = JSON.parse(this.result);
+//
+
+//       callback(data, file);
+//     };
+//
+//     reader.readAsText(event.dataTransfer.files[0]);
+//     event.preventDefault();
+//
+//   });
+// }
+
 function dropJSON(targetEl, callback) {
   // disable default drag & drop functionality
   targetEl.addEventListener('dragenter', function(e) {
@@ -1092,19 +1117,34 @@ function dropJSON(targetEl, callback) {
     var file = event.dataTransfer.files;
     console.log(file);
 
+    if (file.length > 1) {
+      alert('Please only upload one geojson file at a time.\nWe will load the first file you dropped 😉');
+      // ^^ Opportunity for extension - multi-file and zip uploads.
+    }
+
     var reader = new FileReader();
 
     reader.onloadend = function() {
       var data = JSON.parse(this.result);
       console.log(data);
+
+      // Should add geojson validator, like this:
+      // https://github.com/craveprogramminginc/GeoJSON-Validation
+      // Code would be;
+      // if (GJV.valid(data)) {
+      //    callback(data, file);
+      // } else {
+      //    alert('Please upload a valid geojson file!');j
+      //    return;
+      // }
+
       callback(data, file);
     };
 
-    reader.readAsText(event.dataTransfer.files[0]);    
+    reader.readAsText(event.dataTransfer.files[0]);
     event.preventDefault();
   });
 }
-
 
 
 

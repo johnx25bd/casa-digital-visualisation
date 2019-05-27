@@ -240,19 +240,41 @@ var loadedData = {};
         loadCards(cardData);
         setActiveCard(0);
 
+        // This resolves a bug we had where the model needed
+        // two clicks to close ...
         $('#landing-page').modal('show');
 
+
+        // In the next two statements we create a cheeky
+        // landing page interactive effect 😏
         d3.selectAll('#landing-header')
           .on('mouseenter', function () {
             if (firstMove == null) {
               firstMove = d3.mouse(this)[1];
             }
           })
+          // But with a fallback ... almost every user, if confused,
+          // will click on the only element on the screen ...
           .on('click', function () {
             d3.select('#landing-text')
-              .classed('visible', true);
+              .transition()
+              .duration(500)
+              .style('opacity', 1)
+              .on('end', function () {
+                firstMove = false; // to deactivate mousemove opacity effect
+              });
           })
 
+        d3.select('.modal-content')
+          .on('mousemove', function() {
+            if (firstMove) {
+              console.log(d3.mouse(this)[1], firstMove, window.innerHeight);
+              var visibility = ((d3.mouse(this)[1] - firstMove) / (window.innerHeight));
+              console.log(visibility);
+              d3.select('#landing-text')
+                .style('opacity', visibility);
+            }
+          })
 
       });
     }).catch(function(error) {
@@ -262,126 +284,95 @@ var loadedData = {};
 
 
 
+
 // EVENT LISTENERS
 // Adapted from from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
-
 window.onscroll = function() {
-
   if (!$('body').hasClass('scrolling')) {
     if (isNextCardOnScreen(activeCardNum + 1)) {
-      // console.log("On screen!");
       setActiveCard(activeCardNum + 1);
     } else if (isPriorCardOnScreen(activeCardNum - 1)) {
       setActiveCard(activeCardNum - 1);
     }
   }
-
 };
 
-
+// Attached to the "next" arrow on map nav.
 $('#next-card').on('click', function(e) {
   e.preventDefault();
 
   var t = this;
+
+  // Feedback for user to feel like their click worked
   $(this).addClass('clicking');
 
   setTimeout(function(el) {
     $(el).removeClass('clicking');
   }, 100, t);
 
-  // $('#file-add').collapse('hide');
-
-
   if (activeCardNum < cardData.length) {
-    scrollToCard(activeCardNum + 1)
-    // setActiveCard(activeCardNum + 1);
+    scrollToCard(activeCardNum + 1) // setActiveCard() is called within scrollToCard()
   }
-})
+});
 
+// Attached to the "back" arrow on map nav
+// (probably could functionalize this - quite
+// repetitive of the above block ... )
 $('#previous-card').on('click', function(e) {
   e.preventDefault();
 
   var t = this;
+
   $(this).addClass('clicking');
-
-
   setTimeout(function(el) {
     $(el).removeClass('clicking');
   }, 100, t)
 
-  // $('#file-add').collapse('hide');
-
-  // console.log("Previous", activeCardNum);
   if (activeCardNum > 0) {
     scrollToCard(activeCardNum - 1)
-    // setActiveCard(activeCardNum - 1);
-    // scrollToCard(activeCardNum);
   }
 })
 
 $('.jump-to-view').on('click', function(e) {
+  e.preventDefault();
 
   $(this).addClass('clicking')
     .delay(100).removeClass('clicking');
 
-
-  e.preventDefault();
+  // Find first card in that extent in cardData,
+  // and switch to it.
   var jumpToExtent = this.id.split('-')[0];
   var targetCard = cardData.findIndex(function(c) {
-    return c.extent == jumpToExtent
+    return c.extent == jumpToExtent;
   });
   scrollToCard(targetCard);
-  // setActiveCard(targetCard);
-
 })
 
-// d3.select('#landing-content h1')
-//   .on('mouseenter', function () {
-//     if (firstMove) {
-//       d3.select('#landing-text')
-//         .transition()
-//         .duration(1000)
-//         .style('opacity', 0.2);
-//       setTimeout(function () {
-//         firstMove = false;
-//       }, 1000);
-//     }
-//
-//   })
 
-d3.select('.modal-content')
-  .on('mousemove', function() {
-    if (firstMove) {
-      console.log(d3.mouse(this)[1], firstMove, window.innerHeight);
-      var visibility = ((d3.mouse(this)[1] - firstMove) / (window.innerHeight));
-      console.log(visibility);
-      d3.select('#landing-text')
-        .style('opacity', visibility);
-    }
-  })
 
-// File upload function call
+// This attaches a number of event listeners to #drop-zone
+// and handles the loading of local geojson features onto the map
 dropJSON(document.getElementById("drop-zone"),
+  // The callback ... should convert to a promise for continuity,
+  // or async await.
   function(_data, _files) {
-
-    if (_files.length > 1) {
-      alert('Please only upload one geojson file at a time.\nWe will load the first file you dropped 😉');
-      // ^^ Opportunity for extension - multi-file and zip uploads.
-    }
 
     var layerColor = d3.scaleOrdinal(d3.schemeSet2)
       .domain(d3.range(8));
-    // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
+      // from https://stackoverflow.com/questions/20590396/d3-scale-category10-not-behaving-as-expected
 
         if (numLoadedFiles == 0) {
           d3.select('#add-layer-button')
             .text('Manage layers');
         }
 
+        // Get hex color specific to features in this file
+        // Will restart cycle after 8 files are loaded.
         var c = layerColor(numLoadedFiles);
+
         var f = _files[0];
 
-        // if (_data)
+        // Get arrays of Point, Linestring and Polygon features
         var points = _data.features.filter(function(feature) {
             return feature.geometry.type == "Point";
           }),
@@ -396,17 +387,19 @@ dropJSON(document.getElementById("drop-zone"),
 
           console.log('Adding points from', f.name);
 
+          // Now it is GeoJSON!
           var pointData = {
             type: "FeatureCollection",
             features: points
           }
 
-          var layerId = "loaded-points-" + f.name.split('.')[0];
+          var layerId = "loaded-points-" + f.name.split('.')[0]
+            + '-' + Math.random().toString(36).substring(7);;
+            // ^^ Prevent bug from occurring if two files of the
+            // same name are loaded. From  https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
 
           map.addLayer({
-
             "id": layerId, // should be file name
-            // Random code from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
             "type": "circle",
             "source": {
               "type": "geojson",
