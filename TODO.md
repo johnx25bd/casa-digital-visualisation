@@ -17,11 +17,11 @@ _prior to presentation_
 
 [x] Create "table 3", giving a overview of the used libraries in python.
 
-[] Round off the data section
+[x] Round off the data section
 
 # Coding:
 
-[] Fix the coloring of the heatmap legend
+[x] Fix the coloring of the heatmap legend
 
 [] More sophisticated flow map - probably of UK with trading partners? This could go on National view card 1 or the last card on the Global view
 
@@ -118,7 +118,7 @@ Branch: UpdatedBarChartFunction
 [x] Add landing page
 
 
-[] Fix landing page animation 
+[] Fix landing page animation
 
 [] Can we quickly convert this to mobile? :eeee
   [] At breakpoint, convert to two stacked divs - map and content.

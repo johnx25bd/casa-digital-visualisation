@@ -707,7 +707,6 @@ for (layer of _layers){
       else {
         return;
       }
-
       ///////// Defining the data ///////////////////////////
       // Setting up the data, based on the extracted paint property of the layer of interest.
       // This is where the support functions are in use.
@@ -1076,17 +1075,16 @@ function structureData(_dataType,_dataPaint,_step = 20){
 
   } else if (_dataType == 'heatmap'){
 
-    var substep = [],
-        normSubStep = [];
+    var substep = [];
+    // Getting the number of colors used in the heatmap
     for (var i = 0; i < _step; i += _dataPaint.length){
       substep.push(i);
-      normSubStep.push(i/_step);
     }
-
+    // Getting the colors
     var color = interpolateColors(_dataPaint,substep);
 
     var data = [];
-
+    // Setting the text labels
     for (var ele = 0; ele < _step; ele++){
 
       if (ele === 0){
@@ -1097,11 +1095,12 @@ function structureData(_dataType,_dataPaint,_step = 20){
         data.push({'id': ele, 'value':''})
       }
     }
+  // Catch all data type for which methods aren't defined.
   } else {
     console.log(_dataType,': ERROR:  I dont know this datatype!')
     return;
   }
-
+  // Return the needed variables, depending on if size matters or not.
   if (setSize){
 
     return [color,data,size,sizedata];
@@ -1109,30 +1108,38 @@ function structureData(_dataType,_dataPaint,_step = 20){
   } else {
 
     return [color,data];
-
   }
+}
+/*
+interpolateColors creates the color ramp for the fill/heatmap legends.
+The function takes two inputs, the colors contained in the layer and the desired number of steps.
+-------------------------------------------------
+_colors: The colors contained in the layer.
+_step: The desired number of steps.
+--------------------------------------------------
+*/
+function interpolateColors(_colors,_step = 1){
+  // If there is only one color in the layer:
+  if (!Array.isArray(_step)){
+    var steps = [0,_step];
+  } else {
+    var steps = _step;
+  }
+  // If there is only one color in the layer:
+  if (!Array.isArray(_colors)){
+    var colors = [_colors];
+  } else {
+    var colors = _colors;
+  }
+  // Create the color ramp.
+  var color = d3.scaleLinear()
+      .domain(steps)
+      .range(colors)
+      .interpolate(d3.interpolateHcl);
+
+  return color;
 
 }
-
-  function interpolateColors(_colors,_step = 1){
-    if (!Array.isArray(_step)){
-      var steps = [0,_step];
-    } else {
-      var steps = _step;
-    }
-    if (!Array.isArray(_colors)){
-      var colors = [_colors];
-    } else {
-      var colors = _colors;
-    }
-    var color = d3.scaleLinear()
-        .domain(steps)//[0, _step]
-        .range(colors)//[_color1, _color2]
-        .interpolate(d3.interpolateHcl);
-
-    return color;
-
-  }
 
 
 // JSON upload function ...
