@@ -1,8 +1,14 @@
+
+/*
+@param {object} _layerData: Object defining layer
+returns parameters ready to pass into mapboxgl.Map().addLayer()
+*/
 function buildAddLayerParams(_layerData) {
     if (_layerData.type == 'geojson') {
     var outputParams = {};
     outputParams.id = _layerData.name;
     outputParams.source = _layerData.name + '-source';
+      // ^^ as defined in map.addSource(), ./load-map.js#L131
     outputParams = { ...outputParams,
       ..._layerData.addLayerParams.default ?
       _layerData.addLayerParams.default :
@@ -17,48 +23,64 @@ function buildAddLayerParams(_layerData) {
     outputParams.id = _layerData.name;
 
     return outputParams;
-
     }
-
 }
-/*
 
+/*
+  Returns CSS selector for currently loaded card.
 */
 function currentCardId() {
   return '#' + cardData[activeCardNum].extent
     + '-card-' + activeCardNum;
 }
 
+/*
+@param {int} _cardNum: card number to build selector
+Returns CSS id selector for that card as string.
+*/
 function getCardId(_cardNum) {
   return '#' + cardData[_cardNum].extent
     + '-card-' + _cardNum;
 }
 
-function isNextCardOnScreen(_cardNum) {
+/*
+Tests if next card is visible in over half of window
+based on current active card.
+*/
+function isNextCardOnScreen() {
+
+  var nextCardNum = activeCardNum + 1;
+
   if (activeCardNum == cardData.length - 1) {
     return false;
   }
-  // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
-  var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
+  // Adapted from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
+  var element = document.querySelector("div[data-index='" + String(nextCardNum) + "']")
   var bounds = element.getBoundingClientRect();
-  // console.log(bounds);
 
   return bounds.top < window.innerHeight / 2;
 }
 
+/*
+Tests if prior card is visible in over half of window
+based on current active card.
+*/
 function isPriorCardOnScreen(_cardNum) {
-  // Directly from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
-  var element = document.querySelector("div[data-index='" + String(_cardNum) + "']")
+  var priorCardNum = activeCardNum - 1;
+
+  // Adapted from https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
+  var element = document.querySelector("div[data-index='" + String(priorCardNum) + "']")
   var bounds = element.getBoundingClientRect();
-  // console.log(bounds);
 
   return bounds.bottom > window.innerHeight / 2;
 }
 
-
+/*
+@param {array} _cards: array of objects defining cards in order
+*/
 function loadCards(_cards) {
-  // iterate through and load cards into .cards div
 
+  // Bind and load cards into .cards div
   var cardsHolder = d3.select('#story-cards');
 
   var cardEls = cardsHolder.selectAll('div')
@@ -90,13 +112,13 @@ function loadCards(_cards) {
 
   featureContent.append('p')
     .classed('card-title lead mb-0', true)
-    .text('');
+    .text(''); // Set as empty for now.
 
   featureContent.append('div')
     .classed('col-12 feature-content', true);
 
 
-  // Legend
+  // Build legend for each card
   var legendContent = cardEls.append('div')
     .classed('card legend', true)
     .append('div')
@@ -119,52 +141,70 @@ function loadCards(_cards) {
       return d.content;
     });
 
-
-
-
-
+  // Loop through _cards array, executing custom .loadCard()
+  // method for each and building legends.
   for (i in _cards) {
     var card = _cards[i];
 
     if (card.loadCard) {
       card.loadCard(i, card);
     }
-    console.log(card.layers);
+
     /// Loading legends /////
     createLegends(i,card.layers);
   }
 }
 
+/*
+A function to show card layers as defined in cardData[_cardNum]
+@param {int} _cardNum: The card number to load layers for.
+*/
 function showCardLayers(_cardNum) {
 
   var layers = cardData[_cardNum].layers;
 
+  // Loop through every layer loaded onto the map ...
   Object.keys(loadedData).forEach(function(layer) {
 
+    // ... and check if it should be loaded.
     if (layers.includes(layer)) {
-      console.log("Setting", layer, 'to visible!')
       map.setLayoutProperty(layer, 'visibility', 'visible');
     } else {
       map.setLayoutProperty(layer, 'visibility', 'none');
     }
+
   });
 }
 
+/*
+A helper function to convert strings to title case
+@param {string} _str: The string to convert to title case
+@param {string} _separator: the separator on which to split
+  the string to convert. Default ' ' - with layer ids often '-'
+*/
 function titleCase(_str,_separator=' ') {
   // Directly from https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27
   // 🙏🙏🙏🙏🙏🙏🙏
   return _str.toLowerCase().split(_separator).map(function(word) {
     return (word.charAt(0).toUpperCase() + word.slice(1));
-  }).join(' ');
+  }).join(' '); // << always returns with spaces
 }
 
+/*
+Sets active card, loads layers and flies to card extent.
+@param {int} _cardNum: Target active card.
+*/
 function setActiveCard(_cardNum) {
+
   if (_cardNum === activeCardNum) {
     return;
   }
 
+  // Load layers and trigger map animated flyto:
   map.flyTo(cardData[_cardNum].flyTo);
+  showCardLayers(_cardNum);
 
+  // Update state of interface
   $("div[data-index='" + String(_cardNum) + "']")
     .addClass('active');
   $("div[data-index='" + String(activeCardNum) + "']")
@@ -175,57 +215,62 @@ function setActiveCard(_cardNum) {
   $('#' + cardData[_cardNum].extent + '-view')
     .addClass('active');
 
-  showCardLayers(_cardNum);
-
+  // Finally, set new activeCardNum
   activeCardNum = _cardNum;
 
 }
 
+/*
+Sets active card, and animates scrolling of content divs.
+@param {int} _cardNum: Target active card.
+*/
 function scrollToCard(_cardNum) {
   // adapted from https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
+
+  // So as not to disrupt ongoing animation
+  // (many bugs with this early on)
   if (!$('body').hasClass('scrolling')) {
-
-
 
     $('body').addClass('scrolling');
 
+    // Deactivate scroll option for 1.2 seconds
     setTimeout(function () {
       $('body').removeClass('scrolling');
     }, 1200)
 
-
     setActiveCard(_cardNum);
 
-    // console.log("inAnimation:", inAnimation);
-    var cardTmp = cardData[_cardNum];
-    var id = '#' + cardTmp.extent + '-card-' + String(_cardNum);
-    // console.log(id);
-    // setActiveCard(cardNum);
+    var id = getCardId(_cardNum);
 
+    // Scroll to proper position regardless of whether
+    // the file drop zone is visible or not.
     if ($('#file-add').hasClass('show')) {
-
-      var scrollTopVal = $(id).offset().top  - $('#file-add').height() - (70 + 63);
+      var scrollTopVal = $(id).offset().top
+        - $('#file-add').height() - (70 + 63);
     } else  {
-      // WORKS
-      var scrollTopVal = $(id).offset().top - (70 + 63);// - $('#file-add').height();
-
+      var scrollTopVal = $(id).offset().top - (70 + 63);
     }
 
+    // Collapse drop zone
     $('#file-add').collapse('hide');
 
+    // jQuery animated scroll
     $([document.documentElement, document.body]).animate({
       scrollTop: scrollTopVal
-
-    }, 1000, function() {
-      inAnimation = false;
-    });
+    }, 1000);
   }
 }
 
+/*
+A helper to set feature content text on load
+@param {int} _cardNum: card to update feature title
+@param {string} _layer: layer unit which triggers feature
+  content pane update on click.
+*/
 function setFeatureContentText (_cardNum, _layer) {
   console.log("SetFeatureContext", _cardNum)
-  var cardId = '#' + cardData[_cardNum].extent + '-card-' + String(_cardNum);
-  // console.log("The card ID is: ",cardId)
+  var cardId = getCardId(_cardNum);
+
   d3.select(cardId + ' .card-title')
     .text('Click on a ' + _layer + ' to learn more.')
 }
@@ -1156,30 +1201,53 @@ function interpolateColors(_type='fill',_colors,_step = 1){
 }
 
 
-// JSON upload function ...
-// From https://stackoverflow.com/questions/8869403/drag-drop-json-into-chrome :D :D :D
-function dropJSON(targetEl, callback) {
-  // disable default drag & drop functionality
-  targetEl.addEventListener('dragenter', function(e) {
+/*
+⚠⚠⚠ EXPERIMENTAL! ⚠⚠⚠
+Preps target drop zone to accept geojson files to visualize
+from the local upload feature
+@param {object} _targetEl: the selection of the
+  html element where files are meant to be dropped
+@param {function} _callback: the callback function to
+  invoke once file data has been loaded into the browser
+*/
+function dropJSON(_targetEl, _callback) {
+  // Adapted from https://stackoverflow.com/questions/8869403/drag-drop-json-into-chrome/
+  // Disable default drag & drop functionality
+  _targetEl.addEventListener('dragenter', function(e) {
     e.preventDefault();
   });
-  targetEl.addEventListener('dragover', function(e) {
+  _targetEl.addEventListener('dragover', function(e) {
     e.preventDefault();
   });
 
-  targetEl.addEventListener('drop', function(event) {
-    // event.stopPropagation();
-    // event.preventDefault();
+  // Prepare area for file drop!
+  _targetEl.addEventListener('drop', function(event) {
 
     var file = event.dataTransfer.files;
-    console.log(file);
+
+    if (file.length > 1) {
+      alert('Please only upload one geojson file at a time.\nWe will load the first file you dropped 😉');
+      // ^^ Opportunity for extension - multi-file and zip uploads.
+      // Also shapefiles to geojson in the browser!
+      // https://github.com/calvinmetcalf/shapefile-js
+    }
 
     var reader = new FileReader();
 
     reader.onloadend = function() {
       var data = JSON.parse(this.result);
-      console.log(data);
-      callback(data, file);
+
+      // Should add geojson validator, like this:
+      // https://github.com/craveprogramminginc/GeoJSON-Validation
+      // Code would be;
+      // if (GJV.valid(data)) {
+      //    _callback(data, file);
+      // } else {
+      //    alert('Please upload a valid geojson file!');j
+      //    return;
+      // }
+
+      _callback(data, file);
     };
 
     reader.readAsText(event.dataTransfer.files[0]);
@@ -1188,11 +1256,16 @@ function dropJSON(targetEl, callback) {
 }
 
 
-
-
-// fitText jQuery plugin, for airport codes
-// from https://github.com/davatron5000/FitText.js
+/*
+fitText jQuery plugin, for scaling airport codes
+@param {float} kompressor: scaling factor
+@param {object} options: optional pixel values:
+  minFontSize
+  maxFontSize
+(Attaches a method to the jquery object.)
+*/
 (function ( $ ){
+  // Directly from https://github.com/davatron5000/FitText.js
   $.fn.fitText = function( kompressor, options ) {
 
     // Setup options

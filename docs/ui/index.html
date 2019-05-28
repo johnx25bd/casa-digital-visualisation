@@ -1,5 +1,21 @@
-<!-- Template from https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+<!--
+🌐: Invisible Origins
+UCL Bartlett for Advanced Spatial Analysis
+CASA0003: Digital Visualisation
+
+Developed by:
+  Haien Tan (@haientan)
+  Shuke Lei (@Shukelei)
+  Kristian Lunow Nielsen (@KristianLN)
+  John IV (@robisoniv)
+
+Made with d3, mapbox, bootstrap, natural earth and 💛.
+
+2019.
+-->
+
 <!doctype html>
+<!-- adapted from template found at https://getbootstrap.com/docs/4.3/getting-started/introduction/  -->
 <html lang="en">
 
 <head>
@@ -9,16 +25,14 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 
-  <!--  -->
-  <!-- Bootstrap CSS -->
+  <!-- CSS files  -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Leaflet style sheet and JS library -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.css" crossorigin="" />
   <!-- Custom stylesheet -->
   <link rel="stylesheet" href="./css/styles.css" />
 
-  <!-- Load JS Libraries -->
+  <!-- JS Libraries -->
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
   <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-unminified.js" charset="utf-utf-8"></script>
@@ -27,20 +41,18 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
 
-  <title>🌐🚢✈</title>
-  <!-- load favicon -->
+  <title>🌐 : Invisible Origins</title>
 </head>
 
 <body>
+  <!-- Modal element for landing page -->
   <div class="modal fade show" id="landing-page" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
-
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-
         <div id='landing-content' class='container'>
           <div class='row'>
             <div class='col-lg-7 mb-5'>
-              <h1 class='display-1 mb-4'>Invisible Origins</h1>
+              <h1 id='landing-header' class='display-1 mb-4'>Invisible Origins</h1>
               <div id='landing-text' style="opacity: 0;">
                 <p class='mb-5'>Cities are places where we can buy almost anything. These products come from somewhere - often from very far away. Here we visualise how things move around in our globalising world.</p>
                 <p>Created with <a href="https://d3js.org/" target="_blank">d3</a>, <a href="https://mapbox.com/" target="_blank">mapbox</a>, <a href="https://getbootstrap.com/" target="_blank">bootstrap</a> and 💛 for the Bartlett Centre for
@@ -58,39 +70,21 @@
                 <p class='mb-5'><a target="_blank" href="https://github.com/robisoniv">
                     John IV
                   </a></p>
-
                 <button id='launch-vis' type="button" class="btn btn-lg btn-outline-primary " data-toggle="modal" data-target="#landing-page">Explore visualisation.</button>
-                <!-- <img id='ucl-logo' class='img-fluid col-4 pull-right mt-5' src='./assets/images/ucl.png'> -->
               </div>
             </div>
-
           </div>
         </div>
-        <!-- <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
       </div>
     </div>
   </div>
+
+  <!-- Main div for entire front end interface -->
   <div id='app-page'>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pl-5">
-        <a id='navbar-title' class="navbar-brand" href="#">Invisible Origins</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <a id='navbar-title' class="navbar-brand" data-toggle="modal" data-target="#landing-page">Invisible Origins</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-
           <ul class='navbar-nav pull-right ml-auto mr-5'>
             <li>
               <button id='add-layer-button' class="btn btn-outline-light mr-5" type="button" data-toggle="collapse" data-target="#file-add" aria-expanded="false" aria-controls="collapseExample">
@@ -99,113 +93,73 @@
             </li>
             <li>
               <a href="https://github.com/robisoniv/casa-digital-visualisation" target="_blank">
+                <!-- Github octocat svg copied from github.com's source code. -->
                 <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
                   <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
-
               </a>
             </li>
           </ul>
-          <div></div>
-
-
         </div>
-
       </nav>
     </header>
-    <div id='main-container' class="container-fluid">
-      <!-- Content here -->
 
+    <!-- Div to hold map and info content -->
+    <div id='main-container' class="container-fluid">
       <div class='row '>
         <div id='main-map' class='col-8'></div>
-        <!-- <svg id="world"></svg> -->
       </div>
       <div class='row justify-content-end'>
-
-
         <div id="info-body" class="col-md-4">
+
+          <!-- Sticky-top header for map nav controls and file drop -->
           <div class='row sticky-top'>
-          <div id='file-add' class='col-12 collapse'>
-            <div class="col-12">
-              <h3 class='mt-2'>Experimental: Local Data Load</h3>
-              <p>Please drop a geojson file below to load features onto the map.</p>
-              <div id="drop-zone" class='mb-4'>Drop files here</div>
-              <div class='col-12'>
-                <dl  id="loaded-list" class='row'>
 
-                </dl>
+            <!-- ⚠⚠⚠ File drop zone! ⚠⚠⚠ -->
+            <div id='file-add' class='col-12 collapse'>
+              <div class="col-12">
+                <h3 class='mt-2'>Experimental: Local Data Load</h3>
+                <p>Please drop a geojson file below to load features onto the map.</p>
+                <div id="drop-zone" class='mb-4'>Drop files here</div>
+                <div class='col-12'>
+                  <!-- A holder <dl> element for the list of loaded layers -->
+                  <dl id="loaded-list" class='row'>
+                  </dl>
+                </div>
               </div>
-
             </div>
 
-
+            <!-- Map nav controls -->
+            <div id='app-nav' class='d-flex flex-row align-items-center col-12'>
+              <div id="previous-card" class="col-2 text-center">
+                <p class='mb-0'>
+                  <<</p> </div> <div id='global-view' class="col text-center jump-to-view">
+                    <p class='mb-0'>Global</p>
+              </div>
+              <div id='national-view' class="col text-center jump-to-view">
+                <p class='mb-0'>UK</p>
+              </div>
+              <div id='local-view' class="col text-center jump-to-view">
+                <p class='mb-0'>Local</p>
+              </div>
+              <div id="next-card" class="col-2 text-center">
+                <p class='mb-0'>>></p>
+              </div>
+            </div>
           </div>
 
-          <div id='app-nav' class='d-flex flex-row align-items-center col-12'>
-            <div id="previous-card" class="col-2 text-center">
-              <p class='mb-0'>
-                <<</p> </div> <div id='global-view' class="col text-center jump-to-view">
-                  <p class='mb-0'>Global</p>
-            </div>
-            <div id='national-view' class="col text-center jump-to-view">
-              <p class='mb-0'>UK</p>
-            </div>
-            <div id='local-view' class="col text-center jump-to-view">
-              <p class='mb-0'>Local</p>
-            </div>
-            <div id="next-card" class="col-2 text-center">
-              <p class='mb-0'>>></p>
-            </div>
-
-            <!-- <div class='col-12'>
-            <div class='row'>
-            <div class='col-1'>
-              <span class='align-middle'><<</span>
-            </div>
-            <div class='col'>
-              <button class='btn btn-block btn-outline-primary'>Global</btn>
-            </div>
-            <div class='col'>
-              <button class='btn btn-block btn-outline-primary'>UK</btn>
-            </div>
-            <div class='col'>
-              <button class='btn btn-block btn-outline-primary'>Local</btn>
-            </div>
-            <div class='col-1'>
-              <button class='btn btn-block btn-outline-primary'>>></btn>
-            </div>
-
-          </div>
-          </div> -->
-
-          </div>
-        </div>
-
-
-
+          <!-- Holder div for cards to be placed with d3 -->
           <div id="story-cards" class="row">
-
           </div>
-          <div id="explore-cards invisible" class="row">
-          </div>
-
         </div>
-
       </div>
-
     </div>
   </div>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
   <!-- Custom scripts -->
   <script src="./scripts/functions.js"></script>
   <script src="./data/layers.js"></script>
   <script src="./data/cards.js"></script>
   <script src="./scripts/load-map.js"></script>
-
-
 </body>
-
 </html>

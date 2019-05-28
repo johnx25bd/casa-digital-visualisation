@@ -2,16 +2,6 @@ body {
   background-color: lightgrey;
 }
 
-/* svg {
-   background: lightblue;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-} */
-
-/* from https://bost.ocks.org/mike/leaflet/ */
-
-
 svg {
   position: relative;
 }
@@ -37,15 +27,13 @@ h3 span.light {
 
 .modal-content {
   background-color: white;
-  /* background-image: url('../assets/images/containers.png'); */
   cursor: default;
+  overflow: scroll;
 }
 
 #landing-content {
-  height: 100vh;
+  height: 80vh;
   margin-top: 20vh;
-  /* background-color: pink; */
-  /* background-image: url('./assets/images/containers.png'); */
 }
 
 #landing-content h1 {
@@ -84,6 +72,10 @@ h3 span.light {
   background-color:  #83acd8;
 }
 
+#landing-text.visible {
+  opacity: 1 !important;
+}
+
 #ucl-logo {
   left: none !important;
   right: none !important;
@@ -117,6 +109,7 @@ h3 span.light {
 }
 
 #navbar-title {
+  cursor: pointer;
   font-size: 25px;
   background: -webkit-linear-gradient(45deg, #eee,#d7d8d8, #717171);
   -webkit-background-clip: text;
