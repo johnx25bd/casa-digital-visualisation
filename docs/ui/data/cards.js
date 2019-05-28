@@ -351,11 +351,11 @@ var cardData = [
 
       <h4 class='display-4'>Facts</h4>
       <ul>
-        <li>The number of ports decreases with increasing latitude.</li> 
+        <li>The number of ports decreases with increasing latitude.</li>
         <li>Most ports in Asia are concentrated near the equator.</li>
         <li>More ports are concentrated in Mediterranean compared with North Africa. </li>
-        <li> In continent, there are ports only locate in the countries near coast.</li> 
-    
+        <li> In continent, there are ports only locate in the countries near coast.</li>
+
       </ul>
       <div class="embed-responsive embed-responsive-16by9">
         <iframe  class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/LHRfRfBqPL0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -762,8 +762,6 @@ var cardData = [
           var pieParams = {
             data: pieData
           };
-
-          // console.log('PieData', pieData);
 
           createPieChart(pieParams, '#heathrow-pie-chart');
 

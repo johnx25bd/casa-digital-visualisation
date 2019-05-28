@@ -3,6 +3,21 @@
 
 _prior to presentation_
 
+# bugs
+
+[x] Military/Civilian does not highlight in the text legend.
+
+[x] Resolve multiple matching problem for type and sizes.
+
+[x] Fix missing interaction with second layer for 'UK in the world'
+
+[x] Fix missing highlight on pie charts for local layer.
+
+# Missngs:
+
+[] Write the section on why the dimensions are relevant
+
+[] Comment the code for highlighting in load-map.js
 
 ## Kristian
 

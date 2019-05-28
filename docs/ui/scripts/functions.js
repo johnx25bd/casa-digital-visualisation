@@ -460,7 +460,8 @@ function createPieChart(_params, _parentEl) {
 
   // Extracting the color domain for setting the colors right after
   var dataDomain = Object.keys(data)
-
+  // console.log('Data Domain: '+dataDomain)
+  // console.log('Replace: '+dataDomain[0].replace(/ /g,'_'))
   // Set the color scale
   var color = d3.scaleOrdinal()
     .domain(dataDomain)
@@ -493,7 +494,7 @@ function createPieChart(_params, _parentEl) {
       return color(d.data.key);
     })
     .attr('class',function(d,i){
-      return 'piearc ' + dataDomain[i];
+      return 'piearc ' + dataDomain[i].replace(/ /g,'_');
     })
     // Enable the interactivity.
     .on("mouseenter", function(d,i) {
@@ -504,7 +505,7 @@ function createPieChart(_params, _parentEl) {
             .attr("class", "on")
             .text(d.data.value);
 
-        d3.selectAll('.' + dataDomain[i])
+        d3.selectAll('.' + dataDomain[i].replace(/ /g,'_'))
             .classed('active', true)
             .style('font-weight','bold');
       })
@@ -562,7 +563,7 @@ function createPieChart(_params, _parentEl) {
       return color(d.data.key);
     })
     .attr('class',function(d,i){
-      return 'textLegend '+dataDomain[i];
+      return 'textLegend '+dataDomain[i].replace(/ /g,'_');
     })
     .attr('x', 25)
     .attr('y', 15)
@@ -576,7 +577,7 @@ function createPieChart(_params, _parentEl) {
             .attr("class", "on")
             .text(d.data.value);
 
-        d3.selectAll('.' + dataDomain[i])
+        d3.selectAll('.' + dataDomain[i].replace(/ /g,'_'))
             .classed('active', true)
             .style('opacity','2')
             .style('font-weight','bold');
@@ -773,6 +774,11 @@ for (layer of _layers){
       } else {
 
         var [color,data] = structureData(type,paint);
+
+        if (type == 'heatmap'){
+          type = 'fill';
+        }
+
         // The legend for the heatmap is built similar to the legend for the fill, so instead of
         // having multiple methods, we just change the type to fill.
         if (paint.length > 1) {
@@ -837,7 +843,7 @@ for (layer of _layers){
     // The structure of the legend differes, depending on the type of the data underlying the
     // legend, with the main difference being that fill-based legens are built horisontally and
     // point-based legends are built vertically.
-      if (type == 'fill' || type == 'heatmap'){//type == 'fill'
+      if (type == 'fill'){//type == 'fill'
         // Defining the individual g's
         var legends = svg
               .append('g')
@@ -849,22 +855,13 @@ for (layer of _layers){
               .append('g')
               .classed('legends',true)
               .attr('transform',function(d,i) {return "translate(" + (i)*_offSet + ","+elementOffset+")";});//*(width/_step)
-        if (type == 'fill'){
-          // The boxes themselves
-          legend
-            .append('rect')
-            .attr('width',_elementWidth)
-            .attr('height',15)
-            .attr('fill',function(d,i){return color(i);});
-        } else {
-          // The boxes themselves
-          legend
-            .append('rect')
-            .attr('width',_elementWidth)
-            .attr('height',15)
-            .attr('fill',function(d,i){return color(i);});
-        type = 'fill';
-        }
+
+        // The boxes themselves
+        legend
+          .append('rect')
+          .attr('width',_elementWidth)
+          .attr('height',15)
+          .attr('fill',function(d,i){return color(i);});
 
         // Appending legend text.
         legend
@@ -902,17 +899,28 @@ for (layer of _layers){
           // the map and the card is ensured when both points and text legends are hovered.
           legend
               .append('text')
+              // Assigning classes based on the type names. However names with "/" isn't
+              // valid selectors in d3, so we need to account for that.
               .attr("class",function(d,i){
-                return 'textLegend ' + highlightTypeName+'_' + data[i];
+                if(data[i].includes('/')){
+                  return 'textLegend ' + highlightTypeName+'_MA ';
+                } else {
+                  return 'textLegend ' + highlightTypeName+'_' + data[i];
+                }
               })
               .text(function(d,i){ return data[i];})
               .attr('x',50)
               .attr('y',20)
               .on('mouseenter', function(d,i) {
-                map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', data[i]]);
+
+                hoverClass = this.getAttribute('class').split(' ');
+                nameOfLayer = hoverClass[1].split('_')[0];
+                nameOfObject = hoverClass[1].split('_')[1];
+
+                map.setFilter(nameOfLayer +'-highlighted', ['==', 'type', nameOfObject]);
               })
               .on("mouseout", function(d,i) {
-                map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', '']);
+                map.setFilter(nameOfLayer +'-highlighted', ['==', 'type', '']);
               });
         // If no interaction is desired, just built the legend
         } else {
@@ -962,11 +970,16 @@ for (layer of _layers){
                 .attr('x',50)
                 .attr('y',20)
                 .on('mouseenter', function(d,i) {
-                  map.setFilter(layerOfInterest.name +'-highlighted', ['==', 'size', sizedata[i]]);
+
+                  hoverClass = this.getAttribute('class').split(' ');
+                  nameOfLayer = hoverClass[1].split('_')[0];
+                  nameOfObject = hoverClass[1].split('_')[1];
+
+                  map.setFilter(nameOfLayer +'-highlighted', ['==', 'size', nameOfObject]);
                 })
                 .on("mouseout", function(d,i) {
 
-                  map.setFilter(layerOfInterest.name +'-highlighted', ['==', 'size', '']);
+                  map.setFilter(nameOfLayer +'-highlighted', ['==', 'size', '']);
                 });
           // If no interaction is desired, just built the legend
           } else {

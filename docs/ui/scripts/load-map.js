@@ -186,7 +186,6 @@ var loadedData = {};
             map.on("mousemove", layerData.name, function(e) {
 
               var features = map.queryRenderedFeatures(e.point);
-
               var currentISO3 = features[0].properties.code;
               if (typeof currentISO3 === 'undefined') {
                 return;
@@ -200,16 +199,21 @@ var loadedData = {};
                 d3.selectAll('.' + currentISO3)
                   .classed('active', true)
                   .style('fill-opacity', '1');
+              }
+            });
 
-<<<<<<< HEAD
-                //var currentISO3 = features[0].properties.iso3;
+            // When the mouse leaves the state-fill layer, update the feature state of the
+            // previously hovered feature.
+            map.on("mouseleave", layerData.name, function(e) {
 
-                map.setFilter(layerData.name + '-highlighted', ['==', 'iso3', '']);
-                d3.selectAll('.bar') // + currentISO3)
-                  .classed('active', false)
-                  .style('fill-opacity', '0.7');
-              });
+              map.setFilter(layerData.name + '-highlighted', ['==', 'code', '']);
+              d3.selectAll('.bar')
+                .classed('active', false)
+                .style('fill-opacity', '0.7');
+            });
+
             }
+
             if (layerData.highlight_size) {
 
               map.on("mousemove", layerData.name, function(e) {
@@ -227,8 +231,8 @@ var loadedData = {};
                         .style('font-weight','bold');
                   }
               });
-                      // When the mouse leaves the state-fill layer, update the feature state of the
-                      // previously hovered feature.
+              // When the mouse leaves the state-fill layer, update the feature state of the
+              // previously hovered feature.
               map.on("mouseleave", layerData.name, function(e) {
 
                   d3.selectAll('.textLegend')
@@ -236,6 +240,7 @@ var loadedData = {};
                       .classed('active', false);
               });
             }
+            // Highlight the categories in the data when the matching legends are hovered.
             if (layerData.highlight_type) {
 
               map.on("mousemove", layerData.name, function(e) {
@@ -247,42 +252,25 @@ var loadedData = {};
                     return;
                   } else {
                     var feature = features[0];
+                    // Names with "/" isn't valid selectors in d3, so we need to account for that.
+                    if (currentType.includes('/')){
+                      currentType = 'MA';
+                    }
 
                     d3.selectAll('.' + layerData.name + '_' + currentType)
                         .style('font-weight','bold')
                         .classed('active', true);
                   }
               });
-                      // When the mouse leaves the state-fill layer, update the feature state of the
-                      // previously hovered feature.
+              // When the mouse leaves the state-fill layer, update the feature state of the
+              // previously hovered feature.
               map.on("mouseleave", layerData.name, function(e) {
 
-                  d3.selectAll('.textLegend')// + currentISO3)
+                  d3.selectAll('.textLegend')
                       .classed('active', false)
                       .style('font-weight','normal');
               });
             }
-
-            map.on('click', layerData.name, function(e) {
-              if (cardData[activeCardNum].updateFeature) {
-
-                var targetLayers = cardData[activeCardNum].layers;
-
-                var renderedFeatures = map.queryRenderedFeatures(e.point);
-=======
-              }
-            });
-            // When the mouse leaves the state-fill layer, update the feature state of the
-            // previously hovered feature.
-            map.on("mouseleave", layerData.name, function(e) {
-
-              map.setFilter(layerData.name + '-highlighted', ['==', 'iso3', '']);
-              d3.selectAll('.bar')
-                .classed('active', false)
-                .style('fill-opacity', '0.7');
-            });
-          }
->>>>>>> a770bd3f6c3ebb2b516db3249e47640a4319f27e
 
           map.on('click', layerData.name, function(e) {
             if (cardData[activeCardNum].updateFeature) {
