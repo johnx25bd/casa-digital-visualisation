@@ -126,7 +126,7 @@ var cardData = [
       // Set countries layer style to Imports choropleth colors
       var importersBarChartParams = {
         "chartType": "bar",
-        "valueType": "value", // or "amount"
+        "valueType": "value",
         "title": "Top Five Importing Countries",
         "dataPath": "./data/top_five_importers.csv",
         "yAxisLabel": "Billions (USD)",
@@ -134,13 +134,9 @@ var cardData = [
 
       };
 
-
       createBarChart(importersBarChartParams, "#imports-bar-chart");
-      // loadFeatureContent(_params.)
 
       setFeatureContentText(_i, "country")
-
-
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
@@ -234,7 +230,6 @@ var cardData = [
 
     },
     updateFeature: function(_featureMetadata, _lngLat) {
-      // console.log(_featureMetadata.geometry.coordinates);
 
       var featureSelector = currentCardId() + ' .feature';
 
