@@ -17,7 +17,7 @@ _prior to presentation_
 
 [] Write the section on why the dimensions are relevant
 
-[] Comment the code for highlighting in load-map.js
+[x] Comment the code for highlighting in load-map.js
 
 ## Kristian
 

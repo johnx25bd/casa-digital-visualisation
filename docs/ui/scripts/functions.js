@@ -689,7 +689,7 @@ for (layer of _layers){
   // Setting the svg element for the legends to be built on.
   var svg = d3.select(_id)
     .append('svg')
-    .attr('id','hej')
+    .attr('id','card_'+_cardNum)
 
       .attr('width',widthExtent)
       .attr("height", howLong)
