@@ -342,7 +342,8 @@ var layersData = [{
             ["get", "mag"],
             0, 0,
             6, 1
-          ],
+          ]
+          ,
           // Increase the heatmap color weight weight by zoom level
           // heatmap-intensity is a multiplier on top of heatmap-weight
           "heatmap-intensity": [

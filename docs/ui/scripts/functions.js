@@ -698,6 +698,7 @@ for (layer of _layers){
           for (var i = 4; i < paint['heatmap-color'].length;i += 2){
             heatmapColors.push(paint['heatmap-color'][i])
           }
+
           paint = heatmapColors;
 
         } else {
@@ -729,9 +730,6 @@ for (layer of _layers){
         var [color,data] = structureData(type,paint);
         // The legend for the heatmap is built similar to the legend for the fill, so instead of
         // having multiple methods, we just change the type to fill.
-        if (type == 'heatmap'){
-          type = 'fill';
-        }
         if (paint.length > 1) {
           // Defining parameters for the "gradient" legend
           // If the step size is increased, a more smooth "gradient" fill is obtained, but topPortsBarChartParams
@@ -794,7 +792,7 @@ for (layer of _layers){
     // The structure of the legend differes, depending on the type of the data underlying the
     // legend, with the main difference being that fill-based legens are built horisontally and
     // point-based legends are built vertically.
-      if (type == 'fill'){
+      if (type == 'fill' || type == 'heatmap'){//type == 'fill'
         // Defining the individual g's
         var legends = svg
               .append('g')
@@ -806,13 +804,22 @@ for (layer of _layers){
               .append('g')
               .classed('legends',true)
               .attr('transform',function(d,i) {return "translate(" + (i)*_offSet + ","+elementOffset+")";});//*(width/_step)
-
-        // The boxes themselves
-        legend
-          .append('rect')
-          .attr('width',_elementWidth)
-          .attr('height',15)
-          .attr('fill',function(d,i){return color(i);});
+        if (type == 'fill'){
+          // The boxes themselves
+          legend
+            .append('rect')
+            .attr('width',_elementWidth)
+            .attr('height',15)
+            .attr('fill',function(d,i){return color(i);});
+        } else {
+          // The boxes themselves
+          legend
+            .append('rect')
+            .attr('width',_elementWidth)
+            .attr('height',15)
+            .attr('fill',function(d,i){return color(i);});
+        type = 'fill';
+        }
 
         // Appending legend text.
         legend
@@ -910,11 +917,11 @@ for (layer of _layers){
                 .attr('x',50)
                 .attr('y',20)
                 .on('mouseenter', function(d,i) {
-                  map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', sizedata[i]]);
+                  map.setFilter(layerOfInterest.name +'-highlighted', ['==', 'size', sizedata[i]]);
                 })
                 .on("mouseout", function(d,i) {
 
-                  map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', '']);
+                  map.setFilter(layerOfInterest.name +'-highlighted', ['==', 'size', '']);
                 });
           // If no interaction is desired, just built the legend
           } else {
@@ -1017,7 +1024,7 @@ function structureData(_dataType,_dataPaint,_step = 20){
           color2 = _dataPaint[6][1];
 
       // Use the other support fuction to interpolate the colors.
-      var color = interpolateColors([color1,color2],_step);
+      var color = interpolateColors(_dataType,[color1,color2],_step);
 
       var data = [];
 
@@ -1035,7 +1042,7 @@ function structureData(_dataType,_dataPaint,_step = 20){
 
     } else {
       // If the fill layer has only one color, reflect that.
-      var color = interpolateColors(_dataPaint,1);
+      var color = interpolateColors(_dataType,_dataPaint,1);
       var data = [{'id':1,'value':'fill'}];
     }
   ////////////////////////// CIRCLES /////////////////////////////////////////
@@ -1080,8 +1087,9 @@ function structureData(_dataType,_dataPaint,_step = 20){
     for (var i = 0; i < _step; i += _dataPaint.length){
       substep.push(i);
     }
+    console.log('The substeps are: '+substep)
     // Getting the colors
-    var color = interpolateColors(_dataPaint,substep);
+    var color = interpolateColors(_dataType,_dataPaint,_step);
 
     var data = [];
     // Setting the text labels
@@ -1118,25 +1126,31 @@ _colors: The colors contained in the layer.
 _step: The desired number of steps.
 --------------------------------------------------
 */
-function interpolateColors(_colors,_step = 1){
-  // If there is only one color in the layer:
-  if (!Array.isArray(_step)){
-    var steps = [0,_step];
-  } else {
-    var steps = _step;
+function interpolateColors(_type='fill',_colors,_step = 1){
+  if (_type =='fill'){
+    // If there is only one color in the layer:
+    if (!Array.isArray(_step)){
+      var steps = [1,_step];
+    } else {
+      var steps = _step;
+    }
+    // If there is only one color in the layer:
+    if (!Array.isArray(_colors)){
+      var colors = [_colors];
+    } else {
+      var colors = _colors;
+    }
+    // Create the color ramp.
+    var color = d3.scaleLinear()
+        .domain(steps)
+        .range(colors)
+        .interpolate(d3.interpolateRgb);
+  } else{
+    var color = d3.scaleLinear()
+        .domain([0,_step/3,_step*(2/3),_step])
+        .range(['#67a9cf','#5fe265','#ef8a62','#b21818'])
+        .interpolate(d3.interpolateRgb);
   }
-  // If there is only one color in the layer:
-  if (!Array.isArray(_colors)){
-    var colors = [_colors];
-  } else {
-    var colors = _colors;
-  }
-  // Create the color ramp.
-  var color = d3.scaleLinear()
-      .domain(steps)
-      .range(colors)
-      .interpolate(d3.interpolateHcl);
-
   return color;
 
 }
