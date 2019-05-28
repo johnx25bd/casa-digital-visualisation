@@ -265,9 +265,32 @@ function scrollToCard(_cardNum) {
 Adjust choropleth to appropriate year column
 @param {int} _year: Year to color countries by
 */
-function colorCountriesBy(_year) {
+function colorCountriesBy(_year, _layer) {
+
+  if (_layer == 'export') {
+    var newFill = [
+        "interpolate-hcl",
+        ["exponential", 1.1],
+        ["get", "normalised_export_" + _year.toString()],
+        0.00,
+        ["to-color", "#deebf7"],
+        8.00,
+        ["to-color", "#537895"]
+      ];
+  } else if (_layer == 'import') {
+    var newFill = [
+      "interpolate-hcl",
+      ["exponential", 1.1],
+      ["get", "normalised_import_" + _year.toString()],
+      0.00,
+      ["to-color", "#fff7bc"],
+      8.00,
+      ["to-color", "#d95f0e"]
+    ]
+  }
+
   // Color country based on year
-  console.log(_year);
+  console.log(_year, newFill);
 }
 /*
 A helper to set feature content text on load

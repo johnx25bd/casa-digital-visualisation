@@ -1,6 +1,7 @@
 console.log('loading layers data')
 
-var layersData = [{
+var layersData = [
+  {
     "name": "export-countries-volumes",
     "type": "mapbox",
     "path": "none",

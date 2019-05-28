@@ -45,7 +45,7 @@ var cardData = [
         .addEventListener('input', function(e) {
           var year = parseInt(e.target.value);
 
-          colorCountriesBy(year)
+          colorCountriesBy(year, 'export');
 
           document.getElementById('export-year').textContent = year;
           // filterBy(year);
@@ -161,7 +161,7 @@ var cardData = [
         .addEventListener('input', function(e) {
           var year = parseInt(e.target.value);
 
-          colorCountriesBy(year)
+          colorCountriesBy(year, 'import')
 
           document.getElementById('import-year').textContent = year;
         });
