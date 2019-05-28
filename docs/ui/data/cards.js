@@ -2,7 +2,17 @@ var cardData = [
   {
     "extent": "global",
     "title": "World Trade: Exports",
-    "content": `<p>This map displays the 2017 exports of eight categories of products by country are related respectively. The colour of polygons shows the total export volume. </p>
+    "content": `
+    <div class='row mb-3'>
+      <div class='col-6'>
+          <h5>Export volumes, <span id='export-year'>2014</span></h5>
+          </div>
+          <div class='col-6'>
+            <input id='exports-slider' class='' type='range' min='2014' max='2017' step='1' value='2014' />
+          </div>
+      </div>
+    </div>
+    <p>This map displays exports of eight categories of products by country are related respectively. The colour of polygons shows the total export volume. </p>
 
       <div id='exports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
       <!-- <img src='./assets/images/top5exporters.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
@@ -28,8 +38,20 @@ var cardData = [
 
     },
     loadCard: function(_i, _params) {
+
+      // Set listener for slider:
+
+      document.getElementById('exports-slider')
+        .addEventListener('input', function(e) {
+          var year = parseInt(e.target.value);
+
+          colorCountriesBy(year)
+
+          document.getElementById('export-year').textContent = year;
+          // filterBy(year);
+        });
+
       // Load countries layer with Exports choropleth colors
-      console.log(_i, _params)
 
       var exportersBarChartParams = {
         "chartType": "bar",
@@ -97,7 +119,17 @@ var cardData = [
   {
     "extent": "global",
     "title": "World Trade: Imports",
-    "content": `<p>This map displays the 2017 imports of eight categories of products by country are related respectively. The colour of polygons shows the total import volume.</p>
+    "content": `
+      <div class='row mb-3'>
+        <div class='col-6'>
+            <h5>Import volumes, <span id='import-year'>2014</span></h5>
+            </div>
+            <div class='col-6'>
+              <input id='imports-slider' class='' type='range' min='2014' max='2017' step='1' value='2014' />
+            </div>
+        </div>
+      </div>
+      <p>This map displays the 2017 imports of eight categories of products by country are related respectively. The colour of polygons shows the total import volume.</p>
       <!--This is a comment. We should add a bar chart here from this file ./file.csv-->
       <div id='imports-bar-chart' class='col-12'></div> <!-- We need to add a bar chart here. -->
       <!-- <img src='./assets/images/top5Importers.jpeg' class='img-fluid' alt='Hong Kong Airport'> -->
@@ -123,6 +155,17 @@ var cardData = [
 
     },
     loadCard: function(_i, _params) {
+
+      // Set event listener for temporal slider
+      document.getElementById('imports-slider')
+        .addEventListener('input', function(e) {
+          var year = parseInt(e.target.value);
+
+          colorCountriesBy(year)
+
+          document.getElementById('import-year').textContent = year;
+        });
+
       // Set countries layer style to Imports choropleth colors
       var importersBarChartParams = {
         "chartType": "bar",
