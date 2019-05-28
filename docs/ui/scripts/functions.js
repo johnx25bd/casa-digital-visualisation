@@ -605,7 +605,7 @@ for (layer of _layers){
         'circle-radius': map.getPaintProperty(layer,'circle-radius'),
         'circle-color' : map.getPaintProperty(layer,'circle-color')
       };
-      // Each point gets 50 px and so does the title. For this type of layer, the sourec title gets a little less space, because
+      // Each point gets 40 px and so does the title. For this type of layer, the sourec title gets a little less space, because
       // perhaps is a little to much - that could always be perfected, the ability to generic and dynamically built the legends is an achievement in itself.
       if (paint['circle-color'] || paint['circle-radius']){
         // The circle layers can either represent categories or a single point.
@@ -649,10 +649,12 @@ for (layer of _layers){
       .attr("height", howLong)
 
     var iter = 0;
+    // Time to go over each layer, and built the legend on the go.
     for (layer of _layers){
 
-      // Getting parameters for the legends.
-      if (!layer.includes('highlighted')){// || (!layer.includes('3d-buildings'))
+      // Getting parameters for the legends, firstly by locating the layer of interest in the
+      // layers.js file, based on the name.
+      if (!layer.includes('highlighted')){
         var layerOfInterest = layersData.find(function (l) {
           return l.name == layer;
         });
@@ -687,15 +689,17 @@ for (layer of _layers){
           };
 
         } else if (type == 'heatmap'){
+
           var paint = {
             'heatmap-color' : map.getPaintProperty(layer,'heatmap-color')
           }
-
           var heatmapColors = []
+
           for (var i = 4; i < paint['heatmap-color'].length;i += 2){
             heatmapColors.push(paint['heatmap-color'][i])
           }
           paint = heatmapColors;
+
         } else {
           return;
         }
@@ -714,39 +718,45 @@ for (layer of _layers){
           var [color,data] = structureData(type,paint);
           var setSize = false;
         } else {
-
           var [color,data,size,sizedata] = structureData(type,paint);
           var setSize = true;
         }
-
+        // Setting the size between each point (_offSet) and the size of the point (_elementWidth)
         var _offSet = 30;
         var _elementWidth = 15;
 
       } else {
 
         var [color,data] = structureData(type,paint);
+        // The legend for the heatmap is built similar to the legend for the fill, so instead of
+        // having multiple methods, we just change the type to fill.
         if (type == 'heatmap'){
           type = 'fill';
         }
         if (paint.length > 1) {
-
+          // Defining parameters for the "gradient" legend
+          // If the step size is increased, a more smooth "gradient" fill is obtained, but topPortsBarChartParams
+          // puts a greater demand on the browser, as more objects need to be loaded.
           var step = 20;
           var _offSet = (width/step);
           var _elementWidth = (width*2/step);
 
         } else {
-
+          // If the fill is just a single color - as a buffer or so.
           var _offSet = 15;
           var _elementWidth = 50;
 
         }
       }
+      // This is where the dynamically adjustment takes place, base on the fixed sizes belonging to
+      // each type of legend.
     ///////////////////////////////////////////////////////
       if (prevType == 'fill'){
 
         titleOffset += (125 + (75*0.4+0.2*75*(prevURLS)))
         elementOffset += (125 + (75*0.4+0.2*75*(prevURLS)))
-
+      // We want the legend to be a little more condense, if the circle layer has multiple categories
+      // which is why each point gets 40 px compared to 47, seen below, if there is only one point.
       } else if (prevType == 'circle' && prevSize > 1) {
 
           titleOffset += ((prevSize + 1)*40+ + (75*0.4+0.2*75*(prevURLS))),
@@ -756,7 +766,8 @@ for (layer of _layers){
         titleOffset += ((prevSize+1)*47+ + (75*0.4+0.2*75*(prevURLS))),
         elementOffset += ((prevSize + 1)*46 + (75*0.4+0.2*75*(prevURLS)));
       }
-    // It is assmued that the first legend is a fill, but if not, we correct that assumption
+    // It is assmued that the first legend is a fill, but if not, we correct that assumption.
+    // The source title is offSet by the number of categories plus one (for the title), either type or color, which ever is the longest
     if ((iter == 0) && (type =='circle')){
       if (setSize){
         if (data.length >= sizedata.length){
@@ -769,7 +780,9 @@ for (layer of _layers){
         sourceTitleOffset = (data.length + 1.5)*40;
       }
     }
+    // Time to append the elements.
     /////////////////////////// Generic /////////////////////////////////////////////////////////
+    // Appending the title
       svg
         .append('g')
         .append('text')
@@ -779,26 +792,30 @@ for (layer of _layers){
         .classed('title',true)
         .text(title);
     ///////////////////////////////////////////////////////////////////////////////////////////
+    // The structure of the legend differes, depending on the type of the data underlying the
+    // legend, with the main difference being that fill-based legens are built horisontally and
+    // point-based legends are built vertically.
       if (type == 'fill'){
-
+        // Defining the individual g's
         var legends = svg
               .append('g')
               .selectAll('.legends')
               .data(data);
-
+        // Appending horisontally
         var legend = legends
               .enter()
               .append('g')
               .classed('legends',true)
               .attr('transform',function(d,i) {return "translate(" + (i)*_offSet + ","+elementOffset+")";});//*(width/_step)
 
+        // The boxes themselves
         legend
           .append('rect')
-          // Adjust these for the size of the colored boxes.
           .attr('width',_elementWidth)
           .attr('height',15)
           .attr('fill',function(d,i){return color(i);});
 
+        // Appending legend text.
         legend
           .append('text')
           .text(function(d,i){ return d.value;})
@@ -806,29 +823,31 @@ for (layer of _layers){
           .attr('y',35)
 
       } else if (type == 'circle'){
-
+        // Defining the individual g's
         var legends = svg
               .append('g')
               .selectAll('.legends')
               .data(data);
-
+        // Appending vertically.
         var legend = legends
               .enter()
               .append('g')
               .classed('legends',true)
               .attr('transform',function(d,i) {return "translate(0,"+ (elementOffset+(i)*_offSet) + ")";});//*(width/_step)
 
+        // The boxes themselves.
         legend
               .append('circle')
-              // Adjust these for the size of the colored boxes.
               .attr('cx',_elementWidth)
               .attr('cy',_elementWidth)
               .attr('r',_elementWidth/2)
               .style('fill',function(d,i){return color[i];});
 
+        ////////////// Adding interactivity ///////////////////
         if (layerOfInterest.highlight_type){
           var highlightTypeName = layerOfInterest.name;
-
+          // If interaction is of interest for the layer, we interact with the filter on that layer.
+          // We class the legend entry,
           legend
               .append('text')
               .attr("class",function(d,i){
@@ -841,7 +860,7 @@ for (layer of _layers){
                 map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', data[i]]);
               })
               .on("mouseout", function(d,i) {
-                map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', '']);//layerName
+                map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', '']);
               });
 
         } else {
