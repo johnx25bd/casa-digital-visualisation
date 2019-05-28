@@ -15,7 +15,7 @@ _prior to presentation_
 [x] Merge all support scripts into a single function library
   [x] Update function loading based on the new function library
 
-[] Create "table 3", giving a overview of the used libraries in python.
+[x] Create "table 3", giving a overview of the used libraries in python.
 
 [] Round off the data section
 
