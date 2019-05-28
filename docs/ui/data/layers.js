@@ -490,13 +490,24 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'type'],
-            'Civilian', '#5769D3',
-            'Military/Civilian', '#38f9d7',
-            'Military', '#6f86d6',
-            'Spaceport', '#48c6ef',
+            'Civilian', '#377eb8',
+            'Military/Civilian', '#ff7f00',
+            'Military', '#a65628',
+            'Spaceport', '#984ea3',
             /* other */
             '#ccc'
           ],
+
+          // [
+          //   'match',
+          //   ['get', 'type'],
+          //   'Civilian', '#5769D3',
+          //   'Military/Civilian', '#38f9d7',
+          //   'Military', '#6f86d6',
+          //   'Spaceport', '#48c6ef',
+          //   /* other */
+          //   '#ccc'
+          // ],
           'circle-stroke-color': 'black',
           'circle-stroke-width': 2
         },
@@ -994,14 +1005,26 @@ var layersData = [{
           'circle-color': [
             'match',
             ['get', 'type'],
-            'Coastal', '#f83600',
-            'Lake', '#ff5858',
-            'River', '#fee140',
+            'Coastal', '#e41a1c',
+            'Lake', '#4daf4a',
+            'River', '#ffff33',
 
 
             /* other */
-            '#808080'
+            '#ccc'
           ],
+
+          // [
+          //   'match',
+          //   ['get', 'type'],
+          //   'Coastal', '#f83600',
+          //   'Lake', '#ff5858',
+          //   'River', '#fee140',
+          //
+          //
+          //   /* other */
+          //   '#808080'
+          // ],
           'circle-stroke-color': 'black',
           'circle-stroke-width': 2
         },
