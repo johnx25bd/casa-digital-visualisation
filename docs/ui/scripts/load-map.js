@@ -591,7 +591,8 @@ dropJSON(document.getElementById("drop-zone"),
         .classed('col-6', true)
         .append('p');
 
-      dd.text(_layerId.split('-').slice(2).join('-') + ' (' + _layerType + ')');
+        console.log('layer id',_layerId,  _layerId.split('-').slice(2).join('-'))
+      dd.text(_layerId.split('-').slice(2, _layerId.split('-').length - 1).join('-') + ' (' + _layerType + ')');
       // // Hooks for future extensions - commented for efficiency's sake
       // .on('mouseenter', function () {
       //   // highlight layer by _layerId
