@@ -918,9 +918,15 @@ for (layer of _layers){
                 nameOfObject = hoverClass[1].split('_')[1];
 
                 map.setFilter(nameOfLayer +'-highlighted', ['==', 'type', nameOfObject]);
+                console.log(hoverClass[1])
+                d3.selectAll('.'+hoverClass[1])
+                  .style('font-weight','bold');
               })
               .on("mouseout", function(d,i) {
                 map.setFilter(nameOfLayer +'-highlighted', ['==', 'type', '']);
+
+                d3.selectAll('.textLegend')
+                  .style('font-weight','normal');
               });
         // If no interaction is desired, just built the legend
         } else {
@@ -976,10 +982,14 @@ for (layer of _layers){
                   nameOfObject = hoverClass[1].split('_')[1];
 
                   map.setFilter(nameOfLayer +'-highlighted', ['==', 'size', nameOfObject]);
+                  d3.selectAll('.'+hoverClass[1])
+                    .style('font-weight','bold');
                 })
                 .on("mouseout", function(d,i) {
 
                   map.setFilter(nameOfLayer +'-highlighted', ['==', 'size', '']);
+                  d3.selectAll('.textLegend')
+                    .style('font-weight','normal');
                 });
           // If no interaction is desired, just built the legend
           } else {
