@@ -847,11 +847,12 @@ for (layer of _layers){
         if (layerOfInterest.highlight_type){
           var highlightTypeName = layerOfInterest.name;
           // If interaction is of interest for the layer, we interact with the filter on that layer.
-          // We class the legend entry,
+          // We class the legend entry, by layer name and data label, so the interaction between
+          // the map and the card is ensured when both points and text legends are hovered.
           legend
               .append('text')
               .attr("class",function(d,i){
-                return 'textLegend ' + data[i];
+                return 'textLegend ' + highlightTypeName+'_' + data[i];
               })
               .text(function(d,i){ return data[i];})
               .attr('x',50)
@@ -862,7 +863,7 @@ for (layer of _layers){
               .on("mouseout", function(d,i) {
                 map.setFilter(highlightTypeName +'-highlighted', ['==', 'type', '']);
               });
-
+        // If no interaction is desired, just built the legend
         } else {
           legend
               .append('text')
@@ -874,7 +875,7 @@ for (layer of _layers){
         }
         // To avoid legacy
         prevSetSize = false;
-
+        // If the size is of interest, a legend is built next to the type legend.
         if ((setSize==true) && (typeof size != 'undefined')) {
 
           var legends = svg
@@ -890,7 +891,6 @@ for (layer of _layers){
 
           legend
                 .append('circle')
-                // Adjust these for the size of the colored boxes.
                 .attr('cx',_elementWidth)
                 .attr('cy',_elementWidth)
                 .attr('r',function(d,i) {return size[i]*1;})//
@@ -898,11 +898,14 @@ for (layer of _layers){
                 .style('stroke','black');
 
           if (layerOfInterest.highlight_size){
+            // If interaction is of interest for the layer, we interact with the filter on that layer.
+            // We class the legend entry, by layer name and data label, so the interaction between
+            // the map and the card is ensured when both points and text legends are hovered.
             var highlightSizeName = layerOfInterest.name;
             legend
                 .append('text')
                 .attr("class",function(d,i){
-                  return 'textLegend ' + sizedata[i];
+                  return 'textLegend ' + highlightSizeName+'_' + sizedata[i];
                 })
                 .text(function(d,i){ return sizedata[i];})
                 .attr('x',50)
@@ -914,7 +917,7 @@ for (layer of _layers){
 
                   map.setFilter(highlightSizeName +'-highlighted', ['==', 'size', '']);
                 });
-
+          // If no interaction is desired, just built the legend
           } else {
             legend
                 .append('text')
@@ -924,7 +927,7 @@ for (layer of _layers){
           }
 
         }
-
+        // Store some information of the processed layer, to be used in the next iteration.
         if (setSize==true){
           if (data.length >= sizedata.length){
             prevSize = data.length;
@@ -936,7 +939,8 @@ for (layer of _layers){
         } else {
             prevSize = data.length;
         }
-
+      // Depending of the type of the processed layer, the source is offset by a certain amount.
+      // Very similar to what we have seen earlier, some of this could be written more elegantly.
       if ((iter > 0) && (type == 'fill')){
 
         sourceTitleOffset += (100 + (75*0.4+0.2*75*sourceURL.length))
@@ -955,7 +959,7 @@ for (layer of _layers){
           sourceTitleOffset += (data.length + 1)*47 + (75*0.4+0.2*75*sourceURL.length);
         }
       }
-
+      // Appending the source title.
       svg
         .append('text')
         .attr('x',0)//
@@ -964,6 +968,7 @@ for (layer of _layers){
         .classed('title',true)
         .text('Sources');
 
+      // Creating individual g's for the sources
       var sources = svg
             .append('g')
             .selectAll('.sources')
@@ -974,6 +979,7 @@ for (layer of _layers){
             .append('g')
             .classed('sources',true)
 
+      // Appending the actual source content
       source
         .append("a")
         .attr("xlink:href", function(d){ return d.url})
@@ -983,91 +989,40 @@ for (layer of _layers){
         .attr('x',0)
         .attr('y',function(d,i){ return ((sourceTitleOffset+sourceTitleToSourcesOffset)+(i*sourceSpace));})
 
+    // Extract, append, repeat.
     iter += 1;
     prevType = type;
     prevURLS = sourceURL.length;
     }
 }
+/////////////////////// Support functions /////////////////////////////////////////
+/*
+structureData structure the data in the desired format, depending on the layer type.
+The function takes three inputs, the layer type, the paint of the layer and
+optionally the number of steps wished (for 'gradient' fill legends).
+-------------------------------------------------
+_dataType: The layer type.
+_dataPaint: The paint property of the layer of interest.
+_step: The desired number of steps.
+--------------------------------------------------
+*/
+function structureData(_dataType,_dataPaint,_step = 20){
 
-  function structureData(_dataType,_dataPaint,_step = 20){
+  if (_dataType == 'fill'){
+    // If the layer is fill, and the colorng is created using interpolation, the legend
+    // needs to reflect that.
+    if (Array.isArray(_dataPaint)){
 
-    if (_dataType == 'fill'){
-      if (Array.isArray(_dataPaint)){
+      // The colors are fixed positioned in the paint.
+      var color1 = _dataPaint[4][1],
+          color2 = _dataPaint[6][1];
 
-        var color1 = _dataPaint[4][1],
-            color2 = _dataPaint[6][1];
-            //step = 20;
-
-        var color = interpolateColors([color1,color2],_step);
-
-        var data = [];
-
-        for (var ele = 0; ele < _step; ele++){
-
-          if (ele === 0){
-              data.push({'id':ele, 'value':'Low'});
-          } else if (ele === (_step - 1)){
-              data.push({'id':ele, 'value':'High'});
-          } else {
-            data.push({'id': ele, 'value':''})
-          }
-        }
-
-      } else {
-        //////////////////////////// Data /////////////////////////////////////
-
-        var color = interpolateColors(_dataPaint,1);
-        var data = [{'id':1,'value':'fill'}];//_title
-        //var height = 100;
-      }
-    } else if (_dataType == 'circle'){
-      ////////////////////////// CIRCLES /////////////////////////////////////////
-      if (Array.isArray(_dataPaint['circle-color'])){
-        var color = [];
-        var data = [];
-
-        for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
-          color.push(_dataPaint['circle-color'][i]);
-          data.push(_dataPaint['circle-color'][i-1])
-        }
-        color.push('#cfd9df')
-        data.push('Other')
-      } else {
-
-        var color = [_dataPaint['circle-color']]
-        var data = ['point']
-
-      }
-      // Checking if the size should be included in the legend.
-      if (Array.isArray(_dataPaint['circle-radius'])){
-        var size = [];
-        var sizedata = [];
-
-        for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
-          size.push(_dataPaint['circle-radius'][i]);
-          sizedata.push(_dataPaint['circle-radius'][i-1])
-        }
-        size.push(5)
-        sizedata.push('Other')
-
-        var setSize = true;
-      }
-
-    } else if (_dataType == 'heatmap'){
-
-      //var step = 20;
-      var substep = [],
-          normSubStep = [];
-      for (var i = 0; i < _step; i += _dataPaint.length){
-        substep.push(i);
-        normSubStep.push(i/_step);
-      }
-      console.log('Substps: '+substep);
-      console.log('Normalised substeps: '+normSubStep)
-      var color = interpolateColors(_dataPaint,substep);
+      // Use the other support fuction to interpolate the colors.
+      var color = interpolateColors([color1,color2],_step);
 
       var data = [];
 
+      // Create the legend texts.
       for (var ele = 0; ele < _step; ele++){
 
         if (ele === 0){
@@ -1078,22 +1033,86 @@ for (layer of _layers){
           data.push({'id': ele, 'value':''})
         }
       }
-    } else {
-      console.log(_dataType,': ERROR:  I dont know this datatype!')
-      return;
-    }
-
-    if (setSize){
-
-      return [color,data,size,sizedata];
 
     } else {
-
-      return [color,data];
-
+      // If the fill layer has only one color, reflect that.
+      var color = interpolateColors(_dataPaint,1);
+      var data = [{'id':1,'value':'fill'}];
     }
+  ////////////////////////// CIRCLES /////////////////////////////////////////
+  } else if (_dataType == 'circle'){
+
+    // If there are multiple categories, reflect that.
+    if (Array.isArray(_dataPaint['circle-color'])){
+      var color = [];
+      var data = [];
+
+      for (var i = 3; i < (_dataPaint['circle-color'].length);i +=2){
+        color.push(_dataPaint['circle-color'][i]);
+        data.push(_dataPaint['circle-color'][i-1])
+      }
+      color.push('#cfd9df')
+      data.push('Other')
+    } else {
+
+      // If there are one category, reflect that.
+      var color = [_dataPaint['circle-color']]
+      var data = ['point']
+    }
+    // Checking if the size should be included in the legend.
+    if (Array.isArray(_dataPaint['circle-radius'])){
+      var size = [];
+      var sizedata = [];
+
+      for (var i = 3; i < (_dataPaint['circle-radius'].length);i +=2){
+        size.push(_dataPaint['circle-radius'][i]);
+        sizedata.push(_dataPaint['circle-radius'][i-1])
+      }
+      size.push(5)
+      sizedata.push('Other')
+
+      var setSize = true;
+    }
+
+  } else if (_dataType == 'heatmap'){
+
+    var substep = [],
+        normSubStep = [];
+    for (var i = 0; i < _step; i += _dataPaint.length){
+      substep.push(i);
+      normSubStep.push(i/_step);
+    }
+
+    var color = interpolateColors(_dataPaint,substep);
+
+    var data = [];
+
+    for (var ele = 0; ele < _step; ele++){
+
+      if (ele === 0){
+          data.push({'id':ele, 'value':'Low'});
+      } else if (ele === (_step - 1)){
+          data.push({'id':ele, 'value':'High'});
+      } else {
+        data.push({'id': ele, 'value':''})
+      }
+    }
+  } else {
+    console.log(_dataType,': ERROR:  I dont know this datatype!')
+    return;
+  }
+
+  if (setSize){
+
+    return [color,data,size,sizedata];
+
+  } else {
+
+    return [color,data];
 
   }
+
+}
 
   function interpolateColors(_colors,_step = 1){
     if (!Array.isArray(_step)){

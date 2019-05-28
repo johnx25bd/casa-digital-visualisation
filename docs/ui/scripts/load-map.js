@@ -183,6 +183,58 @@ var loadedData = {};
                   .style('fill-opacity', '0.7');
               });
             }
+            if (layerData.highlight_size) {
+
+              map.on("mousemove", layerData.name, function(e) {
+
+                  var features = map.queryRenderedFeatures(e.point);
+                  console.log(features[0].properties)
+                  var currentSize = features[0].properties.size;
+                  if (typeof currentSize === 'undefined'){
+                    return;
+                  } else {
+                    var feature = features[0];
+
+                    d3.selectAll('.' + layerData.name + '_' + currentSize)
+                        .classed('active', true)
+                        .style('font-weight','bold');
+                  }
+              });
+                      // When the mouse leaves the state-fill layer, update the feature state of the
+                      // previously hovered feature.
+              map.on("mouseleave", layerData.name, function(e) {
+
+                  d3.selectAll('.textLegend')
+                      .style('font-weight','normal')
+                      .classed('active', false);
+              });
+            }
+            if (layerData.highlight_type) {
+
+              map.on("mousemove", layerData.name, function(e) {
+
+                  var features = map.queryRenderedFeatures(e.point);
+                  var currentType = features[0].properties.type;
+
+                  if (typeof currentType === 'undefined'){
+                    return;
+                  } else {
+                    var feature = features[0];
+
+                    d3.selectAll('.' + layerData.name + '_' + currentType)
+                        .style('font-weight','bold')
+                        .classed('active', true);
+                  }
+              });
+                      // When the mouse leaves the state-fill layer, update the feature state of the
+                      // previously hovered feature.
+              map.on("mouseleave", layerData.name, function(e) {
+
+                  d3.selectAll('.textLegend')// + currentISO3)
+                      .classed('active', false)
+                      .style('font-weight','normal');
+              });
+            }
 
             map.on('click', layerData.name, function(e) {
               if (cardData[activeCardNum].updateFeature) {
